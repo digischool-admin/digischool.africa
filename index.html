@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DigiSchool Africa</title>
-  <meta name="description" content="DigiSchool Africa – plateforme d’éducation, formation et services digitaux en Afrique."/>
+  <meta name="description" content="DigiSchool Africa - plateforme d’éducation, formation et services digitaux en Afrique."/>
+
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -17,19 +18,23 @@
       min-height: 100vh;
       text-align: center;
     }
+
     .container {
       max-width: 700px;
       padding: 40px 20px;
     }
+
     h1 {
       font-size: 2.5rem;
       margin-bottom: 10px;
     }
+
     p {
       font-size: 1.1rem;
       opacity: 0.9;
       line-height: 1.6;
     }
+
     .badge {
       display: inline-block;
       margin-top: 25px;
@@ -40,16 +45,80 @@
       font-weight: bold;
       font-size: 0.9rem;
     }
+
     .contacts {
       margin-top: 35px;
       font-size: 0.95rem;
-      opacity: 0.85;
+      opacity: 0.95; /* un peu plus lisible */
+    }
+
+    /* --- Bloc paiements cliquable --- */
+    .pay-list{
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .pay-item{
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      background: rgba(255,255,255,0.04);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+
+    .pay-item:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .icon{
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .icon.orange{ background: #ff7a00; }
+    .icon.mtn{ background: #ffd400; }
+    .icon.moov{ background: #3b82f6; color: #ffffff; }
+    .icon.wave{ background: #22c55e; }
+
+    .label{
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+      opacity: 1;
+    }
+
+    .num{
+      font-size: 0.95rem;
+      opacity: 0.9;
+      display: block;
+    }
+
+    @media (max-width: 520px){
+      .pay-item{ grid-template-columns: 28px 1fr; }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>DigiSchool Africa</h1>
+
     <p>
       Plateforme panafricaine d’éducation, de formation professionnelle
       et de services digitaux.
@@ -58,13 +127,42 @@
     <div class="badge">🚀 Lancement imminent</div>
 
     <div class="contacts">
-      <p>Contacts & Paiements :</p>
-      <p>
-        Orange Money : +225 07 14 67 82 89<br>
-        MTN MoMo : +225 05 65 23 14 03<br>
-        Moov Money : +225 01 51 66 68 01<br>
-        Wave : +225 01 51 66 46 53<br>
-      </p>
+      <p><strong>Contacts & Paiements :</strong></p>
+
+      <div class="pay-list">
+        <a class="pay-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
+          <span class="icon orange">🟧</span>
+          <span>
+            <span class="label">Orange Money</span>
+            <span class="num">+225 07 14 67 82 89</span>
+          </span>
+        </a>
+
+        <a class="pay-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
+          <span class="icon mtn">🟨</span>
+          <span>
+            <span class="label">MTN MoMo</span>
+            <span class="num">+225 05 65 23 14 03</span>
+          </span>
+        </a>
+
+        <a class="pay-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
+          <span class="icon moov">🟦</span>
+          <span>
+            <span class="label">Moov Money</span>
+            <span class="num">+225 01 51 66 68 01</span>
+          </span>
+        </a>
+
+        <!-- ✅ Wave corrigé (tu as dit que tu viens de changer le numéro) -->
+        <a class="pay-item" href="tel:+2250151664653" aria-label="Appeler Wave">
+          <span class="icon wave">🟩</span>
+          <span>
+            <span class="label">Wave</span>
+            <span class="num">+225 01 51 66 46 53</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </body>
