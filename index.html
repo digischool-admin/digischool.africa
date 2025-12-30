@@ -4,72 +4,183 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DigiSchool Africa</title>
-  <meta name="description" content="DigiSchool Africa - plateforme d’éducation, formation et services digitaux en Afrique."/>
+  <meta name="description" content="DigiSchool Africa - plateforme d’éducation, formation et services digitaux en Afrique." />
 
   <style>
-    body {
+    :root{
+      --bg:#0f172a;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --blue:#3b82f6;
+      --danger:#ef4444;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
       font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: #0f172a;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
+      margin:0;
+      min-height:100vh;
+      background: var(--bg);
+      color: var(--text);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px 16px;
+      text-align:center;
     }
 
-    .container {
-      max-width: 700px;
-      padding: 40px 20px;
+    .container{
+      width: 100%;
+      max-width: 860px;
+      padding: 46px 22px;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+    h1{
+      font-size: 2.7rem;
+      margin: 0 0 10px 0;
+      letter-spacing: .2px;
     }
 
-    p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+    p{
+      font-size: 1.08rem;
+      opacity: 0.92;
       line-height: 1.6;
+      margin: 0 auto 10px auto;
+      max-width: 720px;
+      color: var(--muted);
     }
 
-    .badge {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 10px 18px;
-      background: #22c55e;
-      color: #0f172a;
+    .badges{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin: 18px 0 18px 0;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 14px;
       border-radius: 999px;
-      font-weight: bold;
-      font-size: 0.9rem;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid var(--border);
+      background: var(--card2);
+      color: var(--text);
+      user-select:none;
     }
 
-    .contacts {
-      margin-top: 35px;
-      font-size: 0.95rem;
-      opacity: 0.95; /* un peu plus lisible */
+    .badge.launch{
+      background: rgba(34,197,94,0.16);
+      border-color: rgba(34,197,94,0.35);
     }
 
-    /* --- Bloc paiements cliquable --- */
+    .badge.support{
+      background: rgba(59,130,246,0.16);
+      border-color: rgba(59,130,246,0.35);
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin: 18px 0 26px 0;
+    }
+
+    .btn{
+      appearance:none;
+      border:1px solid var(--border);
+      background: var(--card2);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .btn.primary{
+      background: rgba(34,197,94,0.20);
+      border-color: rgba(34,197,94,0.40);
+    }
+
+    .btn.primary:hover{
+      background: rgba(34,197,94,0.26);
+      border-color: rgba(34,197,94,0.55);
+    }
+
+    .btn.secondary{
+      background: rgba(59,130,246,0.18);
+      border-color: rgba(59,130,246,0.40);
+    }
+
+    .btn.secondary:hover{
+      background: rgba(59,130,246,0.24);
+      border-color: rgba(59,130,246,0.55);
+    }
+
+    .contacts{
+      margin-top: 18px;
+      text-align:left;
+      display:flex;
+      justify-content:center;
+    }
+
+    .contacts-card{
+      width: 100%;
+      max-width: 560px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 18px;
+      padding: 18px 16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+    }
+
+    .contacts-title{
+      margin: 0 0 12px 0;
+      font-size: 1.0rem;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    /* Liste cliquable */
     .pay-list{
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-      text-align: left;
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
     }
 
     .pay-item{
-      display: grid;
-      grid-template-columns: 32px 1fr;
-      gap: 10px;
-      align-items: center;
+      display:grid;
+      grid-template-columns: 34px 1fr;
+      gap:12px;
+      align-items:center;
       padding: 12px 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      text-decoration: none;
-      color: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      text-decoration:none;
+      color: var(--text);
       background: rgba(255,255,255,0.04);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
@@ -81,36 +192,130 @@
     }
 
     .icon{
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      display: grid;
-      place-items: center;
-      font-size: 14px;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display:grid;
+      place-items:center;
+      font-size: 13px;
+      font-weight: 800;
       color: #0f172a;
-      font-weight: 700;
     }
-
-    .icon.orange{ background: #ff7a00; }
-    .icon.mtn{ background: #ffd400; }
-    .icon.moov{ background: #3b82f6; color: #ffffff; }
-    .icon.wave{ background: #22c55e; }
+    .icon.orange{ background:#ff7a00; }
+    .icon.mtn{ background:#ffd400; }
+    .icon.moov{ background:#3b82f6; color:#fff; }
+    .icon.wave{ background:#22c55e; color:#0f172a; }
+    .icon.whatsapp{ background:#25D366; color:#0f172a; }
+    .icon.email{ background:#64748b; color:#fff; }
 
     .label{
-      font-weight: 700;
-      display: block;
+      font-weight: 800;
+      display:block;
       margin-bottom: 2px;
-      opacity: 1;
+    }
+    .num{
+      font-size: 0.96rem;
+      opacity: 0.92;
+      display:block;
+      color: var(--muted);
     }
 
-    .num{
-      font-size: 0.95rem;
-      opacity: 0.9;
-      display: block;
+    .fine{
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--muted2);
+      text-align:center;
+    }
+
+    /* Modal (préinscription) */
+    .modal-backdrop{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 16px;
+      z-index: 50;
+    }
+    .modal{
+      width: 100%;
+      max-width: 560px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.92);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      text-align:left;
+    }
+    .modal-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .modal h2{
+      margin:0;
+      font-size: 1.25rem;
+      letter-spacing:.2px;
+    }
+    .close{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor:pointer;
+      font-weight:800;
+    }
+    .close:hover{ background: rgba(255,255,255,0.09); }
+
+    .form{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .row{
+      display:grid;
+      gap:6px;
+    }
+    label{
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    input, select, textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      outline: none;
+      font-size: 0.98rem;
+    }
+    textarea{ min-height: 90px; resize: vertical; }
+
+    .modal-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      margin-top: 10px;
+    }
+
+    .hint{
+      font-size: 0.90rem;
+      color: var(--muted2);
+      margin-top: 6px;
+      line-height: 1.45;
     }
 
     @media (max-width: 520px){
-      .pay-item{ grid-template-columns: 28px 1fr; }
+      h1{ font-size: 2.2rem; }
+      .pay-item{ grid-template-columns: 30px 1fr; }
+      .icon{ width: 28px; height: 28px; border-radius: 9px; }
     }
   </style>
 </head>
@@ -120,50 +325,185 @@
     <h1>DigiSchool Africa</h1>
 
     <p>
-      Plateforme panafricaine d’éducation, de formation professionnelle
-      et de services digitaux.
+      Plateforme panafricaine d’éducation, de formation professionnelle et de services digitaux.
     </p>
 
-    <div class="badge">🚀 Lancement imminent</div>
+    <div class="badges">
+      <div class="badge launch">🚀 Lancement imminent</div>
+      <div class="badge support">🛟 Support 24/7</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" id="openPreinscription">📝 Préinscription</button>
+      <a class="btn secondary" href="./contact.html">📩 Contact</a>
+      <a class="btn" href="https://wa.me/2250505111102" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
 
     <div class="contacts">
-      <p><strong>Contacts & Paiements :</strong></p>
+      <div class="contacts-card">
+        <div class="contacts-title">Contacts & Paiements</div>
 
-      <div class="pay-list">
-        <a class="pay-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
-          <span class="icon orange">🟧</span>
-          <span>
-            <span class="label">Orange Money</span>
-            <span class="num">+225 07 14 67 82 89</span>
-          </span>
-        </a>
+        <div class="pay-list">
+          <a class="pay-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
+            <span class="icon orange">OM</span>
+            <span>
+              <span class="label">Orange Money</span>
+              <span class="num">+225 07 14 67 82 89</span>
+            </span>
+          </a>
 
-        <a class="pay-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
-          <span class="icon mtn">🟨</span>
-          <span>
-            <span class="label">MTN MoMo</span>
-            <span class="num">+225 05 65 23 14 03</span>
-          </span>
-        </a>
+          <a class="pay-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
+            <span class="icon mtn">MTN</span>
+            <span>
+              <span class="label">MTN MoMo</span>
+              <span class="num">+225 05 65 23 14 03</span>
+            </span>
+          </a>
 
-        <a class="pay-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
-          <span class="icon moov">🟦</span>
-          <span>
-            <span class="label">Moov Money</span>
-            <span class="num">+225 01 51 66 68 01</span>
-          </span>
-        </a>
+          <a class="pay-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
+            <span class="icon moov">M</span>
+            <span>
+              <span class="label">Moov Money</span>
+              <span class="num">+225 01 51 66 68 01</span>
+            </span>
+          </a>
 
-        <!-- ✅ Wave corrigé (tu as dit que tu viens de changer le numéro) -->
-        <a class="pay-item" href="tel:+2250151664653" aria-label="Appeler Wave">
-          <span class="icon wave">🟩</span>
-          <span>
-            <span class="label">Wave</span>
-            <span class="num">+225 01 51 66 46 53</span>
-          </span>
-        </a>
+          <!-- Wave (vérifie bien le numéro ci-dessous) -->
+          <a class="pay-item" href="tel:+2250151664653" aria-label="Appeler Wave">
+            <span class="icon wave">W</span>
+            <span>
+              <span class="label">Wave</span>
+              <span class="num">+225 01 51 66 46 53</span>
+            </span>
+          </a>
+
+          <!-- WhatsApp cliquable -->
+          <a class="pay-item" href="https://wa.me/2250505111102" target="_blank" rel="noopener" aria-label="Contacter DigiSchool Africa sur WhatsApp">
+            <span class="icon whatsapp">WA</span>
+            <span>
+              <span class="label">WhatsApp</span>
+              <span class="num">+225 05 05 11 11 02</span>
+            </span>
+          </a>
+
+          <!-- Email support cliquable -->
+          <a class="pay-item" href="mailto:support@digischool.africa" aria-label="Envoyer un email au support DigiSchool Africa">
+            <span class="icon email">@</span>
+            <span>
+              <span class="label">Email support</span>
+              <span class="num">support@digischool.africa</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="fine">
+          Astuce : sur mobile, clique pour appeler ou ouvrir WhatsApp / Email.
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal Préinscription -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2 id="modalTitle">Préinscription DigiSchool Africa</h2>
+          <div class="hint">
+            Formulaire léger : à l’envoi, cela ouvre ton email (sans serveur).  
+            Tu peux aussi finaliser via WhatsApp si tu préfères.
+          </div>
+        </div>
+        <button class="close" id="closeModal" aria-label="Fermer">✕</button>
+      </div>
+
+      <form class="form" id="preForm">
+        <div class="row">
+          <label for="name">Nom & Prénom</label>
+          <input id="name" name="name" type="text" placeholder="Ex: KOUADIO Awa" required>
+        </div>
+
+        <div class="row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Ex: awa@email.com" required>
+        </div>
+
+        <div class="row">
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="phone" type="tel" placeholder="Ex: +225 07 xx xx xx xx" required>
+        </div>
+
+        <div class="row">
+          <label for="interest">Intérêt principal</label>
+          <select id="interest" name="interest" required>
+            <option value="" selected disabled>Choisir…</option>
+            <option>Formations & Certifications</option>
+            <option>Coaching / Mentorat</option>
+            <option>Services digitaux</option>
+            <option>Entreprise / B2B</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label for="message">Message (optionnel)</label>
+          <textarea id="message" name="message" placeholder="Décris brièvement ton besoin…"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <a class="btn" href="https://wa.me/2250505111102" target="_blank" rel="noopener">💬 Envoyer via WhatsApp</a>
+          <button class="btn primary" type="submit">📧 Envoyer la préinscription</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('openPreinscription');
+    const backdrop = document.getElementById('modalBackdrop');
+    const closeBtn = document.getElementById('closeModal');
+
+    function openModal(){
+      backdrop.style.display = 'flex';
+    }
+    function closeModal(){
+      backdrop.style.display = 'none';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', (e)=>{
+      if(e.target === backdrop) closeModal();
+    });
+
+    // Form -> ouvre email (mail client)
+    document.getElementById('preForm').addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const interest = document.getElementById('interest').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent("Préinscription DigiSchool Africa");
+      const body = encodeURIComponent(
+`Bonjour l'équipe DigiSchool Africa,
+
+Je souhaite me préinscrire.
+
+Nom: ${name}
+Email: ${email}
+Téléphone: ${phone}
+Intérêt: ${interest}
+Message: ${message || "(aucun)"}
+
+Merci.`);
+
+      window.location.href = `mailto:support@digischool.africa?subject=${subject}&body=${body}`;
+      closeModal();
+      this.reset();
+    });
+  </script>
 </body>
 </html>
