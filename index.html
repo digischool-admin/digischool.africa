@@ -208,12 +208,16 @@
     .icon.whatsapp{ background:#25D366; color:#0f172a; }
     .icon.email{ background:#64748b; color:#fff; }
 
-    .logo {
+    .logo{
   width: 28px;
   height: 28px;
   object-fit: contain;
+  display: block;
+  background: #fff;
+  border-radius: 8px;
+  padding: 2px;
 }
-
+    
     .label{
       font-weight: 800;
       display:block;
@@ -322,8 +326,16 @@
       h1{ font-size: 2.2rem; }
       .pay-item{ grid-template-columns: 30px 1fr; }
       .icon{ width: 28px; height: 28px; border-radius: 9px; }
-    }
-  </style>
+
+.actions{
+  flex-direction: column;
+  align-items: stretch;
+}
+.actions .btn{
+  width: 100%;
+  justify-content: center;
+}
+    </style>
 </head>
 
 <body>
@@ -351,21 +363,21 @@
 
         <div class="pay-list">
           <a class="pay-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
-           <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/8/83/Orange_Money_logo.png" alt="Orange Money">
+           <img class="logo" src="./assets/orange-money.png.png" alt="Orange Money">
               <span class="label">Orange Money</span>
               <span class="num">+225 07 14 67 82 89</span>
             </span>
           </a>
 
           <a class="pay-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
-           <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/MTN_MoMo_Logo.png" alt="MTN MoMo">
+           <img class="logo" src="./assets/mtn-momo.png.png" alt="MTN MoMo">
               <span class="label">MTN MoMo</span>
               <span class="num">+225 05 65 23 14 03</span>
             </span>
           </a>
 
           <a class="pay-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
-          <img class="logo" src="https://upload.wikimedia.org/wikipedia/fr/6/6a/Moov_Money_logo.png" alt="Moov Money">
+          <img class="logo" src="./assets/moov-money.png.png" alt="Moov Money">
               <span class="label">Moov Money</span>
               <span class="num">+225 01 51 66 68 01</span>
             </span>
@@ -373,7 +385,7 @@
 
           <!-- Wave (vérifie bien le numéro ci-dessous) -->
           <a class="pay-item" href="tel:+2250151664653" aria-label="Appeler Wave">
-          <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Wave_Mobile_Money_logo.png" alt="Wave">
+          <img class="logo" src="./assets/wave.png.png" alt="Wave" loading="lazy" decoding="async">
               <span class="label">Wave</span>
               <span class="num">+225 01 51 66 46 53</span>
             </span>
