@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Proforma — DigiSchool Africa</title>
+    <meta name="description" content="Obtenez une offre technique et financière sur mesure pour vos formations entreprise en 48h. Diagnostic gratuit et confidentiel.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <style>
+        :root {
+            --bg: #0a0e27;
+            --card-bg: #1a1f3a;
+            --text: #e8eaf0;
+            --text-dim: #a0a8c0;
+            --green: #00d9a3;
+            --blue: #4da6ff;
+            --border: rgba(255,255,255,0.1);
+            --glow: rgba(0,217,163,0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            padding: 4rem 1rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0,217,163,0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+        
+        .trust-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+        
+        /* Section */
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 1rem;
+            color: var(--green);
+        }
+        
+        /* Card Premium */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 32px var(--glow);
+        }
+        
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+        
+        label .required {
+            color: var(--green);
+        }
+        
+        input, select, textarea {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 3px rgba(0,217,163,0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Multi-select (checkbox list) */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.03);
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .checkbox-item:hover {
+            border-color: var(--green);
+            background: rgba(0,217,163,0.05);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            cursor: pointer;
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+        }
+        
+        /* Buttons */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            text-align: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
+            color: #fff;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,217,163,0.3);
+        }
+        
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--green);
+            box-shadow: 0 4px 16px var(--glow);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        /* Offer Preview */
+        #offerPreview {
+            display: none;
+            margin-top: 3rem;
+        }
+        
+        #offerPreview.visible {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .offer-section {
+            margin-bottom: 2rem;
+        }
+        
+        .offer-section h3 {
+            color: var(--green);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .offer-section h4 {
+            color: var(--blue);
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.2rem;
+        }
+        
+        .offer-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .offer-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .offer-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+        }
+        
+        .offer-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .offer-table th,
+        .offer-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .offer-table th {
+            background: rgba(0,217,163,0.1);
+            color: var(--green);
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: rgba(0,217,163,0.05);
+            border-left: 3px solid var(--green);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        /* Status Messages */
+        .status-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .status-message.visible {
+            display: block;
+        }
+        
+        .status-success {
+            background: rgba(0,217,163,0.1);
+            border: 1px solid var(--green);
+            color: var(--green);
+        }
+        
+        .status-error {
+            background: rgba(255,77,77,0.1);
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-nav a:hover {
+            color: var(--green);
+        }
+        
+        .footer-credit {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+        
+        .footer-credit a {
+            color: var(--green);
+            text-decoration: none;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .hero, .footer, .btn-group, #briefForm {
+                display: none !important;
+            }
+            
+            #offerPreview {
+                display: block !important;
+            }
+            
+            .card {
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Hidden fields */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>📑 Demande de Proforma & Offre Sur Mesure</h1>
+            <p class="hero-subtitle">Diagnostic 24h • Proposition 48h • Confidentialité garantie</p>
+            <div class="trust-badges">
+                <div class="badge">⚡ SLA 48h max</div>
+                <div class="badge">🔒 Confidentialité</div>
+                <div class="badge">👨‍🏫 Experts Terrain</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Brief Form Section -->
+        <section class="section">
+            <div class="card">
+                <h2 class="section-title">📋 Brief Entreprise</h2>
+                <p style="color: var(--text-dim); margin-bottom: 2rem;">
+                    Complétez ce brief pour recevoir une offre technique et financière personnalisée sous 48h ouvrées.
+                </p>
+
+                <form id="briefForm" action="https://formspree.io/f/xvzzgpob" method="POST">
+                    <!-- Hidden Fields -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_subject" value="Demande de proforma — DigiSchool Africa">
+                    <input type="hidden" name="source" value="proforma_engine_v1">
+                    <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
+                    <input type="hidden" name="quote_id" id="quoteIdField">
+                    <input type="hidden" name="offer_preview" id="offerPreviewField">
+
+                    <div class="form-grid">
+                        <!-- Contact Info -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom & Prénom <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email professionnel <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="company">Entreprise / Organisation <span class="required">*</span></label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <!-- Sector & Tracks -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sector">Secteur d'activité <span class="required">*</span></label>
+                                <select id="sector" name="sector" required>
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="Banque & Assurance">Banque & Assurance</option>
+                                    <option value="Telecom & Services">Telecom & Services</option>
+                                    <option value="Distribution & FMCG">Distribution & FMCG</option>
+                                    <option value="Industrie & Agro">Industrie & Agro</option>
+                                    <option value="Institutions & Projets">Institutions & Projets</option>
+                                    <option value="PME/PMI & Startups">PME/PMI & Startups</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="format">Format souhaité <span class="required">*</span></label>
+                                <select id="format" name="format" required>
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="Intra-entreprise">Intra-entreprise (sur site)</option>
+                                    <option value="Inter-entreprises">Inter-entreprises (centre)</option>
+                                    <option value="Bootcamp">Bootcamp intensif</option>
+                                    <option value="Blended">Blended (présentiel + distanciel)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Formations (Multi-select) -->
+                        <div class="form-group">
+                            <label>Formations souhaitées <span class="required">*</span></label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track1" name="tracks" value="Leadership & Management">
+                                    <label for="track1">Leadership & Management</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track2" name="tracks" value="Gestion de Projet">
+                                    <label for="track2">Gestion de Projet</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track3" name="tracks" value="Stratégie & Innovation">
+                                    <label for="track3">Stratégie & Innovation</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track4" name="tracks" value="Finance & Analyse">
+                                    <label for="track4">Finance & Analyse</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track5" name="tracks" value="Marketing & Vente">
+                                    <label for="track5">Marketing & Vente</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track6" name="tracks" value="Ressources Humaines">
+                                    <label for="track6">Ressources Humaines</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track7" name="tracks" value="Data & Analytics">
+                                    <label for="track7">Data & Analytics</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track8" name="tracks" value="Digital & Tech">
+                                    <label for="track8">Digital & Tech</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="track9" name="tracks" value="Soft Skills">
+                                    <label for="track9">Soft Skills</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Headcount & Timeline -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="headcount">Nombre de participants <span class="required">*</span></label>
+                                <input type="number" id="headcount" name="headcount" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Délai souhaité <span class="required">*</span></label>
+                                <select id="timeline" name="timeline" required>
+                                    <option value="">-- Sélectionnez --</option>
+                                    <option value="<2 semaines">Moins de 2 semaines</option>
+                                    <option value="1 mois">Dans 1 mois</option>
+                                    <option value="2-3 mois">2 à 3 mois</option>
+                                    <option value="Flexible">Flexible</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Location & Message -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Localisation</label>
+                                <input type="text" id="location" name="location" placeholder="Ville, Pays">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Besoins spécifiques / Contexte</label>
+                            <textarea id="message" name="message" placeholder="Décrivez vos objectifs, contraintes, attentes particulières..."></textarea>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" id="generateBtn">
+                                ⚡ Générer l'offre V1
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Status Messages -->
+                <div id="statusMessage" class="status-message"></div>
+            </div>
+        </section>
+
+        <!-- Offer Preview Section -->
+        <section id="offerPreview" class="section">
+            <div class="card">
+                <h2 class="section-title">📄 Votre Offre Sur Mesure</h2>
+                <div id="offerContent"></div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="submitBtn">
+                        📧 Envoyer la demande
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="window.print()">
+                        📄 Export PDF
+                    </button>
+                    <a href="#" class="btn btn-secondary" id="whatsappBtn">
+                        💬 WhatsApp Direct
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <nav class="footer-nav">
+                <a href="./index.html">Accueil</a>
+                <a href="./contact.html">Contact</a>
+                <a href="./companies.html">Entreprises (B2B)</a>
+                <a href="./brochure-b2b.html">Brochure</a>
+                <a href="./proforma.html">Proforma</a>
+                <a href="./mentions-legales.html">Mentions légales</a>
+                <a href="./cgu.html">CGU</a>
+                <a href="./cgv.html">CGV</a>
+                <a href="./politique-confidentialite.html">Politique de confidentialité</a>
+            </nav>
+            <p class="footer-credit">
+                © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lead Events Tracking -->
+    <script src="./lead-events.js"></script>
+
+    <!-- Proforma Engine Script -->
+    <script>
+        // Track page view
+        if (window.trackLeadEvent) {
+            trackLeadEvent('page_view', { page: 'proforma' });
+        }
+
+        // Generate Quote ID
+        function generateQuoteId() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+            return `DS-${year}${month}${day}-${random}`;
+        }
+
+        // Generate Offer Preview
+        function generateOfferPreview() {
+            const form = document.getElementById('briefForm');
+            const formData = new FormData(form);
+
+            // Validate required fields
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            const phone = formData.get('phone');
+            const sector = formData.get('sector');
+            const format = formData.get('format');
+            const headcount = formData.get('headcount');
+            const timeline = formData.get('timeline');
+
+            if (!name || !email || !company || !phone || !sector || !format || !headcount || !timeline) {
+                showStatus('error', '❌ Veuillez remplir tous les champs obligatoires (*) avant de générer l\'offre.');
+                return;
+            }
+
+            // Get selected tracks
+            const tracksElements = document.querySelectorAll('input[name="tracks"]:checked');
+            if (tracksElements.length === 0) {
+                showStatus('error', '❌ Veuillez sélectionner au moins une formation.');
+                return;
+            }
+
+            const tracks = Array.from(tracksElements).map(el => el.value);
+            const location = formData.get('location') || 'À définir';
+            const message = formData.get('message') || 'Non spécifié';
+
+            // Generate Quote ID
+            const quoteId = generateQuoteId();
+            document.getElementById('quoteIdField').value = quoteId;
+
+            // Build offer content
+            const offerHTML = `
+                <div class="highlight-box">
+                    <strong>Référence devis:</strong> ${quoteId}<br>
+                    <strong>Date:</strong> ${new Date().toLocaleDateString('fr-FR')}<br>
+                    <strong>Client:</strong> ${company} (${sector})
+                </div>
+
+                <div class="offer-section">
+                    <h3>📋 Offre Technique</h3>
+                    
+                    <h4>1. Contexte</h4>
+                    <p>${company} opère dans le secteur "${sector}" et souhaite former ${headcount} collaborateur(s) via un format ${format}.</p>
+                    
+                    <h4>2. Objectifs</h4>
+                    <ul class="offer-list">
+                        <li>Renforcer les compétences métier prioritaires</li>
+                        <li>Déployer des outils opérationnels immédiatement utilisables</li>
+                        <li>Mesurer l'impact via des KPI post-formation</li>
+                    </ul>
+                    
+                    <h4>3. Périmètre</h4>
+                    <table class="offer-table">
+                        <tr>
+                            <th>Élément</th>
+                            <th>Détail</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Formations</strong></td>
+                            <td>${tracks.join(', ')}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Format</strong></td>
+                            <td>${format}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Participants</strong></td>
+                            <td>${headcount} personne(s)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Localisation</strong></td>
+                            <td>${location}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Délai</strong></td>
+                            <td>${timeline}</td>
+                        </tr>
+                    </table>
+                    
+                    <h4>4. Méthode DigiSchool Africa (SLA)</h4>
+                    <ul class="offer-list">
+                        <li><strong>Diagnostic (24h):</strong> Analyse des besoins + audit des profils</li>
+                        <li><strong>Proposition (48h):</strong> Proforma détaillée avec montants & planning</li>
+                        <li><strong>Déploiement:</strong> Formation animée par experts terrain + supports fournis</li>
+                        <li><strong>Suivi (30j):</strong> Évaluation KPI + recommandations</li>
+                    </ul>
+                    
+                    <h4>5. Livrables</h4>
+                    <ul class="offer-list">
+                        <li>Supports de formation (slides, templates, workbooks)</li>
+                        <li>Attestations de participation nominatives</li>
+                        <li>Rapport d'évaluation & KPI post-formation</li>
+                        <li>Support technique 30j post-formation</li>
+                    </ul>
+                    
+                    <h4>6. Planning Indicatif</h4>
+                    <p>Démarrage prévu: <strong>${timeline}</strong><br>
+                    Durée estimée: selon module(s) sélectionné(s) — communiquée dans la proforma officielle.</p>
+                    
+                    <h4>7. Hypothèses & Prérequis</h4>
+                    <ul class="offer-list">
+                        <li>Accès à une salle de formation équipée (si format Intra-entreprise)</li>
+                        <li>Profils participants communiqués 5j avant démarrage</li>
+                        <li>Point focal entreprise désigné pour coordination</li>
+                    </ul>
+                </div>
+
+                <div class="offer-section">
+                    <h3>💰 Offre Financière (V1 — sans montants)</h3>
+                    
+                    <table class="offer-table">
+                        <thead>
+                            <tr>
+                                <th>Rubrique</th>
+                                <th>Description</th>
+                                <th>Montant</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ingénierie pédagogique</td>
+                                <td>Conception parcours + adaptation contenus</td>
+                                <td>À définir</td>
+                            </tr>
+                            <tr>
+                                <td>Animation formation</td>
+                                <td>Intervention formateur(s) expert(s)</td>
+                                <td>À définir</td>
+                            </tr>
+                            <tr>
+                                <td>Supports pédagogiques</td>
+                                <td>Slides, workbooks, templates, kits</td>
+                                <td>À définir</td>
+                            </tr>
+                            <tr>
+                                <td>Évaluation & KPI</td>
+                                <td>Tests, rapports, suivi 30j</td>
+                                <td>À définir</td>
+                            </tr>
+                            <tr>
+                                <td>Logistique</td>
+                                <td>Déplacements, matériel, pause-café</td>
+                                <td>À définir</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="highlight-box">
+                        <strong>⚠️ Note importante:</strong> Les montants détaillés seront communiqués dans la proforma officielle sous 48h ouvrées. Cette offre V1 constitue un pré-cadrage technique.
+                    </div>
+                </div>
+
+                <div class="offer-section">
+                    <h3>📞 Prochaines Étapes</h3>
+                    <ul class="offer-list">
+                        <li>Cliquez sur "📧 Envoyer la demande" pour transmettre ce brief à notre équipe</li>
+                        <li>Vous recevrez une proforma détaillée avec montants sous <strong>48h ouvrées</strong></li>
+                        <li>Un conseiller vous contactera pour affiner les détails si nécessaire</li>
+                        <li>Pour une réponse accélérée, contactez-nous via WhatsApp</li>
+                    </ul>
+                </div>
+            `;
+
+            // Display offer
+            document.getElementById('offerContent').innerHTML = offerHTML;
+            document.getElementById('offerPreview').classList.add('visible');
+
+            // Store offer preview summary (without PII)
+            const offerSummary = `${quoteId} | ${tracks.length} formation(s) | ${headcount} participant(s) | ${format} | ${timeline}`;
+            document.getElementById('offerPreviewField').value = offerSummary;
+
+            // Update WhatsApp link
+            const whatsappText = encodeURIComponent(
+                `Bonjour DigiSchool Africa 👋\n\nJe souhaite discuter de ma demande de proforma:\n\nRéférence: ${quoteId}\nFormations: ${tracks.join(', ')}\nParticipants: ${headcount}\nFormat: ${format}\n\nMerci !`
+            );
+            document.getElementById('whatsappBtn').href = `https://wa.me/2250505111102?text=${whatsappText}`;
+
+            // Track event
+            if (window.trackLeadEvent) {
+                trackLeadEvent('proforma_generate', {
+                    quote_id: quoteId,
+                    tracks_count: tracks.length,
+                    headcount: headcount,
+                    format: format
+                });
+            }
+
+            // Scroll to preview
+            document.getElementById('offerPreview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            showStatus('success', '✅ Offre générée avec succès ! Référence: ' + quoteId);
+        }
+
+        // Submit Form via AJAX
+        async function submitProforma() {
+            const form = document.getElementById('briefForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const quoteId = document.getElementById('quoteIdField').value;
+
+            if (!quoteId) {
+                showStatus('error', '❌ Veuillez d\'abord générer l\'offre avant de soumettre.');
+                return;
+            }
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Envoi en cours...';
+
+            try {
+                const formData = new FormData(form);
+                
+                // Timeout 12s
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 12000);
+
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                if (response.ok) {
+                    // Track submission
+                    if (window.trackLeadEvent) {
+                        trackLeadEvent('proforma_submit', {
+                            quote_id: quoteId,
+                            success: true
+                        });
+                    }
+
+                    // Redirect to merci.html
+                    window.location.href = './merci.html';
+                } else {
+                    throw new Error('Erreur serveur');
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                
+                // Track error
+                if (window.trackLeadEvent) {
+                    trackLeadEvent('proforma_submit', {
+                        quote_id: quoteId,
+                        success: false,
+                        error: error.message
+                    });
+                }
+
+                const whatsappLink = document.getElementById('whatsappBtn').href;
+                showStatus('error', `
+                    ❌ Une erreur est survenue lors de l'envoi. Veuillez réessayer ou nous contacter directement :<br>
+                    <a href="${whatsappLink}" style="color: var(--green); text-decoration: underline;">💬 Contactez-nous sur WhatsApp</a>
+                `);
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📧 Envoyer la demande';
+            }
+        }
+
+        // Show Status Message
+        function showStatus(type, message) {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.className = 'status-message visible status-' + type;
+            statusEl.innerHTML = message;
+            
+            // Auto-hide success after 5s
+            if (type === 'success') {
+                setTimeout(() => {
+                    statusEl.classList.remove('visible');
+                }, 5000);
+            }
+        }
+
+        // Event Listeners
+        document.getElementById('generateBtn').addEventListener('click', generateOfferPreview);
+        document.getElementById('submitBtn').addEventListener('click', submitProforma);
+
+        // Track CTA clicks
+        document.querySelectorAll('a[href*="companies.html"], a[href*="whatsapp"]').forEach(link => {
+            link.addEventListener('click', function() {
+                const isWhatsApp = this.href.includes('whatsapp') || this.href.includes('wa.me');
+                if (window.trackLeadEvent) {
+                    trackLeadEvent(isWhatsApp ? 'click_whatsapp' : 'click_proforma', {
+                        source: 'proforma_page',
+                        destination: this.href
+                    });
+                }
+            });
+        });
+
+        // Form submission tracking (native fallback)
+        document.getElementById('briefForm').addEventListener('submit', function(e) {
+            // If JS is working, prevent native submit (already handled by submitProforma)
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

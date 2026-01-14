@@ -117,6 +117,16 @@
     }
   });
 
+  // Track proforma clicks
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('a[href*="proforma.html"]');
+    if (target) {
+      trackEvent('click_proforma', {
+        text: target.textContent.trim().substring(0, 50)
+      });
+    }
+  });
+
   // Track form submissions (contact)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
@@ -130,6 +140,22 @@
   if (b2bForm && window.location.pathname.includes('companies')) {
     b2bForm.addEventListener('submit', function() {
       trackEvent('form_submit_b2b');
+    });
+  }
+
+  // Track proforma generation
+  const generateBtn = document.getElementById('generateBtn');
+  if (generateBtn) {
+    generateBtn.addEventListener('click', function() {
+      trackEvent('proforma_generate');
+    });
+  }
+
+  // Track proforma submission
+  const proformaForm = document.getElementById('briefForm');
+  if (proformaForm && window.location.pathname.includes('proforma')) {
+    proformaForm.addEventListener('submit', function() {
+      trackEvent('proforma_submit');
     });
   }
 
