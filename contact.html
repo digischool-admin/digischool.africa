@@ -2,316 +2,611 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
- <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact — DigiSchool Africa</title>
-  <meta name="description" content="Contact DigiSchool Africa (support, WhatsApp, email)." />
+  <title>Contact & Devis — DigiSchool Africa</title>
+  <meta name="description" content="Contactez DigiSchool Africa pour vos besoins de formation. Réponse garantie sous 24h ouvrées. Support WhatsApp disponible." />
 
   <style>
-    .hint {
-    margin-top: 10px;
-    font-size: 0.85rem;
-    opacity: 0.8;
-    }  
-    
     :root{
       --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       --card: rgba(255,255,255,0.04);
       --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
       --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
       --text:#ffffff;
       --muted: rgba(255,255,255,0.78);
       --muted2: rgba(255,255,255,0.62);
       --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
       --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
     }
 
-    *{ box-sizing:border-box; }
+    *{ box-sizing:border-box; margin:0; padding:0; }
 
     body{
-      font-family: Arial, Helvetica, sans-serif;
-      margin:0;
-      min-height:100vh;
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 24px 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .container{
-      width:100%;
-      max-width: 900px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px 80px;
     }
 
-    .card{
+    /* Hero Premium */
+    .hero{
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 60px 30px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
       border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.22);
+      position: relative;
+      overflow: hidden;
     }
 
-@media (max-width: 520px) {
-  .muted {
-    font-size: 0.8rem;
-  }
-
-  .actions {
-    flex-direction: column;
-  }
-}
-  
-    h1{
-      margin: 0 0 8px 0;
-      font-size: 2.0rem;
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+      opacity: 0.4;
+      z-index: 0;
     }
 
-    p{
-      margin: 0 0 16px 0;
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 30px) scale(0.9); }
+      75% { transform: translate(30px, 30px) scale(1.05); }
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1{
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle{
+      font-size: 1.25rem;
       color: var(--muted);
-      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
     }
 
+    /* Trust Badges */
     .badges{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin: 8px 0 16px 0;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
     }
 
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
       border-radius: 999px;
-      font-weight: 800;
-      font-size: 0.92rem;
+      font-weight: 700;
+      font-size: 0.98rem;
       border: 1px solid var(--border);
       background: var(--card2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
     }
 
-    .badge.support{
-      background: rgba(59,130,246,0.16);
-      border-color: rgba(59,130,246,0.35);
+    .badge:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
 
-    .proof{
-  margin: 10px 0 0;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
+    .badge.trust{
+      background: rgba(34,197,94,0.12);
+      border-color: rgba(34,197,94,0.3);
+    }
 
-    .grid{
-      display:grid;
-      gap: 14px;
+    .badge.speed{
+      background: rgba(59,130,246,0.12);
+      border-color: rgba(59,130,246,0.3);
+    }
+
+    /* Grid Layout */
+    .main-grid{
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      margin-top: 12px;
+      gap: 28px;
+      margin-bottom: 40px;
     }
 
-    .box{
+    /* Cards Premium */
+    .card{
+      background: var(--card);
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 16px;
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
 
-    .box h2{
-      margin:0 0 8px 0;
-      font-size: 1.15rem;
+    .card::after{
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
     }
 
-    .btns{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 10px;
+    .card:hover::after{
+      opacity: 0.2;
     }
 
-    .btn{
-      text-decoration:none;
-      color: var(--text);
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      padding: 12px 14px;
-      border-radius: 14px;
+    .card:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+    }
+
+    .card h2{
+      font-size: 1.6rem;
       font-weight: 800;
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.09);
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn.primary{
-      background: rgba(34,197,94,0.20);
-      border-color: rgba(34,197,94,0.40);
+      margin-bottom: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .form{
-      display:grid;
-      gap: 10px;
-      margin-top: 8px;
+    .card p{
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.7;
     }
-    label{
-      font-size: 0.92rem;
+
+    /* Contact Quick Cards */
+    .contact-quick{
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-item{
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+    }
+
+    .contact-item:hover{
+      background: var(--card-hover);
+      border-color: var(--green);
+      transform: translateX(6px);
+      box-shadow: 0 8px 24px var(--green-glow);
+    }
+
+    .contact-item h3{
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-item p{
+      font-size: 0.95rem;
+      color: var(--muted2);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Form Premium */
+    .form{
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group{
+      display: grid;
+      gap: 10px;
+    }
+
+    .form label{
+      font-size: 0.98rem;
       color: var(--muted);
       font-weight: 700;
     }
-    input, textarea{
-      width:100%;
-      padding: 12px 12px;
+
+    .form input,
+    .form textarea{
+      width: 100%;
+      padding: 16px 18px;
       border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.16);
       background: rgba(255,255,255,0.05);
       color: var(--text);
-      font-size: 0.98rem;
-      outline:none;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      font-family: inherit;
     }
-    textarea{ min-height: 110px; resize: vertical; }
 
-    .footer{
-      margin-top: 14px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
-      color: var(--muted2);
+    .form input:focus,
+    .form textarea:focus{
+      border-color: var(--green);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+    }
+
+    .form textarea{
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    /* Submit Button Premium */
+    .btn-submit{
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      border: 1px solid rgba(34,197,94,0.5);
+      background: linear-gradient(135deg, rgba(34,197,94,0.25) 0%, rgba(34,197,94,0.15) 100%);
+      color: var(--text);
+      box-shadow: 0 4px 14px var(--green-glow);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-submit:hover::before{
+      opacity: 1;
+    }
+
+    .btn-submit:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px var(--green-glow);
+      border-color: rgba(34,197,94,0.7);
+    }
+
+    .btn-submit:disabled{
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Privacy Note */
+    .privacy-note{
       font-size: 0.92rem;
+      color: var(--muted2);
+      text-align: center;
+      margin-top: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      line-height: 1.6;
     }
 
-  @media (max-width: 860px){
-  .grid{ grid-template-columns: 1fr; }
-  .btns{
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .btns .btn{
-    width: 100%;
-    justify-content: center;
-  }
-}
- </style>
+    .privacy-note a{
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .privacy-note a:hover{
+      color: var(--blue);
+    }
+
+    /* Error Message */
+    .error-message{
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 12px;
+      color: #fca5a5;
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .error-message a{
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .error-message a:hover{
+      color: var(--blue);
+    }
+
+    /* Footer Premium */
+    .footer{
+      margin-top: 80px;
+      padding: 40px 20px 30px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .footer-content{
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.95rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom a:hover{
+      color: var(--blue);
+    }
+
+    /* Animations Scroll Reveal */
+    .animate-on-scroll{
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .animate-on-scroll.visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .main-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px){
+      .hero h1{ font-size: 2.4rem; }
+      .hero-subtitle{ font-size: 1.1rem; }
+      .hero{ padding: 50px 24px; }
+      .card{ padding: 28px 20px; }
+      .container{ padding: 40px 16px 60px; }
+    }
+
+    @media (max-width: 520px){
+      .hero h1{ font-size: 2rem; }
+      .hero-subtitle{ font-size: 1rem; }
+      .badges{ gap: 10px; }
+      .badge{ padding: 10px 16px; font-size: 0.9rem; }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .card:hover, .btn-submit:hover, .contact-item:hover { transform: none; }
+      .animate-on-scroll{ opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="card">
-      <h1>Contact DigiSchool Africa</h1>
-      <p>Support, informations, préinscription et accompagnement. Réponse rapide via WhatsApp.</p>
+    <!-- Hero Premium -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>📞 Contact & Devis</h1>
+        <p class="hero-subtitle">Parlons de votre besoin en formation. Notre équipe vous répond sous <strong>24h ouvrées</strong> avec confidentialité garantie.</p>
+        
+        <div class="badges">
+          <span class="badge trust">🔒 Confidentialité</span>
+          <span class="badge speed">⚡ Réponse Rapide</span>
+          <span class="badge">👨‍🏫 Experts Terrain</span>
+        </div>
+      </div>
+    </div>
 
-     <div class="badge">🛟 Support 24/7</div>
-<p class="proof">Déjà +300 apprenants accompagnés</p>
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Contact Rapide -->
+      <div class="card animate-on-scroll">
+        <h2>🚀 Contact Rapide</h2>
+        <p>Besoin d'une réponse immédiate ? Contactez-nous directement via nos canaux prioritaires.</p>
+        
+        <div class="contact-quick">
+          <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20souhaite%20des%20informations%20concernant%20vos%20formations.%0AMerci." target="_blank" rel="noopener noreferrer" class="contact-item">
+            <h3>💬 WhatsApp Direct</h3>
+            <p>Réponse immédiate : +225 05 05 11 11 02</p>
+          </a>
 
-      <div class="grid">
-        <div class="box">
-          <h2>Canaux directs</h2>
-          <p>Choisis le canal le plus simple pour toi.</p>
+          <a href="mailto:support@digischool.africa" class="contact-item">
+            <h3>📧 Email Support</h3>
+            <p>support@digischool.africa</p>
+          </a>
 
-          <div class="btns">
-            <a class="btn primary" href="https://wa.me/2250505111102" target="_blank" rel="noopener">💬 WhatsApp +225 05 05 11 11 02</a>
-            <a class="btn" href="mailto:support@digischool.africa">📧 support@digischool.africa</a>
-            <a class="btn" href="./index.html">🏠 Retour accueil</a>
+          <a href="./companies.html" class="contact-item">
+            <h3>🏢 Entreprises (B2B)</h3>
+            <p>Formations sur mesure, devis personnalisés</p>
+          </a>
+
+          <a href="./index.html" class="contact-item">
+            <h3>🏠 Retour à l'Accueil</h3>
+            <p>Découvrir DigiSchool Africa</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulaire Premium -->
+      <div class="card animate-on-scroll">
+        <h2>📝 Formulaire de Contact</h2>
+        <p>Remplissez le formulaire ci-dessous. Nous vous recontactons sous 24h ouvrées.</p>
+
+        <form class="form" id="contactForm" action="https://formspree.io/f/xvzzgpob" method="POST">
+          <div class="form-group">
+            <label for="name">Nom & Prénom *</label>
+            <input type="text" id="name" name="name" required placeholder="Ex: Konan Jean">
           </div>
-        </div>
 
-        <div class="box">
-          <h2>Formulaire léger (sans serveur)</h2>
-          <p>À l’envoi, ton application email s’ouvre automatiquement. Aucune donnée n’est stockée sur le site.</p>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="Ex: jean@email.com">
+          </div>
 
-          <form class="form" id="contactForm" action="https://formspree.io/f/xvzzgpob" method="POST">
-            <div>
-              <label for="name">Nom & Prénom</label>
-              <input id="name" name="name" required placeholder="Ex: KOUADIO Awa">
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" required placeholder="Ex: awa@email.com">
-            </div>
-            <div>
-              <label for="msg">Message</label>
-              <textarea id="msg" name="message" required placeholder="Explique ton besoin..."></textarea>
-            </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Décrivez votre besoin en formation, vos objectifs ou vos questions..."></textarea>
+          </div>
 
-            <input type="hidden" name="_subject" value="Nouveau message depuis DigiSchool Africa">
-            <input type="hidden" name="source" value="contact_digischool_website">
-            <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
-            <input type="text" name="_gotcha" style="display:none">
+          <!-- Hidden fields -->
+          <input type="hidden" name="_subject" value="Nouveau message depuis DigiSchool Africa">
+          <input type="hidden" name="source" value="contact_digischool_website">
+          <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
+          <input type="text" name="_gotcha" style="display:none">
 
-            <div class="btns">
-              <button class="btn primary" type="submit">📧 Envoyer le message</button>
-            <a
-  href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20souhaite%20des%20informations%20concernant%20vos%20formations.%0AMerci." class="btn whatsapp">💬 Envoyer via WhatsApp
+          <button type="submit" class="btn-submit">📧 Envoyer le Message</button>
 
-</a>
-
-            </div>
-          </form> 
-          <p class="hint">
-          Nous répondons généralement en moins de 24h.
-          </p>
-        </div>
-      </div>
-
-      <div class="footer">
-        <span>© 2026 DigiSchool Africa</span>
-        <span>support@digischool.africa • WhatsApp +225 05 05 11 11 02</span>
-      </div>
-
-      <!-- Footer avec liens légaux -->
-      <div style="margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--border); text-align: center;">
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.92rem;">
-          <a href="./index.html" style="color: var(--muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">Accueil</a>
-          <span style="color: var(--border);">|</span>
-          <a href="./companies.html" style="color: var(--muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">Entreprises (B2B)</a>
-          <span style="color: var(--border);">|</span>
-          <a href="./mentions-legales.html" style="color: var(--muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">Mentions légales</a>
-          <span style="color: var(--border);">|</span>
-          <a href="./cgu.html" style="color: var(--muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">CGU</a>
-          <span style="color: var(--border);">|</span>
-          <a href="./cgv.html" style="color: var(--muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">CGV</a>
-          <span style="color: var(--border);">|</span>
-          <a href="./politique-confidentialite.html" style="color: var(--muted); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'">Politique de confidentialité</a>
-        </div>
-        <p style="font-size: 0.90rem; color: var(--muted2); margin: 0;">
-          DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener" style="color: var(--green); text-decoration: none;">DigiLab</a>
-        </p>
+          <div class="privacy-note">
+            🔒 En soumettant ce formulaire, vous acceptez notre <a href="./politique-confidentialite.html">politique de confidentialité</a>. Vos données sont traitées de manière strictement confidentielle et ne seront jamais partagées.
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
+  <!-- Footer Premium -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="./index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
   <script>
-    // Soumission AJAX pour redirection fiable vers merci.html
+    // Soumission AJAX pour redirection fiable vers merci.html (PRESERVED)
     (function() {
       const form = document.getElementById('contactForm');
+      if (!form) return;
+
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn.textContent;
       let timeoutId = null;
 
       form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Étape 1: intercepter la soumission
+        e.preventDefault(); // Intercepter la soumission
 
-        // Étape 2: désactiver le bouton et afficher l'état d'envoi
+        // Désactiver le bouton et afficher l'état d'envoi
         submitBtn.disabled = true;
         submitBtn.textContent = '⏳ Envoi en cours...';
-        submitBtn.style.opacity = '0.7';
-        submitBtn.style.cursor = 'not-allowed';
 
         // Retirer tout message d'erreur existant
         const existingError = form.querySelector('.error-message');
         if (existingError) existingError.remove();
 
-        // Étape 6: timeout de sécurité (12 secondes)
+        // Timeout de sécurité (12 secondes)
         timeoutId = setTimeout(function() {
           showError();
         }, 12000);
 
-        // Étape 3: envoi via fetch
+        // Envoi via fetch
         fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
@@ -322,17 +617,15 @@
         .then(function(response) {
           clearTimeout(timeoutId);
           
-          // Étape 4: si succès, redirection
+          // Si succès, redirection
           if (response.ok) {
             window.location.href = './merci.html';
           } else {
-            // Étape 5: afficher message d'erreur
             showError();
           }
         })
         .catch(function(error) {
           clearTimeout(timeoutId);
-          // Étape 5: afficher message d'erreur
           showError();
         });
       });
@@ -341,19 +634,37 @@
         // Réactiver le bouton
         submitBtn.disabled = false;
         submitBtn.textContent = originalBtnText;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
 
         // Afficher le message d'erreur
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
-        errorDiv.style.cssText = 'margin-top: 16px; padding: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; color: #fca5a5; font-size: 0.95rem; text-align: center;';
-        errorDiv.innerHTML = '⚠️ Échec d\'envoi. Réessaie ou contacte-nous via <a href="https://wa.me/2250505111102" style="color: #22c55e; text-decoration: underline;">WhatsApp</a>.';
+        errorDiv.innerHTML = '⚠️ Échec d\'envoi. Veuillez réessayer ou contactez-nous via <a href="https://wa.me/2250505111102" target="_blank" rel="noopener">WhatsApp</a>.';
         
         submitBtn.parentElement.appendChild(errorDiv);
       }
     })();
+
+    // Scroll Reveal Animation
+    (function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+      });
+    })();
   </script>
 </body>
 </html>
-
