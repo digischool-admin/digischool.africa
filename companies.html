@@ -655,6 +655,7 @@
         <input type="hidden" name="_subject" value="Demande de devis B2B — DigiSchool Africa">
         <input type="hidden" name="source" value="b2b_companies_page">
         <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
+        <input type="text" name="_gotcha" style="display:none">
 
         <button type="submit" class="btn btn-primary">📧 Envoyer ma demande</button>
 
@@ -761,6 +762,15 @@
         }
       });
     });
+
+    // Script de tracking pour la redirection Formspree
+    const form = document.querySelector('form.form');
+    if (form) {
+      form.addEventListener('submit', function() {
+        // Sauvegarder un flag pour confirmer la soumission
+        localStorage.setItem('ds_form_submitted', Date.now().toString());
+      });
+    }
   </script>
 </body>
 </html>

@@ -241,6 +241,7 @@
             <input type="hidden" name="_subject" value="Nouveau message depuis DigiSchool Africa">
             <input type="hidden" name="source" value="contact_digischool_website">
             <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
+            <input type="text" name="_gotcha" style="display:none">
 
             <div class="btns">
               <button class="btn primary" type="submit">📧 Envoyer le message</button>
@@ -283,6 +284,14 @@
       </div>
     </div>
   </div>
+
+  <script>
+    // Script de tracking pour la redirection Formspree
+    document.getElementById('contactForm').addEventListener('submit', function() {
+      // Sauvegarder un flag pour confirmer la soumission
+      localStorage.setItem('ds_form_submitted', Date.now().toString());
+    });
+  </script>
 </body>
 </html>
 

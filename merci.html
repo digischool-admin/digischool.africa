@@ -306,5 +306,15 @@
       </p>
     </div>
   </div>
+
+  <script>
+    // Vérifier si l'utilisateur vient d'un formulaire
+    const formSubmitted = localStorage.getItem('ds_form_submitted');
+    if (formSubmitted) {
+      // Supprimer le flag pour éviter les faux positifs
+      localStorage.removeItem('ds_form_submitted');
+      console.log('Formulaire soumis avec succès - Redirection confirmée');
+    }
+  </script>
 </body>
 </html>
