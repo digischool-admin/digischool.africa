@@ -224,22 +224,25 @@
           <h2>Formulaire léger (sans serveur)</h2>
           <p>À l’envoi, ton application email s’ouvre automatiquement. Aucune donnée n’est stockée sur le site.</p>
 
-          <form class="form" id="contactForm">
+          <form class="form" id="contactForm" action="https://formspree.io/f/xvzzgpob" method="POST">
             <div>
               <label for="name">Nom & Prénom</label>
-              <input id="name" required placeholder="Ex: KOUADIO Awa">
+              <input id="name" name="name" required placeholder="Ex: KOUADIO Awa">
             </div>
             <div>
               <label for="email">Email</label>
-              <input id="email" type="email" required placeholder="Ex: awa@email.com">
+              <input id="email" name="email" type="email" required placeholder="Ex: awa@email.com">
             </div>
             <div>
               <label for="msg">Message</label>
-              <textarea id="msg" required placeholder="Explique ton besoin..."></textarea>
+              <textarea id="msg" name="message" required placeholder="Explique ton besoin..."></textarea>
             </div>
 
+            <input type="hidden" name="_subject" value="Nouveau message depuis DigiSchool Africa">
+            <input type="hidden" name="source" value="contact_digischool_website">
+
             <div class="btns">
-              <button class="btn primary" type="submit">📧 Envoyer par email</button>
+              <button class="btn primary" type="submit">📧 Envoyer le message</button>
             <a
   href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20souhaite%20des%20informations%20concernant%20vos%20formations.%0AMerci." class="btn whatsapp">💬 Envoyer via WhatsApp
 
@@ -275,31 +278,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('msg').value.trim();
-
-      const subject = encodeURIComponent("Contact DigiSchool Africa");
-      const body = encodeURIComponent(
-`Bonjour l'équipe DigiSchool Africa,
-
-Nom: ${name}
-Email: ${email}
-
-Message:
-${msg}
-
-Merci.`);
-
-      window.location.href = `mailto:support@digischool.africa?subject=${subject}&body=${body}`;
-      this.reset();
-    });
-  </script>
 </body>
 </html>
 
