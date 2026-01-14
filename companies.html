@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formations Entreprises (B2B) — DigiSchool Africa</title>
+  <meta name="description" content="Formations sur mesure pour entreprises : leadership, gestion de projet, stratégie, finance, RH. Devis personnalisés et déploiement rapide." />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --blue:#3b82f6;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .hero{
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, rgba(34,197,94,0.1), rgba(59,130,246,0.1));
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .hero h1{
+      font-size: 3rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p{
+      font-size: 1.3rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .badges{
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      background: var(--card2);
+      transition: all 0.3s ease;
+    }
+
+    .badge:hover{
+      background: var(--card);
+      transform: scale(1.05);
+    }
+
+    .badge.premium{
+      background: rgba(34,197,94,0.16);
+      border-color: rgba(34,197,94,0.35);
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .btn-primary{
+      background: rgba(34,197,94,0.20);
+      border-color: rgba(34,197,94,0.40);
+      color: var(--text);
+    }
+
+    .btn-primary:hover{
+      background: rgba(34,197,94,0.30);
+      border-color: rgba(34,197,94,0.60);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(34,197,94,0.3);
+    }
+
+    .section-title{
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--green);
+    }
+
+    .catalogue{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .catalogue-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .catalogue-card:hover{
+      background: var(--card2);
+      border-color: var(--green);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    .catalogue-card h3{
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .catalogue-card ul{
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .catalogue-card ul li{
+      padding-left: 24px;
+      margin-bottom: 10px;
+      position: relative;
+      color: var(--muted);
+    }
+
+    .catalogue-card ul li:before{
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .meta{
+      font-size: 0.9rem;
+      color: var(--muted2);
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .meta strong{
+      color: var(--text);
+    }
+
+    .why-us{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+
+    .why-us h2{
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--green);
+      text-align: center;
+    }
+
+    .why-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .why-item{
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .why-item:hover{
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-4px);
+    }
+
+    .why-icon{
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .why-item h3{
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+
+    .why-item p{
+      font-size: 0.95rem;
+      color: var(--muted2);
+    }
+
+    .form-section{
+      background: linear-gradient(135deg, rgba(34,197,94,0.05), rgba(59,130,246,0.05));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+
+    .form-section h2{
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: var(--green);
+      text-align: center;
+    }
+
+    .form-section > p{
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .form{
+      max-width: 600px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .form-group{
+      display: grid;
+      gap: 8px;
+    }
+
+    .form label{
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .form input,
+    .form textarea{
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form input:focus,
+    .form textarea:focus{
+      border-color: var(--green);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .form textarea{
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form button{
+      background: none;
+      border: none;
+      margin-top: 10px;
+    }
+
+    .privacy-note{
+      font-size: 0.9rem;
+      color: var(--muted2);
+      text-align: center;
+      margin-top: 20px;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .faq{
+      margin-bottom: 60px;
+    }
+
+    .faq h2{
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--green);
+      text-align: center;
+    }
+
+    .faq-item{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .faq-question{
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover{
+      background: var(--card2);
+    }
+
+    .faq-question.active{
+      background: var(--card2);
+      color: var(--green);
+    }
+
+    .faq-answer{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 24px;
+      color: var(--muted);
+    }
+
+    .faq-answer.active{
+      max-height: 500px;
+      padding: 0 24px 20px;
+    }
+
+    .faq-icon{
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active .faq-icon{
+      transform: rotate(45deg);
+    }
+
+    .footer{
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.9rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px){
+      .hero h1{ font-size: 2.2rem; }
+      .hero p{ font-size: 1.1rem; }
+      .section-title{ font-size: 1.8rem; }
+      .catalogue{ grid-template-columns: 1fr; }
+      .why-grid{ grid-template-columns: 1fr; }
+      .form-section{ padding: 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero, .catalogue-card { animation: none; }
+      .catalogue-card:hover, .why-item:hover, .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>🏢 Formations Entreprises (B2B)</h1>
+      <p>Des parcours sur mesure, alignés sur vos objectifs business, avec offres techniques & financières adaptées.</p>
+      
+      <div class="badges">
+        <span class="badge premium">🎯 Sur-mesure</span>
+        <span class="badge">🎓 Certifiants</span>
+        <span class="badge">⚡ Déploiement rapide</span>
+      </div>
+
+      <a href="#devis" class="btn btn-primary">📋 Demander un devis</a>
+    </div>
+
+    <!-- Catalogue Section -->
+    <h2 class="section-title">📚 Notre Catalogue B2B</h2>
+    
+    <div class="catalogue">
+      <div class="catalogue-card" style="animation-delay: 0.1s;">
+        <h3>👔 Leadership & Management</h3>
+        <ul>
+          <li>Leadership transformationnel et vision stratégique</li>
+          <li>Management d'équipes à distance et hybrides</li>
+          <li>Gestion des conflits et feedback efficace</li>
+          <li>Culture d'entreprise et engagement des équipes</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, exercices pratiques, évaluation, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.2s;">
+        <h3>📊 Gestion de projet (PMP)</h3>
+        <ul>
+          <li>Méthodologies Agile, Scrum, Kanban</li>
+          <li>Planification, budgétisation et suivi</li>
+          <li>Gestion des risques et des parties prenantes</li>
+          <li>Préparation certification PMP</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, outils, simulations, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.3s;">
+        <h3>🎯 Stratégie & Exécution</h3>
+        <ul>
+          <li>Élaboration de stratégie d'entreprise</li>
+          <li>OKR, KPI et tableaux de bord stratégiques</li>
+          <li>Transformation digitale et innovation</li>
+          <li>Exécution stratégique et alignement des équipes</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, frameworks, templates, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.4s;">
+        <h3>💰 Finance pour non-financiers</h3>
+        <ul>
+          <li>Lecture et analyse des états financiers</li>
+          <li>Budgétisation et contrôle de gestion</li>
+          <li>Rentabilité, ROI et indicateurs clés</li>
+          <li>Prise de décision basée sur les chiffres</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, cas pratiques, outils Excel, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.5s;">
+        <h3>📈 Vente B2B & Négociation</h3>
+        <ul>
+          <li>Prospection B2B et génération de leads</li>
+          <li>Techniques de closing et gestion d'objections</li>
+          <li>Négociation commerciale avancée</li>
+          <li>CRM et pilotage de la performance commerciale</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, scripts, simulations, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.6s;">
+        <h3>🤝 Service Client & Expérience</h3>
+        <ul>
+          <li>Excellence du service client multicanal</li>
+          <li>Gestion des réclamations et situations difficiles</li>
+          <li>Parcours client et points de contact</li>
+          <li>Fidélisation et satisfaction client (NPS, CSAT)</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, cas pratiques, scripts, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.7s;">
+        <h3>👥 RH & Performance</h3>
+        <ul>
+          <li>Recrutement et évaluation des talents</li>
+          <li>Gestion de la performance et entretiens</li>
+          <li>Développement des compétences (upskilling)</li>
+          <li>Bien-être au travail et prévention du burn-out</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, grilles d'évaluation, outils RH, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.8s;">
+        <h3>📊 Data & Reporting pour décideurs</h3>
+        <ul>
+          <li>Data-driven decision making</li>
+          <li>Tableaux de bord et visualisation de données</li>
+          <li>Introduction à l'analyse prédictive</li>
+          <li>Exploitation de Power BI et Excel avancé</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, templates, fichiers pratiques, attestation
+        </div>
+      </div>
+
+      <div class="catalogue-card" style="animation-delay: 0.9s;">
+        <h3>⚙️ Productivité & Outils (Microsoft 365)</h3>
+        <ul>
+          <li>Maîtrise de Microsoft Teams et SharePoint</li>
+          <li>Excel avancé (tableaux croisés, macros, Power Query)</li>
+          <li>PowerPoint professionnel et storytelling</li>
+          <li>Outlook et gestion du temps</li>
+        </ul>
+        <div class="meta">
+          <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
+          <strong>Livrables :</strong> Supports, exercices, templates, attestation
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Us Section -->
+    <div class="why-us">
+      <h2>✨ Pourquoi DigiSchool Africa ?</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <span class="why-icon">🌍</span>
+          <h3>Approche terrain</h3>
+          <p>Formations adaptées au contexte africain, avec des cas pratiques issus de l'écosystème local.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">👨‍🏫</span>
+          <h3>Formateurs experts</h3>
+          <p>Professionnels en activité avec 10+ ans d'expérience dans leur domaine.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🎯</span>
+          <h3>Orientés résultats</h3>
+          <p>Méthodes actives, cas pratiques, mises en situation et accompagnement post-formation.</p>
+        </div>
+        <div class="why-item">
+          <span class="why-icon">🤝</span>
+          <h3>Accompagnement continu</h3>
+          <p>Coaching individuel ou collectif disponible pour ancrer les compétences.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-section" id="devis">
+      <h2>📋 Demander une proforma / devis</h2>
+      <p>Remplissez ce formulaire et recevez une offre technique et financière personnalisée sous 48h.</p>
+
+      <form class="form" action="https://formspree.io/f/xvzzgpob" method="POST">
+        <div class="form-group">
+          <label for="name">Nom & Prénom *</label>
+          <input type="text" id="name" name="name" required placeholder="Ex: Konan Jean">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email professionnel *</label>
+          <input type="email" id="email" name="email" required placeholder="Ex: jean.konan@entreprise.com">
+        </div>
+
+        <div class="form-group">
+          <label for="company">Entreprise *</label>
+          <input type="text" id="company" name="company" required placeholder="Ex: ABC Sarl">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Téléphone / WhatsApp *</label>
+          <input type="tel" id="phone" name="phone" required placeholder="Ex: +225 07 XX XX XX XX">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Décrivez votre besoin en formation *</label>
+          <textarea id="message" name="message" required placeholder="Ex: Nous cherchons une formation en Leadership pour 15 managers, format intra-entreprise, sur 3 jours. Budget estimé : [montant]. Objectifs : améliorer la cohésion d'équipe et les compétences managériales."></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="Demande de devis B2B — DigiSchool Africa">
+        <input type="hidden" name="source" value="b2b_companies_page">
+        <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
+
+        <button type="submit" class="btn btn-primary">📧 Envoyer ma demande</button>
+
+        <div class="privacy-note">
+          🔒 <strong>Engagement confidentialité :</strong> Vos informations sont traitées de manière confidentielle et ne seront jamais partagées avec des tiers. Consultez notre <a href="./politique-confidentialite.html" style="color: var(--green);">politique de confidentialité</a>.
+        </div>
+      </form>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq">
+      <h2>❓ Questions fréquentes</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Quel est le délai de réponse après ma demande ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Nous vous recontactons sous 24h ouvrées pour discuter de votre besoin. Une offre technique et financière détaillée vous est envoyée sous 48h maximum.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Quels sont les formats de formation disponibles ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Nous proposons trois formats : <strong>Intra-entreprise</strong> (formation privée pour votre entreprise uniquement), <strong>Inter-entreprises</strong> (sessions mixtes avec d'autres entreprises), et <strong>Bootcamp</strong> (format intensif sur plusieurs jours). Tous les formats peuvent être 100% en ligne ou en présentiel selon votre besoin.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Peut-on personnaliser le contenu des formations ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Oui, absolument ! C'est même notre spécialité. Nous adaptons le contenu, les cas pratiques et les exercices à votre secteur d'activité, vos enjeux business et vos objectifs spécifiques. Le catalogue est un point de départ que nous personnalisons selon vos besoins.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Quels sont les modes de paiement acceptés ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Nous acceptons les virements bancaires, le Mobile Money (Orange Money, MTN MoMo, Moov Money, Wave), ainsi que les paiements par chèque pour les entreprises. Des facilités de paiement peuvent être négociées pour les formations de longue durée.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Délivrez-vous des attestations ou certifications ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Oui, chaque participant reçoit une <strong>attestation de formation</strong> à l'issue du programme, sous réserve de validation des évaluations. Pour certaines formations (ex: PMP), nous proposons également une préparation aux certifications internationales reconnues.
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-links">
+        <a href="./index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+
+        // Close all
+        document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+
+        // Toggle current
+        if (!isActive) {
+          question.classList.add('active');
+          answer.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
