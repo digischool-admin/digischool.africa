@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Module — DigiSchool Africa</title>
+  <meta name="description" content="Suivez votre module de formation avec contenu interactif, quiz et IA embarquée." />
+  
+  <link rel="canonical" href="https://digischool.africa/b2c-module.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+      --orange:#fb923c;
+      --danger:#ef4444;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Module Header */
+    .module-header{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .module-header h1{
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .module-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--muted2);
+    }
+
+    .module-meta span{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* TTS Controls */
+    .tts-controls{
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .tts-controls h3{
+      width: 100%;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--blue);
+    }
+
+    .tts-controls button,
+    .tts-controls select{
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tts-controls button:hover:not(:disabled){
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+    }
+
+    .tts-controls button:disabled{
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .tts-controls button.playing{
+      background: var(--green);
+      color: white;
+    }
+
+    /* Content Area */
+    #module-content{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      margin-bottom: 32px;
+      font-size: 20px;
+      line-height: 1.8;
+      max-width: 72ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #module-content h1,
+    #module-content h2,
+    #module-content h3{
+      margin-top: 32px;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    #module-content h1{ font-size: 2rem; }
+    #module-content h2{ font-size: 1.6rem; }
+    #module-content h3{ font-size: 1.3rem; }
+
+    #module-content p{
+      margin-bottom: 16px;
+    }
+
+    #module-content ul,
+    #module-content ol{
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    #module-content li{
+      margin-bottom: 8px;
+    }
+
+    #module-content strong{
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    #module-content code{
+      background: rgba(0,0,0,0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    #module-content pre{
+      background: rgba(0,0,0,0.3);
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 16px;
+    }
+
+    #module-content hr{
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    /* Quiz Section */
+    .quiz-container{
+      background: var(--card);
+      border: 2px solid var(--blue);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+
+    .quiz-container h2{
+      font-size: 1.8rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+
+    .quiz-info{
+      background: rgba(59,130,246,0.1);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+
+    .quiz-question{
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-question h4{
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .quiz-option{
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-option:hover{
+      border-color: var(--blue);
+      background: var(--card-hover);
+    }
+
+    .quiz-option input{
+      margin-right: 10px;
+    }
+
+    .quiz-option.selected{
+      border-color: var(--blue);
+      background: rgba(59,130,246,0.1);
+    }
+
+    .quiz-option.correct{
+      border-color: var(--green);
+      background: rgba(34,197,94,0.1);
+    }
+
+    .quiz-option.incorrect{
+      border-color: var(--danger);
+      background: rgba(239,68,68,0.1);
+    }
+
+    .quiz-explanation{
+      background: var(--card2);
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .btn-submit-quiz{
+      background: linear-gradient(135deg, var(--blue) 0%, #2563eb 100%);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit-quiz:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px var(--blue-glow);
+    }
+
+    .btn-submit-quiz:disabled{
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .quiz-result{
+      background: var(--card2);
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .quiz-result h3{
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .quiz-result.pass{
+      border-color: var(--green);
+      background: rgba(34,197,94,0.1);
+    }
+
+    .quiz-result.fail{
+      border-color: var(--danger);
+      background: rgba(239,68,68,0.1);
+    }
+
+    /* Navigation */
+    .module-navigation{
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .nav-btn{
+      flex: 1;
+      padding: 14px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .nav-btn:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+    }
+
+    .nav-btn.primary{
+      background: linear-gradient(135deg, var(--green) 0%, #16a34a 100%);
+      border: none;
+    }
+
+    .nav-btn.primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px var(--green-glow);
+    }
+
+    .nav-btn:disabled{
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px){
+      .module-header h1{ font-size: 1.8rem; }
+      #module-content{ padding: 24px 20px; font-size: 18px; }
+      .quiz-container{ padding: 20px; }
+      .module-navigation{ flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Module Header -->
+    <div class="module-header">
+      <h1 id="moduleTitle">Chargement...</h1>
+      <div class="module-meta">
+        <span>📚 <span id="courseName"></span></span>
+        <span>⏱️ <span id="duration">90-120 min</span></span>
+        <span>📈 <span id="difficulty">Intermédiaire</span></span>
+      </div>
+    </div>
+
+    <!-- TTS Controls -->
+    <div class="tts-controls" id="ttsControls" style="display: none;">
+      <h3>🔊 Lecture audio du module</h3>
+      <button id="tts-play" onclick="playTTS()">▶ Lecture</button>
+      <button id="tts-pause" onclick="pauseTTS()" disabled>⏸ Pause</button>
+      <button id="tts-stop" onclick="stopTTS()" disabled>⏹ Stop</button>
+      <select id="tts-speed" onchange="setTTSSpeed(this.value)">
+        <option value="0.8">0.8x</option>
+        <option value="1.0" selected>1.0x</option>
+        <option value="1.2">1.2x</option>
+      </select>
+      <select id="tts-voice" onchange="setTTSVoice(this.value)">
+        <option value="">Voix par défaut</option>
+      </select>
+    </div>
+
+    <!-- Module Content -->
+    <div id="module-content">
+      <p>Chargement du contenu...</p>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container" id="quizContainer" style="display: none;">
+      <h2>📝 Quiz de validation</h2>
+      <div class="quiz-info" id="quizInfo"></div>
+      <div id="quizQuestions"></div>
+      <button class="btn-submit-quiz" id="submitQuizBtn" onclick="submitQuiz()">Soumettre mes réponses</button>
+      <div id="quizResult"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="module-navigation">
+      <a href="#" id="backToCourseBtn" class="nav-btn">← Retour au cours</a>
+      <a href="#" id="nextModuleBtn" class="nav-btn primary" style="display: none;">Module suivant →</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./courses-data.js"></script>
+  <script src="./b2c-learning-system.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      // Get module from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseSlug = urlParams.get('course');
+      const moduleNum = parseInt(urlParams.get('module'), 10);
+
+      if (!courseSlug || !moduleNum) {
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Find course
+      const course = window.DigiSchoolCourses.find(c => c.id === courseSlug);
+      if (!course) {
+        alert('Formation introuvable');
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Check access
+      const hasAccess = window.DigiSchoolB2C.entitlements.hasModuleAccess(courseSlug, moduleNum);
+      if (!hasAccess) {
+        alert('Vous n\'avez pas accès à ce module');
+        window.location.href = `./b2c-learn.html?course=${courseSlug}`;
+        return;
+      }
+
+      // Check unlock status
+      const isUnlocked = window.DigiSchoolB2C.progression.isModuleUnlocked(courseSlug, moduleNum);
+      if (!isUnlocked) {
+        alert('Ce module est verrouillé. Complétez le module précédent d\'abord.');
+        window.location.href = `./b2c-learn.html?course=${courseSlug}`;
+        return;
+      }
+
+      // Track module start
+      window.DigiSchoolB2C.trackEvent('b2c_module_start', {
+        page: 'b2c-module',
+        course: courseSlug,
+        module: moduleNum,
+        timestamp: Date.now()
+      });
+
+      // Update header
+      document.getElementById('moduleTitle').textContent = `Module ${moduleNum} : ${course.title}`;
+      document.getElementById('courseName').textContent = course.title;
+      document.getElementById('backToCourseBtn').href = `./b2c-learn.html?course=${courseSlug}`;
+
+      // Load module content
+      loadModuleContent();
+
+      // Initialize TTS
+      if (window.DigiSchoolB2C.tts.isSupported()) {
+        document.getElementById('ttsControls').style.display = 'flex';
+        loadTTSVoices();
+      }
+
+      // Quiz state
+      let quizData = null;
+      let userAnswers = {};
+
+      function loadModuleContent() {
+        const paddedNum = String(moduleNum).padStart(2, '0');
+        const contentPath = `./b2c-content/${courseSlug}/module-${paddedNum}.md`;
+
+        fetch(contentPath)
+          .then(response => {
+            if (!response.ok) throw new Error('Content not found');
+            return response.text();
+          })
+          .then(markdown => {
+            // Simple markdown to HTML conversion
+            const html = markdownToHTML(markdown);
+            document.getElementById('module-content').innerHTML = html;
+
+            // Load quiz
+            loadQuiz();
+          })
+          .catch(error => {
+            console.error('Content load error:', error);
+            document.getElementById('module-content').innerHTML = '<p>Erreur de chargement du contenu. Veuillez réessayer.</p>';
+          });
+      }
+
+      function markdownToHTML(md) {
+        let html = md;
+
+        // Headers
+        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+        html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+        // Bold
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+        // Lists
+        html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+        html = html.replace(/^- (.*$)/gim, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+
+        // Code blocks
+        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+        // Inline code
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+        // Paragraphs
+        html = html.replace(/\n\n/g, '</p><p>');
+        html = '<p>' + html + '</p>';
+
+        // Horizontal rules
+        html = html.replace(/^---$/gim, '<hr>');
+
+        return html;
+      }
+
+      function loadQuiz() {
+        const paddedNum = String(moduleNum).padStart(2, '0');
+        const quizPath = `./b2c-content/${courseSlug}/quiz-module-${paddedNum}.json`;
+
+        fetch(quizPath)
+          .then(response => {
+            if (!response.ok) throw new Error('Quiz not found');
+            return response.json();
+          })
+          .then(data => {
+            quizData = data;
+            renderQuiz();
+          })
+          .catch(error => {
+            console.error('Quiz load error:', error);
+          });
+      }
+
+      function renderQuiz() {
+        if (!quizData) return;
+
+        // Check attempts
+        const attemptStatus = window.DigiSchoolB2C.quiz.canAttemptQuiz(courseSlug, moduleNum);
+        
+        if (!attemptStatus.canAttempt) {
+          const nextDate = new Date(attemptStatus.nextAttemptAt);
+          document.getElementById('quizInfo').innerHTML = `
+            <p><strong>⏳ Limite de tentatives atteinte</strong></p>
+            <p>Vous avez utilisé vos ${attemptStatus.attemptsUsed} tentatives d'aujourd'hui. Nouvelle tentative possible demain à ${nextDate.toLocaleTimeString('fr-FR')}.</p>
+          `;
+          document.getElementById('quizContainer').style.display = 'block';
+          document.getElementById('submitQuizBtn').disabled = true;
+          return;
+        }
+
+        document.getElementById('quizInfo').innerHTML = `
+          <p><strong>📊 ${quizData.total_questions} questions | ${quizData.total_points} points | Seuil de réussite: ${quizData.passing_score}%</strong></p>
+          <p>Tentatives restantes aujourd'hui: ${attemptStatus.attemptsRemaining}</p>
+        `;
+
+        const questionsHTML = quizData.questions.map((q, idx) => {
+          const optionsHTML = q.options.map(opt => {
+            const inputType = q.type === 'multiple' ? 'checkbox' : 'radio';
+            return `
+              <label class="quiz-option" data-question="${q.id}" data-option="${opt.id}">
+                <input type="${inputType}" name="q_${q.id}" value="${opt.id}" onchange="selectOption('${q.id}', '${opt.id}', '${inputType}')">
+                ${opt.text}
+              </label>
+            `;
+          }).join('');
+
+          return `
+            <div class="quiz-question">
+              <h4>Question ${idx + 1} (${q.points} point${q.points > 1 ? 's' : ''})</h4>
+              <p>${q.question}</p>
+              ${optionsHTML}
+              <div class="quiz-explanation" id="explanation_${q.id}" style="display: none;"></div>
+            </div>
+          `;
+        }).join('');
+
+        document.getElementById('quizQuestions').innerHTML = questionsHTML;
+        document.getElementById('quizContainer').style.display = 'block';
+      }
+
+      window.selectOption = function(questionId, optionId, inputType) {
+        if (inputType === 'radio') {
+          userAnswers[questionId] = [optionId];
+        } else {
+          if (!userAnswers[questionId]) {
+            userAnswers[questionId] = [];
+          }
+          const input = event.target;
+          if (input.checked) {
+            if (!userAnswers[questionId].includes(optionId)) {
+              userAnswers[questionId].push(optionId);
+            }
+          } else {
+            userAnswers[questionId] = userAnswers[questionId].filter(id => id !== optionId);
+          }
+        }
+
+        // Update visual selection
+        const label = document.querySelector(`label[data-question="${questionId}"][data-option="${optionId}"]`);
+        if (event.target.checked) {
+          label.classList.add('selected');
+        } else {
+          label.classList.remove('selected');
+        }
+      };
+
+      window.submitQuiz = function() {
+        if (!quizData) return;
+
+        let totalScore = 0;
+
+        quizData.questions.forEach(q => {
+          const correctIds = q.options.filter(opt => opt.correct).map(opt => opt.id);
+          const userIds = userAnswers[q.id] || [];
+
+          const isCorrect = correctIds.length === userIds.length &&
+                           correctIds.every(id => userIds.includes(id)) &&
+                           userIds.every(id => correctIds.includes(id));
+
+          if (isCorrect) {
+            totalScore += q.points;
+          }
+
+          // Show feedback
+          q.options.forEach(opt => {
+            const label = document.querySelector(`label[data-question="${q.id}"][data-option="${opt.id}"]`);
+            if (opt.correct) {
+              label.classList.add('correct');
+            } else if (userIds.includes(opt.id)) {
+              label.classList.add('incorrect');
+            }
+          });
+
+          // Show explanation
+          const explanationEl = document.getElementById(`explanation_${q.id}`);
+          if (explanationEl) {
+            explanationEl.textContent = q.explanation;
+            explanationEl.style.display = 'block';
+          }
+        });
+
+        const percentage = Math.round((totalScore / quizData.total_points) * 100);
+        const passed = percentage >= quizData.passing_score;
+
+        // Record attempt
+        const result = window.DigiSchoolB2C.quiz.recordAttempt(courseSlug, moduleNum, totalScore, quizData.total_points);
+
+        // Mark module as passed if successful
+        if (passed) {
+          window.DigiSchoolB2C.progression.markModulePassed(courseSlug, moduleNum, percentage);
+          
+          // Track event
+          window.DigiSchoolB2C.trackEvent('b2c_quiz_pass', {
+            page: 'b2c-module',
+            course: courseSlug,
+            module: moduleNum,
+            score: percentage,
+            timestamp: Date.now()
+          });
+
+          // Show next module button if not last module
+          if (moduleNum < 8) {
+            const nextBtn = document.getElementById('nextModuleBtn');
+            nextBtn.href = `./b2c-module.html?course=${courseSlug}&module=${moduleNum + 1}`;
+            nextBtn.style.display = 'block';
+          }
+        } else {
+          // Track event
+          window.DigiSchoolB2C.trackEvent('b2c_quiz_fail', {
+            page: 'b2c-module',
+            course: courseSlug,
+            module: moduleNum,
+            score: percentage,
+            attemptsRemaining: result.attemptsUsed < 2 ? 2 - result.attemptsUsed : 0,
+            timestamp: Date.now()
+          });
+        }
+
+        // Display result
+        const resultHTML = `
+          <div class="quiz-result ${passed ? 'pass' : 'fail'}">
+            <h3>${passed ? '✅ Quiz réussi !' : '❌ Quiz non réussi'}</h3>
+            <p><strong>Score: ${totalScore} / ${quizData.total_points} (${percentage}%)</strong></p>
+            <p>${passed ? 
+              'Félicitations ! Vous pouvez passer au module suivant.' : 
+              `Seuil requis: ${quizData.passing_score}%. Tentatives restantes: ${2 - result.attemptsUsed}`
+            }</p>
+          </div>
+        `;
+        document.getElementById('quizResult').innerHTML = resultHTML;
+
+        // Disable submit button
+        document.getElementById('submitQuizBtn').disabled = true;
+      };
+
+      // TTS Functions
+      function loadTTSVoices() {
+        const voices = window.DigiSchoolB2C.tts.getVoices();
+        const select = document.getElementById('tts-voice');
+        voices.forEach(voice => {
+          const option = document.createElement('option');
+          option.value = voice.voiceURI;
+          option.textContent = `${voice.name} (${voice.lang})`;
+          select.appendChild(option);
+        });
+      }
+
+      window.playTTS = function() {
+        const success = window.DigiSchoolB2C.tts.play();
+        if (success) {
+          window.DigiSchoolB2C.trackEvent('b2c_tts_play', {
+            page: 'b2c-module',
+            course: courseSlug,
+            module: moduleNum,
+            timestamp: Date.now()
+          });
+        }
+      };
+
+      window.pauseTTS = function() {
+        window.DigiSchoolB2C.tts.pause();
+      };
+
+      window.stopTTS = function() {
+        window.DigiSchoolB2C.tts.stop();
+      };
+
+      window.setTTSSpeed = function(speed) {
+        window.DigiSchoolB2C.tts.setSpeed(parseFloat(speed));
+      };
+
+      window.setTTSVoice = function(voiceURI) {
+        window.DigiSchoolB2C.tts.setVoice(voiceURI);
+      };
+
+      // Load TTS voices when available
+      if ('speechSynthesis' in window) {
+        speechSynthesis.addEventListener('voiceschanged', loadTTSVoices);
+      }
+    })();
+  </script>
+
+  <!-- Lead Events -->
+  <script src="./lead-events.js"></script>
+</body>
+</html>

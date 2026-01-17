@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ma Formation — DigiSchool Africa</title>
+  <meta name="description" content="Accédez à vos modules de formation, suivez votre progression et débloquez de nouveaux contenus." />
+  
+  <link rel="canonical" href="https://digischool.africa/b2c-learn.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+      --orange:#fb923c;
+      --danger:#ef4444;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Header */
+    .course-header{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      margin-bottom: 40px;
+    }
+
+    .course-header h1{
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .course-header .subtitle{
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .progress-bar{
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+      height: 12px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    .progress-fill{
+      background: linear-gradient(90deg, var(--green) 0%, #16a34a 100%);
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+
+    .progress-text{
+      font-size: 0.9rem;
+      color: var(--muted2);
+      margin-top: 8px;
+    }
+
+    /* Reader Controls */
+    .reader-controls{
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+
+    .reader-controls h3{
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--blue);
+    }
+
+    .controls-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .control-group{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-group label{
+      font-size: 0.9rem;
+      color: var(--muted2);
+    }
+
+    .control-group select,
+    .control-group button{
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .control-group button{
+      background: var(--blue);
+      border: none;
+      font-weight: 600;
+    }
+
+    .control-group button:hover{
+      background: #2563eb;
+      transform: translateY(-2px);
+    }
+
+    .control-group button.active{
+      background: var(--green);
+    }
+
+    /* Modules List */
+    .modules-section h2{
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+
+    .modules-grid{
+      display: grid;
+      gap: 20px;
+    }
+
+    .module-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .module-card:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .module-card.locked{
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .module-card.locked:hover{
+      transform: none;
+    }
+
+    .module-number{
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--card2);
+      border: 2px solid var(--border);
+    }
+
+    .module-card.completed .module-number{
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    .module-card.unlocked .module-number{
+      background: var(--blue);
+      border-color: var(--blue);
+      color: white;
+    }
+
+    .module-card.locked .module-number{
+      background: rgba(0,0,0,0.2);
+      border-color: var(--border);
+    }
+
+    .module-info{
+      flex-grow: 1;
+    }
+
+    .module-info h3{
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .module-info p{
+      color: var(--muted2);
+      font-size: 0.95rem;
+    }
+
+    .module-status{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .status-chip{
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .status-chip.locked{
+      background: rgba(239,68,68,0.2);
+      color: var(--danger);
+    }
+
+    .status-chip.available{
+      background: rgba(59,130,246,0.2);
+      color: var(--blue);
+    }
+
+    .status-chip.completed{
+      background: rgba(34,197,94,0.2);
+      color: var(--green);
+    }
+
+    .module-score{
+      font-size: 0.9rem;
+      color: var(--muted2);
+    }
+
+    .module-actions{
+      flex-shrink: 0;
+    }
+
+    .btn-start{
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(135deg, var(--green) 0%, #16a34a 100%);
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .btn-start:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px var(--green-glow);
+    }
+
+    .btn-start.disabled{
+      background: var(--card2);
+      color: var(--muted2);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .btn-continue{
+      background: linear-gradient(135deg, var(--blue) 0%, #2563eb 100%);
+    }
+
+    .btn-continue:hover{
+      box-shadow: 0 8px 16px var(--blue-glow);
+    }
+
+    .lock-icon{
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px){
+      .course-header h1{ font-size: 2rem; }
+      .module-card{
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+      .module-actions{
+        width: 100%;
+      }
+      .btn-start{
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Course Header -->
+    <div class="course-header">
+      <h1 id="courseTitle">Chargement...</h1>
+      <p class="subtitle" id="courseSubtitle"></p>
+      
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <p class="progress-text" id="progressText">0 / 8 modules complétés</p>
+    </div>
+
+    <!-- Reader Controls -->
+    <div class="reader-controls">
+      <h3>⚙️ Préférences de lecture</h3>
+      <div class="controls-grid">
+        <div class="control-group">
+          <label for="fontSizeSelect">Taille du texte</label>
+          <select id="fontSizeSelect" onchange="updateFontSize(this.value)">
+            <option value="18">Petit (18px)</option>
+            <option value="20" selected>Moyen (20px)</option>
+            <option value="22">Grand (22px)</option>
+            <option value="24">Très grand (24px)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label>Mode dyslexie</label>
+          <button id="dyslexiaBtn" onclick="toggleDyslexia()">
+            Activer
+          </button>
+        </div>
+
+        <div class="control-group">
+          <label>Contraste élevé</label>
+          <button id="contrastBtn" onclick="toggleContrast()">
+            Activer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modules List -->
+    <div class="modules-section">
+      <h2>📚 Modules de formation</h2>
+      <div class="modules-grid" id="modulesGrid">
+        <!-- Modules will be generated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./courses-data.js"></script>
+  <script src="./b2c-learning-system.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      // Get course from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseSlug = urlParams.get('course');
+
+      if (!courseSlug) {
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Find course
+      const course = window.DigiSchoolCourses.find(c => c.id === courseSlug);
+      if (!course) {
+        alert('Formation introuvable');
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Check access
+      const hasAccess = window.DigiSchoolB2C.entitlements.hasCoursePack(courseSlug) ||
+                        window.DigiSchoolB2C.entitlements.getPurchasedModules(courseSlug).length > 0;
+
+      if (!hasAccess) {
+        alert('Vous n\'avez pas accès à cette formation');
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Display course info
+      document.getElementById('courseTitle').textContent = course.title;
+      document.getElementById('courseSubtitle').textContent = course.subtitle || course.short_description;
+
+      // Get progression status
+      const modulesStatus = window.DigiSchoolB2C.progression.getModulesStatus(courseSlug);
+      const completedCount = Object.values(modulesStatus).filter(s => s.passed).length;
+      const progressPercent = Math.round((completedCount / 8) * 100);
+
+      document.getElementById('progressFill').style.width = progressPercent + '%';
+      document.getElementById('progressText').textContent = `${completedCount} / 8 modules complétés (${progressPercent}%)`;
+
+      // Generate modules list
+      renderModules();
+
+      function renderModules() {
+        const grid = document.getElementById('modulesGrid');
+        const moduleTemplates = [
+          { num: 1, suffix: 'Fondamentaux', desc: 'Introduction et concepts de base' },
+          { num: 2, suffix: 'Limites & Défis', desc: 'Obstacles courants et contexte africain' },
+          { num: 3, suffix: 'Outils & Méthodologies', desc: 'Frameworks et outils pratiques' },
+          { num: 4, suffix: 'Augmentation par l\'IA', desc: 'Outils IA et automatisation' },
+          { num: 5, suffix: 'Mise en Œuvre', desc: 'Plan d\'action et déploiement' },
+          { num: 6, suffix: 'Conduite du Changement', desc: 'Adoption et accompagnement' },
+          { num: 7, suffix: 'Certification & Validation', desc: 'Standards et certifications' },
+          { num: 8, suffix: 'Livrables & KPIs', desc: 'Mesure de performance et ROI' }
+        ];
+
+        grid.innerHTML = moduleTemplates.map(tpl => {
+          const status = modulesStatus[tpl.num];
+          const hasModuleAccess = window.DigiSchoolB2C.entitlements.hasModuleAccess(courseSlug, tpl.num);
+          
+          let cardClass = 'module-card';
+          let statusChipClass = 'status-chip';
+          let statusText = '';
+          let btnText = 'Commencer';
+          let btnClass = 'btn-start';
+          let disabled = false;
+
+          if (!hasModuleAccess) {
+            cardClass += ' locked';
+            statusChipClass += ' locked';
+            statusText = '🔒 Non acheté';
+            disabled = true;
+          } else if (status.passed) {
+            cardClass += ' completed';
+            statusChipClass += ' completed';
+            statusText = '✓ Complété';
+            btnText = 'Revoir';
+            btnClass += ' btn-continue';
+          } else if (status.unlocked) {
+            cardClass += ' unlocked';
+            statusChipClass += ' available';
+            statusText = '▶ Disponible';
+          } else {
+            cardClass += ' locked';
+            statusChipClass += ' locked';
+            statusText = '🔒 Verrouillé';
+            disabled = true;
+          }
+
+          const scoreDisplay = status.score > 0 ? `<span class="module-score">Score: ${status.score}%</span>` : '';
+
+          return `
+            <div class="${cardClass}">
+              <div class="module-number">${status.passed ? '✓' : !status.unlocked || !hasModuleAccess ? '🔒' : tpl.num}</div>
+              <div class="module-info">
+                <h3>Module ${tpl.num} : ${tpl.suffix}</h3>
+                <p>${tpl.desc}</p>
+                <div class="module-status">
+                  <span class="${statusChipClass}">${statusText}</span>
+                  ${scoreDisplay}
+                </div>
+              </div>
+              <div class="module-actions">
+                ${disabled ? 
+                  `<button class="btn-start disabled">${!hasModuleAccess ? 'Non acheté' : 'Verrouillé'}</button>` :
+                  `<a href="./b2c-module.html?course=${courseSlug}&module=${tpl.num}" class="${btnClass}">${btnText}</a>`
+                }
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Reader preferences functions
+      window.updateFontSize = function(size) {
+        window.DigiSchoolB2C.reader.setFontSize(parseInt(size, 10));
+      };
+
+      window.toggleDyslexia = function() {
+        window.DigiSchoolB2C.reader.toggleDyslexiaMode();
+        const btn = document.getElementById('dyslexiaBtn');
+        const prefs = window.DigiSchoolB2C.reader.getPreferences();
+        if (prefs.dyslexiaMode) {
+          btn.textContent = 'Désactiver';
+          btn.classList.add('active');
+        } else {
+          btn.textContent = 'Activer';
+          btn.classList.remove('active');
+        }
+      };
+
+      window.toggleContrast = function() {
+        window.DigiSchoolB2C.reader.toggleHighContrast();
+        const btn = document.getElementById('contrastBtn');
+        const prefs = window.DigiSchoolB2C.reader.getPreferences();
+        if (prefs.highContrast) {
+          btn.textContent = 'Désactiver';
+          btn.classList.add('active');
+        } else {
+          btn.textContent = 'Activer';
+          btn.classList.remove('active');
+        }
+      };
+
+      // Load saved preferences
+      const prefs = window.DigiSchoolB2C.reader.getPreferences();
+      document.getElementById('fontSizeSelect').value = prefs.fontSize;
+      if (prefs.dyslexiaMode) {
+        document.getElementById('dyslexiaBtn').textContent = 'Désactiver';
+        document.getElementById('dyslexiaBtn').classList.add('active');
+      }
+      if (prefs.highContrast) {
+        document.getElementById('contrastBtn').textContent = 'Désactiver';
+        document.getElementById('contrastBtn').classList.add('active');
+      }
+    })();
+  </script>
+
+  <!-- Lead Events -->
+  <script src="./lead-events.js"></script>
+</body>
+</html>

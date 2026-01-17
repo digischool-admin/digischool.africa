@@ -638,19 +638,70 @@
         document.getElementById('submit-btn').disabled = true;
       }
 
-      // Form submission tracking
-      document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      // Form submission tracking and redirect
+      const form = document.getElementById('checkout-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Track event
         if (window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
-          const trackType = purchaseType === 'pack' ? 'b2c_pack_buy_submit' : 'b2c_module_buy_submit';
+          const trackType = purchaseType === 'pack' ? 'b2c_pack_buy_click' : 'b2c_module_buy_click';
           window.DigiSchoolEvents.trackEvent(trackType, {
             course: courseSlug,
             price: finalPrice,
-            page: 'checkout'
+            page: 'checkout',
+            timestamp: Date.now()
+          });
+        }
+
+        // Disable submit button
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '⏳ Traitement...';
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // For MVP: Directly redirect to access page
+        // In production: Would send to Formspree, wait for success, then redirect
+        
+        // Simulate processing delay
+        setTimeout(function() {
+          // Build redirect URL with purchase info
+          let redirectUrl = './b2c-access.html?type=' + purchaseType + '&course=' + courseSlug;
+          
+          if (purchaseType === 'module') {
+            const selectedModule = document.getElementById('module-select').value;
+            if (selectedModule !== '') {
+              // For module purchase, pass the module number (1-based)
+              redirectUrl += '&modules=' + (parseInt(selectedModule) + 1);
+            }
+          }
+
+          // Redirect to access page
+          window.location.href = redirectUrl;
+        }, 1500);
+
+        // Optional: Submit to Formspree in background (fire-and-forget)
+        if (form.action && form.action !== '' && !form.action.includes('YOUR_FORMSPREE_ID')) {
+          fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(function(response) {
+            console.log('Form submitted to Formspree:', response.ok ? 'success' : 'failed');
+          }).catch(function(error) {
+            console.log('Formspree submission error:', error);
           });
         }
       });
     })();
   </script>
+
+  <!-- B2C Learning System -->
+  <script src="./b2c-learning-system.js"></script>
 
   <!-- Lead Events Tracking -->
   <script src="./lead-events.js"></script>

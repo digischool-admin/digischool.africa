@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accès activé — DigiSchool Africa</title>
+  <meta name="description" content="Votre accès à la formation est activé. Récupérez votre code d'accès et commencez votre apprentissage." />
+  
+  <link rel="canonical" href="https://digischool.africa/b2c-access.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+      --orange:#fb923c;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container{
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    /* Success icon */
+    .success-icon{
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 32px;
+      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .success-icon svg{
+      width: 80px;
+      height: 80px;
+      fill: var(--green);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    h1{
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle{
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    /* Access code section */
+    .access-code-section{
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 32px;
+      margin-bottom: 32px;
+    }
+
+    .access-code-section h2{
+      font-size: 1.5rem;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .access-code-section p{
+      color: var(--muted2);
+      margin-bottom: 24px;
+    }
+
+    .access-code-display{
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      color: var(--green);
+      word-break: break-all;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .copy-button{
+      background: var(--blue);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .copy-button:hover{
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--blue-glow);
+    }
+
+    .copy-button:active{
+      transform: translateY(0);
+    }
+
+    .copy-button.copied{
+      background: var(--green);
+    }
+
+    /* Course access */
+    .course-access{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+
+    .course-access h3{
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .course-list{
+      list-style: none;
+    }
+
+    .course-list li{
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .course-list li:last-child{
+      border-bottom: none;
+    }
+
+    .course-list li::before{
+      content: '✓';
+      color: var(--green);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* CTA Button */
+    .cta-button{
+      display: inline-block;
+      background: linear-gradient(135deg, var(--green) 0%, #16a34a 100%);
+      color: white;
+      text-decoration: none;
+      padding: 18px 48px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px var(--green-glow);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px var(--green-glow);
+    }
+
+    .cta-button:active{
+      transform: translateY(-1px);
+    }
+
+    /* Important notes */
+    .important-notes{
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 32px;
+      text-align: left;
+    }
+
+    .important-notes h3{
+      font-size: 1.2rem;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .important-notes ul{
+      margin-left: 24px;
+      color: var(--muted2);
+    }
+
+    .important-notes li{
+      margin-bottom: 8px;
+    }
+
+    /* Support */
+    .support{
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 0.95rem;
+    }
+
+    .support a{
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .support a:hover{
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px){
+      h1{ font-size: 2rem; }
+      .subtitle{ font-size: 1rem; }
+      .access-code-section{ padding: 24px 20px; }
+      .cta-button{ padding: 14px 32px; font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Success Icon -->
+    <div class="success-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+      </svg>
+    </div>
+
+    <h1>✨ Accès activé avec succès !</h1>
+    <p class="subtitle">Votre formation est maintenant accessible. Conservez précieusement votre code d'accès.</p>
+
+    <!-- Access Code Section -->
+    <div class="access-code-section">
+      <h2>🔑 Votre Code d'Accès</h2>
+      <p>Ce code vous permet de restaurer votre accès sur n'importe quel appareil.</p>
+      
+      <div class="access-code-display" id="accessCodeDisplay">
+        <span id="accessCodeText">Génération en cours...</span>
+      </div>
+
+      <button class="copy-button" id="copyButton" onclick="copyAccessCode()">
+        📋 Copier le code
+      </button>
+    </div>
+
+    <!-- Course Access -->
+    <div class="course-access">
+      <h3>📚 Votre formation</h3>
+      <ul class="course-list" id="courseList">
+        <li>Chargement...</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <a href="#" class="cta-button" id="startLearningBtn">
+      🚀 Commencer ma formation
+    </a>
+
+    <!-- Important Notes -->
+    <div class="important-notes">
+      <h3>⚠️ Important</h3>
+      <ul>
+        <li><strong>Sauvegardez votre code d'accès</strong> dans un endroit sûr (email, notes sécurisées)</li>
+        <li>Le code est valable indéfiniment et utilisable sur tous vos appareils</li>
+        <li>En cas de perte, contactez le support : <a href="mailto:support@digischool.africa">support@digischool.africa</a></li>
+        <li>Formation 100% en ligne - aucun téléchargement nécessaire</li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="support">
+      <p>
+        <strong>Besoin d'aide ?</strong><br>
+        WhatsApp : <a href="https://wa.me/2250505111102">+225 05 05 11 11 02</a> |
+        Email : <a href="mailto:support@digischool.africa">support@digischool.africa</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./courses-data.js"></script>
+  <script src="./b2c-learning-system.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      // Parse URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const purchaseType = urlParams.get('type'); // 'pack' or 'module'
+      const courseSlug = urlParams.get('course');
+      const moduleNumbers = urlParams.get('modules'); // comma-separated for module purchases
+
+      // Grant access
+      if (purchaseType && courseSlug) {
+        if (purchaseType === 'pack') {
+          // Grant full course pack
+          window.DigiSchoolB2C.entitlements.grantCoursePack(courseSlug);
+          
+          // Track event
+          window.DigiSchoolB2C.trackEvent('b2c_access_code_generated', {
+            page: 'b2c-access',
+            course: courseSlug,
+            type: 'pack',
+            timestamp: Date.now()
+          });
+        } else if (purchaseType === 'module' && moduleNumbers) {
+          // Grant specific modules
+          const modules = moduleNumbers.split(',').map(m => parseInt(m, 10)).filter(m => !isNaN(m));
+          modules.forEach(moduleNum => {
+            window.DigiSchoolB2C.entitlements.grantModule(courseSlug, moduleNum);
+          });
+
+          // Track event
+          window.DigiSchoolB2C.trackEvent('b2c_access_code_generated', {
+            page: 'b2c-access',
+            course: courseSlug,
+            type: 'module',
+            modules: modules,
+            timestamp: Date.now()
+          });
+        }
+      }
+
+      // Generate and display access code
+      const accessCode = window.DigiSchoolB2C.entitlements.generateAccessCode();
+      document.getElementById('accessCodeText').textContent = accessCode;
+
+      // Display purchased courses
+      displayPurchasedCourses();
+
+      // Set start learning link
+      if (courseSlug) {
+        document.getElementById('startLearningBtn').href = `./b2c-learn.html?course=${courseSlug}`;
+      } else {
+        document.getElementById('startLearningBtn').href = './b2c.html';
+      }
+
+      function displayPurchasedCourses() {
+        const listEl = document.getElementById('courseList');
+        const entitlements = window.DigiSchoolB2C.entitlements.entitlements;
+        
+        const items = [];
+
+        // Pack purchases
+        Object.keys(entitlements.coursePack).forEach(slug => {
+          if (entitlements.coursePack[slug] === true) {
+            const course = window.DigiSchoolCourses.find(c => c.id === slug);
+            if (course) {
+              items.push(`${course.title} (Pack complet - 8 modules)`);
+            }
+          }
+        });
+
+        // Module purchases
+        Object.keys(entitlements.modules).forEach(slug => {
+          const modules = entitlements.modules[slug];
+          if (modules && modules.length > 0 && !entitlements.coursePack[slug]) {
+            const course = window.DigiSchoolCourses.find(c => c.id === slug);
+            if (course) {
+              items.push(`${course.title} (${modules.length} module${modules.length > 1 ? 's' : ''})`);
+            }
+          }
+        });
+
+        if (items.length === 0) {
+          listEl.innerHTML = '<li>Aucune formation active</li>';
+        } else {
+          listEl.innerHTML = items.map(item => `<li>${item}</li>`).join('');
+        }
+      }
+
+      // Copy access code function
+      window.copyAccessCode = function() {
+        const codeText = document.getElementById('accessCodeText').textContent;
+        const button = document.getElementById('copyButton');
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(codeText).then(function() {
+            button.textContent = '✓ Copié !';
+            button.classList.add('copied');
+            
+            setTimeout(function() {
+              button.textContent = '📋 Copier le code';
+              button.classList.remove('copied');
+            }, 2000);
+          }).catch(function(err) {
+            console.error('Copy failed:', err);
+            fallbackCopy(codeText);
+          });
+        } else {
+          fallbackCopy(codeText);
+        }
+      };
+
+      function fallbackCopy(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        
+        try {
+          document.execCommand('copy');
+          const button = document.getElementById('copyButton');
+          button.textContent = '✓ Copié !';
+          button.classList.add('copied');
+          
+          setTimeout(function() {
+            button.textContent = '📋 Copier le code';
+            button.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Fallback copy failed:', err);
+          alert('Code: ' + text);
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      }
+    })();
+  </script>
+
+  <!-- Lead Events -->
+  <script src="./lead-events.js"></script>
+</body>
+</html>

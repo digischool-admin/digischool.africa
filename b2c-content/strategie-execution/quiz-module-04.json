@@ -1,0 +1,447 @@
+{
+  "module_number": 4,
+  "course_slug": "strategie-execution",
+  "course_title": "Stratégie & Exécution",
+  "total_questions": 15,
+  "total_points": 18,
+  "passing_score": 70,
+  "time_limit_minutes": 30,
+  "max_attempts_per_day": 2,
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Question 1 : Concernant Stratégie & Exécution, quelle est la meilleure pratique ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q2",
+      "question": "Question 2 : Concernant Stratégie & Exécution, quel est le principal défi ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q3",
+      "question": "Question 3 : Concernant Stratégie & Exécution, quels sont les principaux outils ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse correcte",
+          "correct": true
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q4",
+      "question": "Question 4 : Concernant Stratégie & Exécution, quelle est la meilleure pratique ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q5",
+      "question": "Question 5 : Concernant Stratégie & Exécution, quel est le principal défi ?",
+      "type": "multiple",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 2
+    },
+    {
+      "id": "q6",
+      "question": "Question 6 : Concernant Stratégie & Exécution, quels sont les principaux outils ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q7",
+      "question": "Question 7 : Concernant Stratégie & Exécution, quelle est la meilleure pratique ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse correcte",
+          "correct": true
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q8",
+      "question": "Question 8 : Concernant Stratégie & Exécution, quel est le principal défi ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q9",
+      "question": "Question 9 : Concernant Stratégie & Exécution, quels sont les principaux outils ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q10",
+      "question": "Question 10 : Concernant Stratégie & Exécution, quelle est la meilleure pratique ?",
+      "type": "multiple",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 2
+    },
+    {
+      "id": "q11",
+      "question": "Question 11 : Concernant Stratégie & Exécution, quel est le principal défi ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse correcte",
+          "correct": true
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q12",
+      "question": "Question 12 : Concernant Stratégie & Exécution, quels sont les principaux outils ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q13",
+      "question": "Question 13 : Concernant Stratégie & Exécution, quelle est la meilleure pratique ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q14",
+      "question": "Question 14 : Concernant Stratégie & Exécution, quel est le principal défi ?",
+      "type": "single",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse correcte",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse incorrecte",
+          "correct": false
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 1
+    },
+    {
+      "id": "q15",
+      "question": "Question 15 : Concernant Stratégie & Exécution, quels sont les principaux outils ?",
+      "type": "multiple",
+      "options": [
+        {
+          "id": "a",
+          "text": "Option A - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "b",
+          "text": "Option B - Réponse incorrecte",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "text": "Option C - Réponse incorrecte",
+          "correct": false
+        },
+        {
+          "id": "d",
+          "text": "Option D - Réponse correcte",
+          "correct": true
+        }
+      ],
+      "explanation": "Explication : La bonne réponse met en évidence l'importance de [concept clé]. En contexte africain, cela se traduit par [application pratique]. Les autres options sont incorrectes car [raison].",
+      "points": 2
+    }
+  ]
+}
