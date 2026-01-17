@@ -153,6 +153,39 @@
       }
     }
 
+    // Check if user has access to a course or module
+    hasAccess(courseSlug, moduleIndex = null) {
+      if (!this.entitlements || !this.entitlements.coursePack) {
+        return false;
+      }
+
+      // Check course pack access
+      const hasCourseAccess = this.entitlements.coursePack[courseSlug] === true;
+      
+      if (moduleIndex === null) {
+        // Just checking course access
+        return hasCourseAccess;
+      }
+
+      // Check specific module access
+      if (hasCourseAccess) {
+        // Has full course access
+        return true;
+      }
+
+      // Check if specific module is purchased
+      if (this.entitlements.modules && this.entitlements.modules[courseSlug]) {
+        return this.entitlements.modules[courseSlug].includes(moduleIndex);
+      }
+
+      return false;
+    }
+
+    // Alias for backwards compatibility
+    checkEntitlement(courseSlug, moduleIndex = null) {
+      return this.hasAccess(courseSlug, moduleIndex);
+    }
+
     // Base64 URL-safe encoding
     base64urlEncode(str) {
       const b64 = btoa(unescape(encodeURIComponent(str)));
@@ -638,13 +671,13 @@
       if (window.DigiSchoolEvents && typeof window.DigiSchoolEvents.track === 'function') {
         window.DigiSchoolEvents.track(eventName, data);
       } else {
-        console.log('[Analytics]', eventName, data);
+        // Analytics event tracked silently
       }
     },
 
     // Initialize
     init: function() {
-      console.log('DigiSchool B2C Learning System initialized');
+      // DigiSchool B2C Learning System initialized
       
       // Load voices when available
       if ('speechSynthesis' in window) {
@@ -652,7 +685,7 @@
           // Voices already loaded
         } else {
           speechSynthesis.addEventListener('voiceschanged', function() {
-            console.log('TTS voices loaded');
+            // TTS voices loaded
           });
         }
       }
