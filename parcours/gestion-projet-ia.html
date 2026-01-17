@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestion de Projet (PMP-aligned) — IA | DigiSchool Africa</title>
+  <meta name="description" content="Parcours Gestion de Projet aligné PMP avec IA embarquée. 10 semaines pour cadrer, planifier et piloter des projets complexes en Afrique." />
+  
+  <meta property="og:title" content="Gestion de Projet (PMP-aligned) — IA | DigiSchool Africa" />
+  <meta property="og:description" content="Parcours professionnel de 10 semaines pour devenir Chef de Projet, PMO ou Consultant avec l'IA." />
+  <meta property="og:url" content="https://digischool.africa/parcours/gestion-projet-ia.html" />
+  <link rel="canonical" href="https://digischool.africa/parcours/gestion-projet-ia.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .hero{
+      position: relative;
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 80px 30px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 30px) scale(0.9); }
+      75% { transform: translate(30px, 30px) scale(1.05); }
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge{
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      background: rgba(34,197,94,0.15);
+      color: var(--green);
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    .hero h1{
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero p{
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary{
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 0 24px var(--green-glow);
+    }
+
+    .btn-primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--green-glow);
+    }
+
+    .btn-secondary{
+      background: var(--card2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .section{
+      margin-bottom: 60px;
+    }
+
+    .section-title{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .section-subtitle{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .card h3{
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .card p{
+      font-size: 1rem;
+      color: var(--muted2);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .card ul{
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .card ul li{
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card ul li::before{
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .two-cols{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .cta-box{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .cta-box h2{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .cta-box p{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer{
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content{
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.85rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1{ font-size: 2.2rem; }
+      .hero p{ font-size: 1.05rem; }
+      .section-title{ font-size: 1.6rem; }
+      .two-cols{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">⭐ PARCOURS PRIORITAIRE</div>
+        <h1>Gestion de Projet (PMP-aligned) — IA Embarquée</h1>
+        <p>
+          Cadre, planifie et pilote des projets complexes en automatisant le reporting, le suivi budgétaire et la gestion des risques avec l'IA.
+        </p>
+        <div class="hero-meta">
+          <span>⏱ Durée : 10 semaines</span>
+          <span>📊 6-8 heures/semaine</span>
+          <span>🎯 Chef de projet, PMO, Consultant</span>
+        </div>
+        <div class="hero-actions">
+          <a href="../proforma.html?from=gestion-projet-ia" class="btn btn-primary">Générer une proforma</a>
+          <a href="../parcours.html" class="btn btn-secondary">Voir tous les parcours</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À QUI S'ADRESSE CE PARCOURS -->
+    <section class="section">
+      <h2 class="section-title">À qui s'adresse ce parcours</h2>
+      <div class="two-cols">
+        <div class="card">
+          <h3>Chefs de projet débutants</h3>
+          <p>
+            Tu pilotes des projets sans méthode formalisée. Tes projets accusent des retards réguliers et ton reporting reste flou.
+            Ce parcours te donne les outils pour structurer, suivre et livrer dans les délais.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Responsables fonctionnels</h3>
+          <p>
+            Tu gères des initiatives transverses sans statut officiel de chef de projet. Tu dois convaincre sans autorité hiérarchique.
+            Ce parcours t'enseigne le cadrage, la planification et la communication projet.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Consultants et analysts</h3>
+          <p>
+            Tu accompagnes des clients sur des missions projet. Tu veux proposer des livrables structurés et adopter les standards internationaux.
+            Ce parcours te forme aux méthodes PMP et aux automatisations IA.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Cadres pilotant plusieurs projets</h3>
+          <p>
+            Tu supervises plusieurs initiatives simultanées. Tu perds du temps en reporting manuel et tu manques de visibilité en temps réel.
+            Ce parcours automatise ton pilotage et optimise tes tableaux de bord.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIFS PROFESSIONNELS -->
+    <section class="section">
+      <h2 class="section-title">Ce que tu sauras faire à la fin</h2>
+      <div class="card">
+        <ul>
+          <li>Cadrer un projet avec des objectifs SMART et un business case validé</li>
+          <li>Construire un planning Gantt réaliste et suivre l'avancement en temps réel</li>
+          <li>Estimer et piloter un budget projet avec des outils automatisés</li>
+          <li>Identifier, évaluer et traiter les risques avec des plans de contingence</li>
+          <li>Gérer les parties prenantes et communiquer efficacement sur l'état du projet</li>
+          <li>Produire un reporting exécutif structuré pour la direction</li>
+          <li>Clôturer un projet avec capitalisation et leçons apprises</li>
+          <li>Appliquer les standards PMBOK et préparer une certification PMP si souhaité</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROGRAMME DÉTAILLÉ -->
+    <section class="section">
+      <h2 class="section-title">Programme détaillé (8 modules)</h2>
+      <p class="section-subtitle">
+        Chaque module combine 40% d'apports structurés et 60% de pratique sur des projets fil rouge inspirés de cas africains.
+      </p>
+
+      <!-- Module 1 -->
+      <div class="card">
+        <h3>Module 1 : Fondamentaux de la gestion de projet</h3>
+        <p>
+          Comprendre les phases d'un projet, les rôles et responsabilités, les standards internationaux (PMBOK, PRINCE2).
+          Introduction aux concepts de scope, time, cost, quality, risk et stakeholder management.
+        </p>
+        <ul>
+          <li>Les 5 groupes de processus PMBOK : initiation, planification, exécution, surveillance, clôture</li>
+          <li>Les 10 domaines de connaissance projet</li>
+          <li>Différence entre projets, programmes et portefeuilles</li>
+          <li>Rôle du chef de projet et du PMO</li>
+        </ul>
+        <p><strong>Livrable :</strong> Cartographie des processus projet dans ton organisation.</p>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="card">
+        <h3>Module 2 : Limites de la gestion de projet traditionnelle</h3>
+        <p>
+          Identifier les freins et inefficacités des méthodes manuelles : reporting tardif, budgets non suivis, risques non détectés,
+          plannings obsolètes, communication fragmentée.
+        </p>
+        <ul>
+          <li>Reporting manuel et retards d'information</li>
+          <li>Gestion des changements non formalisée</li>
+          <li>Absence de visibilité temps réel sur l'avancement</li>
+          <li>Difficulté à prioriser les actions et arbitrer les ressources</li>
+        </ul>
+        <p><strong>Livrable :</strong> Diagnostic des inefficacités projet dans ton contexte.</p>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="card">
+        <h3>Module 3 : Innovations et outils modernes de gestion de projet</h3>
+        <p>
+          Découvrir les outils collaboratifs et les plateformes de pilotage projet modernes : Asana, Monday, MS Project, Smartsheet, Notion.
+          Comprendre les méthodologies agiles et hybrides.
+        </p>
+        <ul>
+          <li>Outils de planning et de gestion des tâches</li>
+          <li>Tableaux de bord dynamiques et indicateurs clés</li>
+          <li>Collaboration temps réel et gestion documentaire</li>
+          <li>Agile, Scrum, Kanban et approches hybrides</li>
+        </ul>
+        <p><strong>Livrable :</strong> Sélection d'outils adaptés à ton organisation.</p>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="card">
+        <h3>Module 4 : IA embarquée & augmentation du métier de chef de projet</h3>
+        <p>
+          Utiliser l'IA pour automatiser le reporting, générer des plannings optimisés, détecter les risques en amont,
+          et produire des synthèses exécutives en quelques secondes.
+        </p>
+        <ul>
+          <li>IA générative pour rédiger chartes projet, business cases et comptes-rendus</li>
+          <li>Algorithmes de planification et optimisation des ressources</li>
+          <li>Détection automatique des risques par analyse de données historiques</li>
+          <li>Génération de dashboards et reporting exécutif automatisés</li>
+        </ul>
+        <p><strong>Livrable :</strong> Roadmap d'automatisation de ton pilotage projet avec l'IA.</p>
+      </div>
+
+      <!-- Module 5 -->
+      <div class="card">
+        <h3>Module 5 : Mise en œuvre opérationnelle (outils + prompts)</h3>
+        <p>
+          Pratiquer avec des outils IA concrets : ChatGPT, Notion AI, Microsoft Copilot, Asana Intelligence.
+          Créer des prompts métier réutilisables pour cadrer, planifier, suivre et clôturer.
+        </p>
+        <ul>
+          <li>Prompts pour générer une charte projet en 5 minutes</li>
+          <li>Automatiser la création de WBS et Gantt avec l'IA</li>
+          <li>Générer un budget prévisionnel à partir de données historiques</li>
+          <li>Produire un reporting exécutif hebdomadaire en 2 clics</li>
+        </ul>
+        <p><strong>Livrable :</strong> Bibliothèque de prompts métier pour la gestion de projet.</p>
+      </div>
+
+      <!-- Module 6 -->
+      <div class="card">
+        <h3>Module 6 : Conduite du changement & adoption</h3>
+        <p>
+          Former les équipes à l'utilisation des nouveaux outils, gérer les résistances, mesurer l'adoption et ajuster les processus.
+          Créer un plan de communication et d'accompagnement.
+        </p>
+        <ul>
+          <li>Diagnostic de maturité projet de l'organisation</li>
+          <li>Plan de communication et formation des parties prenantes</li>
+          <li>Gestion des résistances et leviers d'adhésion</li>
+          <li>Mesure de l'adoption et ajustements itératifs</li>
+        </ul>
+        <p><strong>Livrable :</strong> Plan de conduite du changement pour ton organisation.</p>
+      </div>
+
+      <!-- Module 7 -->
+      <div class="card">
+        <h3>Module 7 : Certifications & reconnaissance internationale</h3>
+        <p>
+          Préparer une certification PMP, PRINCE2 ou CAPM. Comprendre les exigences, structurer son dossier d'expérience,
+          et connaître les ressources pour réussir l'examen.
+        </p>
+        <ul>
+          <li>Présentation des certifications PMI (PMP, CAPM) et PRINCE2</li>
+          <li>Critères d'éligibilité et processus d'inscription</li>
+          <li>Stratégie de révision et ressources recommandées</li>
+          <li>Reconnaissance des certifications en Afrique et à l'international</li>
+        </ul>
+        <p><strong>Livrable :</strong> Plan de préparation certification aligné sur ton profil.</p>
+      </div>
+
+      <!-- Module 8 -->
+      <div class="card">
+        <h3>Module 8 : Livrables & impact mesurable (KPI avant / après)</h3>
+        <p>
+          Construire un portfolio professionnel avec les livrables réalisés pendant la formation.
+          Mesurer les gains concrets : réduction des retards, meilleure visibilité, gains de temps, satisfaction des parties prenantes.
+        </p>
+        <ul>
+          <li>Charte projet et business case</li>
+          <li>WBS détaillée et planning Gantt</li>
+          <li>Budget prévisionnel et tableau de suivi</li>
+          <li>Matrice des risques et plans de contingence</li>
+          <li>Tableau de bord et reporting exécutif</li>
+          <li>Documents de clôture et leçons apprises</li>
+        </ul>
+        <p><strong>KPI avant/après :</strong> Réduction des retards de 30%, gain de 5h/semaine sur le reporting, satisfaction parties prenantes +40%.</p>
+      </div>
+    </section>
+
+    <!-- MÉTHODE PÉDAGOGIQUE -->
+    <section class="section">
+      <h2 class="section-title">Méthode pédagogique DigiSchool</h2>
+      <div class="card">
+        <h3>Apprentissage par projet fil rouge</h3>
+        <p>
+          Travaille sur un projet réel ou simulé tout au long des 10 semaines. Exemples : déploiement d'une application mobile de gestion de stock 
+          pour une chaîne de distribution, ouverture de 15 points de vente d'une banque régionale, déploiement ERP dans une PME industrielle.
+        </p>
+      </div>
+      <div class="two-cols">
+        <div class="card">
+          <h3>40% structuration / 60% pratique</h3>
+          <p>
+            Chaque module débute par une session live de 90 minutes pour structurer les concepts. 
+            Le reste du temps est consacré à l'application sur ton projet fil rouge avec feedback du mentor.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Mentorat hebdomadaire</h3>
+          <p>
+            Session live de 90 minutes par semaine avec un mentor en poste (chef de projet senior, PMO, consultant).
+            Forum privé et accès aux sessions enregistrées pendant 6 mois après la formation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVRABLES FINAUX -->
+    <section class="section">
+      <h2 class="section-title">Livrables professionnels finaux</h2>
+      <div class="card">
+        <ul>
+          <li>Charte projet et business case validés</li>
+          <li>WBS (Work Breakdown Structure) détaillée</li>
+          <li>Planning Gantt avec jalons et dépendances</li>
+          <li>Budget prévisionnel et tableau de suivi des coûts</li>
+          <li>Matrice des risques et plans de contingence</li>
+          <li>Plan de communication et registre des parties prenantes</li>
+          <li>Tableau de bord de pilotage temps réel</li>
+          <li>Reporting exécutif mensuel automatisé</li>
+          <li>Documents de clôture et leçons apprises</li>
+          <li>Bibliothèque de prompts IA réutilisables</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FORMATS -->
+    <section class="section">
+      <h2 class="section-title">Formats disponibles</h2>
+      <div class="two-cols">
+        <div class="card">
+          <h3>Intra-entreprise</h3>
+          <p>Formation sur mesure pour vos équipes dans vos locaux ou en distanciel. Adaptation des cas métier à votre contexte.</p>
+        </div>
+        <div class="card">
+          <h3>Inter-entreprises</h3>
+          <p>Cohorte de 15-20 professionnels de différentes organisations. Sessions live en ligne, forum privé et networking.</p>
+        </div>
+        <div class="card">
+          <h3>Bootcamp intensif</h3>
+          <p>Format accéléré de 5 jours en présentiel ou 10 demi-journées en distanciel. Projet intensif avec livrables finaux.</p>
+        </div>
+        <div class="card">
+          <h3>Blended (hybride)</h3>
+          <p>Combinaison de modules en ligne asynchrones et de sessions live. Flexibilité maximale tout en gardant l'accompagnement mentor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATION -->
+    <section class="section">
+      <h2 class="section-title">Certification & reconnaissance</h2>
+      <div class="card">
+        <h3>Attestation DigiSchool Africa</h3>
+        <p>
+          À l'issue du parcours, tu reçois une attestation détaillant les compétences maîtrisées, les projets réalisés, 
+          l'évaluation du mentor et ta signature électronique. Cette attestation est reconnue par nos partenaires entreprises en Afrique.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Alignement PMP (PMI)</h3>
+        <p>
+          Ce parcours couvre les 5 groupes de processus et les 10 domaines de connaissance du PMBOK. 
+          Il te prépare à l'examen PMP si tu souhaites obtenir la certification officielle PMI (35 heures de formation requises).
+        </p>
+      </div>
+    </section>
+
+    <!-- DÉBOUCHÉS -->
+    <section class="section">
+      <h2 class="section-title">Débouchés professionnels</h2>
+      <div class="card">
+        <ul>
+          <li>Chef de projet (IT, infrastructure, transformation digitale)</li>
+          <li>Project Management Officer (PMO)</li>
+          <li>Responsable de programme multi-projets</li>
+          <li>Consultant en gestion de projet</li>
+          <li>Responsable transformation et conduite du changement</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <div class="cta-box">
+      <h2>Générer une proforma pour ce parcours</h2>
+      <p>
+        Décris ton contexte et tes objectifs. Nous te répondons sous 48 heures avec une offre technique et financière personnalisée.
+      </p>
+      <div class="hero-actions">
+        <a href="../proforma.html?from=gestion-projet-ia-cta" class="btn btn-primary">Générer une proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20le%20parcours%20Gestion%20de%20Projet%20IA.%0AMerci%20!" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp Direct</a>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.95rem; color: var(--muted2);">
+        📧 support@digischool.africa • 📞 +225 05 05 11 11 02
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../parcours.html">Parcours</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lead Events Tracking -->
+  <script src="../lead-events.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data, IA & Décision Stratégique pour Dirigeants | DigiSchool Africa</title>
+  <meta name="description" content="Parcours Data, IA & Décision Stratégique pour Dirigeants. 6 semaines pour maîtriser les compétences CEO, Directeur Général, C-Level avec l'IA." />
+  
+  <meta property="og:title" content="Data, IA & Décision Stratégique pour Dirigeants | DigiSchool Africa" />
+  <meta property="og:description" content="Utilise la data et l'IA pour piloter la stratégie, identifier les opportunités et anticiper les risques." />
+  <meta property="og:url" content="https://digischool.africa/parcours/dirigeants-decision-ia.html" />
+  <link rel="canonical" href="https://digischool.africa/parcours/dirigeants-decision-ia.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .hero{
+      position: relative;
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 80px 30px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 30px) scale(0.9); }
+      75% { transform: translate(30px, 30px) scale(1.05); }
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge{
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      background: rgba(34,197,94,0.15);
+      color: var(--green);
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    .hero h1{
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero p{
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary{
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 0 24px var(--green-glow);
+    }
+
+    .btn-primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--green-glow);
+    }
+
+    .btn-secondary{
+      background: var(--card2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .section{
+      margin-bottom: 60px;
+    }
+
+    .section-title{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .section-subtitle{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .card h3{
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .card p{
+      font-size: 1rem;
+      color: var(--muted2);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .card ul{
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .card ul li{
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card ul li::before{
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .two-cols{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .cta-box{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .cta-box h2{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .cta-box p{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer{
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content{
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.85rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1{ font-size: 2.2rem; }
+      .hero p{ font-size: 1.05rem; }
+      .section-title{ font-size: 1.6rem; }
+      .two-cols{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">DIRIGEANTS</div>
+        <h1>Data, IA & Décision Stratégique pour Dirigeants</h1>
+        <p>Utilise la data et l'IA pour piloter la stratégie, identifier les opportunités et anticiper les risques.</p>
+        <div class="hero-meta">
+          <span>⏱ Durée : 6 semaines</span>
+          <span>📊 6-8 heures/semaine</span>
+          <span>🎯 CEO, Directeur Général, C-Level</span>
+        </div>
+        <div class="hero-actions">
+          <a href="../proforma.html?from=dirigeants-decision-ia" class="btn btn-primary">Générer une proforma</a>
+          <a href="../parcours.html" class="btn btn-secondary">Voir tous les parcours</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À QUI S'ADRESSE CE PARCOURS -->
+    <section class="section">
+      <h2 class="section-title">À qui s'adresse ce parcours</h2>
+      <div class="two-cols">
+        <div class="card">
+          <h3>CEOs et Directeurs Généraux</h3>
+          <p>Tu prends des décisions stratégiques sans data fiable. Tu veux piloter avec des KPI temps réel et des prévisions IA. Ce parcours te rend data-driven.</p>
+        </div>
+        <div class="card">
+          <h3>Directeurs financiers</h3>
+          <p>Tu pilotes la performance financière. Tu veux anticiper les tendances et identifier les leviers de croissance. Ce parcours te donne les outils prédictifs.</p>
+        </div>
+        <div class="card">
+          <h3>Directeurs commerciaux</h3>
+          <p>Tu pilotes les ventes. Tu veux une visibilité sur le pipeline et optimiser les ressources commerciales. Ce parcours digitalise ton pilotage.</p>
+        </div>
+        <div class="card">
+          <h3>Entrepreneurs et fondateurs</h3>
+          <p>Tu pilotes ta startup. Tu veux prendre des décisions rapides basées sur la data. Ce parcours te donne les outils de pilotage stratégique.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIFS PROFESSIONNELS -->
+    <section class="section">
+      <h2 class="section-title">Ce que tu sauras faire à la fin</h2>
+      <div class="card">
+        <ul>
+          <li>Construire des dashboards stratégiques temps réel</li>
+          <li>Utiliser l'IA pour identifier les opportunités de croissance</li>
+          <li>Anticiper les risques et construire des scénarios stratégiques</li>
+          <li>Piloter la performance avec des KPI pertinents</li>
+          <li>Prendre des décisions data-driven et mesurer l'impact</li>
+          <li>Communiquer la stratégie avec des visuels percutants</li>
+          <li>Intégrer la data dans la culture d'entreprise</li>
+          <li>Former les équipes au pilotage data-driven</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROGRAMME DÉTAILLÉ -->
+    <section class="section">
+      <h2 class="section-title">Programme détaillé (8 modules)</h2>
+      <p class="section-subtitle">
+        Chaque module combine 40% d'apports structurés et 60% de pratique sur des projets fil rouge inspirés de cas africains.
+      </p>
+      <div class="card">
+        <h3>Module 1 : Fondamentaux du pilotage stratégique</h3>
+        <p>KPI stratégiques, balanced scorecard, analyse SWOT, scénarios stratégiques, OKR.</p>
+      </div>
+      <div class="card">
+        <h3>Module 2 : Limites du pilotage traditionnel</h3>
+        <p>Décisions par intuition, données fragmentées, reporting tardif, manque de visibilité temps réel.</p>
+      </div>
+      <div class="card">
+        <h3>Module 3 : Outils modernes de pilotage</h3>
+        <p>Power BI, Tableau, dashboards stratégiques, outils de prévision, plateformes BI.</p>
+      </div>
+      <div class="card">
+        <h3>Module 4 : IA embarquée dans la décision</h3>
+        <p>Prévisions stratégiques, détection d'opportunités, analyse de scénarios, recommandations automatisées.</p>
+      </div>
+      <div class="card">
+        <h3>Module 5 : Mise en œuvre opérationnelle</h3>
+        <p>Prompts IA pour analyser la performance, construire des scénarios, identifier des opportunités, générer des rapports exécutifs.</p>
+      </div>
+      <div class="card">
+        <h3>Module 6 : Conduite du changement data-driven</h3>
+        <p>Instaurer une culture data, former les équipes, mesurer l'adoption des outils.</p>
+      </div>
+      <div class="card">
+        <h3>Module 7 : Certifications stratégiques</h3>
+        <p>MBA Executive, Strategic Management certifications, Data Leadership programs.</p>
+      </div>
+      <div class="card">
+        <h3>Module 8 : Livrables & KPI dirigeants</h3>
+        <p>Dashboards stratégiques, scénarios, rapports. KPI : vitesse de décision +50%, impact stratégies mesurable, ROI data +70%.</p>
+      </div>
+    </section>
+
+    <!-- LIVRABLES FINAUX -->
+    <section class="section">
+      <h2 class="section-title">Livrables professionnels finaux</h2>
+      <div class="card">
+        <ul>
+          <li>Dashboard stratégique temps réel pour le comité de direction</li>
+          <li>Analyse des opportunités de croissance avec l'IA</li>
+          <li>Scénarios stratégiques et plans d'action</li>
+          <li>Rapport exécutif automatisé (mensuel/trimestriel)</li>
+          <li>Matrice de KPI stratégiques par département</li>
+          <li>Plans de transformation data-driven</li>
+          <li>Bibliothèque de prompts IA pour dirigeants</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FORMATS -->
+    <section class="section">
+      <h2 class="section-title">Formats disponibles</h2>
+      <div class="two-cols">
+        <div class="card">
+          <h3>Intra-entreprise</h3>
+          <p>Formation sur mesure pour vos équipes dans vos locaux ou en distanciel. Adaptation des cas métier à votre contexte.</p>
+        </div>
+        <div class="card">
+          <h3>Inter-entreprises</h3>
+          <p>Cohorte de 15-20 professionnels de différentes organisations. Sessions live en ligne, forum privé et networking.</p>
+        </div>
+        <div class="card">
+          <h3>Bootcamp intensif</h3>
+          <p>Format accéléré de 5 jours en présentiel ou 10 demi-journées en distanciel. Projet intensif avec livrables finaux.</p>
+        </div>
+        <div class="card">
+          <h3>Blended (hybride)</h3>
+          <p>Combinaison de modules en ligne asynchrones et de sessions live. Flexibilité maximale tout en gardant l'accompagnement mentor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÉBOUCHÉS -->
+    <section class="section">
+      <h2 class="section-title">Débouchés professionnels</h2>
+      <div class="card">
+        <ul>
+          <li>CEO / Directeur Général</li>
+          <li>Chief Financial Officer (CFO)</li>
+          <li>Chief Commercial Officer (CCO)</li>
+          <li>Chief Strategy Officer (CSO)</li>
+          <li>Entrepreneur / Fondateur</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <div class="cta-box">
+      <h2>Générer une proforma pour ce parcours</h2>
+      <p>
+        Décris ton contexte et tes objectifs. Nous te répondons sous 48 heures avec une offre technique et financière personnalisée.
+      </p>
+      <div class="hero-actions">
+        <a href="../proforma.html?from=dirigeants-decision-ia-cta" class="btn btn-primary">Générer une proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20le%20parcours%20dirigeants-decision-ia.%0AMerci%20!" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp Direct</a>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.95rem; color: var(--muted2);">
+        📧 support@digischool.africa • 📞 +225 05 05 11 11 02
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../parcours.html">Parcours</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lead Events Tracking -->
+  <script src="../lead-events.js"></script>
+
+</body>
+</html>

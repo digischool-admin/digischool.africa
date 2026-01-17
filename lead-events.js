@@ -159,6 +159,48 @@
     });
   }
 
+  // Track parcours page views
+  if (window.location.pathname.includes('/parcours.html')) {
+    trackEvent('page_view_parcours', {
+      source: 'parcours'
+    });
+  }
+
+  // Track parcours detail page views
+  if (window.location.pathname.includes('/parcours/')) {
+    const pathParts = window.location.pathname.split('/');
+    const parcoursSlug = pathParts[pathParts.length - 1].replace('.html', '');
+    trackEvent('page_view_parcours_detail', {
+      parcours_slug: parcoursSlug,
+      source: 'parcours'
+    });
+  }
+
+  // Track clicks from catalogue to detail pages
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('a[href*="/parcours/"]');
+    if (target && window.location.pathname.includes('/parcours.html')) {
+      const href = target.getAttribute('href');
+      const parcoursSlug = href.split('/').pop().replace('.html', '');
+      trackEvent('click_view_parcours', {
+        parcours_slug: parcoursSlug,
+        source: 'parcours'
+      });
+    }
+  });
+
+  // Track proforma clicks from parcours pages
+  document.addEventListener('click', function(e) {
+    const target = e.target.closest('a[href*="proforma.html"]');
+    if (target && (window.location.pathname.includes('/parcours') || window.location.pathname.includes('/parcours/'))) {
+      const from = target.href.split('from=')[1] || 'unknown';
+      trackEvent('click_proforma_from_parcours', {
+        from: from,
+        source: 'parcours'
+      });
+    }
+  });
+
   // Admin panel (visible only with ?admin=1)
   if (window.location.search.includes('admin=1')) {
     // Create admin panel

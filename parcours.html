@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parcours de Formation — DigiSchool Africa</title>
+  <meta name="description" content="13 parcours métiers augmentés par l'IA : Gestion de Projet, Finance, Data, RH, Marketing, Supply Chain et plus. Formations professionnelles adaptées à l'Afrique." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Parcours de Formation — DigiSchool Africa" />
+  <meta property="og:description" content="13 parcours métiers augmentés par l'IA pour développer vos compétences professionnelles en Afrique." />
+  <meta property="og:url" content="https://digischool.africa/parcours.html" />
+  <meta property="og:type" content="website" />
+  
+  <link rel="canonical" href="https://digischool.africa/parcours.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+      --orange:#f97316;
+      --orange-glow: rgba(249,115,22,0.25);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Hero Premium */
+    .hero{
+      position: relative;
+      text-align: center;
+      margin-bottom: 80px;
+      padding: 100px 30px 80px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 30px) scale(0.9); }
+      75% { transform: translate(30px, 30px) scale(1.05); }
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1{
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .hero p{
+      font-size: 1.3rem;
+      color: var(--muted);
+      max-width: 750px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      appearance: none;
+    }
+
+    .btn-primary{
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 0 24px var(--green-glow);
+    }
+
+    .btn-primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--green-glow);
+    }
+
+    .btn-secondary{
+      background: var(--card2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Section Intro */
+    .section{
+      margin-bottom: 80px;
+    }
+
+    .section-title{
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .section-subtitle{
+      font-size: 1.1rem;
+      color: var(--muted);
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    /* Grille des parcours */
+    .parcours-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .parcours-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parcours-card::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green) 0%, var(--blue) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .parcours-card:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+
+    .parcours-card:hover::before{
+      opacity: 1;
+    }
+
+    .parcours-badge{
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+      background: rgba(34,197,94,0.15);
+      color: var(--green);
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    .parcours-card h3{
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .parcours-card p{
+      font-size: 0.95rem;
+      color: var(--muted2);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .parcours-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .parcours-meta span{
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .parcours-actions{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-small{
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+
+    /* Section Publics */
+    .publics-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .public-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+
+    .public-card h3{
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .public-card p{
+      font-size: 0.95rem;
+      color: var(--muted2);
+      line-height: 1.6;
+    }
+
+    /* CTA Final */
+    .cta-final{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .cta-final h2{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .cta-final p{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    .footer{
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content{
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.85rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover{
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1{
+        font-size: 2.5rem;
+      }
+
+      .hero p{
+        font-size: 1.1rem;
+      }
+
+      .section-title{
+        font-size: 1.8rem;
+      }
+
+      .parcours-grid{
+        grid-template-columns: 1fr;
+      }
+
+      .publics-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animations */
+    .fade-in{
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Parcours de Formation DigiSchool Africa</h1>
+        <p>
+          Développe des compétences opérationnelles alignées sur les besoins réels des entreprises africaines. 
+          13 parcours métiers augmentés par l'IA pour transformer ta pratique professionnelle.
+        </p>
+        <div class="hero-actions">
+          <a href="#parcours" class="btn btn-primary">Voir les parcours</a>
+          <a href="./proforma.html?from=parcours-hero" class="btn btn-secondary">Générer une proforma</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section class="section fade-in">
+      <h2 class="section-title">Pourquoi ces parcours existent</h2>
+      <p class="section-subtitle">
+        DigiSchool Africa forme des professionnels à des compétences concrètes et mesurables. 
+        Chaque parcours intègre l'IA comme copilote pour automatiser les tâches répétitives et 
+        te concentrer sur l'analyse, la décision et l'impact. Nos formations s'appuient sur des 
+        cas métiers africains et produisent des livrables réutilisables immédiatement en entreprise.
+      </p>
+    </section>
+
+    <!-- POUR QUI CES PARCOURS -->
+    <section class="section fade-in">
+      <h2 class="section-title">Pour qui ces parcours</h2>
+      <div class="publics-grid">
+        <div class="public-card">
+          <h3>Jeunes diplômés</h3>
+          <p>
+            Tu cherches ton premier emploi qualifié ou un stage professionnel. 
+            Ces parcours te donnent les compétences opérationnelles attendues par les recruteurs africains.
+          </p>
+        </div>
+        <div class="public-card">
+          <h3>Professionnels en poste</h3>
+          <p>
+            Tu veux progresser, te reconvertir ou automatiser ton travail avec l'IA. 
+            Ces parcours te permettent d'évoluer sans quitter ton poste actuel.
+          </p>
+        </div>
+        <div class="public-card">
+          <h3>Cadres et managers</h3>
+          <p>
+            Tu pilotes des équipes ou des projets stratégiques. 
+            Ces parcours te donnent les outils d'analyse, de décision et de conduite du changement nécessaires.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTE DES PARCOURS -->
+    <section class="section fade-in" id="parcours">
+      <h2 class="section-title">Les 13 parcours disponibles</h2>
+      <p class="section-subtitle">
+        Chaque parcours dure entre 8 et 16 semaines et produit des livrables professionnels concrets. 
+        Formations disponibles en Intra-entreprise, Inter-entreprises, Bootcamp ou Blended.
+      </p>
+
+      <div class="parcours-grid">
+        <!-- PARCOURS 1 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">⭐ PRIORITAIRE</div>
+          <h3>Gestion de Projet (PMP-aligned) — IA</h3>
+          <p>
+            Cadre, planifie et pilote des projets complexes avec l'IA. 
+            Automatise le reporting, le suivi budgétaire et la gestion des risques.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 10 semaines</span>
+            <span>🎯 Chef de projet, PMO</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/gestion-projet-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=gestion-projet-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 2 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>Finance & Analyse Financière — IA</h3>
+          <p>
+            Analyse automatisée des états financiers, détection d'anomalies et prévisions de trésorerie avec l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 10 semaines</span>
+            <span>🎯 Contrôleur de gestion, Analyste</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/finance-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=finance-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 3 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>Data & Analytics — IA</h3>
+          <p>
+            Nettoie, analyse et visualise des données avec l'IA. 
+            Crée des dashboards et des analyses prédictives pour la prise de décision.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 12 semaines</span>
+            <span>🎯 Data Analyst, Business Analyst</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/data-analytics-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=data-analytics-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 4 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>RH & Performance — IA</h3>
+          <p>
+            Recrutement augmenté, parcours formation personnalisés et prédiction du turnover avec l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 8 semaines</span>
+            <span>🎯 Responsable RH, Recruteur</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/rh-performance-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=rh-performance-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 5 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>Marketing & Vente B2B — IA</h3>
+          <p>
+            Personnalisation à grande échelle, lead scoring et mesure du ROI en temps réel avec l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 10 semaines</span>
+            <span>🎯 Marketing B2B, Sales Manager</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/marketing-vente-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=marketing-vente-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 6 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">DEV + IA</div>
+          <h3>Digital, IA & Vibecoding</h3>
+          <p>
+            Développement Front/Back, automatisation et création d'applications métier avec des copilotes IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 16 semaines</span>
+            <span>🎯 Développeur, Tech Lead</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/digital-vibecoding.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=digital-vibecoding" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 7 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>Supply Chain & Logistique — IA</h3>
+          <p>
+            Optimise les stocks, prévois la demande et automatise la planification avec l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 10 semaines</span>
+            <span>🎯 Supply Chain Manager, Logisticien</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/supply-chain-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=supply-chain-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 8 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>Management — Cartographie & Ingénierie des Processus</h3>
+          <p>
+            Cartographie, optimise et automatise les processus métier avec l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 8 semaines</span>
+            <span>🎯 Manager opérationnel, Consultant</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/management-processus-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=management-processus-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 9 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">IA EMBARQUÉE</div>
+          <h3>Achats Stratégiques & Sourcing — IA</h3>
+          <p>
+            Analyse des fournisseurs, négociation et optimisation des coûts avec l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 8 semaines</span>
+            <span>🎯 Acheteur, Responsable Achats</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/achats-sourcing-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=achats-sourcing-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 10 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">SÉCURITÉ + IA</div>
+          <h3>Sécurité, Data & Gouvernance</h3>
+          <p>
+            Gouvernance des données, conformité RGPD/GDPR et sécurité augmentée par l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 10 semaines</span>
+            <span>🎯 DPO, RSSI, Compliance Officer</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/securite-gouvernance-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=securite-gouvernance-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 11 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">DIRIGEANTS</div>
+          <h3>Data, IA & Décision Stratégique</h3>
+          <p>
+            Utilise la data et l'IA pour piloter la stratégie, identifier les opportunités et anticiper les risques.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 6 semaines</span>
+            <span>🎯 CEO, Directeur Général, C-Level</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/dirigeants-decision-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=dirigeants-decision-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 12 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">CYBER + IA</div>
+          <h3>Cyber-Résilience & Gestion de Crise</h3>
+          <p>
+            Détection des menaces, réponse aux incidents et plans de continuité augmentés par l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 8 semaines</span>
+            <span>🎯 RSSI, Risk Manager, SOC Analyst</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/cyber-resilience-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=cyber-resilience-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+
+        <!-- PARCOURS 13 -->
+        <div class="parcours-card fade-in">
+          <div class="parcours-badge">EXPANSION</div>
+          <h3>Stratégie d'Expansion & Multi-Pays</h3>
+          <p>
+            Analyse de marchés, due diligence et stratégies d'implantation régionale augmentées par l'IA.
+          </p>
+          <div class="parcours-meta">
+            <span>⏱ 10 semaines</span>
+            <span>🎯 Directeur Expansion, Business Dev</span>
+          </div>
+          <div class="parcours-actions">
+            <a href="./parcours/expansion-multi-pays-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
+            <a href="./proforma.html?from=expansion-multi-pays-ia" class="btn btn-secondary btn-small">Générer une proforma</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMENT CHOISIR -->
+    <section class="section fade-in">
+      <h2 class="section-title">Comment choisir le bon parcours</h2>
+      <p class="section-subtitle">
+        Commence par identifier ton objectif professionnel concret : obtenir un poste, progresser dans ton entreprise 
+        ou piloter un projet stratégique. Ensuite, croise avec les compétences manquantes. Si tu hésites, échange avec 
+        un conseiller DigiSchool : nous analysons ton besoin sous 24 heures et te proposons une recommandation personnalisée 
+        avec une proforma détaillée.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20souhaite%20parler%20%C3%A0%20un%20conseiller%20pour%20choisir%20un%20parcours.%0AMerci%20!" target="_blank" rel="noopener" class="btn btn-primary">Parler à un conseiller</a>
+        <a href="./proforma.html?from=parcours-choix" class="btn btn-secondary">Générer une proforma</a>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final fade-in">
+      <h2>Prêt à commencer ?</h2>
+      <p>
+        Décris ton besoin en quelques minutes. 
+        Nous te répondons avec une proforma détaillée sous 48 heures.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="./proforma.html?from=parcours-cta-final" class="btn btn-primary">Générer une proforma</a>
+        <a href="mailto:support@digischool.africa" class="btn btn-secondary">Envoyer un email</a>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.95rem; color: var(--muted2);">
+        📧 support@digischool.africa • 📞 +225 05 05 11 11 02 • 
+        <a href="https://wa.me/2250505111102" target="_blank" rel="noopener" style="color: var(--green); text-decoration: none;">WhatsApp</a>
+      </p>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="./index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./parcours.html">Parcours</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal avec IntersectionObserver
+    (function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    })();
+
+    // Smooth scroll pour les ancres
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- Lead Events Tracking -->
+  <script src="./lead-events.js"></script>
+
+</body>
+</html>

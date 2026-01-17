@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Management — Cartographie & Ingénierie des Processus — IA | DigiSchool Africa</title>
+  <meta name="description" content="Parcours Management — Cartographie & Ingénierie des Processus — IA. 8 semaines pour maîtriser les compétences Manager opérationnel, Consultant avec l'IA." />
+  
+  <meta property="og:title" content="Management — Cartographie & Ingénierie des Processus — IA | DigiSchool Africa" />
+  <meta property="og:description" content="Cartographie, optimise et automatise les processus métier avec l'IA." />
+  <meta property="og:url" content="https://digischool.africa/parcours/management-processus-ia.html" />
+  <link rel="canonical" href="https://digischool.africa/parcours/management-processus-ia.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .hero{
+      position: relative;
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 80px 30px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 30px) scale(0.9); }
+      75% { transform: translate(30px, 30px) scale(1.05); }
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge{
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      background: rgba(34,197,94,0.15);
+      color: var(--green);
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    .hero h1{
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero p{
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-meta{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-actions{
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary{
+      background: var(--green);
+      color: #000;
+      box-shadow: 0 0 24px var(--green-glow);
+    }
+
+    .btn-primary:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--green-glow);
+    }
+
+    .btn-secondary{
+      background: var(--card2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .section{
+      margin-bottom: 60px;
+    }
+
+    .section-title{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .section-subtitle{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .card h3{
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .card p{
+      font-size: 1rem;
+      color: var(--muted2);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+
+    .card ul{
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .card ul li{
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card ul li::before{
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .two-cols{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .cta-box{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 32px;
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .cta-box h2{
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .cta-box p{
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer{
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-content{
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.85rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1{ font-size: 2.2rem; }
+      .hero p{ font-size: 1.05rem; }
+      .section-title{ font-size: 1.6rem; }
+      .two-cols{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">IA EMBARQUÉE</div>
+        <h1>Management — Cartographie & Ingénierie des Processus — IA</h1>
+        <p>Cartographie, optimise et automatise les processus métier avec l'IA.</p>
+        <div class="hero-meta">
+          <span>⏱ Durée : 8 semaines</span>
+          <span>📊 6-8 heures/semaine</span>
+          <span>🎯 Manager opérationnel, Consultant</span>
+        </div>
+        <div class="hero-actions">
+          <a href="../proforma.html?from=management-processus-ia" class="btn btn-primary">Générer une proforma</a>
+          <a href="../parcours.html" class="btn btn-secondary">Voir tous les parcours</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À QUI S'ADRESSE CE PARCOURS -->
+    <section class="section">
+      <h2 class="section-title">À qui s'adresse ce parcours</h2>
+      <div class="two-cols">
+        <div class="card">
+          <h3>Managers opérationnels</h3>
+          <p>Tu gères des processus métier inefficaces. Tu veux cartographier, optimiser et automatiser. Ce parcours structure tes opérations.</p>
+        </div>
+        <div class="card">
+          <h3>Consultants en organisation</h3>
+          <p>Tu accompagnes des clients sur l'optimisation des processus. Tu veux proposer des solutions data-driven. Ce parcours te forme au BPM augmenté.</p>
+        </div>
+        <div class="card">
+          <h3>Responsables qualité</h3>
+          <p>Tu pilotes la qualité et la conformité. Tu veux documenter et améliorer les processus. Ce parcours digitalise ta démarche qualité.</p>
+        </div>
+        <div class="card">
+          <h3>Chefs de projet transformation</h3>
+          <p>Tu pilotes des projets de transformation. Tu veux identifier les gisements de gains et mesurer l'impact. Ce parcours te donne les outils.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIFS PROFESSIONNELS -->
+    <section class="section">
+      <h2 class="section-title">Ce que tu sauras faire à la fin</h2>
+      <div class="card">
+        <ul>
+          <li>Cartographier les processus métier (BPMN, flowcharts)</li>
+          <li>Identifier les inefficacités et les goulots d'étranglement</li>
+          <li>Optimiser les processus et automatiser les tâches répétitives</li>
+          <li>Mesurer la performance des processus (KPI, SLA)</li>
+          <li>Utiliser l'IA pour détecter les anomalies et proposer des améliorations</li>
+          <li>Documenter les processus et assurer la conformité</li>
+          <li>Former les équipes et accompagner le changement</li>
+          <li>Piloter l'amélioration continue (Lean, Six Sigma)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROGRAMME DÉTAILLÉ -->
+    <section class="section">
+      <h2 class="section-title">Programme détaillé (8 modules)</h2>
+      <p class="section-subtitle">
+        Chaque module combine 40% d'apports structurés et 60% de pratique sur des projets fil rouge inspirés de cas africains.
+      </p>
+      <div class="card">
+        <h3>Module 1 : Fondamentaux du management des processus</h3>
+        <p>BPM, cartographie BPMN, Lean, Six Sigma, amélioration continue, KPI processus.</p>
+      </div>
+      <div class="card">
+        <h3>Module 2 : Limites du management traditionnel</h3>
+        <p>Processus non documentés, inefficacités cachées, amélioration par intuition, pas de mesure.</p>
+      </div>
+      <div class="card">
+        <h3>Module 3 : Outils modernes de BPM</h3>
+        <p>Bizagi, Lucidchart, Miro, outils d'automatisation (Zapier, Make, Power Automate).</p>
+      </div>
+      <div class="card">
+        <h3>Module 4 : IA embarquée dans le BPM</h3>
+        <p>Analyse des processus, détection des goulots, recommandations d'optimisation, automatisation intelligente.</p>
+      </div>
+      <div class="card">
+        <h3>Module 5 : Mise en œuvre opérationnelle</h3>
+        <p>Prompts IA pour cartographier des processus, identifier des gains, automatiser des workflows, mesurer l'impact.</p>
+      </div>
+      <div class="card">
+        <h3>Module 6 : Conduite du changement processus</h3>
+        <p>Former les équipes, gérer les résistances, mesurer l'adoption des nouveaux processus.</p>
+      </div>
+      <div class="card">
+        <h3>Module 7 : Certifications BPM et Lean</h3>
+        <p>Préparer Lean Six Sigma Green Belt, BPM Professional, Process Mining Specialist.</p>
+      </div>
+      <div class="card">
+        <h3>Module 8 : Livrables & KPI processus</h3>
+        <p>Cartographies, processus optimisés, automatisations. KPI : temps cycle -40%, erreurs -60%, coûts -30%.</p>
+      </div>
+    </section>
+
+    <!-- LIVRABLES FINAUX -->
+    <section class="section">
+      <h2 class="section-title">Livrables professionnels finaux</h2>
+      <div class="card">
+        <ul>
+          <li>Cartographie complète des processus métier (BPMN)</li>
+          <li>Matrice d'analyse des inefficacités</li>
+          <li>Plans d'optimisation et d'automatisation</li>
+          <li>Dashboard de performance des processus</li>
+          <li>Documentation processus et procédures</li>
+          <li>Workflows automatisés (Zapier, Make, RPA)</li>
+          <li>Bibliothèque de prompts IA pour le BPM</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FORMATS -->
+    <section class="section">
+      <h2 class="section-title">Formats disponibles</h2>
+      <div class="two-cols">
+        <div class="card">
+          <h3>Intra-entreprise</h3>
+          <p>Formation sur mesure pour vos équipes dans vos locaux ou en distanciel. Adaptation des cas métier à votre contexte.</p>
+        </div>
+        <div class="card">
+          <h3>Inter-entreprises</h3>
+          <p>Cohorte de 15-20 professionnels de différentes organisations. Sessions live en ligne, forum privé et networking.</p>
+        </div>
+        <div class="card">
+          <h3>Bootcamp intensif</h3>
+          <p>Format accéléré de 5 jours en présentiel ou 10 demi-journées en distanciel. Projet intensif avec livrables finaux.</p>
+        </div>
+        <div class="card">
+          <h3>Blended (hybride)</h3>
+          <p>Combinaison de modules en ligne asynchrones et de sessions live. Flexibilité maximale tout en gardant l'accompagnement mentor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÉBOUCHÉS -->
+    <section class="section">
+      <h2 class="section-title">Débouchés professionnels</h2>
+      <div class="card">
+        <ul>
+          <li>Manager Opérationnel</li>
+          <li>Consultant en Organisation</li>
+          <li>Responsable Qualité et Processus</li>
+          <li>Chef de Projet Transformation</li>
+          <li>Process Excellence Manager</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <div class="cta-box">
+      <h2>Générer une proforma pour ce parcours</h2>
+      <p>
+        Décris ton contexte et tes objectifs. Nous te répondons sous 48 heures avec une offre technique et financière personnalisée.
+      </p>
+      <div class="hero-actions">
+        <a href="../proforma.html?from=management-processus-ia-cta" class="btn btn-primary">Générer une proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20le%20parcours%20management-processus-ia.%0AMerci%20!" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp Direct</a>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.95rem; color: var(--muted2);">
+        📧 support@digischool.africa • 📞 +225 05 05 11 11 02
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../parcours.html">Parcours</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="../politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lead Events Tracking -->
+  <script src="../lead-events.js"></script>
+
+</body>
+</html>
