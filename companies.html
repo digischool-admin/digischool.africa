@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formations Entreprises (B2B) — DigiSchool Africa</title>
   <meta name="description" content="Formations sur mesure pour entreprises : leadership, gestion de projet, stratégie, finance, RH. Devis personnalisés et déploiement rapide." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Formations Entreprises (B2B) — DigiSchool Africa" />
+  <meta property="og:description" content="Formations professionnelles pour vos équipes : 9 parcours premium avec IA embarquée. Intra, Inter, Bootcamp." />
+  <meta property="og:url" content="https://digischool.africa/companies.html" />
+  <meta property="og:type" content="website" />
+  
+  <link rel="canonical" href="https://digischool.africa/companies.html" />
 
   <style>
     :root{
@@ -23,6 +31,7 @@
       --green-glow: rgba(34,197,94,0.25);
       --blue:#3b82f6;
       --blue-glow: rgba(59,130,246,0.25);
+      --danger:#ef4444;
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -41,12 +50,12 @@
       padding: 40px 20px 80px;
     }
 
-    /* Hero Premium avec Animated Gradient */
+    /* Hero */
     .hero{
       position: relative;
       text-align: center;
       margin-bottom: 80px;
-      padding: 80px 30px;
+      padding: 100px 30px 80px;
       border-radius: 24px;
       overflow: hidden;
       background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
@@ -58,8 +67,8 @@
       position: absolute;
       inset: 0;
       background: 
-        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, var(--blue-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--green-glow) 0%, transparent 50%);
       animation: gradientShift 8s ease-in-out infinite;
       opacity: 0.6;
       z-index: 0;
@@ -75,13 +84,29 @@
     .hero-content{
       position: relative;
       z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid rgba(59,130,246,0.35);
+      background: rgba(59,130,246,0.16);
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
     }
 
     .hero h1{
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       font-weight: 800;
-      margin-bottom: 20px;
-      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--blue) 50%, var(--green) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -92,303 +117,42 @@
       font-size: 1.3rem;
       color: var(--muted);
       max-width: 750px;
-      margin: 0 auto 32px;
+      margin: 0 auto;
       line-height: 1.7;
     }
 
-    .badges{
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-
-    .badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      border: 1px solid var(--border);
-      background: var(--card2);
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .badge:hover{
-      background: var(--card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-
-    .badge.premium{
-      background: rgba(34,197,94,0.16);
-      border-color: rgba(34,197,94,0.35);
-    }
-
-    .hero-actions{
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn{
-      appearance: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-      cursor: pointer;
-      border: 1px solid var(--border);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .btn::before{
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .btn:hover::before{
-      opacity: 1;
-    }
-
-    .btn-primary{
-      background: linear-gradient(135deg, rgba(34,197,94,0.25) 0%, rgba(34,197,94,0.15) 100%);
-      border-color: rgba(34,197,94,0.5);
-      color: var(--text);
-      box-shadow: 0 4px 14px var(--green-glow);
-    }
-
-    .btn-primary:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px var(--green-glow);
-      border-color: rgba(34,197,94,0.7);
-    }
-
-    .btn-secondary{
-      background: rgba(59,130,246,0.20);
-      border-color: rgba(59,130,246,0.45);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover{
-      transform: translateY(-3px);
-      background: rgba(59,130,246,0.28);
-      border-color: rgba(59,130,246,0.65);
-      box-shadow: 0 8px 24px var(--blue-glow);
-    }
-
-    /* Sections */
+    /* Section */
     .section{
       margin-bottom: 80px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .section.visible{
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .section-header{
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     .section-title{
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 800;
       margin-bottom: 16px;
-      background: linear-gradient(135deg, var(--text) 0%, var(--green) 100%);
+      background: linear-gradient(135deg, #ffffff 0%, var(--blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: -0.5px;
     }
 
     .section-subtitle{
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--muted);
       max-width: 700px;
       margin: 0 auto;
     }
 
-    /* Trust Signals */
-    .trust-grid{
+    /* Catalogue Grid */
+    .catalogue-grid{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-
-    .trust-card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 36px 24px;
-      text-align: center;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .trust-card::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .trust-card:hover::before{
-      transform: scaleX(1);
-    }
-
-    .trust-card:hover{
-      background: var(--card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-
-    .trust-number{
-      font-size: 3rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .trust-label{
-      font-size: 1.05rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    /* Process Section */
-    .process-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .process-card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all 0.4s ease;
-      position: relative;
-    }
-
-    .process-card::after{
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, var(--green-glow) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
-
-    .process-card:hover::after{
-      opacity: 1;
-    }
-
-    .process-card:hover{
-      background: var(--card-hover);
-      border-color: var(--green);
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 16px 32px rgba(34,197,94,0.2);
-    }
-
-    .process-number{
-      width: 50px;
-      height: 50px;
-      margin: 0 auto 20px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .process-card h3{
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .process-card p{
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* Sectors Chips */
-    .sectors{
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
-
-    .sector-chip{
-      padding: 12px 24px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      cursor: default;
-    }
-
-    .sector-chip:hover{
-      background: var(--card-hover);
-      border-color: var(--blue);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px var(--blue-glow);
-    }
-
-    /* Catalogue Cards Premium */
-    .catalogue{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      margin-bottom: 70px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
     }
 
     .catalogue-card{
@@ -396,339 +160,350 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 32px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.4s ease;
+      cursor: pointer;
       position: relative;
       overflow: hidden;
     }
 
-    .catalogue-card::after{
+    .catalogue-card::before{
       content: '';
       position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
       opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
 
-    .catalogue-card:hover::after{
+    .catalogue-card:hover, .catalogue-card:focus{
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+      outline: none;
+    }
+
+    .catalogue-card:hover::before, .catalogue-card:focus::before{
       opacity: 1;
     }
 
-    .catalogue-card:hover{
-      background: var(--card-hover);
-      border-color: var(--green);
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(34,197,94,0.2);
-    }
-
     .catalogue-card h3{
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-      color: var(--blue);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-    }
-
-    .catalogue-card ul{
-      list-style: none;
-      margin-bottom: 22px;
-    }
-
-    .catalogue-card ul li{
-      padding-left: 26px;
+      font-size: 1.6rem;
       margin-bottom: 12px;
-      position: relative;
+      color: var(--blue);
+    }
+
+    .catalogue-card .description{
+      font-size: 0.95rem;
       color: var(--muted);
+      margin-bottom: 20px;
       line-height: 1.6;
     }
 
-    .catalogue-card ul li:before{
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .meta{
-      font-size: 0.92rem;
+    .catalogue-meta{
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
       color: var(--muted2);
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      line-height: 1.7;
     }
 
-    .meta strong{
-      color: var(--text);
-      font-weight: 700;
+    .catalogue-meta span{
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    /* Why Us Section */
-    .why-us{
-      background: var(--card);
+    .catalogue-card .cta-hint{
+      font-size: 0.85rem;
+      color: var(--green);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Course Modal */
+    .course-modal-overlay{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .course-modal-overlay.active{
+      display: flex;
+    }
+
+    .course-modal{
+      position: relative;
+      max-width: 1000px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(15,23,42,0.98) 0%, rgba(30,41,59,1) 100%);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 50px 40px;
-      margin-bottom: 70px;
+      border-radius: 24px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: modalSlideIn 0.4s ease-out;
     }
 
-    .why-us h2{
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-align: center;
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-40px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
-    .why-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 28px;
-    }
-
-    .why-item{
+    .modal-close{
+      position: absolute;
+      top: 20px;
+      right: 20px;
       background: var(--card2);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      text-align: center;
-      transition: all 0.4s ease;
-    }
-
-    .why-item:hover{
-      background: var(--card-hover);
-      border-color: var(--blue);
-      transform: translateY(-6px);
-      box-shadow: 0 16px 32px var(--blue-glow);
-    }
-
-    .why-icon{
-      font-size: 3rem;
-      margin-bottom: 16px;
-      display: block;
-      filter: drop-shadow(0 4px 8px rgba(34,197,94,0.3));
-    }
-
-    .why-item h3{
-      font-size: 1.25rem;
-      margin-bottom: 10px;
       color: var(--text);
-      font-weight: 700;
-    }
-
-    .why-item p{
-      font-size: 0.98rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* Form Section Premium */
-    .form-section{
-      background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(59,130,246,0.08));
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 50px 40px;
-      margin-bottom: 70px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .form-section::before{
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 30% 50%, var(--green-glow) 0%, transparent 50%),
-        radial-gradient(circle at 70% 50%, var(--blue-glow) 0%, transparent 50%);
-      opacity: 0.3;
-      animation: gradientShift 6s ease-in-out infinite;
-    }
-
-    .form-section h2{
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .form-section > p{
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 36px;
-      font-size: 1.1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .form{
-      max-width: 650px;
-      margin: 0 auto;
-      display: grid;
-      gap: 22px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .form-group{
-      display: grid;
-      gap: 10px;
-    }
-
-    .form label{
-      font-size: 0.98rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .form input,
-    .form textarea{
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      font-size: 1rem;
-      outline: none;
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
       transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
     }
 
-    .form input:focus,
-    .form textarea:focus{
-      border-color: var(--green);
-      background: rgba(255,255,255,0.08);
-      box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+    .modal-close:hover{
+      background: var(--danger);
+      border-color: var(--danger);
+      transform: rotate(90deg);
     }
 
-    .form textarea{
-      min-height: 130px;
-      resize: vertical;
-      font-family: inherit;
+    .modal-header{
+      padding: 48px 48px 32px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .form button{
-      background: none;
-      border: none;
-      margin-top: 12px;
-    }
-
-    .privacy-note{
-      font-size: 0.95rem;
-      color: var(--muted2);
-      text-align: center;
-      margin-top: 24px;
-      padding: 18px;
-      background: var(--card);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
-
-    .privacy-note a{
-      color: var(--green);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .privacy-note a:hover{
+    .modal-header h2{
+      font-size: 2.5rem;
+      margin-bottom: 12px;
       color: var(--blue);
     }
 
-    /* FAQ Section */
-    .faq{
-      margin-bottom: 70px;
+    .modal-subtitle{
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-bottom: 20px;
     }
 
-    .faq h2{
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-align: center;
-    }
-
-    .faq-item{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      margin-bottom: 18px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .faq-item:hover{
-      border-color: var(--border-hover);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-
-    .faq-question{
-      padding: 22px 26px;
-      cursor: pointer;
+    .modal-meta{
       display: flex;
-      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 1rem;
+      color: var(--muted2);
+    }
+
+    .modal-meta span{
+      display: flex;
       align-items: center;
-      font-weight: 700;
-      font-size: 1.08rem;
-      transition: all 0.3s ease;
-      user-select: none;
+      gap: 8px;
     }
 
-    .faq-question:hover{
-      background: var(--card2);
+    .modal-body{
+      padding: 40px 48px;
     }
 
-    .faq-question.active{
-      background: var(--card2);
+    .modal-section{
+      margin-bottom: 40px;
+    }
+
+    .modal-section h3{
+      font-size: 1.8rem;
+      margin-bottom: 20px;
       color: var(--green);
     }
 
-    .faq-answer{
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-      padding: 0 26px;
+    .modal-section h4{
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .modal-section p, .modal-section li{
       color: var(--muted);
       line-height: 1.7;
     }
 
-    .faq-answer.active{
-      max-height: 500px;
-      padding: 0 26px 22px;
+    .modal-section ul{
+      list-style: none;
+      padding-left: 0;
     }
 
-    .faq-icon{
-      font-size: 1.5rem;
-      font-weight: 300;
-      transition: transform 0.3s ease;
+    .modal-section ul li{
+      padding-left: 24px;
+      position: relative;
+      margin-bottom: 8px;
     }
 
-    .faq-question.active .faq-icon{
-      transform: rotate(45deg);
+    .modal-section ul li::before{
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
     }
 
-    /* Footer Premium */
+    .modal-module{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .modal-module h4{
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .ai-tools, .ai-use-cases, .ai-prompts{
+      margin-bottom: 20px;
+    }
+
+    .prompt-item{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .prompt-item code{
+      display: block;
+      margin-top: 8px;
+      padding: 12px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 6px;
+      color: var(--green);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+
+    .day-by-day{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .day-item{
+      display: flex;
+      gap: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .day-number{
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue);
+      color: var(--bg);
+      font-weight: 800;
+      font-size: 1rem;
+      border-radius: 12px;
+    }
+
+    .day-content h4{
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .formats-section .format-badges{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .format-badge{
+      padding: 8px 16px;
+      background: rgba(59,130,246,0.16);
+      border: 1px solid rgba(59,130,246,0.35);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+
+    .modal-actions{
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn.primary{
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    .btn.primary:hover{
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px var(--blue-glow);
+    }
+
+    .btn.secondary{
+      background: var(--card2);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn.secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
     .footer{
       margin-top: 80px;
       padding: 40px 20px 30px;
@@ -754,7 +529,7 @@
     .footer-links a{
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
       font-weight: 500;
     }
 
@@ -771,7 +546,7 @@
       color: var(--green);
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
+      transition: color 0.3s;
     }
 
     .footer-bottom a:hover{
@@ -780,418 +555,174 @@
 
     /* Responsive */
     @media (max-width: 768px){
-      .hero h1{ font-size: 2.4rem; }
+      .hero h1{ font-size: 2.5rem; }
       .hero p{ font-size: 1.15rem; }
-      .hero{ padding: 60px 24px; }
-      .section-title{ font-size: 2rem; }
-      .trust-grid{ grid-template-columns: repeat(2, 1fr); gap: 18px; }
-      .trust-number{ font-size: 2.5rem; }
-      .process-grid{ grid-template-columns: 1fr; }
-      .catalogue{ grid-template-columns: 1fr; }
-      .why-grid{ grid-template-columns: 1fr; }
-      .form-section{ padding: 36px 24px; }
-      .hero-actions{ flex-direction: column; width: 100%; }
-      .hero-actions .btn{ width: 100%; justify-content: center; }
-      .container{ padding: 30px 16px 60px; }
+      .section-title{ font-size: 2.2rem; }
+      .catalogue-grid{ grid-template-columns: 1fr; }
+      .modal-header, .modal-body{ padding: 32px 24px; }
+      .modal-header h2{ font-size: 2rem; }
+      .day-item{ flex-direction: column; }
+      .modal-actions{ flex-direction: column; }
+      .btn{ width: 100%; justify-content: center; }
     }
 
     @media (max-width: 520px){
       .hero h1{ font-size: 2rem; }
-      .hero p{ font-size: 1.05rem; }
-      .trust-grid{ grid-template-columns: 1fr; }
-      .section{ margin-bottom: 60px; }
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      .section{ opacity: 1; transform: none; }
+      .hero{ padding: 80px 20px 60px; }
+      .container{ padding: 30px 16px 60px; }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-    <!-- Hero Premium -->
-    <div class="hero">
+    <!-- Hero -->
+    <section class="hero">
       <div class="hero-content">
-        <h1>🏢 Formations Entreprises (B2B)</h1>
-        <p>Parcours sur mesure, alignés sur vos objectifs business, avec offres techniques & financières adaptées. Déploiement rapide et accompagnement continu.</p>
-        
-        <div class="badges">
-          <span class="badge premium">🎯 Sur-mesure</span>
-          <span class="badge">🎓 Certifiants</span>
-          <span class="badge">⚡ Déploiement rapide</span>
-        </div>
-
-        <div class="hero-actions">
-          <a href="./proforma.html" class="btn btn-primary">⚡ Générer une Proforma</a>
-          <a href="#devis" class="btn btn-secondary">📋 Formulaire Simplifié</a>
-          <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20souhaite%20parler%20%C3%A0%20un%20conseiller%20pour%20une%20formation%20entreprise%20(B2B).%0AMerci%20!" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">📞 Parler à un Conseiller</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Trust Signals Section -->
-    <section class="section" data-reveal>
-      <div class="section-header">
-        <h2 class="section-title">🎯 Ils Nous Font Confiance</h2>
-        <p class="section-subtitle">Des chiffres qui témoignent de notre engagement et de notre expertise B2B</p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-card">
-          <span class="trust-number" data-count="300">0</span>
-          <div class="trust-label">Apprenants Certifiés</div>
-        </div>
-        <div class="trust-card">
-          <span class="trust-number" data-count="50">0</span>
-          <div class="trust-label">Entreprises Partenaires</div>
-        </div>
-        <div class="trust-card">
-          <span class="trust-number" data-count="95">0</span>
-          <div class="trust-label">% Satisfaction Client</div>
-        </div>
-        <div class="trust-card">
-          <span class="trust-number" data-count="24">0</span>
-          <div class="trust-label">Heures de Réponse Max</div>
-        </div>
-      </div>
-
-      <div class="section-header" style="margin-top: 50px; margin-bottom: 24px;">
-        <h3 style="font-size: 1.4rem; color: var(--muted); font-weight: 600;">Secteurs Couverts</h3>
-      </div>
-      <div class="sectors">
-        <div class="sector-chip">🏦 Banque & Finance</div>
-        <div class="sector-chip">📱 Télécom & Tech</div>
-        <div class="sector-chip">🏭 Industrie & Manufacturing</div>
-        <div class="sector-chip">🛒 Commerce & Distribution</div>
-        <div class="sector-chip">💼 Services & Conseil</div>
-        <div class="sector-chip">🏥 Santé & Pharma</div>
+        <div class="hero-badge">🏢 FORMATIONS ENTREPRISES (B2B)</div>
+        <h1>9 Parcours Premium avec IA Embarquée</h1>
+        <p>Transformez vos équipes avec des formations sur mesure, des cas pratiques terrain et l'IA intégrée à chaque module. Intra, Inter ou Bootcamp.</p>
       </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="section" data-reveal>
-      <div class="section-header">
-        <h2 class="section-title">🚀 Process de Livraison</h2>
-        <p class="section-subtitle">Une méthodologie éprouvée pour garantir des résultats mesurables</p>
-      </div>
-
-      <div class="process-grid">
-        <div class="process-card">
-          <div class="process-number">1</div>
-          <h3>Diagnostic (24h)</h3>
-          <p>Analyse de vos besoins, enjeux et objectifs business. Audit des compétences actuelles et identification des gaps.</p>
-          <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:0.9rem;color:var(--muted2);">
-            <strong style="color:var(--green);">SLA:</strong> Retour sous 24h<br>
-            <strong style="color:var(--green);">Livrables:</strong> Rapport diagnostic
-          </div>
-        </div>
-        <div class="process-card">
-          <div class="process-number">2</div>
-          <h3>Proposition (48h)</h3>
-          <p>Élaboration d'une offre technique et financière sur mesure. Définition du parcours, formats et livrables.</p>
-          <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:0.9rem;color:var(--muted2);">
-            <strong style="color:var(--green);">SLA:</strong> Offre sous 48h<br>
-            <strong style="color:var(--green);">Livrables:</strong> Proforma détaillée
-          </div>
-        </div>
-        <div class="process-card">
-          <div class="process-number">3</div>
-          <h3>Déploiement Formation</h3>
-          <p>Delivery avec nos experts. Support continu, évaluations et ajustements si nécessaire. Formats Intra/Inter/Bootcamp.</p>
-          <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:0.9rem;color:var(--muted2);">
-            <strong style="color:var(--green);">Formats:</strong> Intra/Inter/Bootcamp<br>
-            <strong style="color:var(--green);">Livrables:</strong> Supports, attestations
-          </div>
-        </div>
-        <div class="process-card">
-          <div class="process-number">4</div>
-          <h3>Suivi & KPI</h3>
-          <p>Accompagnement post-formation, mesure du ROI et recommandations d'amélioration continue. Suivi à 30 jours.</p>
-          <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:0.9rem;color:var(--muted2);">
-            <strong style="color:var(--green);">Durée:</strong> 30 jours post-formation<br>
-            <strong style="color:var(--green);">Livrables:</strong> Rapport KPI
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:48px;">
-        <a href="./brochure-b2b.html" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:14px;font-weight:700;font-size:1.05rem;text-decoration:none;border:1px solid rgba(59,130,246,0.45);background:rgba(59,130,246,0.20);color:var(--text);transition:all 0.3s ease;">
-          📚 Télécharger la Brochure Complète
-        </a>
-      </div>
-    </section>
-
-    <!-- Catalogue Section -->
-    <section class="section" data-reveal>
+    <!-- Catalogue -->
+    <section class="section">
       <div class="section-header">
         <h2 class="section-title">📚 Notre Catalogue B2B</h2>
-        <p class="section-subtitle">9 parcours premium pour transformer vos équipes</p>
-      </div>
-    
-      <div class="catalogue">
-        <div class="catalogue-card">
-          <h3>👔 Leadership & Management</h3>
-          <ul>
-            <li>Leadership transformationnel et vision stratégique</li>
-            <li>Management d'équipes à distance et hybrides</li>
-            <li>Gestion des conflits et feedback efficace</li>
-            <li>Culture d'entreprise et engagement des équipes</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, exercices pratiques, évaluation, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>📊 Gestion de projet (PMP)</h3>
-          <ul>
-            <li>Méthodologies Agile, Scrum, Kanban</li>
-            <li>Planification, budgétisation et suivi</li>
-            <li>Gestion des risques et des parties prenantes</li>
-            <li>Préparation certification PMP</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, outils, simulations, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>🎯 Stratégie & Exécution</h3>
-          <ul>
-            <li>Élaboration de stratégie d'entreprise</li>
-            <li>OKR, KPI et tableaux de bord stratégiques</li>
-            <li>Transformation digitale et innovation</li>
-            <li>Exécution stratégique et alignement des équipes</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, frameworks, templates, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>💰 Finance pour non-financiers</h3>
-          <ul>
-            <li>Lecture et analyse des états financiers</li>
-            <li>Budgétisation et contrôle de gestion</li>
-            <li>Rentabilité, ROI et indicateurs clés</li>
-            <li>Prise de décision basée sur les chiffres</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, cas pratiques, outils Excel, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>📈 Vente B2B & Négociation</h3>
-          <ul>
-            <li>Prospection B2B et génération de leads</li>
-            <li>Techniques de closing et gestion d'objections</li>
-            <li>Négociation commerciale avancée</li>
-            <li>CRM et pilotage de la performance commerciale</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, scripts, simulations, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>🤝 Service Client & Expérience</h3>
-          <ul>
-            <li>Excellence du service client multicanal</li>
-            <li>Gestion des réclamations et situations difficiles</li>
-            <li>Parcours client et points de contact</li>
-            <li>Fidélisation et satisfaction client (NPS, CSAT)</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, cas pratiques, scripts, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>👥 RH & Performance</h3>
-          <ul>
-            <li>Recrutement et évaluation des talents</li>
-            <li>Gestion de la performance et entretiens</li>
-            <li>Développement des compétences (upskilling)</li>
-            <li>Bien-être au travail et prévention du burn-out</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, grilles d'évaluation, outils RH, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>📊 Data & Reporting pour décideurs</h3>
-          <ul>
-            <li>Data-driven decision making</li>
-            <li>Tableaux de bord et visualisation de données</li>
-            <li>Introduction à l'analyse prédictive</li>
-            <li>Exploitation de Power BI et Excel avancé</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, templates, fichiers pratiques, attestation
-          </div>
-        </div>
-
-        <div class="catalogue-card">
-          <h3>⚙️ Productivité & Outils (Microsoft 365)</h3>
-          <ul>
-            <li>Maîtrise de Microsoft Teams et SharePoint</li>
-            <li>Excel avancé (tableaux croisés, macros, Power Query)</li>
-            <li>PowerPoint professionnel et storytelling</li>
-            <li>Outlook et gestion du temps</li>
-          </ul>
-          <div class="meta">
-            <strong>Formats :</strong> Intra / Inter / Bootcamp<br>
-            <strong>Livrables :</strong> Supports, exercices, templates, attestation
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Us Section -->
-    <section class="why-us section" data-reveal>
-      <h2>✨ Pourquoi DigiSchool Africa ?</h2>
-      <div class="why-grid">
-        <div class="why-item">
-          <span class="why-icon">🌍</span>
-          <h3>Approche Terrain</h3>
-          <p>Formations adaptées au contexte africain, avec des cas pratiques issus de l'écosystème local et des enjeux régionaux.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">👨‍🏫</span>
-          <h3>Formateurs Experts</h3>
-          <p>Professionnels en activité avec 10+ ans d'expérience dans leur domaine et certifications internationales.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🎯</span>
-          <h3>Orientés Résultats</h3>
-          <p>Méthodes actives, cas pratiques, mises en situation et accompagnement post-formation pour ancrer les compétences.</p>
-        </div>
-        <div class="why-item">
-          <span class="why-icon">🤝</span>
-          <h3>Accompagnement Continu</h3>
-          <p>Coaching individuel ou collectif disponible pour garantir la montée en compétences et le ROI de vos investissements.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Form Section -->
-    <section class="form-section section" id="devis" data-reveal>
-      <h2>📋 Demander une Proforma / Devis</h2>
-      <p>Remplissez ce formulaire et recevez une offre technique et financière personnalisée sous 48h ouvrées.</p>
-
-      <form class="form" action="https://formspree.io/f/xvzzgpob" method="POST">
-        <div class="form-group">
-          <label for="name">Nom & Prénom *</label>
-          <input type="text" id="name" name="name" required placeholder="Ex: Konan Jean">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email Professionnel *</label>
-          <input type="email" id="email" name="email" required placeholder="Ex: jean.konan@entreprise.com">
-        </div>
-
-        <div class="form-group">
-          <label for="company">Entreprise *</label>
-          <input type="text" id="company" name="company" required placeholder="Ex: ABC Sarl">
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Téléphone / WhatsApp *</label>
-          <input type="tel" id="phone" name="phone" required placeholder="Ex: +225 07 XX XX XX XX">
-        </div>
-
-        <div class="form-group">
-          <label for="message">Décrivez votre Besoin en Formation *</label>
-          <textarea id="message" name="message" required placeholder="Ex: Nous cherchons une formation en Leadership pour 15 managers, format intra-entreprise, sur 3 jours. Budget estimé : [montant]. Objectifs : améliorer la cohésion d'équipe et les compétences managériales."></textarea>
-        </div>
-
-        <input type="hidden" name="_subject" value="Demande de devis B2B — DigiSchool Africa">
-        <input type="hidden" name="source" value="b2b_companies_page">
-        <input type="hidden" name="_next" value="https://digischool.africa/merci.html">
-        <input type="text" name="_gotcha" style="display:none">
-
-        <button type="submit" class="btn btn-primary">📧 Envoyer ma Demande</button>
-
-        <div class="privacy-note">
-          🔒 <strong>Engagement Confidentialité :</strong> Vos informations sont traitées de manière strictement confidentielle et ne seront jamais partagées avec des tiers. Consultez notre <a href="./politique-confidentialite.html">politique de confidentialité</a>.
-        </div>
-      </form>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq section" data-reveal>
-      <h2>❓ Questions Fréquentes</h2>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Quel est le délai de réponse après ma demande ?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          Nous vous recontactons sous 24h ouvrées pour discuter de votre besoin. Une offre technique et financière détaillée vous est envoyée sous 48h maximum.
-        </div>
+        <p class="section-subtitle">9 parcours métiers éprouvés, adaptés au contexte africain, avec IA embarquée et livrables opérationnels</p>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Quels sont les formats de formation disponibles ?</span>
-          <span class="faq-icon">+</span>
+      <div class="catalogue-grid">
+        
+        <div class="catalogue-card" role="button" tabindex="0" data-course="leadership-management" aria-label="Voir détails Leadership & Management">
+          <h3>Leadership & Management</h3>
+          <p class="description">Leadership transformationnel, management d'équipes hybrides, gestion des conflits et culture d'entreprise avec outils IA.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 5 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 5 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
         </div>
-        <div class="faq-answer">
-          Nous proposons trois formats : <strong>Intra-entreprise</strong> (formation privée pour votre entreprise uniquement), <strong>Inter-entreprises</strong> (sessions mixtes avec d'autres entreprises), et <strong>Bootcamp</strong> (format intensif sur plusieurs jours). Tous les formats peuvent être 100% en ligne ou en présentiel selon votre besoin.
-        </div>
-      </div>
+        
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Peut-on personnaliser le contenu des formations ?</span>
-          <span class="faq-icon">+</span>
+        <div class="catalogue-card" role="button" tabindex="0" data-course="gestion-projet-pmp" aria-label="Voir détails Gestion de projet (PMP)">
+          <h3>Gestion de projet (PMP)</h3>
+          <p class="description">Méthodologie PMP complète : cadrage, planification, exécution, suivi, clôture avec IA embarquée pour automatisation et prédiction.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 10 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 8 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
         </div>
-        <div class="faq-answer">
-          Oui, absolument ! C'est même notre spécialité. Nous adaptons le contenu, les cas pratiques et les exercices à votre secteur d'activité, vos enjeux business et vos objectifs spécifiques. Le catalogue est un point de départ que nous personnalisons selon vos besoins.
-        </div>
-      </div>
+        
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Quels sont les modes de paiement acceptés ?</span>
-          <span class="faq-icon">+</span>
+        <div class="catalogue-card" role="button" tabindex="0" data-course="strategie-execution" aria-label="Voir détails Stratégie & Exécution">
+          <h3>Stratégie & Exécution</h3>
+          <p class="description">Élaboration de stratégie, OKRs, KPIs, transformation digitale et alignement d'équipe pour une exécution sans faille.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 4 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 6 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
         </div>
-        <div class="faq-answer">
-          Nous acceptons les virements bancaires, le Mobile Money (Orange Money, MTN MoMo, Moov Money, Wave), ainsi que les paiements par chèque pour les entreprises. Des facilités de paiement peuvent être négociées pour les formations de longue durée.
-        </div>
-      </div>
+        
 
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Délivrez-vous des attestations ou certifications ?</span>
-          <span class="faq-icon">+</span>
+        <div class="catalogue-card" role="button" tabindex="0" data-course="finance-non-financiers" aria-label="Voir détails Finance pour non-financiers">
+          <h3>Finance pour non-financiers</h3>
+          <p class="description">Lecture d'états financiers, budgétisation, rentabilité, ROI et prise de décision basée sur les chiffres avec analyse IA.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 3 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 5 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
         </div>
-        <div class="faq-answer">
-          Oui, chaque participant reçoit une <strong>attestation de formation</strong> à l'issue du programme, sous réserve de validation des évaluations. Pour certaines formations (ex: PMP), nous proposons également une préparation aux certifications internationales reconnues.
+        
+
+        <div class="catalogue-card" role="button" tabindex="0" data-course="vente-b2b-negociation" aria-label="Voir détails Vente B2B & Négociation">
+          <h3>Vente B2B & Négociation</h3>
+          <p class="description">Prospection B2B, génération de leads, techniques de closing, gestion d'objections et négociation avec automation IA.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 5 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 6 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
         </div>
+        
+
+        <div class="catalogue-card" role="button" tabindex="0" data-course="service-client-experience" aria-label="Voir détails Service Client & Expérience">
+          <h3>Service Client & Expérience</h3>
+          <p class="description">Techniques de service client d'excellence, gestion des réclamations, CX design et satisfaction client avec automation IA.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 3 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 6 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
+        </div>
+        
+
+        <div class="catalogue-card" role="button" tabindex="0" data-course="rh-performance" aria-label="Voir détails RH & Performance">
+          <h3>RH & Performance</h3>
+          <p class="description">Recrutement, onboarding, évaluation performance, développement talents et analytics RH avec IA prédictive.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 4 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 6 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
+        </div>
+        
+
+        <div class="catalogue-card" role="button" tabindex="0" data-course="data-reporting-decideurs" aria-label="Voir détails Data & Reporting pour décideurs">
+          <h3>Data & Reporting pour décideurs</h3>
+          <p class="description">Collecte de données, nettoyage, visualisation Power BI/Tableau et storytelling data pour prendre des décisions éclairées.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 3 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 5 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
+        </div>
+        
+
+        <div class="catalogue-card" role="button" tabindex="0" data-course="productivite-m365" aria-label="Voir détails Productivité & Outils (Microsoft 365)">
+          <h3>Productivité & Outils (Microsoft 365)</h3>
+          <p class="description">Word, Excel, PowerPoint, Teams, Outlook, OneDrive + Copilot IA pour une productivité optimale au quotidien.</p>
+          <div class="catalogue-meta">
+            <span>⏱️ 2 jours</span>
+            <span>🎯 4 profils cibles</span>
+            <span>📦 5 livrables</span>
+          </div>
+          <div class="cta-hint">
+            👉 Cliquez pour voir le programme complet
+          </div>
+        </div>
+        
       </div>
     </section>
   </div>
 
-  <!-- Footer Premium -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-links">
@@ -1202,6 +733,8 @@
         <a href="./parcours.html">Parcours</a>
         <span style="color: var(--border);">|</span>
         <a href="./companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./b2c.html">Particuliers (B2C)</a>
         <span style="color: var(--border);">|</span>
         <a href="./mentions-legales.html">Mentions légales</a>
         <span style="color: var(--border);">|</span>
@@ -1217,153 +750,2031 @@
     </div>
   </footer>
 
+  <!-- Course Modals -->
+  
+<!-- Modal: Leadership & Management -->
+<div class="course-modal-overlay" id="modal-leadership-management" role="dialog" aria-modal="true" aria-labelledby="modal-title-leadership-management">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-leadership-management">Leadership & Management</h2>
+      <p class="modal-subtitle">Transformez votre équipe avec un leadership augmenté par l'IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 5 jours</span>
+        <span>🎯 Managers, Chefs d'équipe, Cadres, Directeurs</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Leadership transformationnel, management d'équipes hybrides, gestion des conflits et culture d'entreprise avec outils IA.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Leadership Transformationnel & Vision</h4>
+      <ul>
+        <li>Définir et communiquer une vision inspirante</li>
+        <li>Aligner les équipes sur les objectifs stratégiques</li>
+        <li>Développer votre style de leadership authentique</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Management d'Équipes Hybrides & à Distance</h4>
+      <ul>
+        <li>Piloter des équipes distribuées efficacement</li>
+        <li>Maintenir l'engagement et la cohésion</li>
+        <li>Utiliser les outils collaboratifs IA (Slack, Teams, Notion)</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Gestion des Conflits & Communication</h4>
+      <ul>
+        <li>Détecter et résoudre les conflits rapidement</li>
+        <li>Communication assertive et feedback constructif</li>
+        <li>Médiation et négociation avec support IA</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 4: Culture d'Entreprise & Engagement</h4>
+      <ul>
+        <li>Bâtir une culture performante et inclusive</li>
+        <li>Mesurer et booster l'engagement collaborateur</li>
+        <li>Change management et conduite du changement</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (génération vision, feedback, scripts)</li>
+            <li>Microsoft Copilot (collaboration Teams, résumés réunions)</li>
+            <li>Notion AI (documentation processus, suivi OKRs)</li>
+            <li>Grammarly (communication écrite professionnelle)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Générer des scripts de feedback constructif personnalisés</li>
+            <li>Analyser les sentiments d'équipe via sondages automatisés</li>
+            <li>Créer des plans de développement individuel (PDI) assistés</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>📝 "Génère un feedback constructif pour un collaborateur [profil] qui [situation]. Ton : bienveillant mais ferme, structuré en 3 points : constat, impact, plan d'action."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>🎯 "Crée un OKR trimestriel pour une équipe [fonction] avec 3 Key Results mesurables alignés sur l'objectif [objectif stratégique]."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>🗣️ "Rédige un script de médiation pour un conflit entre [partie A] et [partie B] concernant [sujet]. Inclure : écoute active, reformulation, recherche de solutions gagnant-gagnant."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Fondamentaux du Leadership & Diagnostic</h4>
+        <ul>
+          <li>Styles de leadership (autoritaire, démocratique, transformationnel)</li>
+          <li>Auto-diagnostic : votre profil de leader</li>
+          <li>Vision stratégique et OKRs avec IA</li>
+          <li>Atelier pratique : définir votre vision</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Management d'Équipes Hybrides</h4>
+        <ul>
+          <li>Défis du management à distance</li>
+          <li>Outils collaboratifs IA (Slack AI, Microsoft Copilot)</li>
+          <li>Rituels d'équipe et cadence de communication</li>
+          <li>Cas pratique : gérer une équipe distribuée</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Communication & Gestion des Conflits</h4>
+        <ul>
+          <li>Communication assertive et écoute active</li>
+          <li>Feedback 360° et feedback continu</li>
+          <li>Résolution de conflits avec médiation IA</li>
+          <li>Jeux de rôle : situations conflictuelles</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 4</div>
+      <div class="day-content">
+        <h4>Culture d'Entreprise & Engagement</h4>
+        <ul>
+          <li>Diagnostiquer la culture actuelle</li>
+          <li>Leviers d'engagement collaborateur</li>
+          <li>Indicateurs RH et analytics IA (turnover, satisfaction)</li>
+          <li>Atelier : plan d'action culture & engagement</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 5</div>
+      <div class="day-content">
+        <h4>Change Management & Plan d'Action</h4>
+        <ul>
+          <li>Conduite du changement (modèle ADKAR)</li>
+          <li>Résistance au changement et leviers</li>
+          <li>Plan de transformation 90 jours</li>
+          <li>Présentation des projets individuels</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Expérience managériale de 1+ an (ou potentiel managérial identifié)</li>
+          <li>Accès à un ordinateur avec connexion internet stable</li>
+          <li>Ouverture au feedback et volonté de progresser</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Cas pratiques issus d'entreprises africaines</li>
+          <li>Jeux de rôle et simulations managériales</li>
+          <li>Grilles d'auto-évaluation et 360°</li>
+          <li>Templates : OKRs, feedback, PDI, plans d'action</li>
+          <li>Vidéos et articles complémentaires</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Vision et OKRs personnels (document stratégique)</li>
+          <li>Grille de feedback 360° complétée</li>
+          <li>Plan d'action culture & engagement (90 jours)</li>
+          <li>Boîte à outils managériale (templates + prompts IA)</li>
+          <li>Certificat de formation DigiSchool Africa</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=leadership-management&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Leadership%20%26%20Management%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Gestion de projet (PMP) -->
+<div class="course-modal-overlay" id="modal-gestion-projet-pmp" role="dialog" aria-modal="true" aria-labelledby="modal-title-gestion-projet-pmp">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-gestion-projet-pmp">Gestion de projet (PMP)</h2>
+      <p class="modal-subtitle">Méthodologie PMP alignée et augmentée par l'IA pour une gestion de projet d'excellence</p>
+      <div class="modal-meta">
+        <span>⏱️ 10 jours</span>
+        <span>🎯 Chefs de projet, PMO, Consultants, Product Managers</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Méthodologie PMP complète : cadrage, planification, exécution, suivi, clôture avec IA embarquée pour automatisation et prédiction.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Cadrage & Charte Projet</h4>
+      <ul>
+        <li>Rédiger une charte projet alignée PMP</li>
+        <li>Identifier les parties prenantes et leurs intérêts</li>
+        <li>Définir les objectifs SMART et critères de succès</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: WBS & Planification Détaillée</h4>
+      <ul>
+        <li>Construire un WBS exhaustif (Work Breakdown Structure)</li>
+        <li>Créer un planning Gantt avec dépendances</li>
+        <li>Estimer charges et ressources avec IA</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Gestion des Risques</h4>
+      <ul>
+        <li>Identifier et évaluer les risques (matrice)</li>
+        <li>Plans de contingence et de réponse</li>
+        <li>Analyse prédictive IA pour anticiper les déviations</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 4: Suivi & Reporting</h4>
+      <ul>
+        <li>Tableaux de bord projet (avancement, budget, délais)</li>
+        <li>Reporting exécutif automatisé avec IA</li>
+        <li>Gestion de la valeur acquise (EVM)</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (génération charte, WBS, plans de risque)</li>
+            <li>Microsoft Project + Copilot (planification Gantt)</li>
+            <li>Notion AI / Monday.com (suivi collaboratif)</li>
+            <li>Power BI / Tableau (dashboards reporting)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Générer une WBS complète à partir d'un énoncé projet</li>
+            <li>Automatiser le reporting hebdomadaire (statut, risques, blocages)</li>
+            <li>Prédire les déviations de délai/budget avec analyse de tendances IA</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>📋 "Génère une WBS complète pour un projet [type] avec [X] livrables majeurs. Décompose jusqu'au niveau 3 minimum avec durées estimées."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>⚠️ "Identifie 10 risques majeurs pour un projet [contexte] et propose une matrice de risques (probabilité/impact) + plans de réponse."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>📊 "Rédige un rapport de statut projet pour la semaine [date] : avancement [X%], risques actifs [liste], blocages [liste], prochaines étapes [3 actions]."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Introduction PMP & Cadrage Projet</h4>
+        <ul>
+          <li>Framework PMP (5 groupes de processus, 10 domaines)</li>
+          <li>Business case et justification projet</li>
+          <li>Charte projet : structure et contenu</li>
+          <li>Atelier : rédiger une charte projet</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Identification des Parties Prenantes</h4>
+        <ul>
+          <li>Registre des parties prenantes</li>
+          <li>Analyse pouvoir/intérêt</li>
+          <li>Plan d'engagement des parties prenantes</li>
+          <li>Cas pratique : cartographie stakeholders</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>WBS & Décomposition du Travail</h4>
+        <ul>
+          <li>Principes de la WBS (décomposition hiérarchique)</li>
+          <li>Dictionnaire WBS et livrables</li>
+          <li>Estimation des durées (3 points, analogique)</li>
+          <li>Outil : logiciel de WBS ou Excel</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 4</div>
+      <div class="day-content">
+        <h4>Planification Gantt & Ressources</h4>
+        <ul>
+          <li>Diagramme de Gantt et chemin critique</li>
+          <li>Affectation des ressources et nivellement</li>
+          <li>Contraintes et dépendances</li>
+          <li>IA : optimisation planning avec ChatGPT/Copilot</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 5</div>
+      <div class="day-content">
+        <h4>Gestion des Coûts & Budgétisation</h4>
+        <ul>
+          <li>Estimation des coûts (bottom-up, paramétrique)</li>
+          <li>Budget de référence (baseline)</li>
+          <li>Maîtrise des coûts et réserves</li>
+          <li>Atelier : créer un budget projet</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 6</div>
+      <div class="day-content">
+        <h4>Gestion des Risques</h4>
+        <ul>
+          <li>Identification des risques (brainstorming, Delphi)</li>
+          <li>Analyse qualitative et quantitative</li>
+          <li>Matrice de risques et plans de réponse</li>
+          <li>IA : analyse prédictive des risques</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 7</div>
+      <div class="day-content">
+        <h4>Gestion de la Qualité</h4>
+        <ul>
+          <li>Plan qualité et métriques</li>
+          <li>Audits et contrôles qualité</li>
+          <li>Amélioration continue (PDCA)</li>
+          <li>Cas pratique : définir des KPI qualité</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 8</div>
+      <div class="day-content">
+        <h4>Communication & Reporting</h4>
+        <ul>
+          <li>Plan de communication projet</li>
+          <li>Reporting : statut, avancement, risques</li>
+          <li>Automatisation reporting avec IA (Power BI, Tableau)</li>
+          <li>Atelier : créer un dashboard projet</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 9</div>
+      <div class="day-content">
+        <h4>Gestion de la Valeur Acquise (EVM)</h4>
+        <ul>
+          <li>Concepts EVM : PV, EV, AC, SPI, CPI</li>
+          <li>Analyse des écarts (coût, délai)</li>
+          <li>Prévisions à terminaison (EAC, ETC)</li>
+          <li>Cas pratique : calculer l'EVM d'un projet</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 10</div>
+      <div class="day-content">
+        <h4>Clôture & Leçons Apprises</h4>
+        <ul>
+          <li>Processus de clôture projet</li>
+          <li>Rapport de clôture et archivage</li>
+          <li>Leçons apprises et capitalisation</li>
+          <li>Préparation certification PMP (conseils)</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Expérience projet de 6+ mois (ou formation gestion projet)</li>
+          <li>Maîtrise Excel/Google Sheets (niveau intermédiaire)</li>
+          <li>Motivation pour obtenir la certification PMP (35h requises)</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Simulations de projets réels (secteurs variés)</li>
+          <li>Logiciels : MS Project, Excel, Monday.com (démos)</li>
+          <li>Templates PMP officiels (charte, WBS, matrice risques)</li>
+          <li>Études de cas d'entreprises africaines</li>
+          <li>Quiz et exercices pratiques quotidiens</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Charte projet complète (document Word/PDF)</li>
+          <li>WBS détaillée et planning Gantt</li>
+          <li>Matrice des risques et plans de contingence</li>
+          <li>Budget prévisionnel et baseline</li>
+          <li>Tableau de bord de reporting exécutif</li>
+          <li>Rapport de clôture et leçons apprises</li>
+          <li>Bibliothèque de 50+ prompts IA gestion projet</li>
+          <li>Attestation 35h (éligible PMP)</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=gestion-projet-pmp&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Gestion%20de%20projet%20(PMP)%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Stratégie & Exécution -->
+<div class="course-modal-overlay" id="modal-strategie-execution" role="dialog" aria-modal="true" aria-labelledby="modal-title-strategie-execution">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-strategie-execution">Stratégie & Exécution</h2>
+      <p class="modal-subtitle">De la vision stratégique à l'exécution opérationnelle avec OKRs et IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 4 jours</span>
+        <span>🎯 Dirigeants, Directeurs, Managers stratégiques, Entrepreneurs</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Élaboration de stratégie, OKRs, KPIs, transformation digitale et alignement d'équipe pour une exécution sans faille.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Élaboration de la Stratégie</h4>
+      <ul>
+        <li>Analyser l'environnement concurrentiel (SWOT, Porter)</li>
+        <li>Définir une stratégie différenciante et claire</li>
+        <li>Communiquer la vision stratégique à tous les niveaux</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: OKRs & KPIs</h4>
+      <ul>
+        <li>Déployer des OKRs alignés sur la stratégie</li>
+        <li>Définir des KPIs actionnables et mesurables</li>
+        <li>Créer des tableaux de bord stratégiques avec IA</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Transformation Digitale & Innovation</h4>
+      <ul>
+        <li>Identifier les opportunités de transformation digitale</li>
+        <li>Prioriser les initiatives avec matrice valeur/effort</li>
+        <li>Piloter l'innovation et expérimentation rapide</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 4: Exécution & Alignement des Équipes</h4>
+      <ul>
+        <li>Cascader les OKRs jusqu'aux équipes opérationnelles</li>
+        <li>Rituels d'exécution (revues hebdo/mensuelles)</li>
+        <li>Lever les blocages et accélérer la vélocité</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (analyse SWOT, génération OKRs)</li>
+            <li>Notion AI / Coda (documentation stratégique)</li>
+            <li>Power BI / Tableau (dashboards KPIs)</li>
+            <li>Miro AI (brainstorming visuel stratégique)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Générer une analyse SWOT détaillée à partir de données marché</li>
+            <li>Créer des OKRs alignés automatiquement pour chaque département</li>
+            <li>Simuler des scenarios stratégiques (what-if analysis) avec IA</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>🎯 "Génère 3 Objectives stratégiques et 3 Key Results chacun pour une entreprise [secteur] visant [objectif business] sur [trimestre/année]."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>🔍 "Analyse SWOT complète pour [entreprise/produit] dans le secteur [secteur] en Afrique : Forces (5), Faiblesses (5), Opportunités (5), Menaces (5)."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>🚀 "Propose une roadmap de transformation digitale 12 mois pour [type entreprise] avec 3 phases : Quick Wins (0-3 mois), Projets structurants (3-9 mois), Initiatives long terme (9-12 mois)."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Diagnostic Stratégique & Analyse Concurrentielle</h4>
+        <ul>
+          <li>Analyse SWOT approfondie</li>
+          <li>5 forces de Porter et positionnement</li>
+          <li>Tendances marché et insights IA</li>
+          <li>Atelier : cartographie concurrentielle</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Formulation de la Stratégie & OKRs</h4>
+        <ul>
+          <li>Vision, mission, valeurs (clarification)</li>
+          <li>Stratégies génériques (coût, différenciation, niche)</li>
+          <li>OKRs stratégiques (3-5 Objectives max)</li>
+          <li>Cas pratique : rédiger vos OKRs trimestriels</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Transformation Digitale & Innovation</h4>
+        <ul>
+          <li>Audit de maturité digitale</li>
+          <li>Quick wins vs projets structurants</li>
+          <li>Innovation incrémentale vs disruptive</li>
+          <li>Atelier : roadmap transformation digitale 12 mois</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 4</div>
+      <div class="day-content">
+        <h4>Exécution, Alignement & Suivi</h4>
+        <ul>
+          <li>Cascade des OKRs (top-down et bottom-up)</li>
+          <li>Rituels d'exécution : weekly review, monthly business review</li>
+          <li>Tableaux de bord stratégiques (Power BI, Tableau)</li>
+          <li>Plan d'action 90 jours post-formation</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Expérience managériale ou entrepreneuriale de 3+ ans</li>
+          <li>Compréhension des états financiers de base</li>
+          <li>Volonté de challenger le status quo</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Frameworks stratégiques (SWOT, Porter, BCG, Ansoff)</li>
+          <li>Templates OKRs et KPIs (Google Sheets)</li>
+          <li>Études de cas d'entreprises africaines en transformation</li>
+          <li>Simulations de décisions stratégiques</li>
+          <li>Outils de visualisation (Miro, Figma)</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Analyse SWOT et diagnostic stratégique</li>
+          <li>OKRs trimestriels cascadés (entreprise → équipes)</li>
+          <li>Roadmap transformation digitale 12 mois</li>
+          <li>Tableau de bord stratégique (KPIs)</li>
+          <li>Plan d'exécution 90 jours</li>
+          <li>Bibliothèque de prompts stratégiques IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=strategie-execution&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Strat%C3%A9gie%20%26%20Ex%C3%A9cution%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Finance pour non-financiers -->
+<div class="course-modal-overlay" id="modal-finance-non-financiers" role="dialog" aria-modal="true" aria-labelledby="modal-title-finance-non-financiers">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-finance-non-financiers">Finance pour non-financiers</h2>
+      <p class="modal-subtitle">Maîtrisez les fondamentaux financiers et prenez des décisions éclairées avec l'IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 3 jours</span>
+        <span>🎯 Managers, Entrepreneurs, Chefs de projet, Commerciaux</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Lecture d'états financiers, budgétisation, rentabilité, ROI et prise de décision basée sur les chiffres avec analyse IA.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Lecture & Analyse des États Financiers</h4>
+      <ul>
+        <li>Lire et interpréter un bilan comptable</li>
+        <li>Analyser un compte de résultat (P&L)</li>
+        <li>Comprendre le tableau de flux de trésorerie</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Budgétisation & Contrôle de Gestion</h4>
+      <ul>
+        <li>Construire un budget prévisionnel</li>
+        <li>Suivre les écarts budget vs réalisé</li>
+        <li>Piloter les coûts et optimiser les dépenses</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Rentabilité, ROI & Indicateurs Clés</h4>
+      <ul>
+        <li>Calculer la rentabilité d'un projet (ROI, NPV, IRR)</li>
+        <li>Indicateurs de performance financière (marge, EBITDA)</li>
+        <li>Prise de décision basée sur les données avec IA</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (interprétation états financiers)</li>
+            <li>Excel + Copilot (budgétisation automatisée)</li>
+            <li>Power BI (dashboards financiers)</li>
+            <li>QuickBooks / Sage (logiciels comptables avec IA)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Interpréter un bilan et identifier les signaux d'alerte</li>
+            <li>Automatiser le suivi budget vs réalisé avec alertes</li>
+            <li>Simuler des scenarios financiers (best case, worst case) avec IA</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>💰 "Analyse ce bilan [données] et identifie : 3 points forts, 3 points d'alerte, 2 recommandations d'amélioration. Focus sur liquidité et endettement."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>📊 "Calcule le ROI d'un projet avec investissement initial [X FCFA], revenus annuels [Y FCFA] sur [Z] ans. Donne aussi NPV avec taux d'actualisation [T%]."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>🎯 "Crée un budget prévisionnel 12 mois pour [type activité] avec revenus [X FCFA/mois], coûts fixes [Y FCFA], coûts variables [Z%]. Inclure : trésorerie mensuelle et point mort."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Fondamentaux Comptables & Bilan</h4>
+        <ul>
+          <li>Les 3 états financiers : bilan, P&L, flux de trésorerie</li>
+          <li>Actif, passif, capitaux propres : décryptage</li>
+          <li>Ratios de liquidité et solvabilité</li>
+          <li>Cas pratique : analyser un bilan réel</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Compte de Résultat & Budgétisation</h4>
+        <ul>
+          <li>Structure du P&L : revenus, coûts, résultat net</li>
+          <li>Marge brute, marge opérationnelle, marge nette</li>
+          <li>Budgétisation : top-down vs bottom-up</li>
+          <li>Atelier Excel : créer un budget prévisionnel</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Rentabilité, ROI & Décisions Financières</h4>
+        <ul>
+          <li>ROI, payback period, NPV, IRR (concepts et calculs)</li>
+          <li>Analyse de rentabilité projet avec IA</li>
+          <li>Tableaux de bord financiers automatisés</li>
+          <li>Cas pratique : arbitrer entre 2 investissements</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Aucun prérequis financier (formation pour débutants)</li>
+          <li>Maîtrise Excel de base (sommes, pourcentages)</li>
+          <li>Curiosité pour les chiffres et la gestion</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Cas pratiques avec états financiers réels (anonymisés)</li>
+          <li>Simulateurs Excel : budget, ROI, NPV</li>
+          <li>Templates financiers prêts à l'emploi</li>
+          <li>Vidéos explicatives (concepts clés)</li>
+          <li>Quiz et exercices corrigés</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Guide de lecture des états financiers</li>
+          <li>Budget prévisionnel 12 mois (fichier Excel)</li>
+          <li>Calculateur ROI et analyse de rentabilité</li>
+          <li>Tableau de bord financier automatisé</li>
+          <li>Bibliothèque de 30+ prompts finance IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=finance-non-financiers&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Finance%20pour%20non-financiers%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Vente B2B & Négociation -->
+<div class="course-modal-overlay" id="modal-vente-b2b-negociation" role="dialog" aria-modal="true" aria-labelledby="modal-title-vente-b2b-negociation">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-vente-b2b-negociation">Vente B2B & Négociation</h2>
+      <p class="modal-subtitle">Prospection intelligente, closing assisté et négociation gagnante avec l'IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 5 jours</span>
+        <span>🎯 Commerciaux B2B, Business Developers, Account Managers, Entrepreneurs</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Prospection B2B, génération de leads, techniques de closing, gestion d'objections et négociation avec automation IA.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Prospection B2B & Génération de Leads</h4>
+      <ul>
+        <li>Construire une base de prospects qualifiés (ICP)</li>
+        <li>Techniques de prospection multicanal (LinkedIn, email, cold calling)</li>
+        <li>Automation de la prospection avec IA (scraping, séquences)</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Qualification & Découverte Client</h4>
+      <ul>
+        <li>Cadre BANT/MEDDIC pour qualifier les leads</li>
+        <li>Questions de découverte puissantes</li>
+        <li>Scoring et priorisation automatisée des opportunités</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Techniques de Closing</h4>
+      <ul>
+        <li>Présentation de valeur percutante (value proposition)</li>
+        <li>Gestion des objections (méthode CRAC)</li>
+        <li>Techniques de closing : assumptif, alternative, urgence</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 4: Négociation Commerciale</h4>
+      <ul>
+        <li>Préparation négociation : BATNA, ZOPA, ancrage</li>
+        <li>Tactiques de négociation gagnant-gagnant</li>
+        <li>Finalisation et signature assistée par IA</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (génération scripts, emails, objections)</li>
+            <li>LinkedIn Sales Navigator + AI (prospection)</li>
+            <li>lemlist / Waalaxy (automation emailing)</li>
+            <li>HubSpot / Salesforce (CRM avec IA prédictive)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Générer des cold emails personnalisés à grande échelle</li>
+            <li>Analyser les réponses prospects et suggérer les meilleures répliques</li>
+            <li>Scorer automatiquement les leads (probabilité de closing) avec ML</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>📧 "Rédige un cold email de prospection pour [persona] dans [secteur]. Objectif : obtenir un RDV. Ton : professionnel mais chaleureux. Structure : accroche personnalisée, problème identifié, solution en 1 phrase, CTA clair."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>🎯 "Génère 10 questions de découverte SPIN (Situation, Problem, Implication, Need-payoff) pour vendre [produit/service] à [type de client]."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>💬 "Crée une réponse à l'objection « C'est trop cher » avec méthode CRAC : Clarifier (question), Reformuler (empathie), Argumenter (ROI/valeur), Conclure (next step)."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Fondamentaux Vente B2B & Prospection</h4>
+        <ul>
+          <li>Cycle de vente B2B vs B2C</li>
+          <li>Définir votre ICP (Ideal Customer Profile)</li>
+          <li>Sourcing de leads : LinkedIn Sales Navigator, bases de données</li>
+          <li>Atelier : construire une liste de 100 prospects</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Prospection Multicanal & Automation</h4>
+        <ul>
+          <li>Cold emailing : structure et séquences (3-5 touches)</li>
+          <li>LinkedIn outreach : messages personnalisés</li>
+          <li>Cold calling : scripts et bonnes pratiques</li>
+          <li>Outils IA : lemlist, Waalaxy, Apollo (démos)</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Qualification & Découverte Client</h4>
+        <ul>
+          <li>Cadre BANT (Budget, Authority, Need, Timing)</li>
+          <li>Cadre MEDDIC (pour ventes complexes)</li>
+          <li>Questions de découverte : méthode SPIN Selling</li>
+          <li>Cas pratique : qualifier 5 prospects</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 4</div>
+      <div class="day-content">
+        <h4>Présentation de Valeur & Gestion d'Objections</h4>
+        <ul>
+          <li>Pitcher votre solution : structure Before/After/Bridge</li>
+          <li>Démonstration produit/service efficace</li>
+          <li>Objections courantes et méthode CRAC (Clarifier, Reformuler, Argumenter, Conclure)</li>
+          <li>Jeux de rôle : traiter 10 objections</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 5</div>
+      <div class="day-content">
+        <h4>Négociation & Closing</h4>
+        <ul>
+          <li>Préparation négociation : BATNA, ZOPA, ancrage</li>
+          <li>Techniques de closing (assumptif, alternative, urgence)</li>
+          <li>Négociation gagnant-gagnant et concessions</li>
+          <li>Simulation négociation complète</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Expérience commerciale de 6+ mois (ou forte motivation)</li>
+          <li>Aisance relationnelle et goût du challenge</li>
+          <li>Accès LinkedIn (profil professionnel recommandé)</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Scripts de prospection prêts à l'emploi</li>
+          <li>Templates cold email et LinkedIn</li>
+          <li>Simulateurs de négociation (jeux de rôle)</li>
+          <li>CRM simplifié (démo)</li>
+          <li>Bibliothèque de 100+ objections/réponses</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Liste de 100 prospects qualifiés (fichier Excel)</li>
+          <li>Séquences de prospection multicanal (email + LinkedIn)</li>
+          <li>Pitch deck et scripts de découverte</li>
+          <li>Guide de gestion d'objections (50+ objections)</li>
+          <li>Plan de négociation type (template)</li>
+          <li>Bibliothèque de prompts vente IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=vente-b2b-negociation&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Vente%20B2B%20%26%20N%C3%A9gociation%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Service Client & Expérience -->
+<div class="course-modal-overlay" id="modal-service-client-experience" role="dialog" aria-modal="true" aria-labelledby="modal-title-service-client-experience">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-service-client-experience">Service Client & Expérience</h2>
+      <p class="modal-subtitle">Excellence du service client et CX augmentée par l'IA pour fidéliser et enchanter</p>
+      <div class="modal-meta">
+        <span>⏱️ 3 jours</span>
+        <span>🎯 Service client, Customer Success, Support, Managers CX</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Techniques de service client d'excellence, gestion des réclamations, CX design et satisfaction client avec automation IA.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Fondamentaux du Service Client</h4>
+      <ul>
+        <li>Standards d'excellence du service client</li>
+        <li>Communication empathique et professionnelle</li>
+        <li>Résolution rapide et efficace des demandes</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Gestion des Réclamations & Situations Difficiles</h4>
+      <ul>
+        <li>Traiter les réclamations avec méthode</li>
+        <li>Désamorcer les clients mécontents</li>
+        <li>Transformer une réclamation en opportunité</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Expérience Client (CX) & Fidélisation</h4>
+      <ul>
+        <li>Cartographier le parcours client (customer journey)</li>
+        <li>Mesurer la satisfaction (NPS, CSAT, CES)</li>
+        <li>Automatiser le support avec chatbots IA</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (réponses automatisées, FAQ)</li>
+            <li>Zendesk / Freshdesk (support ticketing avec IA)</li>
+            <li>Intercom / Drift (chatbots conversationnels)</li>
+            <li>Typeform / SurveyMonkey (sondages NPS automatisés)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Générer des réponses personnalisées aux questions clients courantes</li>
+            <li>Détecter le sentiment client (positif/négatif) et prioriser les tickets</li>
+            <li>Automatiser 60% des requêtes simples avec chatbot IA</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>💬 "Rédige une réponse empathique à un client mécontent qui [situation]. Ton : professionnel, empathique, orienté solution. Structure : excuses, compréhension, solution proposée, compensation si pertinent."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>📋 "Crée une FAQ de 10 questions/réponses pour [produit/service]. Format : Question client (langage naturel), Réponse (claire, concise, actionnable)."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>🤖 "Génère un script de chatbot pour qualifier une demande support : 1) Saluer, 2) Identifier le problème (3 questions max), 3) Proposer une solution ou escalader vers humain."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Excellence du Service Client</h4>
+        <ul>
+          <li>Les 5 piliers du service client d'excellence</li>
+          <li>Communication empathique : écoute active, reformulation</li>
+          <li>Gestion des attentes client</li>
+          <li>Atelier : scripts de réponse standards</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Gestion des Réclamations</h4>
+        <ul>
+          <li>Méthode QQOQCP pour traiter les réclamations</li>
+          <li>Désamorcer un client énervé (technique du disque rayé)</li>
+          <li>Compensation et gestes commerciaux</li>
+          <li>Jeux de rôle : 5 situations difficiles</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Expérience Client & Automation</h4>
+        <ul>
+          <li>Customer journey mapping (cartographie)</li>
+          <li>Indicateurs CX : NPS, CSAT, CES, taux de résolution</li>
+          <li>Chatbots et support automatisé avec IA</li>
+          <li>Atelier : créer un chatbot simple (no-code)</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Aucun prérequis technique (formation pour tous niveaux)</li>
+          <li>Aisance relationnelle et patience</li>
+          <li>Motivation pour satisfaire et fidéliser les clients</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Scripts de réponse et templates email</li>
+          <li>Jeux de rôle et simulations clients difficiles</li>
+          <li>Études de cas d'entreprises service-centric</li>
+          <li>Outils de sondage (démo)</li>
+          <li>Tutoriels chatbot no-code</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Bibliothèque de scripts de réponse (50+ situations)</li>
+          <li>Guide de gestion des réclamations (méthode step-by-step)</li>
+          <li>Customer journey map (template)</li>
+          <li>Plan de mesure satisfaction (NPS, CSAT)</li>
+          <li>Prototype chatbot simple</li>
+          <li>Bibliothèque de prompts service client IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=service-client-experience&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Service%20Client%20%26%20Exp%C3%A9rience%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: RH & Performance -->
+<div class="course-modal-overlay" id="modal-rh-performance" role="dialog" aria-modal="true" aria-labelledby="modal-title-rh-performance">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-rh-performance">RH & Performance</h2>
+      <p class="modal-subtitle">Gestion RH moderne et performance collaborative avec analytics IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 4 jours</span>
+        <span>🎯 RH, Managers, HRBP, Responsables formation</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Recrutement, onboarding, évaluation performance, développement talents et analytics RH avec IA prédictive.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Recrutement & Onboarding</h4>
+      <ul>
+        <li>Structurer un processus de recrutement efficace</li>
+        <li>Screening CV et entretiens avec IA</li>
+        <li>Onboarding immersif et engageant</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Évaluation de la Performance</h4>
+      <ul>
+        <li>Définir des objectifs SMART et OKRs individuels</li>
+        <li>Entretiens d'évaluation annuels et continus</li>
+        <li>Feedback 360° et plans de développement</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Développement des Talents & Engagement</h4>
+      <ul>
+        <li>Identifier les hauts potentiels</li>
+        <li>Plans de succession et mobilité interne</li>
+        <li>Mesurer et améliorer l'engagement collaborateur</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 4: Analytics RH & Prédiction</h4>
+      <ul>
+        <li>KPIs RH : turnover, absentéisme, time-to-hire</li>
+        <li>Dashboards RH automatisés avec Power BI</li>
+        <li>Prédire le turnover et les départs avec IA</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (rédaction offres, questions entretien)</li>
+            <li>ATS avec IA (Workable, Greenhouse) - screening CV</li>
+            <li>Culture Amp / Officevibe (sondages engagement)</li>
+            <li>Power BI / Tableau (dashboards RH)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Générer des descriptions de poste optimisées SEO</li>
+            <li>Screener 100 CV en 5 minutes et shortlister top 10</li>
+            <li>Prédire le risque de turnover par collaborateur (ML)</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>📝 "Rédige une offre d'emploi pour [poste] dans [secteur]. Inclure : mission principale, responsabilités (5), compétences requises (5), profil idéal, avantages. Ton : attractif, inclusif."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>❓ "Génère 10 questions d'entretien comportemental pour évaluer [compétence] chez un candidat [poste]. Format STAR (Situation, Task, Action, Result)."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>📊 "Analyse les données RH suivantes [turnover X%, absentéisme Y%, eNPS Z] et identifie : 3 signaux d'alerte, 2 points positifs, 3 recommandations d'action prioritaires."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Recrutement & Sélection</h4>
+        <ul>
+          <li>Définir un profil de poste et persona candidat</li>
+          <li>Sourcing de candidats (jobboards, LinkedIn, cooptation)</li>
+          <li>Screening CV avec ATS et IA</li>
+          <li>Entretiens structurés (questions comportementales)</li>
+          <li>Atelier : rédiger une offre d'emploi attractive</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Onboarding & Intégration</h4>
+        <ul>
+          <li>Parcours d'intégration (pré-boarding, jour 1, 30-60-90 jours)</li>
+          <li>Buddy system et mentoring</li>
+          <li>Formation initiale et accès outils</li>
+          <li>Mesurer le succès de l'onboarding</li>
+          <li>Cas pratique : créer un plan d'onboarding</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Évaluation Performance & Feedback</h4>
+        <ul>
+          <li>Objectifs SMART et OKRs individuels</li>
+          <li>Entretiens annuels et entretiens continus (1-on-1)</li>
+          <li>Feedback 360° : collecte et restitution</li>
+          <li>Plans de développement individuel (PDI)</li>
+          <li>Atelier : conduire un entretien d'évaluation</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 4</div>
+      <div class="day-content">
+        <h4>Développement Talents & Analytics RH</h4>
+        <ul>
+          <li>Identification des hauts potentiels (9-box grid)</li>
+          <li>Plans de succession et talent pipeline</li>
+          <li>Engagement collaborateur : leviers et mesure (eNPS)</li>
+          <li>Analytics RH : turnover, absentéisme, diversité</li>
+          <li>Prédiction du turnover avec IA (démo)</li>
+          <li>Atelier : créer un dashboard RH Power BI</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Expérience RH ou management de 1+ an</li>
+          <li>Aisance avec Excel/Google Sheets</li>
+          <li>Sensibilité aux enjeux humains et organisationnels</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Templates RH (offres emploi, grilles entretien, PDI)</li>
+          <li>Simulateurs d'entretiens d'évaluation</li>
+          <li>Études de cas RH (turnover, engagement, conflits)</li>
+          <li>Dashboards RH Power BI (démo)</li>
+          <li>Grilles d'analyse (9-box, SWOT talents)</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Kit recrutement (offres, questions, grilles évaluation)</li>
+          <li>Plan d'onboarding 90 jours (template)</li>
+          <li>Grille d'entretien annuel et PDI</li>
+          <li>Dashboard RH automatisé (KPIs)</li>
+          <li>Plan de développement talents (template)</li>
+          <li>Bibliothèque de prompts RH IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=rh-performance&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22RH%20%26%20Performance%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Data & Reporting pour décideurs -->
+<div class="course-modal-overlay" id="modal-data-reporting-decideurs" role="dialog" aria-modal="true" aria-labelledby="modal-title-data-reporting-decideurs">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-data-reporting-decideurs">Data & Reporting pour décideurs</h2>
+      <p class="modal-subtitle">Exploitez vos données et créez des dashboards décisionnels avec Power BI et IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 3 jours</span>
+        <span>🎯 Managers, Dirigeants, Analystes, Contrôleurs de gestion</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Collecte de données, nettoyage, visualisation Power BI/Tableau et storytelling data pour prendre des décisions éclairées.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Fondamentaux de la Data & Excel Avancé</h4>
+      <ul>
+        <li>Structurer et nettoyer des données (Excel/Google Sheets)</li>
+        <li>Formules avancées (RECHERCHEV, SI, TCD)</li>
+        <li>Automatisation avec macros simples et IA</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Visualisation & Dashboards</h4>
+      <ul>
+        <li>Principes de datavisualisation efficace</li>
+        <li>Créer des dashboards Power BI ou Tableau</li>
+        <li>Choisir les bons graphiques (KPIs, tendances, comparaisons)</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Storytelling Data & Décision</h4>
+      <ul>
+        <li>Raconter une histoire avec les données</li>
+        <li>Présenter des insights actionnables</li>
+        <li>Culture data-driven dans l'organisation</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>ChatGPT / Claude (interprétation données, génération insights)</li>
+            <li>Excel + Copilot (formules automatiques, nettoyage)</li>
+            <li>Power BI / Tableau (dashboards avec AI insights)</li>
+            <li>Python + libraries (Pandas, Matplotlib) - optionnel</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Nettoyer automatiquement un CSV de 10 000 lignes</li>
+            <li>Générer un dashboard Power BI à partir d'un simple brief</li>
+            <li>Identifier automatiquement les tendances et anomalies dans les données</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>📊 "Analyse ce jeu de données [résumé/extraits] et identifie : 3 tendances clés, 2 anomalies, 3 insights actionnables pour [objectif business]."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>📈 "Génère une formule Excel pour calculer [métrique] à partir des colonnes [A, B, C]. Inclure gestion des valeurs manquantes et arrondis."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>🎯 "Crée un plan de dashboard Power BI pour suivre [objectif] avec : 5 KPIs principaux, 3 visualisations (types suggérés), filtres recommandés."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Excel Avancé & Nettoyage de Données</h4>
+        <ul>
+          <li>Structuration de données : format tabulaire, naming</li>
+          <li>Formules avancées : RECHERCHEV, INDEX/EQUIV, SI.MULTIPLE</li>
+          <li>Tableaux croisés dynamiques (TCD) et graphiques croisés</li>
+          <li>Nettoyage de données : doublons, valeurs manquantes, outliers</li>
+          <li>Atelier : nettoyer un jeu de données réel</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Visualisation & Dashboards Power BI</h4>
+        <ul>
+          <li>Principes de datavisualisation (Tufte, Few)</li>
+          <li>Choisir le bon graphique : barre, ligne, camembert, scatter</li>
+          <li>Introduction Power BI : import, transformation, visuals</li>
+          <li>Créer un dashboard interactif (KPIs, filtres, slicers)</li>
+          <li>Atelier : créer votre premier dashboard Power BI</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 3</div>
+      <div class="day-content">
+        <h4>Storytelling Data & Décision</h4>
+        <ul>
+          <li>Storytelling avec données : structure pyramidale</li>
+          <li>Présenter des insights : SCQA (Situation, Complication, Question, Answer)</li>
+          <li>Culture data-driven : KPIs, rituels, accountability</li>
+          <li>IA pour l'analyse prédictive (démo)</li>
+          <li>Cas pratique : présenter 3 insights actionnables</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Maîtrise Excel de base (formules simples)</li>
+          <li>Curiosité pour les données et les chiffres</li>
+          <li>Aucun prérequis technique avancé</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Fichiers Excel d'exercices (jeux de données réels)</li>
+          <li>Power BI Desktop (installation guidée)</li>
+          <li>Templates de dashboards prêts à l'emploi</li>
+          <li>Études de cas d'entreprises data-driven</li>
+          <li>Cheatsheets formules Excel et Power BI</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Fichier Excel maîtrisé (formules avancées, TCD)</li>
+          <li>Dashboard Power BI interactif (projet personnel)</li>
+          <li>Guide de datavisualisation (best practices)</li>
+          <li>Templates de reporting (Excel + Power BI)</li>
+          <li>Bibliothèque de prompts data IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=data-reporting-decideurs&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Data%20%26%20Reporting%20pour%20d%C3%A9cideurs%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal: Productivité & Outils (Microsoft 365) -->
+<div class="course-modal-overlay" id="modal-productivite-m365" role="dialog" aria-modal="true" aria-labelledby="modal-title-productivite-m365">
+  <div class="course-modal">
+    <button class="modal-close" aria-label="Fermer">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="modal-title-productivite-m365">Productivité & Outils (Microsoft 365)</h2>
+      <p class="modal-subtitle">Maîtrisez Microsoft 365 et boostez votre productivité avec Copilot et l'IA</p>
+      <div class="modal-meta">
+        <span>⏱️ 2 jours</span>
+        <span>🎯 Tous collaborateurs, Assistants, Managers, Équipes projets</span>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <section class="modal-section">
+        <h3>📋 Vue d'ensemble</h3>
+        <p>Word, Excel, PowerPoint, Teams, Outlook, OneDrive + Copilot IA pour une productivité optimale au quotidien.</p>
+      </section>
+
+      <section class="modal-section">
+        <h3>🎓 Modules de Formation</h3>
+        
+    <div class="modal-module">
+      <h4>Module 1: Word, Excel, PowerPoint avec Copilot</h4>
+      <ul>
+        <li>Rédiger des documents professionnels rapidement (Word + Copilot)</li>
+        <li>Analyses Excel automatisées (formules, TCD, graphiques)</li>
+        <li>Créer des présentations impactantes (PowerPoint + Designer)</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 2: Collaboration : Teams, Outlook, OneDrive</h4>
+      <ul>
+        <li>Organiser réunions et projets avec Teams</li>
+        <li>Gérer emails efficacement (Outlook + règles automatiques)</li>
+        <li>Partager et co-éditer documents (OneDrive, SharePoint)</li>
+      </ul>
+    </div>
+  
+    <div class="modal-module">
+      <h4>Module 3: Productivité & Automation</h4>
+      <ul>
+        <li>Automatiser tâches répétitives (Power Automate)</li>
+        <li>Gérer son temps et ses priorités</li>
+        <li>Sécurité et bonnes pratiques Microsoft 365</li>
+      </ul>
+    </div>
+  
+      </section>
+
+      <section class="modal-section">
+        <h3>🤖 IA Embarquée & Outils</h3>
+        <div class="ai-tools">
+          <h4>Outils IA utilisés :</h4>
+          <ul>
+            <li>Microsoft Copilot (intégré Word, Excel, PPT, Teams, Outlook)</li>
+            <li>Power Automate (automation workflows)</li>
+            <li>OneDrive / SharePoint (collaboration cloud)</li>
+            <li>Microsoft Loop (workspace collaboratif nouvelle génération)</li>
+          </ul>
+        </div>
+        <div class="ai-use-cases">
+          <h4>Cas d'usage IA :</h4>
+          <ul>
+            <li>Rédiger un rapport de 10 pages en 15 minutes avec Copilot</li>
+            <li>Analyser 1000 lignes Excel et créer un dashboard automatiquement</li>
+            <li>Résumer 2h de réunion Teams en 5 bullet points actionnables</li>
+          </ul>
+        </div>
+        <div class="ai-prompts">
+          <h4>Prompts métiers réutilisables :</h4>
+          
+          <div class="prompt-item">
+            <strong>Prompt 1:</strong>
+            <code>📄 "Rédige un rapport de [sujet] en 5 pages : introduction, 3 sections principales avec [contenu], conclusion, recommandations. Ton : professionnel, structuré."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 2:</strong>
+            <code>📊 "Analyse ce tableau Excel [description] et crée : 1) un graphique pertinent, 2) un tableau croisé dynamique, 3) 3 insights clés."</code>
+          </div>
+          
+          <div class="prompt-item">
+            <strong>Prompt 3:</strong>
+            <code>📧 "Rédige un email professionnel pour [objet] à [destinataire]. Ton : [formel/cordial]. Structure : salutation, contexte (1 phrase), demande claire, conclusion, signature."</code>
+          </div>
+          
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>📅 Programme Jour par Jour</h3>
+        <div class="day-by-day">
+          
+    <div class="day-item">
+      <div class="day-number">Jour 1</div>
+      <div class="day-content">
+        <h4>Word, Excel, PowerPoint + Copilot</h4>
+        <ul>
+          <li>Word : styles, templates, révisions, Copilot (rédaction)</li>
+          <li>Excel : formules essentielles, TCD, mise en forme conditionnelle, Copilot (analyses)</li>
+          <li>PowerPoint : templates, transitions, Designer (IA), présentation efficace</li>
+          <li>Atelier : créer un rapport complet (Word + Excel + PPT)</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="day-item">
+      <div class="day-number">Jour 2</div>
+      <div class="day-content">
+        <h4>Teams, Outlook, Automation</h4>
+        <ul>
+          <li>Teams : canaux, réunions, chat, partage fichiers, Copilot (résumés)</li>
+          <li>Outlook : gestion emails, calendrier, règles automatiques, Copilot (rédaction)</li>
+          <li>OneDrive/SharePoint : stockage, partage, co-édition temps réel</li>
+          <li>Power Automate : automatiser workflows simples (démo)</li>
+          <li>Atelier : optimiser votre setup productivité quotidien</li>
+        </ul>
+      </div>
+    </div>
+  
+        </div>
+      </section>
+
+      <section class="modal-section">
+        <h3>✅ Prérequis</h3>
+        <ul>
+          <li>Aucun prérequis (formation pour débutants et intermédiaires)</li>
+          <li>Accès Microsoft 365 (licence fournie ou existante)</li>
+          <li>Ordinateur Windows ou Mac</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>🛠️ Outils Pédagogiques</h3>
+        <ul>
+          <li>Démonstrations en direct (screen sharing)</li>
+          <li>Exercices pratiques guidés (hands-on)</li>
+          <li>Templates professionnels (Word, Excel, PPT)</li>
+          <li>Cheatsheets raccourcis clavier</li>
+          <li>Vidéos tutoriels complémentaires</li>
+        </ul>
+      </section>
+
+      <section class="modal-section">
+        <h3>📦 Livrables</h3>
+        <ul>
+          <li>Classeur de templates professionnels (Word, Excel, PPT)</li>
+          <li>Guide des raccourcis et astuces (PDF)</li>
+          <li>Workflows Power Automate prêts à l'emploi</li>
+          <li>Setup productivité optimisé (checklist)</li>
+          <li>Bibliothèque de prompts Copilot IA</li>
+        </ul>
+      </section>
+
+      <section class="modal-section formats-section">
+        <h3>📍 Formats disponibles</h3>
+        <div class="format-badges">
+          <span class="format-badge">Intra-entreprise</span>
+          <span class="format-badge">Inter-entreprises</span>
+          <span class="format-badge">Bootcamp intensif</span>
+        </div>
+      </section>
+
+      <div class="modal-actions">
+        <a href="./proforma.html?course=productivite-m365&type=b2b" class="btn primary">📄 Générer une Proforma</a>
+        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formation%20B2B%20%22Productivit%C3%A9%20%26%20Outils%20(Microsoft%20365)%22.%0AMerci%20!" target="_blank" rel="noopener" class="btn secondary">💬 WhatsApp Direct</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Modal System Script -->
   <script>
-    // FAQ Accordion (PRESERVED FROM ORIGINAL)
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentElement;
-        const answer = question.nextElementSibling;
-        const isActive = question.classList.contains('active');
+    (function() {
+      'use strict';
 
-        // Close all
-        document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
-        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+      let activeModal = null;
+      let focusedElementBeforeModal = null;
 
-        // Toggle current
-        if (!isActive) {
-          question.classList.add('active');
-          answer.classList.add('active');
+      // Open modal
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+
+        focusedElementBeforeModal = document.activeElement;
+        modal.classList.add('active');
+        activeModal = modal;
+        document.body.style.overflow = 'hidden';
+
+        // Focus trap setup
+        const focusableElements = modal.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        if (firstFocusable) firstFocusable.focus();
+
+        // Trap focus
+        modal.addEventListener('keydown', function trapFocus(e) {
+          if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === firstFocusable) {
+              e.preventDefault();
+              lastFocusable.focus();
+            } else if (!e.shiftKey && document.activeElement === lastFocusable) {
+              e.preventDefault();
+              firstFocusable.focus();
+            }
+          }
+        });
+
+        // Track B2B modal open
+        if (window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
+          const courseSlug = modalId.replace('modal-', '');
+          window.DigiSchoolEvents.trackEvent('b2b_course_modal_open', {
+            course: courseSlug,
+            page: 'companies'
+          });
+        }
+      }
+
+      // Close modal
+      function closeModal() {
+        if (!activeModal) return;
+
+        activeModal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        if (focusedElementBeforeModal && focusedElementBeforeModal.focus) {
+          focusedElementBeforeModal.focus();
+        }
+
+        activeModal = null;
+        focusedElementBeforeModal = null;
+      }
+
+      // Card click handlers
+      document.querySelectorAll('.catalogue-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          const slug = this.getAttribute('data-course');
+          if (slug) openModal('modal-' + slug);
+        });
+
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const slug = this.getAttribute('data-course');
+            if (slug) openModal('modal-' + slug);
+          }
+        });
+      });
+
+      // Close button handlers
+      document.querySelectorAll('.modal-close').forEach(function(btn) {
+        btn.addEventListener('click', closeModal);
+      });
+
+      // Backdrop click
+      document.querySelectorAll('.course-modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) closeModal();
+        });
+      });
+
+      // ESC key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && activeModal) {
+          closeModal();
         }
       });
-    });
 
-    // Soumission AJAX pour redirection fiable vers merci.html (PRESERVED FROM PHASE 1.3)
-    (function() {
-      const form = document.querySelector('form.form');
-      if (!form) return;
+      // Hash routing
+      function handleHashChange() {
+        const hash = window.location.hash.substring(1);
+        if (hash && document.getElementById('modal-' + hash)) {
+          openModal('modal-' + hash);
+        }
+      }
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn.textContent;
-      let timeoutId = null;
+      window.addEventListener('hashchange', handleHashChange);
+      if (window.location.hash) {
+        handleHashChange();
+      }
 
-      form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Étape 1: intercepter la soumission
-
-        // Étape 2: désactiver le bouton et afficher l'état d'envoi
-        submitBtn.disabled = true;
-        submitBtn.textContent = '⏳ Envoi en cours...';
-        submitBtn.style.opacity = '0.7';
-        submitBtn.style.cursor = 'not-allowed';
-
-        // Retirer tout message d'erreur existant
-        const existingError = form.querySelector('.error-message');
-        if (existingError) existingError.remove();
-
-        // Étape 6: timeout de sécurité (12 secondes)
-        timeoutId = setTimeout(function() {
-          showError();
-        }, 12000);
-
-        // Étape 3: envoi via fetch
-        fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-        .then(function(response) {
-          clearTimeout(timeoutId);
-          
-          // Étape 4: si succès, redirection
-          if (response.ok) {
-            window.location.href = './merci.html';
-          } else {
-            // Étape 5: afficher message d'erreur
-            showError();
-          }
-        })
-        .catch(function(error) {
-          clearTimeout(timeoutId);
-          // Étape 5: afficher message d'erreur
-          showError();
-        });
+      // Track proforma clicks
+      document.addEventListener('click', function(e) {
+        const proformaLink = e.target.closest('a[href*="proforma.html"]');
+        if (proformaLink && window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
+          const url = new URL(proformaLink.href, window.location.origin);
+          const courseSlug = url.searchParams.get('course');
+          window.DigiSchoolEvents.trackEvent('b2b_proforma_click', {
+            course: courseSlug,
+            page: 'companies'
+          });
+        }
       });
-
-      function showError() {
-        // Réactiver le bouton
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
-        submitBtn.style.opacity = '1';
-        submitBtn.style.cursor = 'pointer';
-
-        // Afficher le message d'erreur
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.style.cssText = 'margin-top: 16px; padding: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; color: #fca5a5; font-size: 0.95rem; text-align: center;';
-        errorDiv.innerHTML = '⚠️ Échec d\'envoi. Réessaie ou contacte-nous via <a href="https://wa.me/2250505111102" style="color: #22c55e; text-decoration: underline;">WhatsApp</a>.';
-        
-        submitBtn.parentElement.appendChild(errorDiv);
-      }
-    })();
-
-    // Scroll Reveal avec IntersectionObserver
-    (function() {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-      };
-
-      const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('[data-reveal]').forEach(section => {
-        observer.observe(section);
-      });
-
-      // Animated counters pour les trust signals
-      function animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-count'));
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            element.textContent = target + (target === 95 ? '' : '+');
-            clearInterval(timer);
-          } else {
-            element.textContent = Math.floor(current) + (target === 95 ? '' : '+');
-          }
-        }, 16);
-      }
-
-      const counterObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-              if (counter.textContent === '0') {
-                animateCounter(counter);
-              }
-            });
-            counterObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      const trustSection = document.querySelector('.trust-grid');
-      if (trustSection) {
-        counterObserver.observe(trustSection.parentElement);
-      }
     })();
   </script>
 

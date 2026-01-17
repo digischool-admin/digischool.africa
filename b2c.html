@@ -5,11 +5,11 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formations Particuliers (B2C) — DigiSchool Africa</title>
-  <meta name="description" content="Parcours modulaires payants pour particuliers : développez vos compétences métiers avec l'IA embarquée. Formations professionnelles adaptées à l'Afrique." />
+  <meta name="description" content="Parcours modulaires 100% en ligne avec IA embarquée. Achetez le pack complet ou module par module. Prix transparents et accès immédiat." />
   
   <!-- Open Graph -->
   <meta property="og:title" content="Formations Particuliers (B2C) — DigiSchool Africa" />
-  <meta property="og:description" content="Parcours modulaires payants pour particuliers : développez vos compétences métiers avec l'IA embarquée." />
+  <meta property="og:description" content="9 parcours professionnels 100% en ligne avec IA embarquée. Pack ou module par module." />
   <meta property="og:url" content="https://digischool.africa/b2c.html" />
   <meta property="og:type" content="website" />
   
@@ -32,7 +32,6 @@
       --blue:#3b82f6;
       --blue-glow: rgba(59,130,246,0.25);
       --orange:#f97316;
-      --orange-glow: rgba(249,115,22,0.25);
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -51,7 +50,7 @@
       padding: 40px 20px 80px;
     }
 
-    /* Hero Premium */
+    /* Hero */
     .hero{
       position: relative;
       text-align: center;
@@ -118,50 +117,24 @@
       font-size: 1.3rem;
       color: var(--muted);
       max-width: 750px;
-      margin: 0 auto 40px;
+      margin: 0 auto 32px;
       line-height: 1.7;
     }
 
-    .btn{
+    .hero .online-badge{
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
+      gap: 8px;
+      padding: 12px 24px;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
       border-radius: 12px;
-      font-weight: 700;
       font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      cursor: pointer;
-      white-space: nowrap;
+      color: var(--green);
+      font-weight: 600;
     }
 
-    .btn.primary{
-      background: var(--green);
-      color: var(--bg);
-      border-color: var(--green);
-    }
-
-    .btn.primary:hover{
-      background: #1ea54e;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px var(--green-glow);
-    }
-
-    .btn.secondary{
-      background: var(--card2);
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn.secondary:hover{
-      background: var(--card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-
-    /* Section Styles */
+    /* Section */
     .section{
       margin-bottom: 80px;
     }
@@ -188,48 +161,29 @@
       margin: 0 auto;
     }
 
-    /* Parcours Grid */
-    .parcours-grid{
+    /* B2C Course Card */
+    .b2c-courses-grid{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 32px;
-      margin-bottom: 60px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
     }
 
-    .parcours-card{
+    .b2c-course-card{
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 36px;
       transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
     }
 
-    .parcours-card::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .parcours-card:hover{
+    .b2c-course-card:hover{
       border-color: var(--border-hover);
       background: var(--card-hover);
       transform: translateY(-4px);
       box-shadow: 0 12px 32px rgba(0,0,0,0.4);
     }
 
-    .parcours-card:hover::before{
-      opacity: 1;
-    }
-
-    .parcours-badge{
+    .course-badge{
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -239,68 +193,229 @@
       font-size: 0.8rem;
       border: 1px solid rgba(34,197,94,0.35);
       background: rgba(34,197,94,0.16);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       color: var(--green);
     }
 
-    .parcours-card h3{
+    .b2c-course-card h3{
       font-size: 1.8rem;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       color: var(--text);
     }
 
-    .parcours-card .description{
+    .course-subtitle{
       font-size: 1rem;
       color: var(--muted);
       margin-bottom: 20px;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    .parcours-meta{
+    .course-meta{
       display: flex;
-      gap: 20px;
+      gap: 16px;
       flex-wrap: wrap;
       margin-bottom: 20px;
-      font-size: 0.95rem;
-    }
-
-    .parcours-meta-item{
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 0.9rem;
       color: var(--muted2);
     }
 
-    .parcours-meta-item strong{
-      color: var(--text);
-      font-weight: 700;
+    .course-meta span{
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .parcours-outcomes{
+    .course-description{
+      margin-bottom: 24px;
+      padding: 16px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 12px;
+      border-left: 3px solid var(--green);
+    }
+
+    .course-description p{
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .pricing-section{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
       margin-bottom: 24px;
     }
 
-    .parcours-outcomes h4{
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: var(--blue);
+    .price-option{
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      background: var(--card2);
+      transition: all 0.3s ease;
     }
 
-    .parcours-outcomes ul{
+    .price-option.pack{
+      border-color: var(--green);
+      background: rgba(34,197,94,0.08);
+    }
+
+    .price-label{
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted2);
+      margin-bottom: 8px;
+    }
+
+    .price-value{
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .price-option.pack .price-value{
+      color: var(--green);
+    }
+
+    .per-module{
+      font-size: 0.9rem;
+      color: var(--muted2);
+      font-weight: 400;
+    }
+
+    .price-note{
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .course-actions{
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .btn{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .btn.primary{
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+    }
+
+    .btn.primary:hover{
+      background: #1ea54e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--green-glow);
+    }
+
+    .btn.secondary{
+      background: var(--card2);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn.secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .price-hint{
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .details-btn{
+      width: 100%;
+      padding: 12px 20px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .details-btn:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+    }
+
+    .details-btn .chevron{
+      transition: transform 0.3s ease;
+    }
+
+    .details-btn.active .chevron{
+      transform: rotate(180deg);
+    }
+
+    .course-details{
+      margin-top: 20px;
+      padding: 24px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .details-content h4{
+      font-size: 1.2rem;
+      color: var(--blue);
+      margin-bottom: 16px;
+      margin-top: 24px;
+    }
+
+    .details-content h4:first-child{
+      margin-top: 0;
+    }
+
+    .module-item{
+      margin-bottom: 20px;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 8px;
+      border-left: 3px solid var(--blue);
+    }
+
+    .module-item strong{
+      display: block;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .module-item ul, .ai-tools-list, .deliverables-list{
       list-style: none;
       padding: 0;
     }
 
-    .parcours-outcomes li{
-      font-size: 0.95rem;
-      color: var(--muted);
-      padding-left: 24px;
+    .module-item li, .ai-tools-list li, .deliverables-list li{
+      padding-left: 20px;
       position: relative;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
       line-height: 1.6;
     }
 
-    .parcours-outcomes li::before{
+    .module-item li::before, .ai-tools-list li::before, .deliverables-list li::before{
       content: '✓';
       position: absolute;
       left: 0;
@@ -308,114 +423,15 @@
       font-weight: 700;
     }
 
-    .price-tag{
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--green);
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .parcours-actions{
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* Payment Section */
-    .payment-section{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 48px 40px;
-      margin-top: 80px;
-    }
-
-    .payment-section h2{
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .payment-section .subtitle{
-      text-align: center;
-      color: var(--muted);
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-      line-height: 1.7;
-    }
-
-    .payment-methods{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .payment-item{
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 20px 24px;
-      background: var(--card2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: var(--text);
-    }
-
-    .payment-item:hover{
-      border-color: var(--green);
-      background: var(--card-hover);
-      transform: translateX(4px);
-    }
-
-    .payment-item img{
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-
-    .payment-item .icon{
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      background: var(--card);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    .payment-item .details{
-      flex: 1;
-    }
-
-    .payment-item .label{
-      font-weight: 700;
-      font-size: 1rem;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .payment-item .num{
-      font-size: 0.9rem;
-      color: var(--muted2);
-      display: block;
-    }
-
-    .payment-notice{
+    .online-notice{
+      margin-top: 24px;
+      padding: 16px;
       background: rgba(34,197,94,0.1);
       border: 1px solid rgba(34,197,94,0.3);
-      border-radius: 12px;
-      padding: 20px 24px;
+      border-radius: 8px;
       color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
 
     /* Footer */
@@ -473,224 +489,1029 @@
       .hero h1{ font-size: 2.5rem; }
       .hero p{ font-size: 1.15rem; }
       .section-title{ font-size: 2.2rem; }
-      .parcours-grid{ grid-template-columns: 1fr; }
-      .payment-methods{ grid-template-columns: 1fr; }
-      .parcours-actions{ flex-direction: column; }
-      .btn{ width: 100%; justify-content: center; }
-      .hero{ padding: 80px 24px 60px; }
-      .payment-section{ padding: 36px 24px; }
+      .b2c-courses-grid{ grid-template-columns: 1fr; }
+      .pricing-section{ grid-template-columns: 1fr; }
     }
 
     @media (max-width: 520px){
       .hero h1{ font-size: 2rem; }
-      .hero p{ font-size: 1.05rem; }
+      .hero{ padding: 80px 20px 60px; }
       .container{ padding: 30px 16px 60px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
         <div class="hero-badge">🎓 FORMATIONS PARTICULIERS (B2C)</div>
-        <h1>Parcours Modulaires Payants</h1>
-        <p>Développez vos compétences métiers avec l'IA embarquée. Formations professionnelles adaptées au contexte africain, à votre rythme.</p>
-        <a href="./parcours.html" class="btn primary">📚 Voir Tous les Parcours</a>
+        <h1>9 Parcours Professionnels 100% en Ligne</h1>
+        <p>Développez vos compétences avec l'IA embarquée. Achetez le pack complet ou module par module. Prix transparents, accès immédiat.</p>
+        <div class="online-badge">
+          ✨ Accès 100% en ligne — Aucun téléchargement requis
+        </div>
       </div>
     </section>
 
-    <!-- Featured Parcours Section -->
+    <!-- Courses Grid -->
     <section class="section">
       <div class="section-header">
-        <h2 class="section-title">✨ Nos Parcours Vedettes</h2>
-        <p class="section-subtitle">Formations modulaires avec IA embarquée : outils, cas d'usage et prompts métiers réutilisables</p>
+        <h2 class="section-title">📚 Nos Formations B2C</h2>
+        <p class="section-subtitle">Pack ou module par module : vous choisissez. L'achat par pack vous fait économiser jusqu'à 25%.</p>
       </div>
 
-      <div class="parcours-grid">
-        <!-- Parcours 1: Gestion de Projet -->
-        <div class="parcours-card">
-          <span class="parcours-badge">🤖 IA EMBARQUÉE</span>
-          <h3>Gestion de Projet (PMP-aligned)</h3>
-          <p class="description">Maîtrisez la gestion de projet avec une approche alignée PMP et augmentée par l'IA. 8 modules progressifs, livrables opérationnels et certification reconnue.</p>
-          
-          <div class="parcours-meta">
-            <div class="parcours-meta-item">
-              <span>⏱️</span>
-              <strong>10 semaines</strong>
-            </div>
-            <div class="parcours-meta-item">
-              <span>⚡</span>
-              <strong>6-8h/semaine</strong>
-            </div>
-            <div class="parcours-meta-item">
-              <span>📊</span>
-              <strong>8 modules</strong>
-            </div>
-          </div>
+      <div class="b2c-courses-grid">
+        
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Leadership & Management</h3>
+  <p class="course-subtitle">Transformez votre équipe avec un leadership augmenté par l'IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 5 jours</span>
+    <span>📊 4 modules</span>
+    <span>🎯 Managers</span>
+  </div>
 
-          <div class="parcours-outcomes">
-            <h4>🎯 Vous allez acquérir :</h4>
-            <ul>
-              <li>Cadrage projet et définition des objectifs avec IA</li>
-              <li>WBS, Gantt et outils de planification assistés</li>
-              <li>Gestion des risques avec analyse prédictive IA</li>
-              <li>Reporting automatisé et tableaux de bord intelligents</li>
-            </ul>
-          </div>
+  <div class="course-description">
+    <p>Leadership transformationnel, management d'équipes hybrides, gestion des conflits et culture d'entreprise avec outils IA.</p>
+  </div>
 
-          <span class="price-tag">245 000 XOF</span>
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">245 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
+      <div class="price-note">Total : 306 252 FCFA</div>
+    </div>
+  </div>
 
-          <div class="parcours-actions">
-            <a href="./parcours/gestion-projet-ia.html" class="btn primary">📖 Voir les Modules</a>
-            <a href="./proforma.html?from=gestion-projet-ia&src=b2c" class="btn secondary">💳 Commander</a>
-          </div>
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=leadership-management&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">245 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=leadership-management&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">76 563 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="leadership-management">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-leadership-management" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Leadership Transformationnel & Vision</strong>
+          <ul>
+            <li>Définir et communiquer une vision inspirante</li>
+            <li>Aligner les équipes sur les objectifs stratégiques</li>
+            <li>Développer votre style de leadership authentique</li>
+          </ul>
         </div>
-
-        <!-- Parcours 2: Data & Analytics -->
-        <div class="parcours-card">
-          <span class="parcours-badge">🤖 IA EMBARQUÉE</span>
-          <h3>Data & Analytics + IA</h3>
-          <p class="description">Transformez vos données en décisions stratégiques. Analyse, visualisation et IA pour des insights actionnables. SQL, Python, Power BI et modèles prédictifs.</p>
-          
-          <div class="parcours-meta">
-            <div class="parcours-meta-item">
-              <span>⏱️</span>
-              <strong>12 semaines</strong>
-            </div>
-            <div class="parcours-meta-item">
-              <span>⚡</span>
-              <strong>8-10h/semaine</strong>
-            </div>
-            <div class="parcours-meta-item">
-              <span>📊</span>
-              <strong>8 modules</strong>
-            </div>
-          </div>
-
-          <div class="parcours-outcomes">
-            <h4>🎯 Vous allez acquérir :</h4>
-            <ul>
-              <li>Collecte et nettoyage de données avec Python + IA</li>
-              <li>Analyse exploratoire et statistiques assistées</li>
-              <li>Visualisation Power BI et dashboards interactifs</li>
-              <li>Modélisation prédictive avec ML/IA</li>
-            </ul>
-          </div>
-
-          <span class="price-tag">285 000 XOF</span>
-
-          <div class="parcours-actions">
-            <a href="./parcours/data-analytics-ia.html" class="btn primary">📖 Voir les Modules</a>
-            <a href="./proforma.html?from=data-analytics-ia&src=b2c" class="btn secondary">💳 Commander</a>
-          </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Management d'Équipes Hybrides & à Distance</strong>
+          <ul>
+            <li>Piloter des équipes distribuées efficacement</li>
+            <li>Maintenir l'engagement et la cohésion</li>
+            <li>Utiliser les outils collaboratifs IA (Slack, Teams, Notion)</li>
+          </ul>
         </div>
-
-        <!-- Parcours 3: Marketing & Vente B2B -->
-        <div class="parcours-card">
-          <span class="parcours-badge">🤖 IA EMBARQUÉE</span>
-          <h3>Marketing & Vente B2B + IA</h3>
-          <p class="description">Boostez vos performances commerciales B2B avec l'IA : prospection intelligente, closing assisté, génération de contenu et automation marketing.</p>
-          
-          <div class="parcours-meta">
-            <div class="parcours-meta-item">
-              <span>⏱️</span>
-              <strong>10 semaines</strong>
-            </div>
-            <div class="parcours-meta-item">
-              <span>⚡</span>
-              <strong>6-8h/semaine</strong>
-            </div>
-            <div class="parcours-meta-item">
-              <span>📊</span>
-              <strong>8 modules</strong>
-            </div>
-          </div>
-
-          <div class="parcours-outcomes">
-            <h4>🎯 Vous allez acquérir :</h4>
-            <ul>
-              <li>Prospection B2B et génération de leads avec IA</li>
-              <li>Qualification automatisée et scoring intelligent</li>
-              <li>Techniques de closing et scripts assistés</li>
-              <li>Automation marketing et nurturing IA</li>
-            </ul>
-          </div>
-
-          <span class="price-tag">245 000 XOF</span>
-
-          <div class="parcours-actions">
-            <a href="./parcours/marketing-vente-ia.html" class="btn primary">📖 Voir les Modules</a>
-            <a href="./proforma.html?from=marketing-vente-ia&src=b2c" class="btn secondary">💳 Commander</a>
-          </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Gestion des Conflits & Communication</strong>
+          <ul>
+            <li>Détecter et résoudre les conflits rapidement</li>
+            <li>Communication assertive et feedback constructif</li>
+            <li>Médiation et négociation avec support IA</li>
+          </ul>
         </div>
+        
+        <div class="module-item">
+          <strong>Module 4: Culture d'Entreprise & Engagement</strong>
+          <ul>
+            <li>Bâtir une culture performante et inclusive</li>
+            <li>Mesurer et booster l'engagement collaborateur</li>
+            <li>Change management et conduite du changement</li>
+          </ul>
+        </div>
+        
       </div>
 
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="./parcours.html" class="btn primary" style="font-size: 1.1rem; padding: 18px 40px;">📚 Découvrir les 13 Parcours Complets</a>
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (génération vision, feedback, scripts)</li>
+        <li>Microsoft Copilot (collaboration Teams, résumés réunions)</li>
+        <li>Notion AI (documentation processus, suivi OKRs)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Vision et OKRs personnels (document stratégique)</li>
+        <li>Grille de feedback 360° complétée</li>
+        <li>Plan d'action culture & engagement (90 jours)</li>
+        <li>Boîte à outils managériale (templates + prompts IA)</li>
+        <li>Certificat de formation DigiSchool Africa</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
       </div>
-    </section>
+    </div>
+  </div>
+</div>
 
-    <!-- Payment Section (B2C Only) -->
-    <section class="payment-section">
-      <h2>💳 Paiement (B2C uniquement — au moment de l'achat)</h2>
-      <p class="subtitle">
-        Les paiements s'effectuent uniquement au moment de l'achat pour les particuliers (B2C).<br/>
-        Les entreprises (B2B) utilisent le système de devis/proforma disponible sur <a href="./companies.html" style="color: var(--green); font-weight: 700; text-decoration: none;">la page Entreprises</a>.
-      </p>
 
-      <div class="payment-methods">
-        <a class="payment-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
-          <img src="./assets/orange-money.png" alt="Orange Money" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">Orange Money</span>
-            <span class="num">+225 07 14 67 82 89</span>
-          </div>
-        </a>
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Gestion de projet (PMP)</h3>
+  <p class="course-subtitle">Méthodologie PMP alignée et augmentée par l'IA pour une gestion de projet d'excellence</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 10 jours</span>
+    <span>📊 4 modules</span>
+    <span>🎯 Chefs de projet</span>
+  </div>
 
-        <a class="payment-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
-          <img src="./assets/mtn-momo.png" alt="MTN MoMo" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">MTN MoMo</span>
-            <span class="num">+225 05 65 23 14 03</span>
-          </div>
-        </a>
+  <div class="course-description">
+    <p>Méthodologie PMP complète : cadrage, planification, exécution, suivi, clôture avec IA embarquée pour automatisation et prédiction.</p>
+  </div>
 
-        <a class="payment-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
-          <img src="./assets/moov-money.png" alt="Moov Money" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">Moov Money</span>
-            <span class="num">+225 01 51 66 68 01</span>
-          </div>
-        </a>
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">285 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">89 063 FCFA <span class="per-module">x 4</span></div>
+      <div class="price-note">Total : 356 252 FCFA</div>
+    </div>
+  </div>
 
-        <a class="payment-item" href="tel:+2250151664653" aria-label="Appeler Wave">
-          <img src="./assets/wave.png" alt="Wave" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">Wave</span>
-            <span class="num">+225 01 51 66 46 53</span>
-          </div>
-        </a>
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=gestion-projet-pmp&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">285 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=gestion-projet-pmp&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">89 063 FCFA/module</span>
+    </a>
+  </div>
 
-        <a class="payment-item" href="https://wa.me/2250505111102" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-          <div class="icon">💬</div>
-          <div class="details">
-            <span class="label">WhatsApp</span>
-            <span class="num">+225 05 05 11 11 02</span>
-          </div>
-        </a>
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="gestion-projet-pmp">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
 
-        <a class="payment-item" href="mailto:support@digischool.africa" aria-label="Envoyer un email au support">
-          <div class="icon">@</div>
-          <div class="details">
-            <span class="label">Email support</span>
-            <span class="num">support@digischool.africa</span>
-          </div>
-        </a>
+  <div class="course-details" id="details-gestion-projet-pmp" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Cadrage & Charte Projet</strong>
+          <ul>
+            <li>Rédiger une charte projet alignée PMP</li>
+            <li>Identifier les parties prenantes et leurs intérêts</li>
+            <li>Définir les objectifs SMART et critères de succès</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: WBS & Planification Détaillée</strong>
+          <ul>
+            <li>Construire un WBS exhaustif (Work Breakdown Structure)</li>
+            <li>Créer un planning Gantt avec dépendances</li>
+            <li>Estimer charges et ressources avec IA</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Gestion des Risques</strong>
+          <ul>
+            <li>Identifier et évaluer les risques (matrice)</li>
+            <li>Plans de contingence et de réponse</li>
+            <li>Analyse prédictive IA pour anticiper les déviations</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 4: Suivi & Reporting</strong>
+          <ul>
+            <li>Tableaux de bord projet (avancement, budget, délais)</li>
+            <li>Reporting exécutif automatisé avec IA</li>
+            <li>Gestion de la valeur acquise (EVM)</li>
+          </ul>
+        </div>
+        
       </div>
 
-      <div class="payment-notice">
-        💡 <strong>Astuce :</strong> Sur mobile, cliquez pour appeler directement ou ouvrir WhatsApp / Email. Tous les paiements sont sécurisés et tracés.
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (génération charte, WBS, plans de risque)</li>
+        <li>Microsoft Project + Copilot (planification Gantt)</li>
+        <li>Notion AI / Monday.com (suivi collaboratif)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Charte projet complète (document Word/PDF)</li>
+        <li>WBS détaillée et planning Gantt</li>
+        <li>Matrice des risques et plans de contingence</li>
+        <li>Budget prévisionnel et baseline</li>
+        <li>Tableau de bord de reporting exécutif</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Stratégie & Exécution</h3>
+  <p class="course-subtitle">De la vision stratégique à l'exécution opérationnelle avec OKRs et IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 4 jours</span>
+    <span>📊 4 modules</span>
+    <span>🎯 Dirigeants</span>
+  </div>
+
+  <div class="course-description">
+    <p>Élaboration de stratégie, OKRs, KPIs, transformation digitale et alignement d'équipe pour une exécution sans faille.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">245 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
+      <div class="price-note">Total : 306 252 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=strategie-execution&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">245 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=strategie-execution&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">76 563 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="strategie-execution">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-strategie-execution" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Élaboration de la Stratégie</strong>
+          <ul>
+            <li>Analyser l'environnement concurrentiel (SWOT, Porter)</li>
+            <li>Définir une stratégie différenciante et claire</li>
+            <li>Communiquer la vision stratégique à tous les niveaux</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: OKRs & KPIs</strong>
+          <ul>
+            <li>Déployer des OKRs alignés sur la stratégie</li>
+            <li>Définir des KPIs actionnables et mesurables</li>
+            <li>Créer des tableaux de bord stratégiques avec IA</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Transformation Digitale & Innovation</strong>
+          <ul>
+            <li>Identifier les opportunités de transformation digitale</li>
+            <li>Prioriser les initiatives avec matrice valeur/effort</li>
+            <li>Piloter l'innovation et expérimentation rapide</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 4: Exécution & Alignement des Équipes</strong>
+          <ul>
+            <li>Cascader les OKRs jusqu'aux équipes opérationnelles</li>
+            <li>Rituels d'exécution (revues hebdo/mensuelles)</li>
+            <li>Lever les blocages et accélérer la vélocité</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (analyse SWOT, génération OKRs)</li>
+        <li>Notion AI / Coda (documentation stratégique)</li>
+        <li>Power BI / Tableau (dashboards KPIs)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Analyse SWOT et diagnostic stratégique</li>
+        <li>OKRs trimestriels cascadés (entreprise → équipes)</li>
+        <li>Roadmap transformation digitale 12 mois</li>
+        <li>Tableau de bord stratégique (KPIs)</li>
+        <li>Plan d'exécution 90 jours</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Finance pour non-financiers</h3>
+  <p class="course-subtitle">Maîtrisez les fondamentaux financiers et prenez des décisions éclairées avec l'IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 3 jours</span>
+    <span>📊 3 modules</span>
+    <span>🎯 Managers</span>
+  </div>
+
+  <div class="course-description">
+    <p>Lecture d'états financiers, budgétisation, rentabilité, ROI et prise de décision basée sur les chiffres avec analyse IA.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">180 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
+      <div class="price-note">Total : 225 000 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=finance-non-financiers&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">180 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=finance-non-financiers&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">75 000 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="finance-non-financiers">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-finance-non-financiers" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Lecture & Analyse des États Financiers</strong>
+          <ul>
+            <li>Lire et interpréter un bilan comptable</li>
+            <li>Analyser un compte de résultat (P&L)</li>
+            <li>Comprendre le tableau de flux de trésorerie</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Budgétisation & Contrôle de Gestion</strong>
+          <ul>
+            <li>Construire un budget prévisionnel</li>
+            <li>Suivre les écarts budget vs réalisé</li>
+            <li>Piloter les coûts et optimiser les dépenses</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Rentabilité, ROI & Indicateurs Clés</strong>
+          <ul>
+            <li>Calculer la rentabilité d'un projet (ROI, NPV, IRR)</li>
+            <li>Indicateurs de performance financière (marge, EBITDA)</li>
+            <li>Prise de décision basée sur les données avec IA</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (interprétation états financiers)</li>
+        <li>Excel + Copilot (budgétisation automatisée)</li>
+        <li>Power BI (dashboards financiers)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Guide de lecture des états financiers</li>
+        <li>Budget prévisionnel 12 mois (fichier Excel)</li>
+        <li>Calculateur ROI et analyse de rentabilité</li>
+        <li>Tableau de bord financier automatisé</li>
+        <li>Bibliothèque de 30+ prompts finance IA</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Vente B2B & Négociation</h3>
+  <p class="course-subtitle">Prospection intelligente, closing assisté et négociation gagnante avec l'IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 5 jours</span>
+    <span>📊 4 modules</span>
+    <span>🎯 Commerciaux B2B</span>
+  </div>
+
+  <div class="course-description">
+    <p>Prospection B2B, génération de leads, techniques de closing, gestion d'objections et négociation avec automation IA.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">245 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
+      <div class="price-note">Total : 306 252 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=vente-b2b-negociation&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">245 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=vente-b2b-negociation&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">76 563 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="vente-b2b-negociation">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-vente-b2b-negociation" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Prospection B2B & Génération de Leads</strong>
+          <ul>
+            <li>Construire une base de prospects qualifiés (ICP)</li>
+            <li>Techniques de prospection multicanal (LinkedIn, email, cold calling)</li>
+            <li>Automation de la prospection avec IA (scraping, séquences)</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Qualification & Découverte Client</strong>
+          <ul>
+            <li>Cadre BANT/MEDDIC pour qualifier les leads</li>
+            <li>Questions de découverte puissantes</li>
+            <li>Scoring et priorisation automatisée des opportunités</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Techniques de Closing</strong>
+          <ul>
+            <li>Présentation de valeur percutante (value proposition)</li>
+            <li>Gestion des objections (méthode CRAC)</li>
+            <li>Techniques de closing : assumptif, alternative, urgence</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 4: Négociation Commerciale</strong>
+          <ul>
+            <li>Préparation négociation : BATNA, ZOPA, ancrage</li>
+            <li>Tactiques de négociation gagnant-gagnant</li>
+            <li>Finalisation et signature assistée par IA</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (génération scripts, emails, objections)</li>
+        <li>LinkedIn Sales Navigator + AI (prospection)</li>
+        <li>lemlist / Waalaxy (automation emailing)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Liste de 100 prospects qualifiés (fichier Excel)</li>
+        <li>Séquences de prospection multicanal (email + LinkedIn)</li>
+        <li>Pitch deck et scripts de découverte</li>
+        <li>Guide de gestion d'objections (50+ objections)</li>
+        <li>Plan de négociation type (template)</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Service Client & Expérience</h3>
+  <p class="course-subtitle">Excellence du service client et CX augmentée par l'IA pour fidéliser et enchanter</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 3 jours</span>
+    <span>📊 3 modules</span>
+    <span>🎯 Service client</span>
+  </div>
+
+  <div class="course-description">
+    <p>Techniques de service client d'excellence, gestion des réclamations, CX design et satisfaction client avec automation IA.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">180 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
+      <div class="price-note">Total : 225 000 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=service-client-experience&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">180 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=service-client-experience&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">75 000 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="service-client-experience">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-service-client-experience" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Fondamentaux du Service Client</strong>
+          <ul>
+            <li>Standards d'excellence du service client</li>
+            <li>Communication empathique et professionnelle</li>
+            <li>Résolution rapide et efficace des demandes</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Gestion des Réclamations & Situations Difficiles</strong>
+          <ul>
+            <li>Traiter les réclamations avec méthode</li>
+            <li>Désamorcer les clients mécontents</li>
+            <li>Transformer une réclamation en opportunité</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Expérience Client (CX) & Fidélisation</strong>
+          <ul>
+            <li>Cartographier le parcours client (customer journey)</li>
+            <li>Mesurer la satisfaction (NPS, CSAT, CES)</li>
+            <li>Automatiser le support avec chatbots IA</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (réponses automatisées, FAQ)</li>
+        <li>Zendesk / Freshdesk (support ticketing avec IA)</li>
+        <li>Intercom / Drift (chatbots conversationnels)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Bibliothèque de scripts de réponse (50+ situations)</li>
+        <li>Guide de gestion des réclamations (méthode step-by-step)</li>
+        <li>Customer journey map (template)</li>
+        <li>Plan de mesure satisfaction (NPS, CSAT)</li>
+        <li>Prototype chatbot simple</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>RH & Performance</h3>
+  <p class="course-subtitle">Gestion RH moderne et performance collaborative avec analytics IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 4 jours</span>
+    <span>📊 4 modules</span>
+    <span>🎯 RH</span>
+  </div>
+
+  <div class="course-description">
+    <p>Recrutement, onboarding, évaluation performance, développement talents et analytics RH avec IA prédictive.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">245 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
+      <div class="price-note">Total : 306 252 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=rh-performance&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">245 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=rh-performance&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">76 563 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="rh-performance">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-rh-performance" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Recrutement & Onboarding</strong>
+          <ul>
+            <li>Structurer un processus de recrutement efficace</li>
+            <li>Screening CV et entretiens avec IA</li>
+            <li>Onboarding immersif et engageant</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Évaluation de la Performance</strong>
+          <ul>
+            <li>Définir des objectifs SMART et OKRs individuels</li>
+            <li>Entretiens d'évaluation annuels et continus</li>
+            <li>Feedback 360° et plans de développement</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Développement des Talents & Engagement</strong>
+          <ul>
+            <li>Identifier les hauts potentiels</li>
+            <li>Plans de succession et mobilité interne</li>
+            <li>Mesurer et améliorer l'engagement collaborateur</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 4: Analytics RH & Prédiction</strong>
+          <ul>
+            <li>KPIs RH : turnover, absentéisme, time-to-hire</li>
+            <li>Dashboards RH automatisés avec Power BI</li>
+            <li>Prédire le turnover et les départs avec IA</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (rédaction offres, questions entretien)</li>
+        <li>ATS avec IA (Workable, Greenhouse) - screening CV</li>
+        <li>Culture Amp / Officevibe (sondages engagement)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Kit recrutement (offres, questions, grilles évaluation)</li>
+        <li>Plan d'onboarding 90 jours (template)</li>
+        <li>Grille d'entretien annuel et PDI</li>
+        <li>Dashboard RH automatisé (KPIs)</li>
+        <li>Plan de développement talents (template)</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Data & Reporting pour décideurs</h3>
+  <p class="course-subtitle">Exploitez vos données et créez des dashboards décisionnels avec Power BI et IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 3 jours</span>
+    <span>📊 3 modules</span>
+    <span>🎯 Managers</span>
+  </div>
+
+  <div class="course-description">
+    <p>Collecte de données, nettoyage, visualisation Power BI/Tableau et storytelling data pour prendre des décisions éclairées.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">180 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
+      <div class="price-note">Total : 225 000 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=data-reporting-decideurs&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">180 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=data-reporting-decideurs&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">75 000 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="data-reporting-decideurs">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-data-reporting-decideurs" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Fondamentaux de la Data & Excel Avancé</strong>
+          <ul>
+            <li>Structurer et nettoyer des données (Excel/Google Sheets)</li>
+            <li>Formules avancées (RECHERCHEV, SI, TCD)</li>
+            <li>Automatisation avec macros simples et IA</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Visualisation & Dashboards</strong>
+          <ul>
+            <li>Principes de datavisualisation efficace</li>
+            <li>Créer des dashboards Power BI ou Tableau</li>
+            <li>Choisir les bons graphiques (KPIs, tendances, comparaisons)</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Storytelling Data & Décision</strong>
+          <ul>
+            <li>Raconter une histoire avec les données</li>
+            <li>Présenter des insights actionnables</li>
+            <li>Culture data-driven dans l'organisation</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>ChatGPT / Claude (interprétation données, génération insights)</li>
+        <li>Excel + Copilot (formules automatiques, nettoyage)</li>
+        <li>Power BI / Tableau (dashboards avec AI insights)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Fichier Excel maîtrisé (formules avancées, TCD)</li>
+        <li>Dashboard Power BI interactif (projet personnel)</li>
+        <li>Guide de datavisualisation (best practices)</li>
+        <li>Templates de reporting (Excel + Power BI)</li>
+        <li>Bibliothèque de prompts data IA</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="b2c-course-card">
+  <div class="course-badge">🤖 IA EMBARQUÉE</div>
+  <h3>Productivité & Outils (Microsoft 365)</h3>
+  <p class="course-subtitle">Maîtrisez Microsoft 365 et boostez votre productivité avec Copilot et l'IA</p>
+  
+  <div class="course-meta">
+    <span>⏱️ 2 jours</span>
+    <span>📊 3 modules</span>
+    <span>🎯 Tous collaborateurs</span>
+  </div>
+
+  <div class="course-description">
+    <p>Word, Excel, PowerPoint, Teams, Outlook, OneDrive + Copilot IA pour une productivité optimale au quotidien.</p>
+  </div>
+
+  <div class="pricing-section">
+    <div class="price-option pack">
+      <div class="price-label">💎 Prix Pack Complet</div>
+      <div class="price-value">180 000 FCFA</div>
+      <div class="price-note">Économisez 20% vs achat module par module</div>
+    </div>
+    
+    <div class="price-option modules">
+      <div class="price-label">📦 Prix par Module</div>
+      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
+      <div class="price-note">Total : 225 000 FCFA</div>
+    </div>
+  </div>
+
+  <div class="course-actions">
+    <a href="./b2c-checkout.html?course=productivite-m365&type=pack" class="btn primary">
+      💎 Acheter le Pack
+      <span class="price-hint">180 000 FCFA</span>
+    </a>
+    <a href="./b2c-checkout.html?course=productivite-m365&type=module" class="btn secondary">
+      📦 Acheter un Module
+      <span class="price-hint">75 000 FCFA/module</span>
+    </a>
+  </div>
+
+  <div class="course-details-toggle">
+    <button class="details-btn" data-course="productivite-m365">
+      📖 Voir le Programme Complet
+      <span class="chevron">▼</span>
+    </button>
+  </div>
+
+  <div class="course-details" id="details-productivite-m365" style="display: none;">
+    <div class="details-content">
+      <h4>📚 Modules de Formation</h4>
+      <div class="modules-list">
+        
+        <div class="module-item">
+          <strong>Module 1: Word, Excel, PowerPoint avec Copilot</strong>
+          <ul>
+            <li>Rédiger des documents professionnels rapidement (Word + Copilot)</li>
+            <li>Analyses Excel automatisées (formules, TCD, graphiques)</li>
+            <li>Créer des présentations impactantes (PowerPoint + Designer)</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 2: Collaboration : Teams, Outlook, OneDrive</strong>
+          <ul>
+            <li>Organiser réunions et projets avec Teams</li>
+            <li>Gérer emails efficacement (Outlook + règles automatiques)</li>
+            <li>Partager et co-éditer documents (OneDrive, SharePoint)</li>
+          </ul>
+        </div>
+        
+        <div class="module-item">
+          <strong>Module 3: Productivité & Automation</strong>
+          <ul>
+            <li>Automatiser tâches répétitives (Power Automate)</li>
+            <li>Gérer son temps et ses priorités</li>
+            <li>Sécurité et bonnes pratiques Microsoft 365</li>
+          </ul>
+        </div>
+        
+      </div>
+
+      <h4>🤖 IA Embarquée & Outils</h4>
+      <ul class="ai-tools-list">
+        <li>Microsoft Copilot (intégré Word, Excel, PPT, Teams, Outlook)</li>
+        <li>Power Automate (automation workflows)</li>
+        <li>OneDrive / SharePoint (collaboration cloud)</li>
+      </ul>
+
+      <h4>📦 Livrables</h4>
+      <ul class="deliverables-list">
+        <li>Classeur de templates professionnels (Word, Excel, PPT)</li>
+        <li>Guide des raccourcis et astuces (PDF)</li>
+        <li>Workflows Power Automate prêts à l'emploi</li>
+        <li>Setup productivité optimisé (checklist)</li>
+        <li>Bibliothèque de prompts Copilot IA</li>
+      </ul>
+
+      <div class="online-notice">
+        ✨ <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
     </section>
   </div>
@@ -722,6 +1543,54 @@
       </p>
     </div>
   </footer>
+
+  <!-- Course Data -->
+  <script src="./courses-data.js"></script>
+
+  <!-- Details Toggle Script -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Toggle course details
+      document.querySelectorAll('.details-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const courseSlug = this.getAttribute('data-course');
+          const details = document.getElementById('details-' + courseSlug);
+          
+          if (details.style.display === 'none' || !details.style.display) {
+            details.style.display = 'block';
+            this.classList.add('active');
+          } else {
+            details.style.display = 'none';
+            this.classList.remove('active');
+          }
+        });
+      });
+
+      // Track B2C buy clicks
+      document.addEventListener('click', function(e) {
+        const buyBtn = e.target.closest('a[href*="b2c-checkout.html"]');
+        if (buyBtn && window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
+          const url = new URL(buyBtn.href, window.location.origin);
+          const courseSlug = url.searchParams.get('course');
+          const type = url.searchParams.get('type');
+          
+          if (type === 'pack') {
+            window.DigiSchoolEvents.trackEvent('b2c_pack_buy_click', {
+              course: courseSlug,
+              page: 'b2c'
+            });
+          } else if (type === 'module') {
+            window.DigiSchoolEvents.trackEvent('b2c_module_buy_click', {
+              course: courseSlug,
+              page: 'b2c'
+            });
+          }
+        }
+      });
+    })();
+  </script>
 
   <!-- Lead Events Tracking -->
   <script src="./lead-events.js"></script>

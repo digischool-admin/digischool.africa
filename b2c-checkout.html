@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commande — DigiSchool Africa</title>
+  <meta name="description" content="Finalisez votre commande de formation professionnelle 100% en ligne avec IA embarquée." />
+  
+  <link rel="canonical" content="https://digischool.africa/b2c-checkout.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+      --danger:#ef4444;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Header */
+    .checkout-header{
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .checkout-header h1{
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .checkout-header p{
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    /* Order Summary */
+    .order-summary{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .order-summary h2{
+      font-size: 1.8rem;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+
+    .summary-item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-item:last-child{
+      border-bottom: none;
+      padding-top: 24px;
+      margin-top: 12px;
+      border-top: 2px solid var(--border);
+    }
+
+    .summary-label{
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .summary-value{
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .summary-item:last-child .summary-label{
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .summary-item:last-child .summary-value{
+      font-size: 1.6rem;
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    /* Module Selector */
+    .module-selector{
+      margin-top: 24px;
+      padding: 20px;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 12px;
+    }
+
+    .module-selector h3{
+      font-size: 1.2rem;
+      color: var(--green);
+      margin-bottom: 16px;
+    }
+
+    .module-selector select{
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .module-selector select:focus{
+      outline: 2px solid var(--green);
+      outline-offset: 2px;
+    }
+
+    /* Order Form */
+    .order-form{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .order-form h2{
+      font-size: 1.8rem;
+      color: var(--blue);
+      margin-bottom: 24px;
+    }
+
+    .form-group{
+      margin-bottom: 24px;
+    }
+
+    .form-group label{
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .form-group label .required{
+      color: var(--danger);
+    }
+
+    .form-group input, .form-group select, .form-group textarea{
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus{
+      outline: none;
+      border-color: var(--green);
+      background: var(--card-hover);
+    }
+
+    .form-group textarea{
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-group small{
+      display: block;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: var(--muted2);
+    }
+
+    .submit-btn{
+      width: 100%;
+      padding: 18px 32px;
+      background: var(--green);
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover{
+      background: #1ea54e;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px var(--green-glow);
+    }
+
+    .submit-btn:disabled{
+      background: var(--card2);
+      border-color: var(--border);
+      color: var(--muted2);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Payment Methods */
+    .payment-section{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 40px;
+    }
+
+    .payment-section h2{
+      font-size: 1.8rem;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .payment-notice{
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .payment-methods{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .payment-item{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .payment-item:hover{
+      border-color: var(--green);
+      background: var(--card-hover);
+      transform: translateX(4px);
+    }
+
+    .payment-item img{
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .payment-item .icon{
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      background: var(--card);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .payment-item .details{
+      flex: 1;
+    }
+
+    .payment-item .label{
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .payment-item .num{
+      font-size: 0.85rem;
+      color: var(--muted2);
+      display: block;
+    }
+
+    /* Online Notice */
+    .online-notice{
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .online-notice strong{
+      color: var(--green);
+      font-size: 1.1rem;
+    }
+
+    .online-notice p{
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .footer{
+      margin-top: 80px;
+      padding: 40px 20px 30px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .footer-content{
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.95rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom a:hover{
+      color: var(--blue);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px){
+      .checkout-header h1{ font-size: 2rem; }
+      .order-summary, .order-form, .payment-section{ padding: 24px 20px; }
+      .payment-methods{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px){
+      .container{ padding: 30px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="checkout-header">
+      <h1>🛒 Finaliser votre Commande</h1>
+      <p>Formation 100% en ligne avec accès immédiat après paiement</p>
+    </div>
+
+    <!-- Online Notice -->
+    <div class="online-notice">
+      <strong>✨ Accès 100% en ligne — Aucun téléchargement</strong>
+      <p>Consultez vos supports directement dans la plateforme. Accès immédiat après validation de votre commande.</p>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="order-summary">
+      <h2>📋 Récapitulatif de Commande</h2>
+      <div class="summary-item">
+        <span class="summary-label">Formation :</span>
+        <span class="summary-value" id="course-title">Chargement...</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Type d'achat :</span>
+        <span class="summary-value" id="purchase-type">Chargement...</span>
+      </div>
+      <div class="summary-item" id="module-selector-container" style="display: none; flex-direction: column; align-items: flex-start;">
+        <div class="module-selector">
+          <h3>Sélectionnez votre module</h3>
+          <select id="module-select">
+            <option value="">-- Choisir un module --</option>
+          </select>
+        </div>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Prix TTC :</span>
+        <span class="summary-value" id="total-price">0 FCFA</span>
+      </div>
+    </div>
+
+    <!-- Order Form -->
+    <div class="order-form">
+      <h2>👤 Vos Informations</h2>
+      <form id="checkout-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <input type="hidden" name="course" id="form-course" />
+        <input type="hidden" name="purchase_type" id="form-type" />
+        <input type="hidden" name="module" id="form-module" />
+        <input type="hidden" name="price" id="form-price" />
+
+        <div class="form-group">
+          <label for="name">Nom complet <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Ex: Jean Kouassi" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="Ex: jean.kouassi@example.com" />
+          <small>Vous recevrez vos accès de connexion à cette adresse</small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Téléphone / WhatsApp <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" required placeholder="Ex: +225 05 05 11 11 02" />
+          <small>Pour confirmer votre commande et vous contacter si besoin</small>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Entreprise / Organisation (optionnel)</label>
+          <input type="text" id="company" name="company" placeholder="Ex: ABC Corporation" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message / Questions (optionnel)</label>
+          <textarea id="message" name="message" placeholder="Dites-nous si vous avez des questions ou besoins particuliers..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          ✅ Valider ma Commande
+        </button>
+      </form>
+    </div>
+
+    <!-- Payment Methods -->
+    <div class="payment-section">
+      <h2>💳 Paiement (après validation)</h2>
+      <div class="payment-notice">
+        📌 <strong>Important :</strong> Après validation de votre commande, nous vous contacterons pour finaliser le paiement via l'un des moyens ci-dessous. <strong>Aucun paiement en ligne automatisé.</strong>
+      </div>
+
+      <div class="payment-methods">
+        <a class="payment-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
+          <img src="./assets/orange-money.png" alt="Orange Money" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">Orange Money</span>
+            <span class="num">+225 07 14 67 82 89</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
+          <img src="./assets/mtn-momo.png" alt="MTN MoMo" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">MTN MoMo</span>
+            <span class="num">+225 05 65 23 14 03</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
+          <img src="./assets/moov-money.png" alt="Moov Money" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">Moov Money</span>
+            <span class="num">+225 01 51 66 68 01</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="tel:+2250151664653" aria-label="Appeler Wave">
+          <img src="./assets/wave.png" alt="Wave" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">Wave</span>
+            <span class="num">+225 01 51 66 46 53</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="https://wa.me/2250505111102" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+          <div class="icon">💬</div>
+          <div class="details">
+            <span class="label">WhatsApp</span>
+            <span class="num">+225 05 05 11 11 02</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="mailto:support@digischool.africa" aria-label="Envoyer un email au support">
+          <div class="icon">@</div>
+          <div class="details">
+            <span class="label">Email support</span>
+            <span class="num">support@digischool.africa</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="./index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./b2c.html">Retour au Catalogue B2C</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgv.html">CGV</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Course Data -->
+  <script src="./courses-data.js"></script>
+
+  <!-- Checkout Logic -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Parse URL params
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseSlug = urlParams.get('course');
+      const purchaseType = urlParams.get('type'); // 'pack' or 'module'
+
+      if (!courseSlug || !purchaseType) {
+        alert('Paramètres manquants. Veuillez revenir au catalogue B2C.');
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Load course data
+      const course = window.getCourseBySlugorId && window.getCourseBySlugorId(courseSlug);
+      if (!course) {
+        alert('Formation introuvable. Veuillez revenir au catalogue.');
+        window.location.href = './b2c.html';
+        return;
+      }
+
+      // Update summary
+      document.getElementById('course-title').textContent = course.title;
+      document.getElementById('purchase-type').textContent = purchaseType === 'pack' ? '💎 Pack Complet' : '📦 Module Individuel';
+
+      // Set form hidden fields
+      document.getElementById('form-course').value = course.title;
+      document.getElementById('form-type').value = purchaseType;
+
+      // Price logic
+      let finalPrice = 0;
+      if (purchaseType === 'pack') {
+        finalPrice = course.pack_price_xof;
+        document.getElementById('total-price').textContent = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
+        document.getElementById('form-price').value = finalPrice;
+      } else if (purchaseType === 'module') {
+        // Show module selector
+        document.getElementById('module-selector-container').style.display = 'flex';
+        const select = document.getElementById('module-select');
+        course.modules.forEach(function(mod, idx) {
+          const option = document.createElement('option');
+          option.value = idx;
+          option.textContent = 'Module ' + (idx + 1) + ': ' + mod.name + ' (' + course.module_price_xof.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA)';
+          select.appendChild(option);
+        });
+
+        select.addEventListener('change', function() {
+          if (this.value !== '') {
+            finalPrice = course.module_price_xof;
+            document.getElementById('total-price').textContent = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
+            document.getElementById('form-price').value = finalPrice;
+            document.getElementById('form-module').value = course.modules[parseInt(this.value)].name;
+            document.getElementById('submit-btn').disabled = false;
+          } else {
+            document.getElementById('total-price').textContent = '0 FCFA';
+            document.getElementById('form-price').value = '';
+            document.getElementById('form-module').value = '';
+            document.getElementById('submit-btn').disabled = true;
+          }
+        });
+
+        // Initially disable submit until module selected
+        document.getElementById('submit-btn').disabled = true;
+      }
+
+      // Form submission tracking
+      document.getElementById('checkout-form').addEventListener('submit', function(e) {
+        if (window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
+          const trackType = purchaseType === 'pack' ? 'b2c_pack_buy_submit' : 'b2c_module_buy_submit';
+          window.DigiSchoolEvents.trackEvent(trackType, {
+            course: courseSlug,
+            price: finalPrice,
+            page: 'checkout'
+          });
+        }
+      });
+    })();
+  </script>
+
+  <!-- Lead Events Tracking -->
+  <script src="./lead-events.js"></script>
+</body>
+</html>
