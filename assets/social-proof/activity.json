@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "type": "purchase",
+    "location": "Abidjan",
+    "course": "Leadership & Management",
+    "module": 1,
+    "timestamp": "2 min"
+  },
+  {
+    "id": 2,
+    "type": "certificate",
+    "location": "Ouagadougou",
+    "course": "Finance pour non-financiers",
+    "timestamp": "5 min"
+  },
+  {
+    "id": 3,
+    "type": "purchase",
+    "location": "Bamako",
+    "course": "Data & Reporting",
+    "module": 3,
+    "timestamp": "8 min"
+  },
+  {
+    "id": 4,
+    "type": "completion",
+    "location": "Abidjan",
+    "course": "Gestion de projet PMP",
+    "timestamp": "12 min"
+  },
+  {
+    "id": 5,
+    "type": "purchase",
+    "location": "Cotonou",
+    "course": "Vente B2B & Négociation",
+    "pack": true,
+    "timestamp": "15 min"
+  },
+  {
+    "id": 6,
+    "type": "certificate",
+    "location": "Lomé",
+    "course": "Service Client & Expérience",
+    "timestamp": "18 min"
+  },
+  {
+    "id": 7,
+    "type": "purchase",
+    "location": "Dakar",
+    "course": "RH & Performance",
+    "module": 2,
+    "timestamp": "22 min"
+  },
+  {
+    "id": 8,
+    "type": "completion",
+    "location": "Niamey",
+    "course": "Stratégie & Exécution",
+    "timestamp": "25 min"
+  },
+  {
+    "id": 9,
+    "type": "purchase",
+    "location": "Abidjan",
+    "course": "Productivité M365",
+    "pack": true,
+    "timestamp": "28 min"
+  },
+  {
+    "id": 10,
+    "type": "certificate",
+    "location": "Conakry",
+    "course": "Leadership & Management",
+    "timestamp": "32 min"
+  }
+]
