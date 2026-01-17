@@ -152,6 +152,59 @@
       border-color: rgba(59,130,246,0.35);
     }
 
+    /* Segmented Choice UI */
+    .choice-segment{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;max-width:900px;margin:0 auto 40px;
+      animation:fadeInUp 1s ease-out 0.8s both;
+    }
+    .choice-card{
+      background:var(--card);border:2px solid var(--border);border-radius:20px;
+      padding:40px 32px;text-align:center;cursor:pointer;
+      transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+      position:relative;overflow:hidden;text-decoration:none;display:block;
+    }
+    .choice-card::before{
+      content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;
+      background:radial-gradient(circle,var(--green-glow) 0%,transparent 70%);
+      opacity:0;transition:opacity 0.4s ease;pointer-events:none;
+    }
+    .choice-card:hover::before{opacity:1;}
+    .choice-card:hover{
+      background:var(--card-hover);border-color:var(--green);
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 20px 40px rgba(34,197,94,0.3);
+    }
+    .choice-card:focus{outline:2px solid var(--green);outline-offset:4px;}
+    .choice-card.b2b{border-color:rgba(59,130,246,0.4);}
+    .choice-card.b2b::before{
+      background:radial-gradient(circle,var(--blue-glow) 0%,transparent 70%);
+    }
+    .choice-card.b2b:hover{border-color:var(--blue);}
+    .choice-icon{
+      font-size:3.5rem;margin-bottom:20px;display:block;
+      filter:drop-shadow(0 4px 12px rgba(34,197,94,0.4));
+    }
+    .choice-card h3{
+      font-size:1.8rem;font-weight:800;margin-bottom:12px;color:var(--text);
+    }
+    .choice-card p{
+      font-size:1.05rem;color:var(--muted);line-height:1.6;margin-bottom:20px;
+    }
+    .choice-badge{
+      display:inline-block;padding:8px 16px;border-radius:8px;
+      font-size:0.85rem;font-weight:700;text-transform:uppercase;
+      letter-spacing:0.5px;
+    }
+    .choice-card.b2c .choice-badge{
+      background:rgba(34,197,94,0.15);color:var(--green);
+      border:1px solid rgba(34,197,94,0.3);
+    }
+    .choice-card.b2b .choice-badge{
+      background:rgba(59,130,246,0.15);color:var(--blue);
+      border:1px solid rgba(59,130,246,0.3);
+    }
+
     .hero-actions{
       display: flex;
       gap: 16px;
@@ -651,6 +704,34 @@
       color: var(--blue);
     }
 
+    /* Route Cards Styling */
+    .route-card {
+      cursor: pointer;
+    }
+
+    .route-card:hover {
+      border-color: var(--border-hover) !important;
+      background: var(--card-hover) !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4) !important;
+    }
+
+    .route-card:focus {
+      outline: 3px solid var(--green) !important;
+      outline-offset: 2px !important;
+      border-color: var(--green) !important;
+    }
+
+    .route-card.b2b:hover h3 {
+      color: var(--blue) !important;
+      text-shadow: 0 0 20px var(--blue-glow) !important;
+    }
+
+    .route-card.b2c:hover h3 {
+      color: var(--green) !important;
+      text-shadow: 0 0 20px var(--green-glow) !important;
+    }
+
     /* Animations */
     @keyframes fadeInDown {
       from {
@@ -678,6 +759,9 @@
     @media (max-width: 768px){
       .hero h1{ font-size: 2.5rem; }
       .hero p.lead{ font-size: 1.15rem; }
+      .hero-choice-lead{ font-size: 1.1rem !important; }
+      .hero-routing{ flex-direction: column; }
+      .route-card{ min-width: 100%; padding: 32px 40px !important; }
       .section-title{ font-size: 2.2rem; }
       .trust-grid{ grid-template-columns: repeat(2, 1fr); gap: 20px; }
       .trust-number{ font-size: 2.8rem; }
@@ -730,8 +814,22 @@
         <div class="badge support">🛟 Support 24/7</div>
       </div>
 
-      <div class="hero-actions">
-        <a href="./companies.html" class="btn primary">🏢 Offres Entreprises (B2B)</a>
+      <p class="hero-choice-lead" style="font-size: 1.2rem; color: var(--muted); margin-bottom: 32px; animation: fadeInUp 1s ease-out 0.8s both;">Choisissez votre parcours : Entreprise (B2B) ou Particulier (B2C)</p>
+
+      <div class="hero-routing" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; animation: fadeInUp 1s ease-out 1s both;">
+        <a href="./companies.html" class="route-card b2b" data-route="b2b" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 60px; border-radius: 20px; border: 2px solid var(--border); background: var(--card2); backdrop-filter: blur(10px); transition: all 0.4s ease; text-decoration: none; color: var(--text); min-width: 280px; position: relative;">
+          <span style="font-size: 4rem; margin-bottom: 16px;">🏢</span>
+          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--blue);">Entreprises (B2B)</h3>
+          <p style="font-size: 0.95rem; color: var(--muted); text-align: center; line-height: 1.5;">Formations sur mesure pour vos équipes</p>
+        </a>
+        <a href="./b2c.html" class="route-card b2c" data-route="b2c" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 60px; border-radius: 20px; border: 2px solid var(--border); background: var(--card2); backdrop-filter: blur(10px); transition: all 0.4s ease; text-decoration: none; color: var(--text); min-width: 280px; position: relative;">
+          <span style="font-size: 4rem; margin-bottom: 16px;">🎓</span>
+          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--green);">Particuliers (B2C)</h3>
+          <p style="font-size: 0.95rem; color: var(--muted); text-align: center; line-height: 1.5;">Parcours individuels modulaires</p>
+        </a>
+      </div>
+
+      <div class="hero-actions" style="margin-top: 24px;">
         <a href="./contact.html" class="btn secondary">📩 Nous Contacter</a>
         <a href="https://wa.me/2250505111102" target="_blank" rel="noopener" class="btn outline">💬 WhatsApp</a>
       </div>
@@ -799,9 +897,9 @@
         </div>
 
         <div class="feature-card">
-          <span class="feature-icon">💳</span>
-          <h3>Paiements Locaux</h3>
-          <p>Acceptation de tous les moyens de paiement africains : Mobile Money (Orange, MTN, Moov, Wave), virements, espèces.</p>
+          <span class="feature-icon">🤖</span>
+          <h3>IA Embarquée & Outils</h3>
+          <p>Formations augmentées par l'Intelligence Artificielle : outils IA, cas d'usage métiers, prompts réutilisables pour booster votre productivité.</p>
         </div>
 
         <div class="feature-card">
@@ -873,66 +971,7 @@
       </div>
     </section>
 
-    <!-- Contact & Payment Section (preserved from original) -->
-    <section class="contacts section" data-reveal>
-      <div class="contacts-card">
-        <h2 class="contacts-title">💳 Contacts & Paiements</h2>
 
-        <div class="pay-list">
-          <a class="pay-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
-            <img class="logo" src="./assets/orange-money.png" alt="Orange Money" loading="lazy" decoding="async">
-            <span>
-              <span class="label">Orange Money</span>
-              <span class="num">+225 07 14 67 82 89</span>
-            </span>
-          </a>
-
-          <a class="pay-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
-            <img class="logo" src="./assets/mtn-momo.png" alt="MTN MoMo" loading="lazy" decoding="async">
-            <span>
-              <span class="label">MTN MoMo</span>
-              <span class="num">+225 05 65 23 14 03</span>
-            </span>
-          </a>
-
-          <a class="pay-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
-            <img class="logo" src="./assets/moov-money.png" alt="Moov Money" loading="lazy" decoding="async">
-            <span>
-              <span class="label">Moov Money</span>
-              <span class="num">+225 01 51 66 68 01</span>
-            </span>
-          </a>
-
-          <a class="pay-item" href="tel:+2250151664653" aria-label="Appeler Wave">
-            <img class="logo" src="./assets/wave.png" alt="Wave" loading="lazy" decoding="async">
-            <span>
-              <span class="label">Wave</span>
-              <span class="num">+225 01 51 66 46 53</span>
-            </span>
-          </a>
-
-          <a class="pay-item" href="https://wa.me/2250505111102" target="_blank" rel="noopener" aria-label="Contacter DigiSchool Africa sur WhatsApp">
-            <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            <span>
-              <span class="label">WhatsApp</span>
-              <span class="num">+225 05 05 11 11 02</span>
-            </span>
-          </a>
-
-          <a class="pay-item" href="mailto:support@digischool.africa" aria-label="Envoyer un email au support DigiSchool Africa">
-            <span class="icon email">@</span>
-            <span>
-              <span class="label">Email support</span>
-              <span class="num">support@digischool.africa</span>
-            </span>
-          </a>
-        </div>
-
-        <div class="fine">
-          💡 Astuce : sur mobile, cliquez pour appeler directement ou ouvrir WhatsApp / Email.
-        </div>
-      </div>
-    </section>
 
     <!-- Section Secteurs Accompagnés (Phase 2.2A Trust Signals) -->
     <section class="section" data-reveal>
@@ -997,11 +1036,15 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-links">
+        <a href="./index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
         <a href="./contact.html">Contact</a>
         <span style="color: var(--border);">|</span>
         <a href="./parcours.html">Parcours</a>
         <span style="color: var(--border);">|</span>
         <a href="./companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./b2c.html">Particuliers (B2C)</a>
         <span style="color: var(--border);">|</span>
         <a href="./mentions-legales.html">Mentions légales</a>
         <span style="color: var(--border);">|</span>
@@ -1085,5 +1128,40 @@
 
   <!-- Lead Events Tracking -->
   <script src="./lead-events.js"></script>
+
+  <!-- B2B/B2C Route Tracking -->
+  <script>
+    (function() {
+      // Track route clicks (B2B or B2C)
+      document.addEventListener('click', function(e) {
+        const routeCard = e.target.closest('[data-route]');
+        if (routeCard && window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
+          const route = routeCard.getAttribute('data-route');
+          if (route === 'b2b') {
+            window.DigiSchoolEvents.trackEvent('route_b2b_click', {
+              source: 'hero_choice',
+              page: window.location.pathname
+            });
+          } else if (route === 'b2c') {
+            window.DigiSchoolEvents.trackEvent('route_b2c_click', {
+              source: 'hero_choice',
+              page: window.location.pathname
+            });
+          }
+        }
+      });
+
+      // Keyboard Enter on route cards
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          const routeCard = e.target.closest('[data-route]');
+          if (routeCard) {
+            e.preventDefault();
+            routeCard.click();
+          }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

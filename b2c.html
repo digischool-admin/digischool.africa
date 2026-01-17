@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formations Particuliers (B2C) — DigiSchool Africa</title>
+  <meta name="description" content="Parcours modulaires payants pour particuliers : développez vos compétences métiers avec l'IA embarquée. Formations professionnelles adaptées à l'Afrique." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Formations Particuliers (B2C) — DigiSchool Africa" />
+  <meta property="og:description" content="Parcours modulaires payants pour particuliers : développez vos compétences métiers avec l'IA embarquée." />
+  <meta property="og:url" content="https://digischool.africa/b2c.html" />
+  <meta property="og:type" content="website" />
+  
+  <link rel="canonical" href="https://digischool.africa/b2c.html" />
+
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card: rgba(255,255,255,0.04);
+      --card2: rgba(255,255,255,0.06);
+      --card-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --border-hover: rgba(255,255,255,0.24);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --muted2: rgba(255,255,255,0.62);
+      --green:#22c55e;
+      --green-glow: rgba(34,197,94,0.25);
+      --blue:#3b82f6;
+      --blue-glow: rgba(59,130,246,0.25);
+      --orange:#f97316;
+      --orange-glow: rgba(249,115,22,0.25);
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Hero Premium */
+    .hero{
+      position: relative;
+      text-align: center;
+      margin-bottom: 80px;
+      padding: 100px 30px 80px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .hero::before{
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
+      animation: gradientShift 8s ease-in-out infinite;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.1); }
+      50% { transform: translate(-30px, 30px) scale(0.9); }
+      75% { transform: translate(30px, 30px) scale(1.05); }
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 1px solid rgba(34,197,94,0.35);
+      background: rgba(34,197,94,0.16);
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1{
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p{
+      font-size: 1.3rem;
+      color: var(--muted);
+      max-width: 750px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn.primary{
+      background: var(--green);
+      color: var(--bg);
+      border-color: var(--green);
+    }
+
+    .btn.primary:hover{
+      background: #1ea54e;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px var(--green-glow);
+    }
+
+    .btn.secondary{
+      background: var(--card2);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn.secondary:hover{
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Section Styles */
+    .section{
+      margin-bottom: 80px;
+    }
+
+    .section-header{
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title{
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--green) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle{
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Parcours Grid */
+    .parcours-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .parcours-card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parcours-card::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .parcours-card:hover{
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+
+    .parcours-card:hover::before{
+      opacity: 1;
+    }
+
+    .parcours-badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      border: 1px solid rgba(34,197,94,0.35);
+      background: rgba(34,197,94,0.16);
+      margin-bottom: 20px;
+      color: var(--green);
+    }
+
+    .parcours-card h3{
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .parcours-card .description{
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .parcours-meta{
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .parcours-meta-item{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted2);
+    }
+
+    .parcours-meta-item strong{
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .parcours-outcomes{
+      margin-bottom: 24px;
+    }
+
+    .parcours-outcomes h4{
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: var(--blue);
+    }
+
+    .parcours-outcomes ul{
+      list-style: none;
+      padding: 0;
+    }
+
+    .parcours-outcomes li{
+      font-size: 0.95rem;
+      color: var(--muted);
+      padding-left: 24px;
+      position: relative;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .parcours-outcomes li::before{
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .price-tag{
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .parcours-actions{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Payment Section */
+    .payment-section{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      margin-top: 80px;
+    }
+
+    .payment-section h2{
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .payment-section .subtitle{
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .payment-methods{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .payment-item{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .payment-item:hover{
+      border-color: var(--green);
+      background: var(--card-hover);
+      transform: translateX(4px);
+    }
+
+    .payment-item img{
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .payment-item .icon{
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      background: var(--card);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .payment-item .details{
+      flex: 1;
+    }
+
+    .payment-item .label{
+      font-weight: 700;
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .payment-item .num{
+      font-size: 0.9rem;
+      color: var(--muted2);
+      display: block;
+    }
+
+    .payment-notice{
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 12px;
+      padding: 20px 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Footer */
+    .footer{
+      margin-top: 80px;
+      padding: 40px 20px 30px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .footer-content{
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-links{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a{
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover{
+      color: var(--green);
+    }
+
+    .footer-bottom{
+      font-size: 0.95rem;
+      color: var(--muted2);
+    }
+
+    .footer-bottom a{
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom a:hover{
+      color: var(--blue);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px){
+      .hero h1{ font-size: 2.5rem; }
+      .hero p{ font-size: 1.15rem; }
+      .section-title{ font-size: 2.2rem; }
+      .parcours-grid{ grid-template-columns: 1fr; }
+      .payment-methods{ grid-template-columns: 1fr; }
+      .parcours-actions{ flex-direction: column; }
+      .btn{ width: 100%; justify-content: center; }
+      .hero{ padding: 80px 24px 60px; }
+      .payment-section{ padding: 36px 24px; }
+    }
+
+    @media (max-width: 520px){
+      .hero h1{ font-size: 2rem; }
+      .hero p{ font-size: 1.05rem; }
+      .container{ padding: 30px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">🎓 FORMATIONS PARTICULIERS (B2C)</div>
+        <h1>Parcours Modulaires Payants</h1>
+        <p>Développez vos compétences métiers avec l'IA embarquée. Formations professionnelles adaptées au contexte africain, à votre rythme.</p>
+        <a href="./parcours.html" class="btn primary">📚 Voir Tous les Parcours</a>
+      </div>
+    </section>
+
+    <!-- Featured Parcours Section -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">✨ Nos Parcours Vedettes</h2>
+        <p class="section-subtitle">Formations modulaires avec IA embarquée : outils, cas d'usage et prompts métiers réutilisables</p>
+      </div>
+
+      <div class="parcours-grid">
+        <!-- Parcours 1: Gestion de Projet -->
+        <div class="parcours-card">
+          <span class="parcours-badge">🤖 IA EMBARQUÉE</span>
+          <h3>Gestion de Projet (PMP-aligned)</h3>
+          <p class="description">Maîtrisez la gestion de projet avec une approche alignée PMP et augmentée par l'IA. 8 modules progressifs, livrables opérationnels et certification reconnue.</p>
+          
+          <div class="parcours-meta">
+            <div class="parcours-meta-item">
+              <span>⏱️</span>
+              <strong>10 semaines</strong>
+            </div>
+            <div class="parcours-meta-item">
+              <span>⚡</span>
+              <strong>6-8h/semaine</strong>
+            </div>
+            <div class="parcours-meta-item">
+              <span>📊</span>
+              <strong>8 modules</strong>
+            </div>
+          </div>
+
+          <div class="parcours-outcomes">
+            <h4>🎯 Vous allez acquérir :</h4>
+            <ul>
+              <li>Cadrage projet et définition des objectifs avec IA</li>
+              <li>WBS, Gantt et outils de planification assistés</li>
+              <li>Gestion des risques avec analyse prédictive IA</li>
+              <li>Reporting automatisé et tableaux de bord intelligents</li>
+            </ul>
+          </div>
+
+          <span class="price-tag">245 000 XOF</span>
+
+          <div class="parcours-actions">
+            <a href="./parcours/gestion-projet-ia.html" class="btn primary">📖 Voir les Modules</a>
+            <a href="./proforma.html?from=gestion-projet-ia&src=b2c" class="btn secondary">💳 Commander</a>
+          </div>
+        </div>
+
+        <!-- Parcours 2: Data & Analytics -->
+        <div class="parcours-card">
+          <span class="parcours-badge">🤖 IA EMBARQUÉE</span>
+          <h3>Data & Analytics + IA</h3>
+          <p class="description">Transformez vos données en décisions stratégiques. Analyse, visualisation et IA pour des insights actionnables. SQL, Python, Power BI et modèles prédictifs.</p>
+          
+          <div class="parcours-meta">
+            <div class="parcours-meta-item">
+              <span>⏱️</span>
+              <strong>12 semaines</strong>
+            </div>
+            <div class="parcours-meta-item">
+              <span>⚡</span>
+              <strong>8-10h/semaine</strong>
+            </div>
+            <div class="parcours-meta-item">
+              <span>📊</span>
+              <strong>8 modules</strong>
+            </div>
+          </div>
+
+          <div class="parcours-outcomes">
+            <h4>🎯 Vous allez acquérir :</h4>
+            <ul>
+              <li>Collecte et nettoyage de données avec Python + IA</li>
+              <li>Analyse exploratoire et statistiques assistées</li>
+              <li>Visualisation Power BI et dashboards interactifs</li>
+              <li>Modélisation prédictive avec ML/IA</li>
+            </ul>
+          </div>
+
+          <span class="price-tag">285 000 XOF</span>
+
+          <div class="parcours-actions">
+            <a href="./parcours/data-analytics-ia.html" class="btn primary">📖 Voir les Modules</a>
+            <a href="./proforma.html?from=data-analytics-ia&src=b2c" class="btn secondary">💳 Commander</a>
+          </div>
+        </div>
+
+        <!-- Parcours 3: Marketing & Vente B2B -->
+        <div class="parcours-card">
+          <span class="parcours-badge">🤖 IA EMBARQUÉE</span>
+          <h3>Marketing & Vente B2B + IA</h3>
+          <p class="description">Boostez vos performances commerciales B2B avec l'IA : prospection intelligente, closing assisté, génération de contenu et automation marketing.</p>
+          
+          <div class="parcours-meta">
+            <div class="parcours-meta-item">
+              <span>⏱️</span>
+              <strong>10 semaines</strong>
+            </div>
+            <div class="parcours-meta-item">
+              <span>⚡</span>
+              <strong>6-8h/semaine</strong>
+            </div>
+            <div class="parcours-meta-item">
+              <span>📊</span>
+              <strong>8 modules</strong>
+            </div>
+          </div>
+
+          <div class="parcours-outcomes">
+            <h4>🎯 Vous allez acquérir :</h4>
+            <ul>
+              <li>Prospection B2B et génération de leads avec IA</li>
+              <li>Qualification automatisée et scoring intelligent</li>
+              <li>Techniques de closing et scripts assistés</li>
+              <li>Automation marketing et nurturing IA</li>
+            </ul>
+          </div>
+
+          <span class="price-tag">245 000 XOF</span>
+
+          <div class="parcours-actions">
+            <a href="./parcours/marketing-vente-ia.html" class="btn primary">📖 Voir les Modules</a>
+            <a href="./proforma.html?from=marketing-vente-ia&src=b2c" class="btn secondary">💳 Commander</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="./parcours.html" class="btn primary" style="font-size: 1.1rem; padding: 18px 40px;">📚 Découvrir les 13 Parcours Complets</a>
+      </div>
+    </section>
+
+    <!-- Payment Section (B2C Only) -->
+    <section class="payment-section">
+      <h2>💳 Paiement (B2C uniquement — au moment de l'achat)</h2>
+      <p class="subtitle">
+        Les paiements s'effectuent uniquement au moment de l'achat pour les particuliers (B2C).<br/>
+        Les entreprises (B2B) utilisent le système de devis/proforma disponible sur <a href="./companies.html" style="color: var(--green); font-weight: 700; text-decoration: none;">la page Entreprises</a>.
+      </p>
+
+      <div class="payment-methods">
+        <a class="payment-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
+          <img src="./assets/orange-money.png" alt="Orange Money" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">Orange Money</span>
+            <span class="num">+225 07 14 67 82 89</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
+          <img src="./assets/mtn-momo.png" alt="MTN MoMo" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">MTN MoMo</span>
+            <span class="num">+225 05 65 23 14 03</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
+          <img src="./assets/moov-money.png" alt="Moov Money" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">Moov Money</span>
+            <span class="num">+225 01 51 66 68 01</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="tel:+2250151664653" aria-label="Appeler Wave">
+          <img src="./assets/wave.png" alt="Wave" loading="lazy" decoding="async">
+          <div class="details">
+            <span class="label">Wave</span>
+            <span class="num">+225 01 51 66 46 53</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="https://wa.me/2250505111102" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+          <div class="icon">💬</div>
+          <div class="details">
+            <span class="label">WhatsApp</span>
+            <span class="num">+225 05 05 11 11 02</span>
+          </div>
+        </a>
+
+        <a class="payment-item" href="mailto:support@digischool.africa" aria-label="Envoyer un email au support">
+          <div class="icon">@</div>
+          <div class="details">
+            <span class="label">Email support</span>
+            <span class="num">support@digischool.africa</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="payment-notice">
+        💡 <strong>Astuce :</strong> Sur mobile, cliquez pour appeler directement ou ouvrir WhatsApp / Email. Tous les paiements sont sécurisés et tracés.
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="./index.html">Accueil</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./contact.html">Contact</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./parcours.html">Parcours</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./companies.html">Entreprises (B2B)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./b2c.html">Particuliers (B2C)</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./mentions-legales.html">Mentions légales</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgu.html">CGU</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./cgv.html">CGV</a>
+        <span style="color: var(--border);">|</span>
+        <a href="./politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <p class="footer-bottom">
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lead Events Tracking -->
+  <script src="./lead-events.js"></script>
+</body>
+</html>
