@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation de Paiement — DigiSchool Africa</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script src="/assets/inject-layout-v2.2.js" defer></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+      color: #0B1B3A;
+      line-height: 1.6;
+    }
+    
+    .payment-container {
+      max-width: 800px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+    
+    /* Barre de progression */
+    .progress-bar {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+    
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    
+    .progress-line {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #ECEFF1;
+      z-index: 0;
+    }
+    
+    .progress-line-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #22c55e);
+      transition: width 0.5s ease;
+    }
+    
+    .progress-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      flex: 1;
+    }
+    
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #ECEFF1;
+      margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #64748B;
+      transition: all 0.3s ease;
+    }
+    
+    .progress-step.active .step-circle {
+      background: linear-gradient(135deg, #3b82f6, #22c55e);
+      border-color: #22c55e;
+      color: white;
+    }
+    
+    .progress-step.completed .step-circle {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: white;
+    }
+    
+    .step-label {
+      font-size: 12px;
+      color: #64748B;
+      font-weight: 500;
+    }
+    
+    .progress-step.active .step-label {
+      color: #0B1B3A;
+      font-weight: 600;
+    }
+    
+    /* Carte principale */
+    .payment-card {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      margin-bottom: 24px;
+    }
+    
+    .payment-header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #ECEFF1;
+    }
+    
+    .payment-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #3b82f6, #22c55e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    
+    .payment-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0B1B3A;
+      margin-bottom: 8px;
+    }
+    
+    .payment-subtitle {
+      font-size: 16px;
+      color: #64748B;
+    }
+    
+    /* Upload zone */
+    .upload-zone {
+      border: 2px dashed #ECEFF1;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 24px 0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .upload-zone:hover {
+      border-color: #3b82f6;
+      background: rgba(59, 130, 246, 0.05);
+    }
+    
+    .upload-zone.active {
+      border-color: #22c55e;
+      background: rgba(34, 197, 94, 0.05);
+    }
+    
+    .upload-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    /* Timer */
+    .timer-section {
+      display: none;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(34, 197, 94, 0.1));
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 24px 0;
+    }
+    
+    .timer-section.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .timer-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    .timer-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0B1B3A;
+      margin-bottom: 8px;
+    }
+    
+    .timer-text {
+      font-size: 16px;
+      color: #64748B;
+      margin-bottom: 24px;
+    }
+    
+    .timer-display {
+      font-size: 48px;
+      font-weight: 700;
+      color: #3b82f6;
+      margin: 16px 0;
+      font-family: monospace;
+    }
+    
+    .timer-progress {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+    
+    .timer-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #22c55e);
+      border-radius: 4px;
+      transition: width 1s linear;
+    }
+    
+    /* Boutons */
+    .btn {
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #22c55e);
+      color: white;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
+    }
+    
+    .btn-secondary:hover {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    /* Instructions */
+    .instructions {
+      background: #F5F7FA;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    
+    .instructions h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0B1B3A;
+      margin-bottom: 16px;
+    }
+    
+    .instructions ol {
+      margin-left: 20px;
+    }
+    
+    .instructions li {
+      margin-bottom: 12px;
+      color: #37474F;
+    }
+    
+    .payment-info {
+      background: white;
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    
+    .payment-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #ECEFF1;
+    }
+    
+    .payment-info-row:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .payment-info-label {
+      font-size: 14px;
+      color: #64748B;
+      font-weight: 500;
+    }
+    
+    .payment-info-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0B1B3A;
+      font-family: monospace;
+    }
+    
+    .copy-btn {
+      background: #ECEFF1;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .copy-btn:hover {
+      background: #22c55e;
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .payment-container {
+        margin-top: 100px;
+      }
+      
+      .payment-card {
+        padding: 24px;
+      }
+      
+      .progress-step {
+        font-size: 11px;
+      }
+      
+      .step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+      }
+      
+      .step-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <!-- Barre de progression -->
+    <div class="progress-bar">
+      <div class="progress-steps">
+        <div class="progress-line">
+          <div class="progress-line-fill" id="progress-fill" style="width: 60%"></div>
+        </div>
+        
+        <div class="progress-step completed">
+          <div class="step-circle">✓</div>
+          <div class="step-label">Sélection</div>
+        </div>
+        
+        <div class="progress-step completed">
+          <div class="step-circle">✓</div>
+          <div class="step-label">Récapitulatif</div>
+        </div>
+        
+        <div class="progress-step active">
+          <div class="step-circle">3</div>
+          <div class="step-label">Paiement</div>
+        </div>
+        
+        <div class="progress-step">
+          <div class="step-circle">4</div>
+          <div class="step-label">Confirmation</div>
+        </div>
+        
+        <div class="progress-step">
+          <div class="step-circle">5</div>
+          <div class="step-label">Accès</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Carte principale -->
+    <div class="payment-card">
+      <div class="payment-header">
+        <div class="payment-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+            <line x1="1" y1="10" x2="23" y2="10"></line>
+          </svg>
+        </div>
+        <h1 class="payment-title">Confirmation de Paiement</h1>
+        <p class="payment-subtitle">Dernière étape avant d'accéder à votre formation</p>
+      </div>
+      
+      <!-- Instructions de paiement -->
+      <div class="instructions">
+        <h3>📱 Instructions de Paiement</h3>
+        <ol>
+          <li>Effectuez le paiement via <strong>Mobile Money</strong>, <strong>Orange Money</strong>, ou <strong>virement bancaire</strong></li>
+          <li>Utilisez les informations ci-dessous</li>
+          <li>Conservez votre <strong>preuve de paiement</strong> (capture d'écran ou reçu)</li>
+          <li>Téléchargez votre preuve ci-dessous</li>
+        </ol>
+      </div>
+      
+      <!-- Informations de paiement -->
+      <div class="payment-info">
+        <div class="payment-info-row">
+          <span class="payment-info-label">Montant à payer</span>
+          <span class="payment-info-value" id="amount">245 000 FCFA</span>
+        </div>
+        <div class="payment-info-row">
+          <span class="payment-info-label">Mobile Money</span>
+          <span class="payment-info-value">
+            +225 05 05 11 11 02
+            <button class="copy-btn" onclick="copyToClipboard('+2250505111102')">Copier</button>
+          </span>
+        </div>
+        <div class="payment-info-row">
+          <span class="payment-info-label">Nom du compte</span>
+          <span class="payment-info-value">DigiSchool Africa</span>
+        </div>
+        <div class="payment-info-row">
+          <span class="payment-info-label">Référence</span>
+          <span class="payment-info-value" id="reference">DS-2026-XXXXX</span>
+        </div>
+      </div>
+      
+      <!-- Zone d'upload -->
+      <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
+        <div class="upload-icon">📤</div>
+        <h3 style="margin-bottom: 8px; color: #0B1B3A;">Télécharger votre preuve de paiement</h3>
+        <p style="color: #64748B; font-size: 14px;">Cliquez ou glissez votre capture d'écran ici</p>
+        <p style="color: #64748B; font-size: 12px; margin-top: 8px;">Formats acceptés: JPG, PNG, PDF (max 5MB)</p>
+        <input type="file" id="file-input" accept="image/*,.pdf" style="display: none;" onchange="handleFileUpload(event)">
+      </div>
+      
+      <div style="text-align: center; margin-top: 24px;">
+        <button class="btn btn-primary" id="confirm-btn" onclick="confirmPayment()" disabled style="opacity: 0.5; cursor: not-allowed;">
+          Confirmer le paiement
+        </button>
+      </div>
+      
+      <!-- Section Timer (cachée par défaut) -->
+      <div class="timer-section" id="timer-section">
+        <div class="timer-icon">⏱️</div>
+        <h2 class="timer-title">Vérification en cours...</h2>
+        <p class="timer-text">
+          Nous vérifions votre paiement. Cela prend généralement moins de <strong>10 minutes</strong>.
+          <br>Vous recevrez un email de confirmation dès validation.
+        </p>
+        <div class="timer-display" id="timer-display">09:59</div>
+        <div class="timer-progress">
+          <div class="timer-progress-bar" id="timer-progress-bar" style="width: 0%"></div>
+        </div>
+        <p style="margin-top: 16px; font-size: 14px; color: #64748B;">
+          💡 Vous pouvez fermer cette page. Nous vous enverrons un email.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Rassurance -->
+    <div style="text-align: center; color: #64748B; font-size: 14px; margin-top: 24px;">
+      <p>🔒 Paiement sécurisé • ✉️ Confirmation automatique par email</p>
+      <p style="margin-top: 8px;">
+        Questions? <a href="https://wa.me/2250505111102" style="color: #22c55e; text-decoration: none; font-weight: 600;">Contactez-nous sur WhatsApp</a>
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    let uploadedFile = null;
+    
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      
+      // Vérifier taille
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Fichier trop volumineux. Maximum 5MB.');
+        return;
+      }
+      
+      uploadedFile = file;
+      
+      // Mise à jour UI
+      const uploadZone = document.getElementById('upload-zone');
+      uploadZone.classList.add('active');
+      uploadZone.innerHTML = `
+        <div class="upload-icon" style="color: #22c55e;">✅</div>
+        <h3 style="margin-bottom: 8px; color: #22c55e;">Fichier téléchargé</h3>
+        <p style="color: #64748B; font-size: 14px;">${file.name}</p>
+        <button class="btn btn-secondary" style="margin-top: 16px;" onclick="document.getElementById('file-input').click()">
+          Changer le fichier
+        </button>
+      `;
+      
+      // Activer bouton confirmation
+      const confirmBtn = document.getElementById('confirm-btn');
+      confirmBtn.disabled = false;
+      confirmBtn.style.opacity = '1';
+      confirmBtn.style.cursor = 'pointer';
+    }
+    
+    function confirmPayment() {
+      if (!uploadedFile) {
+        alert('Veuillez télécharger votre preuve de paiement.');
+        return;
+      }
+      
+      // Cacher zone upload
+      document.getElementById('upload-zone').style.display = 'none';
+      document.getElementById('confirm-btn').style.display = 'none';
+      
+      // Afficher timer
+      document.getElementById('timer-section').classList.add('active');
+      
+      // Mettre à jour barre de progression
+      updateProgressBar(80);
+      
+      // Démarrer timer
+      startTimer(600); // 10 minutes
+      
+      // Simuler envoi données (à remplacer par vraie logique)
+      sendPaymentProof(uploadedFile);
+    }
+    
+    function startTimer(seconds) {
+      let remaining = seconds;
+      const timerDisplay = document.getElementById('timer-display');
+      const progressBar = document.getElementById('timer-progress-bar');
+      
+      const interval = setInterval(() => {
+        remaining--;
+        
+        const minutes = Math.floor(remaining / 60);
+        const secs = remaining % 60;
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        const progress = ((seconds - remaining) / seconds) * 100;
+        progressBar.style.width = progress + '%';
+        
+        if (remaining <= 0) {
+          clearInterval(interval);
+          timerDisplay.textContent = '00:00';
+          progressBar.style.width = '100%';
+        }
+      }, 1000);
+    }
+    
+    function updateProgressBar(percent) {
+      document.getElementById('progress-fill').style.width = percent + '%';
+    }
+    
+    function sendPaymentProof(file) {
+      // À implémenter: envoi vers backend/email
+      console.log('Envoi preuve de paiement:', file);
+      
+      // Stocker info dans localStorage
+      const paymentData = {
+        reference: document.getElementById('reference').textContent,
+        amount: document.getElementById('amount').textContent,
+        timestamp: new Date().toISOString(),
+        status: 'pending'
+      };
+      
+      localStorage.setItem('ds_payment_pending', JSON.stringify(paymentData));
+      
+      // Redirection simulée après validation (à adapter)
+      // setTimeout(() => {
+      //   window.location.href = '/payment-success.html';
+      // }, 10000); // 10 secondes pour demo
+    }
+    
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('✅ Numéro copié!');
+      });
+    }
+    
+    // Générer référence unique
+    (function() {
+      const timestamp = Date.now().toString().slice(-6);
+      const random = Math.random().toString(36).substr(2, 5).toUpperCase();
+      document.getElementById('reference').textContent = `DS-2026-${timestamp}-${random}`;
+      
+      // Récupérer montant depuis URL si présent
+      const urlParams = new URLSearchParams(window.location.search);
+      const amount = urlParams.get('amount');
+      if (amount) {
+        document.getElementById('amount').textContent = amount;
+      }
+    })();
+  </script>
+</body>
+</html>

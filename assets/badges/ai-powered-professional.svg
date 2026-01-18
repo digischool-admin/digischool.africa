@@ -1,0 +1,27 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ai-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Hexagon -->
+  <path d="M 200 20 L 350 110 L 350 290 L 200 380 L 50 290 L 50 110 Z" fill="url(#ai-gradient)"/>
+  
+  <!-- Inner Hexagon -->
+  <path d="M 200 50 L 320 125 L 320 275 L 200 350 L 80 275 L 80 125 Z" fill="white"/>
+  
+  <!-- AI Symbol -->
+  <circle cx="200" cy="160" r="35" fill="url(#ai-gradient)" opacity="0.2"/>
+  <text x="200" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="url(#ai-gradient)">AI</text>
+  
+  <!-- Main Text -->
+  <text x="200" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#0B1B3A">AI-POWERED</text>
+  <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#8b5cf6">PROFESSIONAL</text>
+  
+  <!-- Footer -->
+  <text x="200" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#64748B">Certified by</text>
+  <text x="200" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#22c55e">DigiSchool Africa</text>
+</svg>
