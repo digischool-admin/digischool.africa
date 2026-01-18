@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-évaluation Professionnelle (2 min) — DigiSchool Africa</title>
+  <meta name="description" content="Découvrez les formations qui correspondent à vos besoins professionnels grâce à notre évaluation personnalisée de 2 minutes.">
+  
+  <!-- ONE SINGLE CSS — SOURCE OF TRUTH -->
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <style>
+    /* Assessment-specific styles */
+    .assessment-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-20) var(--space-8) var(--space-16);
+    }
+    
+    .assessment-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .assessment-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .assessment-header h1 {
+      font-size: var(--text-5xl);
+      font-weight: 800;
+      margin-bottom: var(--space-4);
+    }
+    
+    .assessment-header .subtitle {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+    
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: var(--ds-light-gray);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-12);
+      overflow: hidden;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: var(--gradient-hero);
+      border-radius: var(--radius-full);
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 10px rgba(30, 136, 229, 0.5);
+    }
+    
+    .question-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-12);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .question-number {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-6);
+    }
+    
+    .question-text {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-8);
+      line-height: 1.4;
+    }
+    
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .answer-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-5) var(--space-6);
+      background: rgba(30, 136, 229, 0.02);
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      user-select: none;
+    }
+    
+    .answer-option:hover {
+      border-color: var(--color-primary);
+      background: rgba(30, 136, 229, 0.06);
+      transform: translateX(6px);
+    }
+    
+    .answer-option.selected {
+      background: rgba(30, 136, 229, 0.1);
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .answer-option input[type="radio"],
+    .answer-option input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      accent-color: var(--color-primary);
+    }
+    
+    .answer-option .answer-label {
+      flex: 1;
+      font-size: var(--text-lg);
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--ds-dark);
+    }
+    
+    .helper-text {
+      margin-top: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      font-style: italic;
+    }
+    
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    
+    .nav-buttons button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+    
+    /* Results styles */
+    .results-container {
+      animation: fadeIn 0.8s ease-out;
+    }
+    
+    .results-header {
+      margin-bottom: var(--space-12);
+    }
+    
+    .diagnostic-text {
+      font-size: var(--text-lg);
+      line-height: 1.8;
+      color: var(--ds-gray);
+    }
+    
+    .diagnostic-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .diagnostic-list li {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .diagnostic-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .formations-grid {
+      margin-top: var(--space-8);
+    }
+    
+    .formation-priority {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: white;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-4);
+    }
+    
+    .formation-duration {
+      color: var(--ds-gray);
+      font-size: var(--text-base);
+      margin-bottom: var(--space-3);
+    }
+    
+    .formation-description {
+      color: var(--ds-gray);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      margin-bottom: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .assessment-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .question-text {
+        font-size: var(--text-xl);
+      }
+      
+      .answer-option {
+        padding: var(--space-4);
+      }
+      
+      .answer-option .answer-label {
+        font-size: var(--text-base);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header & Footer injected by global-components-restored.js -->
+  
+  <main class="assessment-page">
+    <div class="assessment-container">
+      <!-- Header Section -->
+      <div class="assessment-header">
+        <h1 class="text-gradient">Auto-évaluation Professionnelle</h1>
+        <p class="subtitle">
+          8 questions pour identifier les formations qui correspondent parfaitement à votre profil et vos objectifs
+        </p>
+        <p style="margin-top: var(--space-4); color: var(--ds-gray); font-size: var(--text-base);">
+          ⏱️ <strong>2 minutes</strong> • 100% personnalisé • Résultats immédiats
+        </p>
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 12.5%;"></div>
+      </div>
+      
+      <!-- Questions Container -->
+      <div id="question-container">
+        <!-- Questions rendered dynamically by JavaScript -->
+      </div>
+      
+      <!-- Navigation Buttons -->
+      <div class="nav-buttons">
+        <button id="btn-prev" class="ds-btn ds-btn-ghost" style="display: none;">
+          ← Question précédente
+        </button>
+        <button id="btn-next" class="ds-btn ds-btn-primary" disabled>
+          Question suivante →
+        </button>
+        <button id="btn-submit" class="ds-btn ds-btn-primary ds-btn-lg" style="display: none;" disabled>
+          🎯 Voir mes recommandations
+        </button>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Scripts -->
+  <script src="/assets/global-components-restored.js"></script>
+  <script src="/assets/assessment-logic-restored.js"></script>
+  
+  <!-- Chatbot (auto-minimize on assessment page) -->
+  <script>
+    // Simple chatbot widget that respects assessment page
+    const createChatbotWidget = () => {
+      const widget = document.createElement('div');
+      widget.className = 'ds-chatbot-widget';
+      widget.innerHTML = `
+        <div class="chatbot-trigger" style="
+          width: 60px;
+          height: 60px;
+          background: var(--gradient-hero);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          box-shadow: var(--shadow-lg);
+          transition: all var(--transition-base);
+        " title="Besoin d'aide ?">
+          💬
+        </div>
+      `;
+      
+      widget.querySelector('.chatbot-trigger').addEventListener('click', () => {
+        alert('Le chat sera bientôt disponible. Pour toute question, contactez-nous à contact@digischool.africa');
+      });
+      
+      document.body.appendChild(widget);
+    };
+    
+    if (document.readyState === 'complete') {
+      createChatbotWidget();
+    } else {
+      window.addEventListener('load', createChatbotWidget);
+    }
+  </script>
+</body>
+</html>

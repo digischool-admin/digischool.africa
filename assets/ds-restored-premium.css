@@ -1,0 +1,769 @@
+/**
+ * ╔═══════════════════════════════════════════════════════════════╗
+ * ║  DigiSchool Africa — PREMIUM UI RESTORED                      ║
+ * ║  Version: V2.2.x-D RESTORATION                                ║
+ * ║  ONE SINGLE CSS — SOURCE OF TRUTH                             ║
+ * ║  Inspiration: Zoom.com + Webflow SaaS + Notion Hierarchy      ║
+ * ╚═══════════════════════════════════════════════════════════════╝
+ */
+
+/* ============================================
+   1. RESET & VARIABLES
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand Colors */
+  --ds-green: #26A69A;
+  --ds-blue: #1E88E5;
+  --ds-purple: #7E57C2;
+  --ds-dark: #263238;
+  --ds-gray: #546E7A;
+  --ds-light-gray: #ECEFF1;
+  --ds-white: #FFFFFF;
+  --ds-black: #0D1B2A;
+  
+  /* Semantic Colors */
+  --color-primary: #1E88E5;
+  --color-secondary: #26A69A;
+  --color-accent: #7E57C2;
+  --color-success: #4CAF50;
+  --color-warning: #FF9800;
+  --color-error: #F44336;
+  
+  /* Gradients Premium */
+  --gradient-hero: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%);
+  --gradient-b2c: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%);
+  --gradient-b2b: linear-gradient(135deg, #263238 0%, #546E7A 100%);
+  --gradient-rail-left: linear-gradient(180deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
+  --gradient-rail-right: linear-gradient(180deg, rgba(126,87,194,0.08) 0%, rgba(30,136,229,0.08) 100%);
+  
+  /* Typography Scale */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  
+  /* Spacing Scale */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Shadows — Premium Elevation */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.16);
+  --shadow-hover: 0 16px 64px rgba(30, 136, 229, 0.24);
+  
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Layout Constraints */
+  --max-width-content: 1280px;
+  --max-width-prose: 720px;
+  --max-width-narrow: 640px;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ============================================
+   2. BASE STYLES
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--ds-dark);
+  background: var(--ds-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   3. HEADER — STICKY & CONSISTENT
+   ============================================ */
+.ds-global-header,
+.digischool-global-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: var(--z-sticky);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.ds-global-header.scrolled,
+.digischool-global-header.scrolled {
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.ds-header-container {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+/* Logo — GUARANTEED VISIBILITY */
+.ds-header-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  height: 56px;
+}
+
+.ds-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: none;
+  transition: transform var(--transition-base);
+}
+
+.ds-header-logo:hover .ds-logo-img {
+  transform: scale(1.05);
+}
+
+/* Navigation */
+.ds-header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex: 1;
+  justify-content: center;
+}
+
+.ds-nav-link {
+  color: var(--ds-dark);
+  font-weight: 600;
+  font-size: var(--text-base);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.ds-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 2px;
+  background: var(--gradient-hero);
+  border-radius: 999px;
+  transition: transform var(--transition-base);
+}
+
+.ds-nav-link:hover {
+  color: var(--color-primary);
+  background: rgba(30, 136, 229, 0.04);
+}
+
+.ds-nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Header Actions */
+.ds-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ds-header-cta {
+  background: var(--gradient-hero);
+  color: white;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-base);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.ds-header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Mobile Menu Toggle */
+.ds-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+}
+
+.ds-menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--ds-dark);
+  border-radius: 999px;
+  transition: all var(--transition-base);
+}
+
+/* ============================================
+   4. FOOTER — CONSISTENT
+   ============================================ */
+.ds-global-footer {
+  background: linear-gradient(135deg, var(--ds-dark) 0%, #1a237e 100%);
+  color: white;
+  padding: var(--space-16) var(--space-8) var(--space-8);
+  margin-top: var(--space-20);
+}
+
+.ds-footer-container {
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+}
+
+.ds-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-12);
+  margin-bottom: var(--space-12);
+}
+
+.ds-footer-section h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-6);
+  color: white;
+}
+
+.ds-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.ds-footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.ds-footer-link:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+.ds-footer-bottom {
+  padding-top: var(--space-8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-sm);
+}
+
+/* ============================================
+   5. LAYOUT — ZOOM-LIKE RAILS
+   ============================================ */
+.ds-page-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.ds-rail-left,
+.ds-rail-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 15vw;
+  max-width: 240px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ds-rail-left {
+  left: 0;
+  background: var(--gradient-rail-left);
+}
+
+.ds-rail-right {
+  right: 0;
+  background: var(--gradient-rail-right);
+}
+
+/* Watermark — VISIBLE SUBTLE */
+.ds-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: auto;
+  opacity: 0.08;
+  pointer-events: none;
+  animation: watermark-float 8s ease-in-out infinite;
+}
+
+@keyframes watermark-float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+.ds-main-content {
+  flex: 1;
+  margin: 0 auto;
+  max-width: var(--max-width-content);
+  width: 100%;
+  padding: var(--space-8);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   6. CARDS — PREMIUM ELEVATION & HOVER
+   ============================================ */
+.ds-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.ds-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-hero);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.ds-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(30, 136, 229, 0.2);
+}
+
+.ds-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card Variants */
+.ds-card-formation {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.ds-card-formation:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.ds-card-module {
+  background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+  border: 1px solid rgba(30, 136, 229, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+}
+
+.ds-card-module:hover {
+  transform: translateY(-3px);
+  background: rgba(30, 136, 229, 0.04);
+  border-color: rgba(30, 136, 229, 0.2);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   7. TYPOGRAPHY — HIERARCHY
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ds-dark);
+  margin-bottom: var(--space-4);
+}
+
+h1 {
+  font-size: var(--text-5xl);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-3xl);
+}
+
+h4 {
+  font-size: var(--text-2xl);
+}
+
+h5 {
+  font-size: var(--text-xl);
+}
+
+h6 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+p {
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--ds-gray);
+  margin-bottom: var(--space-4);
+}
+
+.text-lead {
+  font-size: var(--text-xl);
+  line-height: 1.7;
+  color: var(--ds-gray);
+}
+
+.text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   8. BUTTONS — PREMIUM INTERACTIONS
+   ============================================ */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.ds-btn-primary {
+  background: var(--gradient-hero);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.ds-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ds-btn-secondary {
+  background: white;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.ds-btn-secondary:hover {
+  background: rgba(30, 136, 229, 0.04);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.ds-btn-ghost {
+  background: transparent;
+  color: var(--ds-dark);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ds-btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Button Sizes */
+.ds-btn-sm {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.ds-btn-lg {
+  padding: var(--space-5) var(--space-8);
+  font-size: var(--text-lg);
+}
+
+/* ============================================
+   9. ICONS — SVG INTEGRATION
+   ============================================ */
+.ds-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+}
+
+.ds-icon-lg {
+  width: 48px;
+  height: 48px;
+}
+
+.ds-icon-xl {
+  width: 64px;
+  height: 64px;
+}
+
+.ds-icon-badge {
+  background: rgba(30, 136, 229, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   10. GRID LAYOUTS
+   ============================================ */
+.ds-grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.ds-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.ds-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.ds-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* ============================================
+   11. CHATBOT — AUTO-MINIMIZE ON ASSESSMENT
+   ============================================ */
+.ds-chatbot-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: var(--z-modal);
+  transition: all var(--transition-base);
+}
+
+body[data-page="assessment"] .ds-chatbot-widget {
+  bottom: 24px;
+  right: 24px;
+  transform: scale(0.85);
+  opacity: 0.7;
+}
+
+body[data-page="assessment"] .ds-chatbot-widget:hover {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* ============================================
+   12. RESPONSIVE — MOBILE FIRST
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --text-5xl: 2rem;
+    --text-4xl: 1.75rem;
+    --text-3xl: 1.5rem;
+  }
+  
+  .ds-header-nav {
+    display: none;
+  }
+  
+  .ds-menu-toggle {
+    display: flex;
+  }
+  
+  .ds-rail-left,
+  .ds-rail-right {
+    display: none;
+  }
+  
+  .ds-main-content {
+    padding: var(--space-4);
+  }
+  
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   13. UTILITY CLASSES
+   ============================================ */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+
+.p-4 { padding: var(--space-4); }
+.p-6 { padding: var(--space-6); }
+.p-8 { padding: var(--space-8); }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+/* ============================================
+   14. ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* ============================================
+   15. ACCESSIBILITY
+   ============================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   END — DigiSchool Africa Premium UI Restored
+   ============================================ */
