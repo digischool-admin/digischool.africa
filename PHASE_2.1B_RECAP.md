@@ -35,7 +35,7 @@ La page `companies.html` a été transformée en une expérience Premium Corpora
 - ✅ **Section "Pourquoi DigiSchool Africa ?"** : 4 cards avec icônes et animations
 - ✅ **Formulaire Proforma Premium** : style premium avec textes rassurants
 - ✅ **FAQ Accordéon** : 5 questions avec animation smooth
-- ✅ **Footer Premium** : identique à index.html avec lien DigiLab
+- ✅ **Footer Premium** : identique à index.html avec lien Digilab
 
 ---
 
@@ -267,8 +267,8 @@ digischool.africa/
 ### **9. Footer Links**
 - [ ] Vérifier tous les liens du footer sont cliquables
 - [ ] **Ordre strict :** Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politique
-- [ ] Vérifier "DigiSchool Africa — propriété de DigiLab" avec lien vers https://www.mydigilab.io
-- [ ] Vérifier le lien DigiLab ouvre dans un nouvel onglet
+- [ ] Vérifier "DigiSchool Africa — propriété de Digilab" avec lien vers https://www.mydigilab.io
+- [ ] Vérifier le lien Digilab ouvre dans un nouvel onglet
 
 ### **10. Mobile Responsive (< 768px)**
 - [ ] Ouvrir companies.html sur mobile ou avec DevTools
@@ -479,4 +479,4 @@ L'équipe DigiSchool Africa
 **Version :** 2.1B Premium  
 **Commit :** 3a408ac  
 **Auteur :** DigiSchool Africa Dev Team  
-**Propriété :** DigiLab (https://www.mydigilab.io)
+**Propriété :** Digilab (https://www.mydigilab.io)

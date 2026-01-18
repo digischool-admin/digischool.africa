@@ -209,9 +209,9 @@
 
 ## 🔗 PARTNER LINK
 
-### DigiLab (Parent Company)
+### Digilab (Parent Company)
 - **Website**: https://www.mydigilab.io
-- **Relationship**: DigiSchool Africa is powered by DigiLab
+- **Relationship**: DigiSchool Africa is powered by Digilab
 - **Leadership**: Transformation digitale en Afrique de l'Ouest
 
 ---
@@ -258,4 +258,4 @@
 
 🎓 **DigiSchool Africa** — *Transforming Professional Education in Africa*
 
-Powered by **DigiLab** 🚀
+Powered by **Digilab** 🚀

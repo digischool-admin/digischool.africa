@@ -179,7 +179,7 @@
       const styles = `
         <style>
           #digischool-chatbot {
-            position: fixed; z-index: 9999; pointer-events: auto;
+            position: fixed;
             bottom: 24px;
             right: 24px;
             z-index: 9999;
@@ -221,8 +221,8 @@
             font-weight: 600;
           }
           
-          .chatbot-window { z-index: 10000;
-            position: fixed; z-index: 9999; pointer-events: auto;
+          .chatbot-window {
+            position: fixed;
             bottom: 100px;
             right: 24px;
             width: 380px;
@@ -385,7 +385,7 @@
           }
           
           @media (max-width: 480px) {
-            .chatbot-window { z-index: 10000;
+            .chatbot-window {
               width: calc(100vw - 32px);
               right: 16px;
               left: 16px;

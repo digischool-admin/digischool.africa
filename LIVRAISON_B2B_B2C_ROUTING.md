@@ -114,7 +114,7 @@ Mentions légales | CGU | CGV | Politique de confidentialité
 - ✅ Ajouté lien "Accueil" (./index.html)
 - ✅ Ajouté lien "Particuliers (B2C)" (./b2c.html)
 - ✅ Footer identique sur toutes les pages
-- ✅ Attribution DigiLab préservée
+- ✅ Attribution Digilab préservée
 
 ---
 

@@ -328,7 +328,7 @@ https://digischool.africa/parcours.html
 
 #### 12. Footer
 - Navigation complète (Accueil, Contact, Parcours, Entreprises, etc.)
-- Copyright © 2026 DigiSchool Africa — propriété de DigiLab
+- Copyright © 2026 DigiSchool Africa — propriété de Digilab
 - Inclusion `lead-events.js`
 
 ---

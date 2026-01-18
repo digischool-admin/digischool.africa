@@ -134,7 +134,7 @@
 - **Created:** assets/logo-digischool.svg (light version)
 - **Created:** assets/logo-digischool-dark.svg (dark version)
 - **Created:** favicon.svg (32×32 graduation cap icon)
-- **Style:** Consistent with DigiLab brand (gradient green-to-cyan)
+- **Style:** Consistent with Digilab brand (gradient green-to-cyan)
 
 ---
 

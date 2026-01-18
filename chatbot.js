@@ -34,7 +34,7 @@ class DigiSchoolChatbot {
       },
       'certificat': {
         keywords: ['certificat', 'certificate', 'diplôme', 'badge'],
-        response: "🎓 Certificats & Badges:\n\n🏅 Badge automatique à chaque module réussi\n📜 Certificat final après les 8 modules\n🔐 ID unique + QR code\n✅ Téléchargeable en PDF\n\nVotrecertificat est reconnu par DigiLab!"
+        response: "🎓 Certificats & Badges:\n\n🏅 Badge automatique à chaque module réussi\n📜 Certificat final après les 8 modules\n🔐 ID unique + QR code\n✅ Téléchargeable en PDF\n\nVotrecertificat est reconnu par Digilab!"
       },
       'paiement': {
         keywords: ['paiement', 'payment', 'prix', 'price', 'pay'],

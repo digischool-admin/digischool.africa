@@ -100,7 +100,7 @@ Vos données sont traitées de manière strictement confidentielle et ne seront 
 **Ordre strict identique aux autres pages :**
 ```
 Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politique
-© 2026 DigiSchool Africa — propriété de DigiLab (lien mydigilab.io)
+© 2026 DigiSchool Africa — propriété de Digilab (lien mydigilab.io)
 ```
 
 ### ✅ **8. Scroll Reveal Animation**
@@ -215,8 +215,8 @@ Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politiqu
 #### **8. Footer Links**
 - [ ] Vérifier tous les liens du footer sont cliquables
 - [ ] **Ordre strict :** Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politique
-- [ ] Vérifier "DigiSchool Africa — propriété de DigiLab"
-- [ ] Vérifier le lien DigiLab ouvre https://www.mydigilab.io dans nouvel onglet
+- [ ] Vérifier "DigiSchool Africa — propriété de Digilab"
+- [ ] Vérifier le lien Digilab ouvre https://www.mydigilab.io dans nouvel onglet
 
 #### **9. Responsive Mobile (< 900px)**
 - [ ] Ouvrir sur mobile ou DevTools (< 900px)
@@ -326,7 +326,7 @@ Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politiqu
    ↓
 8. Scroll reveal : cards apparaissent progressivement
    ↓
-9. Footer avec tous les liens légaux + DigiLab
+9. Footer avec tous les liens légaux + Digilab
    ↓
 10. Objectif : convertir le visiteur en lead qualifié
 ```
@@ -436,7 +436,7 @@ digischool.africa/
 **Date :** 14 janvier 2026  
 **Version :** Premium Contact  
 **Commit :** a729294  
-**Propriété :** DigiLab (https://www.mydigilab.io)
+**Propriété :** Digilab (https://www.mydigilab.io)
 
 ---
 

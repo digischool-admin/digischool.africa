@@ -1,0 +1,293 @@
+<!-- DigiSchool Africa — Header Global V2.2 (ONE-SHOT LOCKED) -->
+<header id="ds-global-header" class="ds-header-v2" data-version="2.2">
+  <div class="ds-header-container">
+    <!-- Logo DigiSchool (AGRANDI +60%) -->
+    <a href="/index.html" class="ds-logo-link">
+      <img src="/assets/logo-digischool-v2.svg" 
+           alt="DigiSchool Africa" 
+           class="ds-logo-main"
+           width="220"
+           height="60">
+    </a>
+
+    <!-- Navigation Desktop -->
+    <nav class="ds-nav-desktop" aria-label="Navigation principale">
+      <a href="/index.html" class="ds-nav-link">Accueil</a>
+      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
+      <a href="/companies.html" class="ds-nav-link">Entreprises B2B</a>
+      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
+      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
+    </nav>
+
+    <!-- CTA Principal -->
+    <a href="/b2c.html" class="ds-cta-primary">
+      Explorer les formations
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+
+    <!-- Menu Mobile Toggle -->
+    <button class="ds-mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
+      <span class="ds-hamburger-line"></span>
+      <span class="ds-hamburger-line"></span>
+      <span class="ds-hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Navigation Mobile -->
+  <nav class="ds-nav-mobile" aria-label="Navigation mobile">
+    <a href="/index.html" class="ds-mobile-link">Accueil</a>
+    <a href="/b2c.html" class="ds-mobile-link">Formations B2C</a>
+    <a href="/companies.html" class="ds-mobile-link">Entreprises B2B</a>
+    <a href="/b2c-assessment.html" class="ds-mobile-link">Auto-évaluation</a>
+    <a href="/about-premium.html" class="ds-mobile-link">À propos</a>
+    <a href="/b2c.html" class="ds-mobile-link ds-mobile-cta">Explorer les formations</a>
+  </nav>
+</header>
+
+<style>
+/* DigiSchool Header V2.2 — Styles Intégrés */
+:root {
+  --header-h: 85px;
+  --header-bg: rgba(255, 255, 255, 0.97);
+  --header-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --primary-green: #22c55e;
+  --primary-blue: #3b82f6;
+  --text-dark: #0B1B3A;
+}
+
+.ds-header-v2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--header-shadow);
+  transition: all 0.3s ease;
+}
+
+.ds-header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Logo AGRANDI +60% */
+.ds-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.ds-logo-link:hover {
+  transform: scale(1.05);
+}
+
+.ds-logo-main {
+  height: 60px;
+  width: auto;
+}
+
+/* Navigation Desktop */
+.ds-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
+  justify-content: center;
+}
+
+.ds-nav-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+  padding: 8px 4px;
+  transition: color 0.3s ease;
+}
+
+.ds-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+  transition: width 0.3s ease;
+}
+
+.ds-nav-link:hover {
+  color: var(--primary-green);
+}
+
+.ds-nav-link:hover::after {
+  width: 100%;
+}
+
+/* CTA Primary */
+.ds-cta-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.ds-cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+}
+
+/* Mobile Menu Toggle */
+.ds-mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.ds-hamburger-line {
+  width: 28px;
+  height: 3px;
+  background: var(--text-dark);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+.ds-nav-mobile {
+  display: none;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  gap: 4px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ds-mobile-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.ds-mobile-link:hover {
+  background: rgba(34, 197, 94, 0.08);
+  color: var(--primary-green);
+}
+
+.ds-mobile-cta {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-blue) 100%);
+  color: white !important;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ds-nav-desktop,
+  .ds-cta-primary {
+    display: none;
+  }
+
+  .ds-mobile-menu-toggle {
+    display: flex;
+  }
+
+  .ds-nav-mobile.is-open {
+    display: flex;
+  }
+
+  .ds-logo-main {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ds-header-container {
+    padding: 0 16px;
+    height: 70px;
+  }
+
+  :root {
+    --header-h: 70px;
+  }
+
+  .ds-logo-main {
+    height: 45px;
+  }
+}
+
+/* Padding Body pour header sticky */
+body.ds-layout-injected {
+  padding-top: var(--header-h);
+}
+</style>
+
+<script>
+// DigiSchool Header V2.2 — Script Mobile Menu
+(function() {
+  'use strict';
+  
+  const toggle = document.querySelector('.ds-mobile-menu-toggle');
+  const mobileNav = document.querySelector('.ds-nav-mobile');
+  
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', function() {
+      const isOpen = mobileNav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Fermer au clic sur un lien
+    const mobileLinks = mobileNav.querySelectorAll('.ds-mobile-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        mobileNav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Sticky scroll behavior
+  let lastScroll = 0;
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    const header = document.getElementById('ds-global-header');
+    
+    if (header) {
+      if (currentScroll > 50) {
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.12)';
+      } else {
+        header.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.08)';
+      }
+    }
+    
+    lastScroll = currentScroll;
+  });
+})();
+</script>

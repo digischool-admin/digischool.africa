@@ -21,7 +21,7 @@
 | 5. Referral/parrainage system | ✅ DONE | 🔴 HIGH | No-backend, vouchers |
 | 6. Auto-evaluation recommender | ✅ DONE | 🔴 HIGH | 10-question quiz |
 | 7. Chatbot + WhatsApp assistant | ✅ DONE | 🔴 HIGH | FAQ bot + templates |
-| 8. About page + DigiLab link | ✅ DONE | 🟡 MEDIUM | Company info |
+| 8. About page + Digilab link | ✅ DONE | 🟡 MEDIUM | Company info |
 | 9. Logo + favicon | ✅ DONE | 🔴 HIGH | SVG logos |
 | 10. Navigation & official links | ✅ DONE | 🔴 HIGH | Social URLs, sitemap |
 | 11. Analytics events | ✅ DONE | 🟡 MEDIUM | New tracking |
@@ -254,12 +254,12 @@ B2C Content:
 
 ---
 
-### 4. About Page + DigiLab Link
+### 4. About Page + Digilab Link
 
 **File:** `about.html`
 
 - **Mission statement:** DigiSchool Africa vision
-- **DigiLab partnership:** Link to https://www.mydigilab.io
+- **Digilab partnership:** Link to https://www.mydigilab.io
 - **Team section:** Director "Hervé S.a.jo.ri."
 - **Credibility blocks:** Trust badges, stats
 - **CTA:** B2C and B2B entry points
@@ -285,7 +285,7 @@ B2C Content:
   2. Formations links
   3. Entreprise links
   4. Contact info
-- **Bottom Bar:** Copyright + DigiLab link + legal links
+- **Bottom Bar:** Copyright + Digilab link + legal links
 
 **Used on:** All pages (index, b2c, companies, assessment, about, etc.)
 
@@ -379,7 +379,7 @@ B2C Content:
 
 ### Parent Company
 
-**DigiLab**  
+**Digilab**  
 https://www.mydigilab.io  
 *Leader in digital transformation in West Africa*
 
@@ -643,7 +643,7 @@ The DigiSchool Africa platform is **production-ready** for the January 19, 2026 
 ✅ **Auto-evaluation** (10 questions, personalized recommendations)  
 ✅ **Free chatbot** (knowledge base, FAQ, escalation)  
 ✅ **WhatsApp assistant** (6 templates, copy/send)  
-✅ **About page** (mission, team, DigiLab link)  
+✅ **About page** (mission, team, Digilab link)  
 ✅ **Logo & branding** (DigiSchool style)  
 ✅ **Navigation & SEO** (social links, sitemap)  
 ✅ **Analytics events** (all new tracking wired)  

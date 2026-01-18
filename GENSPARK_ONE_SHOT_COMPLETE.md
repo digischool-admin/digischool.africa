@@ -332,7 +332,7 @@ All code is committed and ready. Deployment requires manual push due to GitHub a
 - `favicon.ico` (existing, 15 KB) - Legacy browser support
 
 **Design Principles**:
-- Consistent with DigiLab branding
+- Consistent with Digilab branding
 - SVG format for scalability
 - Lightweight (<2 KB each)
 - Accessible color contrast

@@ -64,7 +64,7 @@
 - **Logo**: `/assets/logo-digischool.svg` (light theme)
 - **Logo Dark**: `/assets/logo-digischool-dark.svg` (dark theme)
 - **Favicon**: `/favicon.svg` + `/favicon.ico` (backward compatibility)
-- **Style**: Consistent with DigiLab branding
+- **Style**: Consistent with Digilab branding
 - **Usage**: Applied across all pages in header/footer
 
 ### 6. QA Automation ✅
@@ -176,7 +176,7 @@
 ### 🤝 PARTNERS
 | Partner | URL | Purpose |
 |---------|-----|---------|
-| DigiLab | https://www.mydigilab.io | Technology partner |
+| Digilab | https://www.mydigilab.io | Technology partner |
 
 ---
 

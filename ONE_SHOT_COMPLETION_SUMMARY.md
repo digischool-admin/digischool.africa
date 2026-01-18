@@ -239,7 +239,7 @@ curl -I https://digischool.africa/admin.html
 - Telegram: t.me/digischoolafrica
 
 **Partner:**
-- DigiLab: https://www.mydigilab.io
+- Digilab: https://www.mydigilab.io
 
 ---
 

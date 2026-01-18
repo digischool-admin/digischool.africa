@@ -133,7 +133,7 @@ Créer un moteur de proforma premium pour générer une offre technique + financ
 #### E) Footer Premium
 Identique aux autres pages:
 - Navigation: Accueil | Contact | Entreprises (B2B) | Brochure | Proforma | Mentions légales | CGU | CGV | Politique de confidentialité
-- Copyright: "© 2026 DigiSchool Africa — propriété de DigiLab"
+- Copyright: "© 2026 DigiSchool Africa — propriété de Digilab"
 
 ---
 
@@ -511,7 +511,7 @@ git push origin main
 - **Phase**: 2.2D (après 2.1A index, 2.1B companies, 2.1C merci, 2.2A trust, 2.2B brochure, 2.2C lead)
 - **Commit**: `034eab8`
 - **Auteur**: DigiSchool Admin (via AI Agent)
-- **Propriété**: DigiLab (https://www.mydigilab.io)
+- **Propriété**: Digilab (https://www.mydigilab.io)
 
 ---
 

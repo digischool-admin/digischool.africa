@@ -296,7 +296,7 @@ digischool.africa/
 #### **10. Liens Footer**
 - [ ] Vérifier tous les liens du footer sur brochure-b2b.html
 - [ ] Vérifier l'ordre strict : Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politique
-- [ ] Vérifier le lien DigiLab ouvre https://www.mydigilab.io
+- [ ] Vérifier le lien Digilab ouvre https://www.mydigilab.io
 
 ---
 
@@ -394,7 +394,7 @@ digischool.africa/
 **Date :** 14 janvier 2026  
 **Version :** Phase 2.2 Complete  
 **Commits :** 79a82d1 + dc4eeb7  
-**Propriété :** DigiLab (https://www.mydigilab.io)
+**Propriété :** Digilab (https://www.mydigilab.io)
 
 ---
 

@@ -33,7 +33,7 @@ const headerHTML = fs.readFileSync(HEADER_PATH, 'utf-8');
 const footerHTML = fs.existsSync(FOOTER_PATH) 
   ? fs.readFileSync(FOOTER_PATH, 'utf-8')
   : `<footer style="background:#0B1B3A;color:#fff;padding:40px 20px;text-align:center">
-<p>&copy; 2026 DigiSchool Africa — DigiLab | <a href="/mentions-legales.html" style="color:#22c55e">Mentions légales</a></p>
+<p>&copy; 2026 DigiSchool Africa — Digilab | <a href="/mentions-legales.html" style="color:#22c55e">Mentions légales</a></p>
 </footer>`;
 
 console.log('🚀 DigiSchool V2.3 — TRANSFORMATION COMPLÈTE\n');

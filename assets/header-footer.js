@@ -139,7 +139,7 @@
           <div class="footer-col">
             <h3>Entreprise</h3>
             <a href="./about.html">À propos</a>
-            <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab (Parent)</a>
+            <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab (Parent)</a>
             <a href="./whatsapp-assistant.html">Assistant WhatsApp</a>
             <a href="./admin.html">Admin</a>
           </div>
@@ -159,7 +159,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>© 2026 DigiSchool Africa — Propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a></p>
+          <p>© 2026 DigiSchool Africa — Propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab</a></p>
           <div class="footer-links">
             <a href="./cgu.html">CGU</a>
             <span>|</span>

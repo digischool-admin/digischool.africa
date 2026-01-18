@@ -95,7 +95,7 @@
 ### b2c.html Footer
 - [x] Identical footer structure to index.html
 - [x] All required links present (10 links total)
-- [x] DigiLab attribution link preserved
+- [x] Digilab attribution link preserved
 - [x] Copyright notice: "© 2026 DigiSchool Africa"
 
 ---

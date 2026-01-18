@@ -362,7 +362,7 @@ git push origin main
 **Date de livraison** : 17 janvier 2026  
 **Commit hash** : 9a6adcc  
 **URL production** : https://digischool.africa  
-**Propriétaire** : DigiSchool Africa — DigiLab
+**Propriétaire** : DigiSchool Africa — Digilab
 
 ---
 

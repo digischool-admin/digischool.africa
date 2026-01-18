@@ -178,7 +178,7 @@ npm test
 - Telegram: https://t.me/digischoolafrica
 
 **Partner:**
-- DigiLab: https://www.mydigilab.io
+- Digilab: https://www.mydigilab.io
 
 ---
 

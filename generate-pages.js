@@ -797,7 +797,7 @@ const companiesHTML = `<!DOCTYPE html>
         <a href="./politique-confidentialite.html">Politique de confidentialité</a>
       </div>
       <p class="footer-bottom">
-        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab</a>
       </p>
     </div>
   </footer>
@@ -1580,7 +1580,7 @@ const b2cHTML = `<!DOCTYPE html>
         <a href="./politique-confidentialite.html">Politique de confidentialité</a>
       </div>
       <p class="footer-bottom">
-        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab</a>
       </p>
     </div>
   </footer>
@@ -2209,7 +2209,7 @@ const checkoutHTML = `<!DOCTYPE html>
         <a href="./cgv.html">CGV</a>
       </div>
       <p class="footer-bottom">
-        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
+        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab</a>
       </p>
     </div>
   </footer>

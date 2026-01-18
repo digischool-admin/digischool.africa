@@ -69,7 +69,7 @@ La page `merci.html` a été transformée en une **expérience Premium Corporate
 **Ordre strict identique à index.html et companies.html :**
 ```
 Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politique de confidentialité
-© 2026 DigiSchool Africa — propriété de DigiLab (lien vers https://www.mydigilab.io)
+© 2026 DigiSchool Africa — propriété de Digilab (lien vers https://www.mydigilab.io)
 ```
 
 ### ✅ **7. JavaScript Vanilla Propre (Sans Console.log)**
@@ -232,8 +232,8 @@ Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politiqu
 ### **9. Footer Links**
 - [ ] Vérifier tous les liens du footer sont cliquables
 - [ ] **Ordre strict :** Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politique
-- [ ] Vérifier "DigiSchool Africa — propriété de DigiLab"
-- [ ] Vérifier le lien DigiLab ouvre https://www.mydigilab.io dans nouvel onglet
+- [ ] Vérifier "DigiSchool Africa — propriété de Digilab"
+- [ ] Vérifier le lien Digilab ouvre https://www.mydigilab.io dans nouvel onglet
 
 ### **10. Mobile Responsive (< 768px)**
 - [ ] Ouvrir sur mobile ou DevTools (< 768px)
@@ -329,7 +329,7 @@ Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politiqu
    ↓
 9. Trust block 🔒 rassure sur la confidentialité
    ↓
-10. Footer avec tous les liens légaux + DigiLab
+10. Footer avec tous les liens légaux + Digilab
     ↓
 11. Objectif : convertir le lead en client qualifié
 ```
@@ -407,4 +407,4 @@ Accueil | Contact | Entreprises (B2B) | Mentions légales | CGU | CGV | Politiqu
 **Date :** 14 janvier 2026  
 **Version :** Premium Conversion  
 **Commit :** 69c3ad3  
-**Propriété :** DigiLab (https://www.mydigilab.io)
+**Propriété :** Digilab (https://www.mydigilab.io)
