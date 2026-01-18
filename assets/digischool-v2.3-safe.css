@@ -1,0 +1,313 @@
+/**
+ * DigiSchool Africa V2.3 — CSS Global Lisibilité PARFAITE
+ * Objectif: Texte TOUJOURS lisible + Blanc premium préservé
+ */
+
+/* ============================================
+   RESET LISIBILITÉ CRITIQUE
+   ============================================ */
+:root {
+  /* Textes TOUJOURS lisibles */
+  --text-primary: #0B1B3A;
+  --text-secondary: #223046;
+  --text-body: #334155;
+  --text-muted: #546E7A;
+  --text-light: #78909C;
+  
+  /* Couleurs flashy DigiSchool */
+  --color-green: #26A69A;
+  --color-blue: #1E88E5;
+  --color-purple: #7C4DFF;
+  --color-green-light: #66BB6A;
+  
+  /* Backgrounds premium blancs */
+  --bg-white: #FFFFFF;
+  --bg-soft: #FAFAFA;
+  --bg-light: #F5F7FA;
+  --bg-gray: #ECEFF1;
+  
+  /* Gradients */
+  --gradient-flashy: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
+  --gradient-subtle: linear-gradient(135deg, rgba(30,136,229,0.06) 0%, rgba(38,166,154,0.06) 100%);
+}
+
+/* ============================================
+   TYPOGRAPHIE SAFE
+   ============================================ */
+body {
+  color: var(--text-body);
+  background-color: var(--bg-white);
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: 1.25rem; }
+
+p {
+  color: var(--text-body);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-blue);
+}
+
+/* ============================================
+   CLASSES SAFE (TOUJOURS LISIBLES)
+   ============================================ */
+.title,
+.section-title,
+.card-title,
+.hero-title {
+  color: var(--text-primary) !important;
+}
+
+.subtitle,
+.section-subtitle,
+.card-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.description,
+.card-desc,
+.text-body {
+  color: var(--text-body) !important;
+}
+
+.muted,
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.label,
+.badge-text {
+  color: var(--text-body) !important;
+}
+
+/* ============================================
+   SECTIONS SAFE
+   ============================================ */
+.section-white {
+  background: var(--bg-white);
+}
+
+.section-soft {
+  background: var(--bg-soft);
+}
+
+.section-light {
+  background: var(--bg-light);
+}
+
+.section-gradient {
+  background: var(--gradient-subtle);
+}
+
+/* RÈGLE: Sur fonds clairs → textes foncés */
+.section-white *:not(.btn):not(.badge),
+.section-soft *:not(.btn):not(.badge),
+.section-light *:not(.btn):not(.badge),
+.section-gradient *:not(.btn):not(.badge) {
+  color: inherit;
+}
+
+/* ============================================
+   CARDS SAFE
+   ============================================ */
+.card,
+.card-premium,
+.feature-card,
+.parcours-card,
+.catalogue-card {
+  background: var(--bg-white);
+  border: 1px solid #ECEFF1;
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.card-premium:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-green);
+}
+
+/* ============================================
+   BOUTONS SAFE
+   ============================================ */
+.btn,
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary,
+.btn.primary {
+  background: var(--gradient-flashy);
+  color: white !important;
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.25);
+}
+
+.btn-primary:hover,
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(30, 136, 229, 0.35);
+  color: white !important;
+}
+
+.btn-secondary,
+.btn.secondary {
+  background: var(--bg-white);
+  color: var(--color-green) !important;
+  border: 2px solid var(--color-green);
+}
+
+.btn-secondary:hover,
+.btn.secondary:hover {
+  background: var(--color-green);
+  color: white !important;
+}
+
+/* ============================================
+   HERO SAFE
+   ============================================ */
+.hero,
+.hero-premium {
+  background: linear-gradient(135deg, #F8FFFE 0%, #FFFFFF 50%, #FFF8F5 100%);
+  padding: 100px 32px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero h1,
+.hero-title {
+  color: var(--text-primary) !important;
+}
+
+.hero p,
+.hero-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+/* ============================================
+   GRIDS SAFE
+   ============================================ */
+.grid,
+.grid-premium {
+  display: grid;
+  gap: 32px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* ============================================
+   PADDING COMPENSATION HEADER
+   ============================================ */
+body {
+  padding-top: 86px; /* Compensation header sticky */
+}
+
+@media (max-width: 960px) {
+  body {
+    padding-top: 76px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero,
+  .hero-premium {
+    padding: 80px 24px 60px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITÉ
+   ============================================ */
+*:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-sm { margin-bottom: 16px; }
+.mb-md { margin-bottom: 24px; }
+.mb-lg { margin-bottom: 48px; }
+
+.mt-sm { margin-top: 16px; }
+.mt-md { margin-top: 24px; }
+.mt-lg { margin-top: 48px; }
+
+.gradient-text {
+  background: var(--gradient-flashy);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

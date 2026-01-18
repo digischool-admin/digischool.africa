@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" fill="none">
+  <defs>
+    <!-- Gradient Flashy pour cercle D -->
+    <linearGradient id="flashyCircle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E88E5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7C4DFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#26A69A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Cercle Flashy avec D blanc -->
+  <g transform="translate(5, 10)">
+    <circle cx="25" cy="25" r="25" fill="url(#flashyCircle)"/>
+    <text x="25" y="38" 
+          text-anchor="middle" 
+          font-family="'Inter', 'Segoe UI', Arial, sans-serif" 
+          font-size="32" 
+          font-weight="800" 
+          fill="#FFFFFF">D</text>
+  </g>
+  
+  <!-- Texte DigiSchool avec couleurs inversées -->
+  <g transform="translate(65, 0)">
+    <!-- Digi en VERT -->
+    <text x="0" y="35" 
+          font-family="'Inter', 'Segoe UI', Arial, sans-serif" 
+          font-size="26" 
+          font-weight="800" 
+          fill="#26A69A">Digi</text>
+    
+    <!-- School en BLEU -->
+    <text x="58" y="35" 
+          font-family="'Inter', 'Segoe UI', Arial, sans-serif" 
+          font-size="26" 
+          font-weight="800" 
+          fill="#1E88E5">School</text>
+    
+    <!-- AFRICA discret -->
+    <text x="0" y="52" 
+          font-family="'Inter', 'Segoe UI', Arial, sans-serif" 
+          font-size="11" 
+          font-weight="500" 
+          fill="#546E7A" 
+          letter-spacing="2">AFRICA</text>
+  </g>
+</svg>

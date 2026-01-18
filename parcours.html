@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Parcours de Formation — DigiSchool Africa</title>
   <meta name="description" content="13 parcours métiers augmentés par l'IA : Gestion de Projet, Finance, Data, RH, Marketing, Supply Chain et plus. Formations professionnelles adaptées à l'Afrique." />
@@ -15,420 +15,30 @@
   
   <link rel="canonical" href="https://digischool.africa/parcours.html" />
 
-  <style>
-    :root{
-      --bg:#0f172a;
-      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      --card: rgba(255,255,255,0.04);
-      --card2: rgba(255,255,255,0.06);
-      --card-hover: rgba(255,255,255,0.08);
-      --border: rgba(255,255,255,0.12);
-      --border-hover: rgba(255,255,255,0.24);
-      --text:#ffffff;
-      --muted: rgba(255,255,255,0.78);
-      --muted2: rgba(255,255,255,0.62);
-      --green:#22c55e;
-      --green-glow: rgba(34,197,94,0.25);
-      --blue:#3b82f6;
-      --blue-glow: rgba(59,130,246,0.25);
-      --orange:#f97316;
-      --orange-glow: rgba(249,115,22,0.25);
-    }
-
-    *{ box-sizing:border-box; margin:0; padding:0; }
-
-    body{
-      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container{
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px 80px;
-    }
-
-    /* Hero Premium */
-    .hero{
-      position: relative;
-      text-align: center;
-      margin-bottom: 80px;
-      padding: 100px 30px 80px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.98) 100%);
-      border: 1px solid var(--border);
-    }
-
-    .hero::before{
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 20% 50%, var(--green-glow) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, var(--blue-glow) 0%, transparent 50%);
-      animation: gradientShift 8s ease-in-out infinite;
-      opacity: 0.6;
-      z-index: 0;
-    }
-
-    @keyframes gradientShift {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(30px, -30px) scale(1.1); }
-      50% { transform: translate(-30px, 30px) scale(0.9); }
-      75% { transform: translate(30px, 30px) scale(1.05); }
-    }
-
-    .hero-content{
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h1{
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-      background: linear-gradient(135deg, #ffffff 0%, var(--green) 50%, var(--blue) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: -0.5px;
-      line-height: 1.2;
-    }
-
-    .hero p{
-      font-size: 1.3rem;
-      color: var(--muted);
-      max-width: 750px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    .hero-actions{
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: none;
-      appearance: none;
-    }
-
-    .btn-primary{
-      background: var(--green);
-      color: #000;
-      box-shadow: 0 0 24px var(--green-glow);
-    }
-
-    .btn-primary:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px var(--green-glow);
-    }
-
-    .btn-secondary{
-      background: var(--card2);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover{
-      background: var(--card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-    }
-
-    /* Section Intro */
-    .section{
-      margin-bottom: 80px;
-    }
-
-    .section-title{
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      text-align: center;
-      color: var(--text);
-    }
-
-    .section-subtitle{
-      font-size: 1.1rem;
-      color: var(--muted);
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 48px;
-      line-height: 1.7;
-    }
-
-    /* Grille des parcours */
-    .parcours-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-
-    .parcours-card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .parcours-card::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--green) 0%, var(--blue) 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .parcours-card:hover{
-      background: var(--card-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-
-    .parcours-card:hover::before{
-      opacity: 1;
-    }
-
-    .parcours-badge{
-      display: inline-block;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      background: rgba(34,197,94,0.15);
-      color: var(--green);
-      border: 1px solid rgba(34,197,94,0.3);
-    }
-
-    .parcours-card h3{
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .parcours-card p{
-      font-size: 0.95rem;
-      color: var(--muted2);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .parcours-meta{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 20px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .parcours-meta span{
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .parcours-actions{
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn-small{
-      padding: 10px 20px;
-      font-size: 0.9rem;
-    }
-
-    /* Section Publics */
-    .publics-grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-
-    .public-card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      text-align: center;
-    }
-
-    .public-card h3{
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .public-card p{
-      font-size: 0.95rem;
-      color: var(--muted2);
-      line-height: 1.6;
-    }
-
-    /* CTA Final */
-    .cta-final{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 60px 40px;
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .cta-final h2{
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: var(--text);
-    }
-
-    .cta-final p{
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 32px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Footer */
-    .footer{
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      padding: 40px 20px;
-      margin-top: 60px;
-    }
-
-    .footer-content{
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .footer-links{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
-      font-size: 0.9rem;
-    }
-
-    .footer-links a{
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover{
-      color: var(--green);
-    }
-
-    .footer-bottom{
-      font-size: 0.85rem;
-      color: var(--muted2);
-    }
-
-    .footer-bottom a{
-      color: var(--green);
-      text-decoration: none;
-    }
-
-    .footer-bottom a:hover{
-      text-decoration: underline;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1{
-        font-size: 2.5rem;
-      }
-
-      .hero p{
-        font-size: 1.1rem;
-      }
-
-      .section-title{
-        font-size: 1.8rem;
-      }
-
-      .parcours-grid{
-        grid-template-columns: 1fr;
-      }
-
-      .publics-grid{
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Animations */
-    .fade-in{
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible{
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-  <link rel="stylesheet" href="/assets/digischool-premium.css">
+  <!-- ancien style supprimé -->
+  
+  <link rel="icon" href="/favicon-v2.3.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/digischool-v2.3-safe.css">
 </head>
 <body>
-<!-- DigiSchool Africa - Header Global Sticky Premium -->
-<header class="digischool-header-premium" id="main-header">
-  <div class="header-container">
-    <a href="/" class="header-logo">
-      <img src="/assets/logo-digischool-final.svg" alt="DigiSchool Africa" height="40">
+<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
+<header class="digischool-global-header" id="ds-header">
+  <div class="ds-header-container">
+    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
+      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
     </a>
     
-    <nav class="header-nav" id="header-nav">
-      <a href="/" class="nav-link">Accueil</a>
-      <a href="/b2c.html" class="nav-link">Formations B2C</a>
-      <a href="/companies.html" class="nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="nav-link">À propos</a>
+    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
+      <a href="/" class="ds-nav-link">Accueil</a>
+      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
+      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
+      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
+      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
     </nav>
     
-    <div class="header-actions">
-      <a href="/b2c.html" class="header-cta">Explorer les formations</a>
-      <button class="header-menu-toggle" id="menu-toggle" aria-label="Menu">
+    <div class="ds-header-actions">
+      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
+      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -438,170 +48,198 @@
 </header>
 
 <style>
-  .digischool-header-premium {
+  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
+  .digischool-global-header {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
   }
   
-  .digischool-header-premium.scrolled {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  .digischool-global-header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
   
-  .header-container {
+  .ds-header-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 16px 24px;
+    padding: 18px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 32px;
+    gap: 40px;
   }
   
-  .header-logo img {
-    height: 40px;
+  /* Logo PLUS GRAND */
+  .ds-header-logo {
+    flex-shrink: 0;
+  }
+  
+  .ds-logo-img {
+    height: 50px;
     width: auto;
     transition: transform 0.3s ease;
   }
   
-  .header-logo:hover img {
+  .ds-header-logo:hover .ds-logo-img {
     transform: scale(1.05);
   }
   
-  .header-nav {
+  /* Navigation */
+  .ds-header-nav {
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 36px;
     flex: 1;
     justify-content: center;
   }
   
-  .nav-link {
-    color: var(--text-secondary, #37474F);
-    font-weight: 500;
-    font-size: 15px;
+  .ds-nav-link {
+    color: #37474F;
+    font-weight: 600;
+    font-size: 16px;
     text-decoration: none;
     transition: color 0.2s ease;
     position: relative;
+    padding: 8px 4px;
   }
   
-  .nav-link:hover {
-    color: var(--primary-teal, #26A69A);
+  .ds-nav-link:hover {
+    color: #26A69A;
   }
   
-  .nav-link::after {
+  .ds-nav-link::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 0;
     left: 0;
     width: 0;
-    height: 2px;
-    background: var(--primary-teal, #26A69A);
+    height: 3px;
+    background: linear-gradient(90deg, #26A69A, #1E88E5);
     transition: width 0.3s ease;
   }
   
-  .nav-link:hover::after {
+  .ds-nav-link:hover::after {
     width: 100%;
   }
   
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .header-cta {
-    padding: 10px 24px;
-    background: linear-gradient(135deg, #1E88E5, #26A69A);
+  /* CTA */
+  .ds-header-cta {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
     color: white;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(30, 136, 229, 0.2);
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
   }
   
-  .header-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(30, 136, 229, 0.3);
+  .ds-header-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
   }
   
-  .header-menu-toggle {
+  /* Menu Mobile */
+  .ds-menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
   }
   
-  .header-menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--text-secondary, #37474F);
+  .ds-menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #37474F;
     transition: all 0.3s ease;
-    border-radius: 2px;
+    border-radius: 3px;
   }
   
-  @media (max-width: 900px) {
-    .header-nav {
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .ds-header-container {
+      padding: 16px 24px;
+    }
+    
+    .ds-header-nav {
       position: fixed;
-      top: 72px;
+      top: 86px;
       left: 0;
       right: 0;
       background: white;
       flex-direction: column;
-      padding: 24px;
-      gap: 16px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      transform: translateY(-100%);
+      padding: 28px;
+      gap: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-150%);
       opacity: 0;
       pointer-events: none;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    .header-nav.active {
+    .ds-header-nav.active {
       transform: translateY(0);
       opacity: 1;
       pointer-events: all;
     }
     
-    .header-menu-toggle {
+    .ds-menu-toggle {
       display: flex;
     }
     
-    .header-cta {
+    .ds-header-cta {
       display: none;
+    }
+    
+    .ds-logo-img {
+      height: 44px;
     }
   }
   
   @media (max-width: 480px) {
-    .header-container {
-      padding: 12px 16px;
+    .ds-header-container {
+      padding: 14px 18px;
     }
     
-    .header-logo img {
-      height: 32px;
+    .ds-logo-img {
+      height: 38px;
     }
   }
 </style>
 
 <script>
 (function() {
-  // Sticky header scroll effect
-  const header = document.getElementById('main-header');
+  const header = document.getElementById('ds-header');
+  const menuToggle = document.getElementById('ds-menu-toggle');
+  const nav = document.getElementById('ds-nav');
+  
+  // Scroll effect
   if (header) {
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
       const currentScroll = window.pageYOffset;
-      if (currentScroll > 50) {
+      if (currentScroll > 60) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
@@ -610,34 +248,548 @@
     });
   }
   
-  // Mobile menu toggle
-  const menuToggle = document.getElementById('menu-toggle');
-  const nav = document.getElementById('header-nav');
-  
+  // Mobile menu
   if (menuToggle && nav) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
       nav.classList.toggle('active');
-      menuToggle.classList.toggle('active');
     });
     
-    // Close menu when clicking outside
+    // Close on outside click
     document.addEventListener('click', (e) => {
       if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+        menuToggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('active');
-        menuToggle.classList.remove('active');
       }
     });
     
-    // Close menu on nav link click
-    nav.querySelectorAll('.nav-link').forEach(link => {
+    // Close on link click
+    nav.querySelectorAll('.ds-nav-link').forEach(link => {
       link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
         nav.classList.remove('active');
-        menuToggle.classList.remove('active');
       });
     });
   }
 })();
 </script>
+
+
+<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
+<header class="digischool-global-header" id="ds-header">
+  <div class="ds-header-container">
+    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
+      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
+    </a>
+    
+    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
+      <a href="/" class="ds-nav-link">Accueil</a>
+      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
+      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
+      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
+      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
+    </nav>
+    
+    <div class="ds-header-actions">
+      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
+      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
+  .digischool-global-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .digischool-global-header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .ds-header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  /* Logo PLUS GRAND */
+  .ds-header-logo {
+    flex-shrink: 0;
+  }
+  
+  .ds-logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .ds-header-logo:hover .ds-logo-img {
+    transform: scale(1.05);
+  }
+  
+  /* Navigation */
+  .ds-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .ds-nav-link {
+    color: #37474F;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 8px 4px;
+  }
+  
+  .ds-nav-link:hover {
+    color: #26A69A;
+  }
+  
+  .ds-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #26A69A, #1E88E5);
+    transition: width 0.3s ease;
+  }
+  
+  .ds-nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* CTA */
+  .ds-header-cta {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
+    color: white;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+  }
+  
+  .ds-header-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
+  }
+  
+  /* Menu Mobile */
+  .ds-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .ds-menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #37474F;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .ds-header-container {
+      padding: 16px 24px;
+    }
+    
+    .ds-header-nav {
+      position: fixed;
+      top: 86px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 28px;
+      gap: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-150%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .ds-header-nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .ds-menu-toggle {
+      display: flex;
+    }
+    
+    .ds-header-cta {
+      display: none;
+    }
+    
+    .ds-logo-img {
+      height: 44px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ds-header-container {
+      padding: 14px 18px;
+    }
+    
+    .ds-logo-img {
+      height: 38px;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  const header = document.getElementById('ds-header');
+  const menuToggle = document.getElementById('ds-menu-toggle');
+  const nav = document.getElementById('ds-nav');
+  
+  // Scroll effect
+  if (header) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 60) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+  }
+  
+  // Mobile menu
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('active');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+      }
+    });
+    
+    // Close on link click
+    nav.querySelectorAll('.ds-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+      });
+    });
+  }
+})();
+</script>
+
+
+<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
+<header class="digischool-global-header" id="ds-header">
+  <div class="ds-header-container">
+    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
+      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
+    </a>
+    
+    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
+      <a href="/" class="ds-nav-link">Accueil</a>
+      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
+      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
+      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
+      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
+    </nav>
+    
+    <div class="ds-header-actions">
+      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
+      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
+  .digischool-global-header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .digischool-global-header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .ds-header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  /* Logo PLUS GRAND */
+  .ds-header-logo {
+    flex-shrink: 0;
+  }
+  
+  .ds-logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .ds-header-logo:hover .ds-logo-img {
+    transform: scale(1.05);
+  }
+  
+  /* Navigation */
+  .ds-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .ds-nav-link {
+    color: #37474F;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 8px 4px;
+  }
+  
+  .ds-nav-link:hover {
+    color: #26A69A;
+  }
+  
+  .ds-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #26A69A, #1E88E5);
+    transition: width 0.3s ease;
+  }
+  
+  .ds-nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* CTA */
+  .ds-header-cta {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
+    color: white;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
+  }
+  
+  .ds-header-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
+  }
+  
+  /* Menu Mobile */
+  .ds-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .ds-menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #37474F;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .ds-header-container {
+      padding: 16px 24px;
+    }
+    
+    .ds-header-nav {
+      position: fixed;
+      top: 86px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 28px;
+      gap: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-150%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .ds-header-nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .ds-menu-toggle {
+      display: flex;
+    }
+    
+    .ds-header-cta {
+      display: none;
+    }
+    
+    .ds-logo-img {
+      height: 44px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ds-header-container {
+      padding: 14px 18px;
+    }
+    
+    .ds-logo-img {
+      height: 38px;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  const header = document.getElementById('ds-header');
+  const menuToggle = document.getElementById('ds-menu-toggle');
+  const nav = document.getElementById('ds-nav');
+  
+  // Scroll effect
+  if (header) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 60) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+  }
+  
+  // Mobile menu
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('active');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+      }
+    });
+    
+    // Close on link click
+    nav.querySelectorAll('.ds-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+      });
+    });
+  }
+})();
+</script>
+
+
+
 
 
 
@@ -964,30 +1116,7 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="./index.html">Accueil</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./contact.html">Contact</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./parcours.html">Parcours</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./companies.html">Entreprises (B2B)</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./mentions-legales.html">Mentions légales</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./cgu.html">CGU</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./cgv.html">CGV</a>
-        <span style="color: var(--border);">|</span>
-        <a href="./politique-confidentialite.html">Politique de confidentialité</a>
-      </div>
-      <p class="footer-bottom">
-        © 2026 DigiSchool Africa — propriété de <a href="https://www.mydigilab.io" target="_blank" rel="noopener">DigiLab</a>
-      </p>
-    </div>
-  </footer>
+  
 
   <script>
     // Scroll reveal avec IntersectionObserver
@@ -1026,5 +1155,409 @@
   <script src="./lead-events.js"></script>
 
   <script src="/assets/digischool-chatbot.js" defer></script>
+<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
+
+
+<style>
+  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
+  .digischool-global-footer {
+    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+    border-top: 1px solid #ECEFF1;
+    margin-top: auto;
+    width: 100%;
+  }
+  
+  .ds-footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 32px 32px;
+  }
+  
+  /* Footer Top */
+  .ds-footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 60px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #ECEFF1;
+  }
+  
+  .ds-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .ds-footer-logo {
+    height: 40px;
+    width: auto;
+  }
+  
+  .ds-footer-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #546E7A;
+    margin: 0;
+  }
+  
+  /* Footer Links */
+  .ds-footer-links-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  
+  .ds-footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .ds-footer-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1A237E;
+    margin: 0 0 8px 0;
+  }
+  
+  .ds-footer-link {
+    font-size: 14px;
+    color: #546E7A;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .ds-footer-link:hover {
+    color: #26A69A;
+  }
+  
+  /* Footer Bottom */
+  .ds-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .ds-footer-copyright {
+    font-size: 14px;
+    color: #78909C;
+    margin: 0;
+  }
+  
+  .ds-footer-digilab {
+    color: #1E88E5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .ds-footer-digilab:hover {
+    color: #26A69A;
+  }
+  
+  .ds-footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  
+  .ds-footer-contact-link {
+    color: #546E7A;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .ds-footer-contact-link:hover {
+    color: #1E88E5;
+  }
+  
+  .ds-footer-separator {
+    color: #B0BEC5;
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .ds-footer-top {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .ds-footer-links-group {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .ds-footer-container {
+      padding: 48px 24px 24px;
+    }
+    
+    .ds-footer-links-group {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    
+    .ds-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+    
+    .ds-footer-contact {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .ds-footer-separator {
+      display: none;
+    }
+  }
+</style>
+
+
+<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
+
+
+<style>
+  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
+  .digischool-global-footer {
+    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
+    border-top: 1px solid #ECEFF1;
+    margin-top: auto;
+    width: 100%;
+  }
+  
+  .ds-footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 32px 32px;
+  }
+  
+  /* Footer Top */
+  .ds-footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 60px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid #ECEFF1;
+  }
+  
+  .ds-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .ds-footer-logo {
+    height: 40px;
+    width: auto;
+  }
+  
+  .ds-footer-tagline {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #546E7A;
+    margin: 0;
+  }
+  
+  /* Footer Links */
+  .ds-footer-links-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  
+  .ds-footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .ds-footer-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1A237E;
+    margin: 0 0 8px 0;
+  }
+  
+  .ds-footer-link {
+    font-size: 14px;
+    color: #546E7A;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .ds-footer-link:hover {
+    color: #26A69A;
+  }
+  
+  /* Footer Bottom */
+  .ds-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .ds-footer-copyright {
+    font-size: 14px;
+    color: #78909C;
+    margin: 0;
+  }
+  
+  .ds-footer-digilab {
+    color: #1E88E5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  
+  .ds-footer-digilab:hover {
+    color: #26A69A;
+  }
+  
+  .ds-footer-contact {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+  }
+  
+  .ds-footer-contact-link {
+    color: #546E7A;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .ds-footer-contact-link:hover {
+    color: #1E88E5;
+  }
+  
+  .ds-footer-separator {
+    color: #B0BEC5;
+  }
+  
+  /* Responsive */
+  @media (max-width: 960px) {
+    .ds-footer-top {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .ds-footer-links-group {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .ds-footer-container {
+      padding: 48px 24px 24px;
+    }
+    
+    .ds-footer-links-group {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    
+    .ds-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 16px;
+    }
+    
+    .ds-footer-contact {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .ds-footer-separator {
+      display: none;
+    }
+  }
+</style>
+
+
+<footer id="global-footer-v2.3" style="background: linear-gradient(135deg, #0B1B3A 0%, #1a2942 100%); color: #fff; padding: 60px 20px 30px; margin-top: 80px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
+      
+      <!-- Colonne 1: À propos -->
+      <div>
+        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">DigiSchool Africa</h3>
+        <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
+          Plateforme panafricaine de formation professionnelle certifiante avec IA embarquée.
+        </p>
+        <div style="display: flex; gap: 12px; margin-top: 16px;">
+          <a href="https://www.linkedin.com/company/digischool-africa" target="_blank" rel="noopener" 
+             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease;"
+             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/2250505111102" target="_blank" rel="noopener"
+             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease;"
+             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne 2: Navigation -->
+      <div>
+        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Navigation</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 12px;"><a href="/index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Accueil</a></li>
+          <li style="margin-bottom: 12px;"><a href="/b2c.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Formations B2C</a></li>
+          <li style="margin-bottom: 12px;"><a href="/companies.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Entreprises B2B</a></li>
+          <li style="margin-bottom: 12px;"><a href="/parcours.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Nos Parcours</a></li>
+          <li style="margin-bottom: 12px;"><a href="/b2c-assessment.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Auto-évaluation</a></li>
+          <li style="margin-bottom: 12px;"><a href="/about-premium.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">À propos</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3: Contact -->
+      <div>
+        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Contact</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
+            📧 <a href="mailto:contact@digischool.africa" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">contact@digischool.africa</a>
+          </li>
+          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
+            📱 <a href="tel:+2250505111102" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">+225 05 05 11 11 02</a>
+          </li>
+          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
+            🌍 Abidjan, Côte d'Ivoire
+          </li>
+        </ul>
+      </div>
+
+      <!-- Colonne 4: Légal -->
+      <div>
+        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Informations légales</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 12px;"><a href="/mentions-legales.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Mentions légales</a></li>
+          <li style="margin-bottom: 12px;"><a href="/cgu.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGU</a></li>
+          <li style="margin-bottom: 12px;"><a href="/cgv.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGV</a></li>
+          <li style="margin-bottom: 12px;"><a href="/politique-confidentialite.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center;">
+      <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
+        &copy; 2026 <strong style="color: #22c55e;">DigiSchool Africa</strong> — Propulsé par <a href="https://www.mydigilab.io" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='#3b82f6'">DigiLab</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
