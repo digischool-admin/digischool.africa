@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- DigiSchool Logo - Inspiré DigiLab avec ADN apprentissage/progression -->
+  <defs>
+    <linearGradient id="gradDigiSchool" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E88E5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#26A69A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#66BB6A;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradProgress" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#26A69A;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#66BB6A;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Symbole Géométrique DigiLab DNA -->
+  <g transform="translate(10, 10)">
+    <!-- Hexagone progression (référence DigiLab) -->
+    <path d="M 20 10 L 30 5 L 40 10 L 40 20 L 30 25 L 20 20 Z" 
+          fill="url(#gradDigiSchool)" 
+          stroke="none"/>
+    
+    <!-- Lignes de progression (apprentissage) -->
+    <path d="M 5 15 L 15 15" stroke="url(#gradProgress)" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 8 20 L 18 20" stroke="url(#gradProgress)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <path d="M 11 25 L 21 25" stroke="url(#gradProgress)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+    
+    <!-- Flèche de maîtrise -->
+    <path d="M 42 15 L 50 15 L 47 12 M 50 15 L 47 18" 
+          stroke="url(#gradDigiSchool)" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          fill="none"/>
+  </g>
+  
+  <!-- Texte DigiSchool -->
+  <text x="70" y="25" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A237E">
+    Digi<tspan fill="#26A69A">School</tspan>
+  </text>
+  
+  <!-- Baseline Africa -->
+  <text x="70" y="40" font-family="'Inter', 'Segoe UI', Arial, sans-serif" font-size="10" font-weight="400" fill="#546E7A" letter-spacing="1.5">
+    AFRICA
+  </text>
+  
+  <!-- Subtle learning indicator -->
+  <circle cx="190" cy="30" r="3" fill="#66BB6A" opacity="0.6"/>
+  <circle cx="195" cy="30" r="2.5" fill="#66BB6A" opacity="0.4"/>
+</svg>
