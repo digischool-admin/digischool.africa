@@ -572,8 +572,238 @@
       .container{ padding: 30px 16px 60px; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/digischool-premium.css">
 </head>
 <body>
+<!-- DigiSchool Africa - Header Global Sticky Premium -->
+<header class="digischool-header-premium" id="main-header">
+  <div class="header-container">
+    <a href="/" class="header-logo">
+      <img src="/assets/logo-digischool-final.svg" alt="DigiSchool Africa" height="40">
+    </a>
+    
+    <nav class="header-nav" id="header-nav">
+      <a href="/" class="nav-link">Accueil</a>
+      <a href="/b2c.html" class="nav-link">Formations B2C</a>
+      <a href="/companies.html" class="nav-link">Entreprises</a>
+      <a href="/b2c-assessment.html" class="nav-link">Auto-évaluation</a>
+      <a href="/about-premium.html" class="nav-link">À propos</a>
+    </nav>
+    
+    <div class="header-actions">
+      <a href="/b2c.html" class="header-cta">Explorer les formations</a>
+      <button class="header-menu-toggle" id="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .digischool-header-premium {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+  }
+  
+  .digischool-header-premium.scrolled {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  
+  .header-logo img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .header-logo:hover img {
+    transform: scale(1.05);
+  }
+  
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    color: var(--text-secondary, #37474F);
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  
+  .nav-link:hover {
+    color: var(--primary-teal, #26A69A);
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-teal, #26A69A);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .header-cta {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #1E88E5, #26A69A);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(30, 136, 229, 0.2);
+  }
+  
+  .header-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(30, 136, 229, 0.3);
+  }
+  
+  .header-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  
+  .header-menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-secondary, #37474F);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  @media (max-width: 900px) {
+    .header-nav {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 24px;
+      gap: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+    
+    .header-menu-toggle {
+      display: flex;
+    }
+    
+    .header-cta {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .header-container {
+      padding: 12px 16px;
+    }
+    
+    .header-logo img {
+      height: 32px;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  // Sticky header scroll effect
+  const header = document.getElementById('main-header');
+  if (header) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+  }
+  
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('header-nav');
+  
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      menuToggle.classList.toggle('active');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+    
+    // Close menu on nav link click
+    nav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
+    });
+  }
+})();
+</script>
+
+
   <div class="container">
     <!-- Hero -->
     <section class="hero">
@@ -2780,5 +3010,6 @@
 
   <!-- Lead Events Tracking -->
   <script src="./lead-events.js"></script>
+  <script src="/assets/digischool-chatbot.js" defer></script>
 </body>
 </html>
