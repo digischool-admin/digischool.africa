@@ -1,0 +1,821 @@
+/**
+ * DigiSchool Africa - Enhanced Admin Dashboard
+ * Version: 1.1.0 PREMIUM
+ * Full platform control interface with all superpowers
+ */
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - DigiSchool Africa</title>
+  <meta name="robots" content="noindex, nofollow">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .admin-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .admin-header {
+      background: white;
+      border-radius: 16px;
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .admin-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .admin-title h1 {
+      font-size: 28px;
+      color: #2d3436;
+    }
+
+    .admin-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00b894 0%, #0984e3 100%);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #2d3436;
+      border: 1px solid #dfe6e9;
+    }
+
+    .btn-danger {
+      background: #ff7675;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .stat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .stat-label {
+      color: #636e72;
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #2d3436;
+      margin: 8px 0;
+    }
+
+    .stat-change {
+      font-size: 13px;
+      color: #00b894;
+      font-weight: 600;
+    }
+
+    .admin-section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #f1f3f5;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #2d3436;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .control-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 16px;
+      border: 1px solid #e9ecef;
+      transition: all 0.2s ease;
+    }
+
+    .control-card:hover {
+      background: #e9ecef;
+      border-color: #dee2e6;
+    }
+
+    .control-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #495057;
+      margin-bottom: 8px;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .3s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background: linear-gradient(135deg, #00b894 0%, #0984e3 100%);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(24px);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .action-btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid #dfe6e9;
+      background: white;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      background: #f1f3f5;
+      border-color: #b2bec3;
+    }
+
+    .action-btn.primary {
+      background: linear-gradient(135deg, #00b894 0%, #0984e3 100%);
+      color: white;
+      border: none;
+    }
+
+    .action-btn.danger {
+      background: #ff7675;
+      color: white;
+      border: none;
+    }
+
+    .log-container {
+      background: #2d3436;
+      border-radius: 8px;
+      padding: 16px;
+      color: #dfe6e9;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 12px;
+      max-height: 300px;
+      overflow-y: auto;
+      margin-top: 16px;
+    }
+
+    .log-entry {
+      margin-bottom: 4px;
+      opacity: 0.9;
+    }
+
+    .log-entry.success { color: #00b894; }
+    .log-entry.error { color: #ff7675; }
+    .log-entry.warning { color: #fdcb6e; }
+    .log-entry.info { color: #74b9ff; }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .input-group input,
+    .input-group select {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #dfe6e9;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2d3436;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #636e72;
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .control-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Header -->
+    <div class="admin-header">
+      <div class="admin-title">
+        <h1>🔐 Admin Dashboard</h1>
+        <span class="admin-badge">V1.1 PREMIUM</span>
+      </div>
+      <div class="admin-actions">
+        <button class="btn btn-secondary" onclick="window.SecurityMonitor.runFullScan()">
+          🔒 Security Scan
+        </button>
+        <button class="btn btn-secondary" onclick="exportAuditLog()">
+          📥 Export Log
+        </button>
+        <a href="/" class="btn btn-primary">← Retour au site</a>
+      </div>
+    </div>
+
+    <!-- Stats Dashboard -->
+    <div class="dashboard-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #00b894 0%, #0984e3 100%); color: white;">
+            👥
+          </div>
+        </div>
+        <div class="stat-label">Total Utilisateurs</div>
+        <div class="stat-value" id="stat-users">-</div>
+        <div class="stat-change">+12% ce mois</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #fdcb6e 0%, #fd79a8 100%); color: white;">
+            📚
+          </div>
+        </div>
+        <div class="stat-label">Cours Actifs</div>
+        <div class="stat-value" id="stat-courses">9</div>
+        <div class="stat-change">100% disponibles</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            🎓
+          </div>
+        </div>
+        <div class="stat-label">Certificats Émis</div>
+        <div class="stat-value" id="stat-certs">-</div>
+        <div class="stat-change">Ce mois</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #ff7675 0%, #d63031 100%); color: white;">
+            🔒
+          </div>
+        </div>
+        <div class="stat-label">Sécurité</div>
+        <div class="stat-value" id="stat-security">-</div>
+        <div class="stat-change" id="security-status">Scanning...</div>
+      </div>
+    </div>
+
+    <!-- Fast-Track Testing -->
+    <div class="admin-section">
+      <div class="section-header">
+        <h2 class="section-title">🚀 Fast-Track Testing</h2>
+        <button class="btn btn-primary" onclick="AdminSuperpowers.enableFastTrack()">
+          Enable Fast-Track
+        </button>
+      </div>
+      
+      <div class="control-grid">
+        <div class="control-card">
+          <div class="control-label">Bypass Progression</div>
+          <p style="font-size: 12px; color: #636e72; margin-top: 4px;">
+            Unlock all modules instantly
+          </p>
+          <button class="action-btn primary" onclick="unlockAllModulesForCourse()">
+            Unlock All Modules
+          </button>
+        </div>
+
+        <div class="control-card">
+          <div class="control-label">Instant Completion</div>
+          <p style="font-size: 12px; color: #636e72; margin-top: 4px;">
+            Complete module immediately
+          </p>
+          <button class="action-btn primary" onclick="completeModuleInstantly()">
+            Complete Module
+          </button>
+        </div>
+
+        <div class="control-card">
+          <div class="control-label">Generate Certificate</div>
+          <p style="font-size: 12px; color: #636e72; margin-top: 4px;">
+            Issue certificate manually
+          </p>
+          <button class="action-btn primary" onclick="generateCertificateManually()">
+            Generate Now
+          </button>
+        </div>
+
+        <div class="control-card">
+          <div class="control-label">Complete Course</div>
+          <p style="font-size: 12px; color: #636e72; margin-top: 4px;">
+            100% completion + certificate
+          </p>
+          <button class="action-btn primary" onclick="completeCourseInstantly()">
+            Complete Course
+          </button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <select id="test-course-id">
+          <option value="">Select Course...</option>
+          <option value="leadership-management">Leadership & Management</option>
+          <option value="gestion-projet-ia">Gestion de projet (PMP)</option>
+          <option value="strategie-execution">Stratégie & Exécution</option>
+        </select>
+        <input type="number" id="test-module-num" placeholder="Module #" min="1" max="8">
+      </div>
+    </div>
+
+    <!-- User Management -->
+    <div class="admin-section">
+      <div class="section-header">
+        <h2 class="section-title">👥 User Management</h2>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="action-btn primary" onclick="showUserList()">View All Users</button>
+        <button class="action-btn" onclick="grantAccessModal()">Grant Access</button>
+        <button class="action-btn" onclick="revokeAccessModal()">Revoke Access</button>
+        <button class="action-btn" onclick="resetProgressModal()">Reset Progress</button>
+        <button class="action-btn" onclick="impersonateUserModal()">Impersonate User</button>
+      </div>
+
+      <div class="input-group">
+        <input type="email" id="user-email" placeholder="user@example.com">
+        <select id="user-course-id">
+          <option value="">Select Course...</option>
+          <option value="leadership-management">Leadership & Management</option>
+          <option value="gestion-projet-ia">Gestion de projet</option>
+        </select>
+        <button class="action-btn primary" onclick="grantCourseAccessQuick()">Grant Access</button>
+      </div>
+    </div>
+
+    <!-- Pricing Control -->
+    <div class="admin-section">
+      <div class="section-header">
+        <h2 class="section-title">💰 Pricing Control</h2>
+      </div>
+      
+      <div class="control-grid">
+        <div class="control-card">
+          <div class="control-label">Short Courses (2-3 days)</div>
+          <div class="input-group">
+            <input type="number" id="price-short" value="180000" min="0" step="1000">
+            <button class="action-btn primary" onclick="updatePrice('short')">Update</button>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <div class="control-label">Medium Courses (4-5 days)</div>
+          <div class="input-group">
+            <input type="number" id="price-medium" value="245000" min="0" step="1000">
+            <button class="action-btn primary" onclick="updatePrice('medium')">Update</button>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <div class="control-label">Long Courses (6-10 days)</div>
+          <div class="input-group">
+            <input type="number" id="price-long" value="285000" min="0" step="1000">
+            <button class="action-btn primary" onclick="updatePrice('long')">Update</button>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <div class="control-label">Promotion Code</div>
+          <div class="input-group">
+            <input type="text" id="promo-code" placeholder="PROMO2026">
+            <input type="number" id="promo-percent" placeholder="%" min="0" max="100">
+            <button class="action-btn primary" onclick="createPromotion()">Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Toggles -->
+    <div class="admin-section">
+      <div class="section-header">
+        <h2 class="section-title">🎛️ Feature Flags</h2>
+      </div>
+      
+      <div class="control-grid" id="feature-flags-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+
+    <!-- Activity Log -->
+    <div class="admin-section">
+      <div class="section-header">
+        <h2 class="section-title">📝 Activity Log</h2>
+        <button class="btn btn-secondary" onclick="clearActivityLog()">Clear Log</button>
+      </div>
+      <div class="log-container" id="activity-log">
+        <div class="log-entry info">[INFO] Admin dashboard loaded</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/admin-config.js"></script>
+  <script src="/admin-superpowers.js"></script>
+  <script src="/security-monitor.js"></script>
+  
+  <script>
+    // Initialize dashboard
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check authentication
+      if (!window.AdminConfig || !window.AdminConfig.isAdmin()) {
+        const password = prompt('Enter admin password:');
+        if (password !== 'DigiSchool2026!') {
+          alert('Access denied');
+          window.location.href = '/';
+          return;
+        }
+        
+        // Set admin session
+        localStorage.setItem('admin_session', JSON.stringify({
+          isAuthenticated: true,
+          loginTime: Date.now(),
+        }));
+      }
+
+      // Load stats
+      loadDashboardStats();
+      
+      // Load feature flags
+      loadFeatureFlags();
+      
+      // Start activity log monitoring
+      startActivityLogMonitoring();
+      
+      // Run security scan
+      setTimeout(() => {
+        window.SecurityMonitor.runFullScan().then(results => {
+          document.getElementById('stat-security').textContent = results.vulnerabilitiesFound;
+          const statusEl = document.getElementById('security-status');
+          statusEl.textContent = `Risk: ${results.riskLevel.toUpperCase()}`;
+          statusEl.style.color = results.riskLevel === 'low' ? '#00b894' : '#ff7675';
+        });
+      }, 1000);
+      
+      addLog('success', 'Admin dashboard initialized');
+    });
+
+    function loadDashboardStats() {
+      const users = window.AdminSuperpowers.getAllUsers();
+      document.getElementById('stat-users').textContent = users.length;
+      
+      const certs = JSON.parse(localStorage.getItem('learner_certificates') || '[]');
+      document.getElementById('stat-certs').textContent = certs.length;
+    }
+
+    function loadFeatureFlags() {
+      const flags = window.AdminConfig.platform.featureFlags;
+      const grid = document.getElementById('feature-flags-grid');
+      
+      Object.entries(flags).forEach(([key, value]) => {
+        const card = document.createElement('div');
+        card.className = 'control-card';
+        card.innerHTML = `
+          <div class="control-label">${key.replace(/([A-Z])/g, ' $1').trim()}</div>
+          <label class="toggle-switch">
+            <input type="checkbox" ${value ? 'checked' : ''} onchange="toggleFeature('${key}', this.checked)">
+            <span class="toggle-slider"></span>
+          </label>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function toggleFeature(name, enabled) {
+      window.AdminSuperpowers.toggleFeature(name, enabled);
+      addLog('info', `Feature ${name}: ${enabled ? 'ON' : 'OFF'}`);
+    }
+
+    function unlockAllModulesForCourse() {
+      const courseId = document.getElementById('test-course-id').value;
+      if (!courseId) {
+        alert('Please select a course');
+        return;
+      }
+      
+      window.AdminSuperpowers.unlockAllModules(courseId);
+      addLog('success', `All modules unlocked for ${courseId}`);
+    }
+
+    function completeModuleInstantly() {
+      const courseId = document.getElementById('test-course-id').value;
+      const moduleNum = parseInt(document.getElementById('test-module-num').value);
+      
+      if (!courseId || !moduleNum) {
+        alert('Please select course and module number');
+        return;
+      }
+      
+      window.AdminSuperpowers.completeModule(courseId, moduleNum, 100);
+      addLog('success', `Module ${moduleNum} completed for ${courseId}`);
+    }
+
+    function completeCourseInstantly() {
+      const courseId = document.getElementById('test-course-id').value;
+      if (!courseId) {
+        alert('Please select a course');
+        return;
+      }
+      
+      window.AdminSuperpowers.completeCourse(courseId);
+      addLog('success', `Course ${courseId} completed 100%`);
+    }
+
+    function generateCertificateManually() {
+      const courseId = document.getElementById('test-course-id').value;
+      if (!courseId) {
+        alert('Please select a course');
+        return;
+      }
+      
+      const cert = window.AdminSuperpowers.generateCertificate(courseId);
+      addLog('success', `Certificate generated: ${cert.id}`);
+    }
+
+    function grantCourseAccessQuick() {
+      const email = document.getElementById('user-email').value;
+      const courseId = document.getElementById('user-course-id').value;
+      
+      if (!email || !courseId) {
+        alert('Please fill all fields');
+        return;
+      }
+      
+      window.AdminSuperpowers.grantCourseAccess(email, courseId);
+      addLog('success', `Access granted: ${email} → ${courseId}`);
+    }
+
+    function updatePrice(category) {
+      const input = document.getElementById(`price-${category}`);
+      const newPrice = parseInt(input.value);
+      
+      window.AdminSuperpowers.updatePackPrice(category, newPrice);
+      addLog('success', `Price updated: ${category} → ${newPrice} FCFA`);
+    }
+
+    function createPromotion() {
+      const code = document.getElementById('promo-code').value;
+      const percent = parseInt(document.getElementById('promo-percent').value);
+      
+      if (!code || !percent) {
+        alert('Please fill promotion details');
+        return;
+      }
+      
+      const validUntil = new Date();
+      validUntil.setMonth(validUntil.getMonth() + 1);
+      
+      window.AdminSuperpowers.setPromotion(code, percent, validUntil.toISOString());
+      addLog('success', `Promotion created: ${code} (${percent}% off)`);
+    }
+
+    function exportAuditLog() {
+      window.AdminSuperpowers.exportAuditLog();
+      addLog('info', 'Audit log exported');
+    }
+
+    function showUserList() {
+      const users = window.AdminSuperpowers.getAllUsers();
+      console.table(users);
+      addLog('info', `Showing ${users.length} users in console`);
+    }
+
+    function addLog(type, message) {
+      const log = document.getElementById('activity-log');
+      const entry = document.createElement('div');
+      entry.className = `log-entry ${type}`;
+      const timestamp = new Date().toLocaleTimeString();
+      entry.textContent = `[${timestamp}] [${type.toUpperCase()}] ${message}`;
+      log.insertBefore(entry, log.firstChild);
+      
+      // Keep only last 100 entries
+      while (log.children.length > 100) {
+        log.removeChild(log.lastChild);
+      }
+    }
+
+    function startActivityLogMonitoring() {
+      // Monitor localStorage changes for audit log
+      setInterval(() => {
+        const auditLog = JSON.parse(localStorage.getItem('admin_audit_log') || '[]');
+        if (auditLog.length > 0) {
+          const lastEntry = auditLog[auditLog.length - 1];
+          // Display last entry if not already shown
+        }
+      }, 5000);
+    }
+
+    function clearActivityLog() {
+      document.getElementById('activity-log').innerHTML = '';
+      addLog('warning', 'Activity log cleared');
+    }
+
+    // Modal functions (stubs for full implementation)
+    function grantAccessModal() {
+      addLog('info', 'Grant access modal (to be implemented)');
+    }
+
+    function revokeAccessModal() {
+      addLog('info', 'Revoke access modal (to be implemented)');
+    }
+
+    function resetProgressModal() {
+      addLog('info', 'Reset progress modal (to be implemented)');
+    }
+
+    function impersonateUserModal() {
+      addLog('info', 'Impersonate user modal (to be implemented)');
+    }
+  </script>
+</body>
+</html>

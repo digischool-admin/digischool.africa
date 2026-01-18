@@ -1,0 +1,59 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- DigiSchool Africa Logo - Premium Version -->
+  <!-- Geometric DNA similar to DigiLab -->
+  
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fd79a8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Geometric Icon - Education + Mastery Symbol -->
+  <g id="icon" transform="translate(0,10)">
+    <!-- Base geometric shape - hexagon (stability + knowledge) -->
+    <path d="M 20 5 L 30 0 L 40 5 L 40 15 L 30 20 L 20 15 Z" 
+          fill="url(#brandGradient)" 
+          opacity="0.9"/>
+    
+    <!-- Open book symbol (education) -->
+    <path d="M 22 8 L 30 6 L 38 8 L 38 13 L 30 15 L 22 13 Z" 
+          fill="white" 
+          opacity="0.3"/>
+    <line x1="30" y1="6" x2="30" y2="15" stroke="white" stroke-width="0.5" opacity="0.6"/>
+    
+    <!-- Ascending bars (progression + mastery) -->
+    <rect x="24" y="11" width="2" height="3" fill="url(#accentGradient)" opacity="0.9"/>
+    <rect x="28" y="9" width="2" height="5" fill="url(#accentGradient)" opacity="0.9"/>
+    <rect x="32" y="7" width="2" height="7" fill="url(#accentGradient)" opacity="0.9"/>
+    
+    <!-- Digital nodes (IA/tech integration) -->
+    <circle cx="23" cy="7" r="1" fill="#fdcb6e" opacity="0.8"/>
+    <circle cx="37" cy="7" r="1" fill="#fd79a8" opacity="0.8"/>
+    <circle cx="30" cy="17" r="1" fill="#00b894" opacity="0.8"/>
+  </g>
+  
+  <!-- Brand Text - DigiSchool -->
+  <g id="text" transform="translate(50,0)">
+    <text x="0" y="30" font-family="'SF Pro Display', 'Segoe UI', Roboto, -apple-system, sans-serif" 
+          font-size="24" 
+          font-weight="700" 
+          fill="#2d3436" 
+          letter-spacing="-0.5">DigiSchool</text>
+    
+    <!-- Africa tag line -->
+    <text x="0" y="48" font-family="'SF Pro Display', 'Segoe UI', Roboto, -apple-system, sans-serif" 
+          font-size="11" 
+          font-weight="500" 
+          fill="url(#accentGradient)" 
+          letter-spacing="0.5">AFRICA</text>
+  </g>
+  
+  <!-- Subtle accent line -->
+  <line x1="50" y1="38" x2="142" y2="38" stroke="url(#brandGradient)" stroke-width="2" opacity="0.3"/>
+</svg>

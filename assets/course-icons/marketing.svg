@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Marketing Megaphone Theme -->
+  <defs>
+    <linearGradient id="marketingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E67E22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F39C12;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Megaphone Body -->
+  <path d="M 25 45 L 50 35 L 50 65 L 25 55 Z" fill="url(#marketingGrad)"/>
+  <rect x="50" y="35" width="30" height="30" rx="3" fill="url(#marketingGrad)" opacity="0.7"/>
+  <circle cx="80" cy="50" r="8" fill="#F39C12"/>
+  
+  <!-- Sound Waves -->
+  <g stroke="#E67E22" stroke-width="2" fill="none">
+    <path d="M 88 35 Q 95 42 95 50 Q 95 58 88 65" opacity="0.8"/>
+    <path d="M 94 30 Q 103 38 103 50 Q 103 62 94 70" opacity="0.6"/>
+    <path d="M 100 25 Q 111 34 111 50 Q 111 66 100 75" opacity="0.4"/>
+  </g>
+  
+  <!-- Target Audience -->
+  <circle cx="35" cy="85" r="8" fill="none" stroke="#E67E22" stroke-width="2"/>
+  <circle cx="35" cy="85" r="4" fill="#F39C12"/>
+</svg>
