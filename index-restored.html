@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiSchool Africa — Plateforme Panafricaine de Formation Professionnelle Premium</title>
+  <meta name="description" content="DigiSchool Africa : formations certifiantes premium, coaching professionnel et services digitaux d'excellence pour particuliers et entreprises en Afrique.">
+  
+  <!-- CSS UNIQUE RESTAURÉ -->
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  
+  <style>
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.04) 0%, rgba(38, 166, 154, 0.04) 100%);
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-8);
+      z-index: 2;
+      position: relative;
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+    
+    .hero-text h1 {
+      font-size: var(--text-6xl);
+      line-height: 1.1;
+      margin-bottom: var(--space-6);
+      letter-spacing: -0.02em;
+    }
+    
+    .hero-text p {
+      font-size: var(--text-xl);
+      line-height: 1.7;
+      color: var(--ds-gray);
+      margin-bottom: var(--space-8);
+    }
+    
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .hero-visual {
+      position: relative;
+    }
+    
+    .hero-card-stack {
+      display: grid;
+      gap: var(--space-4);
+    }
+    
+    .hero-mini-card {
+      background: white;
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all var(--transition-base);
+    }
+    
+    .hero-mini-card:hover {
+      transform: translateX(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .hero-mini-card h4 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+      color: var(--ds-dark);
+    }
+    
+    .hero-mini-card p {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      margin: 0;
+    }
+    
+    /* Features Grid */
+    .features-section {
+      padding: var(--space-20) var(--space-8);
+      background: white;
+    }
+    
+    .features-container {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .section-header h2 {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .section-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-base);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(30, 136, 229, 0.3);
+    }
+    
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+      font-size: 32px;
+    }
+    
+    .feature-card h3 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .feature-card p {
+      color: var(--ds-gray);
+      line-height: 1.7;
+    }
+    
+    /* Formations Highlight */
+    .formations-section {
+      padding: var(--space-20) var(--space-8);
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+    }
+    
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    
+    .formation-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .formation-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-hero);
+      transform: scaleX(0);
+      transition: transform var(--transition-base);
+    }
+    
+    .formation-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .formation-card:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .formation-badge {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    
+    .formation-card h3 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .formation-meta {
+      display: flex;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+    }
+    
+    .formation-card p {
+      color: var(--ds-gray);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: var(--space-20) var(--space-8);
+      background: linear-gradient(135deg, var(--ds-dark) 0%, #1a237e 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-content h2 {
+      font-size: var(--text-4xl);
+      color: white;
+      margin-bottom: var(--space-6);
+    }
+    
+    .cta-content p {
+      font-size: var(--text-xl);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: var(--space-8);
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-white {
+      background: white;
+      color: var(--color-primary);
+      padding: var(--space-5) var(--space-8);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-base);
+    }
+    
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-text h1 {
+        font-size: var(--text-4xl);
+      }
+      
+      .features-grid,
+      .formations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header & Footer injectés automatiquement -->
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-grid">
+        <div class="hero-text animate-fade-in">
+          <h1>
+            <span class="text-gradient">DigiSchool Africa</span><br>
+            Votre Partenaire Formation Premium
+          </h1>
+          <p>
+            Formations certifiantes de niveau international, accompagnement personnalisé, 
+            technologies de pointe. Développez vos compétences avec l'excellence africaine.
+          </p>
+          <div class="hero-ctas">
+            <a href="/b2c-assessment-restored.html" class="ds-btn ds-btn-primary ds-btn-lg">
+              🎯 Auto-évaluation (2 min)
+            </a>
+            <a href="/b2c.html" class="ds-btn ds-btn-secondary ds-btn-lg">
+              📚 Voir les formations
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-visual animate-slide-in-right">
+          <div class="hero-card-stack">
+            <div class="hero-mini-card">
+              <h4>🎓 9 Parcours Premium</h4>
+              <p>PMP, Leadership, Data, Excel, Power BI, Marketing, Digital, RH, PowerPoint</p>
+            </div>
+            <div class="hero-mini-card">
+              <h4>⚡ Certifications Reconnues</h4>
+              <p>Standards PMI, Microsoft, Google, Harvard Business School</p>
+            </div>
+            <div class="hero-mini-card">
+              <h4>🤖 IA Intégrée</h4>
+              <p>Assistants virtuels, automatisation, outils de dernière génération</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-container">
+      <div class="section-header animate-fade-in">
+        <h2>Pourquoi DigiSchool Africa ?</h2>
+        <p>Une plateforme pensée pour l'excellence professionnelle africaine</p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Formations Certifiantes</h3>
+          <p>
+            Parcours alignés sur les standards internationaux (PMI, Microsoft, Google). 
+            Certificats reconnus par les entreprises du continent et au-delà.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🏫</div>
+          <h3>Experts de Renommée</h3>
+          <p>
+            Contenus élaborés en référence aux meilleures institutions mondiales : 
+            Harvard, MIT, Stanford, HEC, INSEAD.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Apprentissage Actif</h3>
+          <p>
+            Cas pratiques, projets réels, quiz interactifs, templates professionnels. 
+            Apprenez en faisant, pas seulement en écoutant.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>B2B & B2C</h3>
+          <p>
+            Solutions pour particuliers (upskilling) et entreprises (formations sur-mesure, 
+            audit, académie interne).
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>Flexibilité Totale</h3>
+          <p>
+            Formations courtes (4 jours) ou intensives (10 jours). 
+            Accès immédiat après paiement. Progression à votre rythme.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Panafricain</h3>
+          <p>
+            Conçu pour l'Afrique, par des experts qui comprennent les réalités 
+            du marché africain. Paiements locaux acceptés.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Formations Highlight -->
+  <section class="formations-section">
+    <div class="features-container">
+      <div class="section-header animate-fade-in">
+        <h2>Nos Formations Phares</h2>
+        <p>9 parcours d'excellence pour transformer votre carrière</p>
+      </div>
+      
+      <div class="formations-grid">
+        <div class="formation-card">
+          <span class="formation-badge">⭐ BEST-SELLER</span>
+          <h3>PMP — Gestion de Projet</h3>
+          <div class="formation-meta">
+            <span>⏱️ 10 jours</span>
+            <span>📊 4 modules</span>
+            <span>🎓 Certifiant</span>
+          </div>
+          <p>
+            Certification internationalement reconnue. Maîtrisez PMBOK 7, Agile, 
+            outils IA, et préparez l'examen PMP avec confiance.
+          </p>
+          <a href="/b2c.html?formation=pmp" class="ds-btn ds-btn-primary">
+            Découvrir →
+          </a>
+        </div>
+        
+        <div class="formation-card">
+          <span class="formation-badge">🔥 POPULAIRE</span>
+          <h3>Data Analytics & Visualisation</h3>
+          <div class="formation-meta">
+            <span>⏱️ 10 jours</span>
+            <span>📊 5 modules</span>
+            <span>🎓 Certifiant</span>
+          </div>
+          <p>
+            Python, SQL, Pandas, visualisation avancée. Devenez Data Analyst 
+            avec compétences recherchées.
+          </p>
+          <a href="/b2c.html?formation=data" class="ds-btn ds-btn-primary">
+            Découvrir →
+          </a>
+        </div>
+        
+        <div class="formation-card">
+          <span class="formation-badge">⚡ RAPIDE</span>
+          <h3>Excel Avancé & Automatisation</h3>
+          <div class="formation-meta">
+            <span>⏱️ 6 jours</span>
+            <span>📊 4 modules</span>
+            <span>🎓 Certifiant</span>
+          </div>
+          <p>
+            Formules avancées, tableaux croisés dynamiques, VBA, Power Query. 
+            Automatisez vos tâches et gagnez en productivité.
+          </p>
+          <a href="/b2c.html?formation=excel" class="ds-btn ds-btn-primary">
+            Découvrir →
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="/b2c.html" class="ds-btn ds-btn-primary ds-btn-lg">
+          Voir les 9 formations →
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Prêt à transformer votre carrière ?</h2>
+      <p>
+        Rejoignez des centaines de professionnels africains qui ont choisi 
+        l'excellence avec DigiSchool Africa.
+      </p>
+      <div class="cta-buttons">
+        <a href="/b2c-assessment-restored.html" class="btn-white">
+          🎯 Commencer mon diagnostic
+        </a>
+        <a href="/contact.html" class="btn-white">
+          💬 Parler à un conseiller
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Scripts -->
+  <script src="/assets/global-components-restored.js"></script>
+  
+</body>
+</html>
