@@ -1,0 +1,223 @@
+/**
+ * DigiSchool Africa — Header Fixed & Stable V2.2.x-B
+ * Fix clipping + logo complet + sticky parfait
+ * Date: 2026-01-18
+ */
+
+/* ========== HEADER FIXED STABLE ========== */
+.digischool-global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.digischool-global-header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Inner wrapper centré (max-width 1180px pour alignement avec .ds-main) */
+.ds-header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* Logo zone — JAMAIS COUPÉ */
+.ds-header-logo {
+  flex: 0 0 auto;
+  min-width: 180px;
+  overflow: visible;
+  transform: none !important; /* Éviter contexte stacking */
+}
+
+.ds-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.ds-header-logo:hover .ds-logo-img {
+  opacity: 0.85;
+}
+
+/* Navigation centrale */
+.ds-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+  overflow: visible;
+}
+
+.ds-nav-link {
+  color: #37474F;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 6px 4px;
+  white-space: nowrap;
+}
+
+.ds-nav-link:hover {
+  color: #26A69A;
+}
+
+.ds-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #26A69A, #1E88E5);
+  transition: width 0.3s ease;
+}
+
+.ds-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Actions CTA */
+.ds-header-actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ds-header-cta {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(30, 136, 229, 0.25);
+  white-space: nowrap;
+}
+
+.ds-header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(30, 136, 229, 0.35);
+}
+
+/* Menu mobile toggle */
+.ds-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.ds-menu-toggle span {
+  width: 24px;
+  height: 2.5px;
+  background: #37474F;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 960px) {
+  .ds-header-inner {
+    padding: 12px 20px;
+  }
+  
+  .ds-header-nav {
+    position: fixed;
+    top: 74px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 24px;
+    gap: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .ds-header-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .ds-menu-toggle {
+    display: flex;
+  }
+  
+  .ds-header-cta {
+    display: none;
+  }
+  
+  .ds-logo-img {
+    height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ds-header-inner {
+    padding: 10px 16px;
+  }
+  
+  .ds-logo-img {
+    height: 36px;
+  }
+  
+  .ds-header-logo {
+    min-width: 140px;
+  }
+}
+
+/* ========== BODY COMPENSATION ========== */
+body.has-fixed-header {
+  padding-top: 74px;
+}
+
+@media (max-width: 960px) {
+  body.has-fixed-header {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.has-fixed-header {
+    padding-top: 56px;
+  }
+}

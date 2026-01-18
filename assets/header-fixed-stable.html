@@ -1,0 +1,78 @@
+<!-- DigiSchool Africa - Header Fixed & Stable V2.2.x-B -->
+<header class="digischool-global-header" id="ds-global-header">
+  <div class="ds-header-inner">
+    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
+      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
+    </a>
+    
+    <nav class="ds-header-nav" id="ds-header-nav" aria-label="Navigation principale">
+      <a href="/" class="ds-nav-link">Accueil</a>
+      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
+      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
+      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
+      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
+    </nav>
+    
+    <div class="ds-header-actions">
+      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
+      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+(function() {
+  'use strict';
+  
+  const header = document.getElementById('ds-global-header');
+  const menuToggle = document.getElementById('ds-menu-toggle');
+  const nav = document.getElementById('ds-header-nav');
+  
+  // Add body class
+  document.body.classList.add('has-fixed-header');
+  
+  // Scroll effect
+  if (header) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+  }
+  
+  // Mobile menu
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('active');
+    });
+    
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+      }
+    });
+    
+    // Close on link click
+    nav.querySelectorAll('.ds-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+      });
+    });
+  }
+})();
+</script>
