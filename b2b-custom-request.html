@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation Sur-Mesure (72h) | DigiSchool Africa</title>
+  <link rel="stylesheet" href="/assets/ds-premium-zoom.css">
+</head>
+<body>
+  <header class="ds-global-header">
+    <div class="ds-header-container">
+      <a href="/" class="ds-header-logo">
+        <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa">
+      </a>
+      <nav class="ds-header-nav">
+        <a href="/">Accueil</a>
+        <a href="/b2c.html">Formations B2C</a>
+        <a href="/companies.html" class="active">Entreprises</a>
+        <a href="/about-premium.html">À propos</a>
+      </nav>
+      <div class="ds-header-cta">
+        <a href="/b2c.html" class="ds-btn-primary">Explorer</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="ds-page">
+    <div class="ds-rail ds-rail-left ds-rail-b2b"></div>
+    
+    <main class="ds-main">
+      <h1 class="ds-hero-title">Formation Sur-Mesure (Réponse ≤72h)</h1>
+      <p class="ds-hero-subtitle">
+        Notre catalogue n'est pas limitatif. Décrivez vos besoins, nous créons votre formation.
+      </p>
+
+      <div class="ds-card">
+        <form id="b2bCustomForm">
+          <div class="ds-form-group">
+            <label class="ds-form-label">Entreprise *</label>
+            <input type="text" class="ds-form-input" name="company_name" required>
+          </div>
+
+          <div class="ds-form-group">
+            <label class="ds-form-label">Nom Contact *</label>
+            <input type="text" class="ds-form-input" name="contact_name" required>
+          </div>
+
+          <div class="ds-form-group">
+            <label class="ds-form-label">Email *</label>
+            <input type="email" class="ds-form-input" name="email" required>
+          </div>
+
+          <div class="ds-form-group">
+            <label class="ds-form-label">Téléphone</label>
+            <input type="tel" class="ds-form-input" name="phone">
+          </div>
+
+          <div class="ds-form-group">
+            <label class="ds-form-label">Objectifs Pédagogiques *</label>
+            <textarea class="ds-form-textarea" name="objectives" required></textarea>
+          </div>
+
+          <div class="ds-form-group">
+            <label class="ds-form-label">Description Détaillée (Prompt)</label>
+            <textarea class="ds-form-textarea" name="prompt" rows="6"></textarea>
+          </div>
+
+          <div class="ds-form-group">
+            <label class="ds-form-label">Cahier des Charges (PDF/JPG)</label>
+            <input type="file" class="ds-form-input" name="attachment" accept=".pdf,.jpg,.jpeg,.png">
+          </div>
+
+          <button type="submit" class="ds-btn-primary">📤 Soumettre (Réponse ≤72h)</button>
+        </form>
+      </div>
+    </main>
+
+    <div class="ds-rail ds-rail-right ds-rail-b2b"></div>
+  </div>
+
+  <script src="/assets/supabase-client.js"></script>
+  <script>
+    document.getElementById('b2bCustomForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      
+      try {
+        await window.SupabaseClient.submitB2BCustomRequest(Object.fromEntries(formData));
+        alert('✅ Demande enregistrée! Numéro: ' + result.request_number + '. Réponse sous 72h.');
+        e.target.reset();
+      } catch (error) {
+        console.error(error);
+        alert('❌ Erreur. Contactez contact@digischool.africa');
+      }
+    });
+  </script>
+</body>
+</html>

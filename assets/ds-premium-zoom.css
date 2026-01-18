@@ -1,0 +1,539 @@
+/**
+ * DigiSchool Africa V2.2.x-C — CSS CANONIQUE UNIQUE
+ * Source of Truth pour tout le design
+ * Inspiré de Zoom.com: Premium, Clean, Professionnel
+ */
+
+/* ============================================
+   1. RESET & BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Couleurs DigiSchool */
+  --ds-green: #26A69A;
+  --ds-blue: #1E88E5;
+  --ds-purple: #7E57C2;
+  --ds-dark: #263238;
+  --ds-gray: #546E7A;
+  --ds-light-gray: #ECEFF1;
+  --ds-white: #FFFFFF;
+  
+  /* Gradients Premium */
+  --gradient-b2c: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%);
+  --gradient-b2b: linear-gradient(135deg, #263238 0%, #546E7A 100%);
+  --gradient-rail: linear-gradient(180deg, #1a237e 0%, #0d47a1 50%, #004d40 100%);
+  
+  /* Spacing & Typography */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+  
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+  
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ds-dark);
+  background: var(--ds-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   2. HEADER STICKY — LOGO COMPLET VISIBLE
+   ============================================ */
+.ds-global-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all var(--transition-base);
+}
+
+.ds-header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+}
+
+/* Logo — CRITIQUE: Taille garantie */
+.ds-header-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  min-width: 180px;
+}
+
+.ds-header-logo img {
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
+}
+
+.ds-header-logo:hover img {
+  transform: scale(1.02);
+}
+
+/* Navigation */
+.ds-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex: 1;
+  justify-content: center;
+}
+
+.ds-header-nav a {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ds-dark);
+  text-decoration: none;
+  position: relative;
+  padding: 8px 0;
+  transition: color var(--transition-fast);
+}
+
+.ds-header-nav a:hover {
+  color: var(--ds-green);
+}
+
+.ds-header-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-b2c);
+  border-radius: 3px 3px 0 0;
+}
+
+/* CTA Button */
+.ds-header-cta {
+  flex-shrink: 0;
+}
+
+.ds-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 12px 24px;
+  background: var(--gradient-b2c);
+  color: var(--ds-white);
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(30, 136, 229, 0.3);
+}
+
+.ds-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(30, 136, 229, 0.4);
+}
+
+/* Mobile Menu Toggle */
+.ds-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+.ds-menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--ds-dark);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+/* ============================================
+   3. LAYOUT ZOOM-LIKE — RAILS + MAIN
+   ============================================ */
+.ds-page {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Rails Latéraux */
+.ds-rail {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - 1400px) / 2);
+  background: var(--gradient-rail);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ds-rail-left {
+  left: 0;
+}
+
+.ds-rail-right {
+  right: 0;
+}
+
+/* Filigranes */
+.ds-rail::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: url('/assets/images/watermark-b2c.svg') no-repeat center;
+  background-size: contain;
+  opacity: 0.08;
+  animation: ds-float 8s ease-in-out infinite;
+}
+
+.ds-rail-b2b::before {
+  background-image: url('/assets/images/watermark-b2b.svg');
+}
+
+@keyframes ds-float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-20px); }
+}
+
+/* Main Content — Zone Blanche Centrée */
+.ds-main {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background: var(--ds-white);
+  min-height: calc(100vh - 80px);
+}
+
+/* Sur écrans < 1400px: pas de rails */
+@media (max-width: 1400px) {
+  .ds-rail {
+    display: none;
+  }
+  
+  .ds-main {
+    width: 100%;
+    max-width: 1240px;
+  }
+}
+
+/* ============================================
+   4. TYPOGRAPHY — ZOOM-INSPIRED
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ds-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(22px, 3vw, 32px);
+}
+
+h4 {
+  font-size: clamp(18px, 2.5vw, 24px);
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ds-gray);
+  margin-bottom: var(--spacing-md);
+}
+
+.ds-hero-title {
+  text-align: center;
+  background: var(--gradient-b2c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-lg);
+}
+
+.ds-hero-subtitle {
+  font-size: 18px;
+  text-align: center;
+  color: var(--ds-gray);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+/* ============================================
+   5. CARDS PREMIUM
+   ============================================ */
+.ds-card {
+  background: var(--ds-white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.ds-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--ds-green);
+}
+
+.ds-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ds-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ds-card-description {
+  font-size: 15px;
+  color: var(--ds-gray);
+  line-height: 1.6;
+}
+
+/* ============================================
+   6. BUTTONS & FORMS
+   ============================================ */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.ds-btn-secondary {
+  background: var(--ds-white);
+  color: var(--ds-dark);
+  border: 2px solid var(--ds-dark);
+}
+
+.ds-btn-secondary:hover {
+  background: var(--ds-dark);
+  color: var(--ds-white);
+}
+
+/* Forms */
+.ds-form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.ds-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ds-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.ds-form-input,
+.ds-form-textarea,
+.ds-form-select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: var(--font-primary);
+  color: var(--ds-dark);
+  background: var(--ds-white);
+  border: 2px solid var(--ds-light-gray);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.ds-form-input:focus,
+.ds-form-textarea:focus,
+.ds-form-select:focus {
+  outline: none;
+  border-color: var(--ds-green);
+  box-shadow: 0 0 0 4px rgba(38, 166, 154, 0.1);
+}
+
+.ds-form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ============================================
+   7. FOOTER
+   ============================================ */
+.ds-global-footer {
+  background: var(--ds-dark);
+  color: var(--ds-white);
+  padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-lg);
+  margin-top: var(--spacing-xxl);
+}
+
+.ds-footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.ds-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.ds-footer-section h4 {
+  color: var(--ds-white);
+  font-size: 16px;
+  margin-bottom: var(--spacing-md);
+}
+
+.ds-footer-section a {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: var(--spacing-xs);
+  transition: color var(--transition-fast);
+}
+
+.ds-footer-section a:hover {
+  color: var(--ds-green);
+}
+
+.ds-footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================
+   8. RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .ds-header-nav {
+    display: none;
+  }
+  
+  .ds-menu-toggle {
+    display: flex;
+  }
+  
+  .ds-main {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+}
+
+/* ============================================
+   9. UTILITIES
+   ============================================ */
+.ds-text-center {
+  text-align: center;
+}
+
+.ds-mt-sm { margin-top: var(--spacing-sm); }
+.ds-mt-md { margin-top: var(--spacing-md); }
+.ds-mt-lg { margin-top: var(--spacing-lg); }
+.ds-mt-xl { margin-top: var(--spacing-xl); }
+
+.ds-mb-sm { margin-bottom: var(--spacing-sm); }
+.ds-mb-md { margin-bottom: var(--spacing-md); }
+.ds-mb-lg { margin-bottom: var(--spacing-lg); }
+.ds-mb-xl { margin-bottom: var(--spacing-xl); }
+
+.ds-gradient-text {
+  background: var(--gradient-b2c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   10. ANIMATIONS
+   ============================================ */
+@keyframes ds-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ds-fade-in {
+  animation: ds-fade-in 0.6s ease;
+}
+
