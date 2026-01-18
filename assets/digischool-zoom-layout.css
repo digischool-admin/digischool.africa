@@ -1,0 +1,409 @@
+/**
+ * DigiSchool Africa — Layout Zoom-Like Final
+ * V2.2.x FINAL FIX — NO COMPROMISE
+ * Date: 2026-01-18
+ * 
+ * Structure: Rails latéraux + contenu centré + filigranes + animations légères
+ * Inspiration: https://www.zoom.com (respiration, hiérarchie, premium)
+ */
+
+/* ========== VARIABLES GLOBALES ========== */
+:root {
+  --ds-blue-primary: #1E88E5;
+  --ds-blue-dark: #0B1B3A;
+  --ds-green-accent: #22c55e;
+  --ds-violet-accent: #7C4DFF;
+  --ds-text-primary: #0B1B3A;
+  --ds-text-secondary: #37474F;
+  --ds-text-muted: #546E7A;
+  --ds-white: #FFFFFF;
+  --ds-gray-light: #F5F7FA;
+  --ds-gray-border: #ECEFF1;
+  
+  --ds-main-width: 1180px;
+  --ds-rail-width: max(120px, calc((100vw - var(--ds-main-width)) / 2));
+  --ds-header-height: 86px;
+}
+
+/* ========== RESET & BASE ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--ds-white);
+  color: var(--ds-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Compensation header sticky */
+body.has-sticky-header {
+  padding-top: var(--ds-header-height);
+}
+
+/* ========== LAYOUT GLOBAL: WRAPPER + RAILS ========== */
+.ds-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+/* Rails latéraux */
+.ds-rail {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--ds-rail-width);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ds-rail-left {
+  left: 0;
+  background: linear-gradient(180deg, 
+    var(--ds-blue-dark) 0%, 
+    #1a2942 50%, 
+    #0B1B3A 100%
+  );
+}
+
+.ds-rail-right {
+  right: 0;
+  background: linear-gradient(180deg, 
+    #1a2942 0%, 
+    var(--ds-blue-dark) 50%, 
+    #0e1f38 100%
+  );
+}
+
+/* Animation gradient subtile */
+@keyframes ds-gradient-shift {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.92; }
+}
+
+.ds-rail-left::before,
+.ds-rail-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    var(--ds-blue-primary) 0%, 
+    var(--ds-violet-accent) 50%, 
+    var(--ds-green-accent) 100%
+  );
+  opacity: 0.12;
+  animation: ds-gradient-shift 8s ease-in-out infinite;
+}
+
+/* Filigranes B2C */
+.ds-rail-b2c::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 300px;
+  background-image: url('/assets/images/watermark-b2c.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08;
+  filter: grayscale(100%) brightness(1.5);
+}
+
+/* Filigranes B2B */
+.ds-rail-b2b::after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 300px;
+  background-image: url('/assets/images/watermark-b2b.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.10;
+  filter: grayscale(100%) brightness(1.4);
+}
+
+/* Zone centrale (MAIN) */
+.ds-main {
+  flex: 1;
+  max-width: var(--ds-main-width);
+  margin: 0 auto;
+  padding: 0 32px;
+  background: var(--ds-white);
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* Sections dans .ds-main */
+.ds-section {
+  padding: 80px 0;
+}
+
+.ds-section:first-child {
+  padding-top: 120px;
+}
+
+.ds-section:last-child {
+  padding-bottom: 120px;
+}
+
+/* ========== TYPOGRAPHIE ZOOM-LIKE ========== */
+.ds-title-hero {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ds-blue-dark);
+  margin: 0 0 24px;
+  letter-spacing: -0.02em;
+}
+
+.ds-title-section {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ds-blue-dark);
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.ds-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--ds-text-secondary);
+  margin: 0 0 32px;
+  max-width: 700px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== CARDS PREMIUM ========== */
+.ds-card {
+  background: var(--ds-white);
+  border: 1px solid var(--ds-gray-border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(11, 27, 58, 0.04);
+}
+
+.ds-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(11, 27, 58, 0.12);
+  border-color: var(--ds-blue-primary);
+}
+
+.ds-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ds-blue-dark);
+  margin: 0 0 12px;
+}
+
+.ds-card-text {
+  font-size: 1rem;
+  color: var(--ds-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ========== GRILLES RESPONSIVE ========== */
+.ds-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.ds-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.ds-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ========== BOUTONS CTA ZOOM-LIKE ========== */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.ds-btn-primary {
+  background: linear-gradient(135deg, var(--ds-blue-primary), var(--ds-violet-accent), var(--ds-green-accent));
+  color: var(--ds-white);
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
+}
+
+.ds-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(30, 136, 229, 0.4);
+}
+
+.ds-btn-secondary {
+  background: var(--ds-white);
+  color: var(--ds-blue-primary);
+  border: 2px solid var(--ds-blue-primary);
+}
+
+.ds-btn-secondary:hover {
+  background: var(--ds-blue-primary);
+  color: var(--ds-white);
+  transform: translateY(-2px);
+}
+
+/* ========== HERO SECTION ========== */
+.ds-hero {
+  text-align: center;
+  padding: 100px 0 80px;
+  background: linear-gradient(180deg, 
+    var(--ds-gray-light) 0%, 
+    var(--ds-white) 100%
+  );
+  margin: 0 -32px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.ds-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1280px) {
+  :root {
+    --ds-main-width: 95%;
+    --ds-rail-width: 2.5%;
+  }
+  
+  .ds-rail-left,
+  .ds-rail-right {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 960px) {
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ds-section {
+    padding: 60px 0;
+  }
+  
+  .ds-main {
+    padding: 0 24px;
+  }
+  
+  /* Rails cachés sur mobile */
+  .ds-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .ds-grid-2,
+  .ds-grid-3,
+  .ds-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .ds-section {
+    padding: 48px 0;
+  }
+  
+  .ds-main {
+    padding: 0 20px;
+  }
+  
+  body.has-sticky-header {
+    padding-top: 70px;
+  }
+}
+
+/* ========== HEADER STICKY SUPPORT ========== */
+.digischool-global-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.digischool-global-header.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== ANIMATIONS PERFORMANCE ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========== UTILITAIRES ========== */
+.ds-text-center {
+  text-align: center;
+}
+
+.ds-mt-0 { margin-top: 0; }
+.ds-mt-16 { margin-top: 16px; }
+.ds-mt-32 { margin-top: 32px; }
+.ds-mt-48 { margin-top: 48px; }
+.ds-mt-64 { margin-top: 64px; }
+
+.ds-mb-0 { margin-bottom: 0; }
+.ds-mb-16 { margin-bottom: 16px; }
+.ds-mb-32 { margin-bottom: 32px; }
+.ds-mb-48 { margin-bottom: 48px; }
+.ds-mb-64 { margin-bottom: 64px; }
+
+.ds-hidden {
+  display: none !important;
+}
+
+.ds-visible {
+  display: block !important;
+}
