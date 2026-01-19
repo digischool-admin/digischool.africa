@@ -341,7 +341,7 @@
 
     <!-- Reader Controls -->
     <div class="reader-controls">
-      <h3>⚙️ Préférences de lecture</h3>
+      <h3> Préférences de lecture</h3>
       <div class="controls-grid">
         <div class="control-group">
           <label for="fontSizeSelect">Taille du texte</label>
@@ -371,7 +371,7 @@
 
     <!-- Modules List -->
     <div class="modules-section">
-      <h2>📚 Modules de formation</h2>
+      <h2><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Modules de formation</h2>
       <div class="modules-grid" id="modulesGrid">
         <!-- Modules will be generated here -->
       </div>
@@ -454,22 +454,22 @@
           if (!hasModuleAccess) {
             cardClass += ' locked';
             statusChipClass += ' locked';
-            statusText = '🔒 Non acheté';
+            statusText = ' Non acheté';
             disabled = true;
           } else if (status.passed) {
             cardClass += ' completed';
             statusChipClass += ' completed';
-            statusText = '✓ Complété';
+            statusText = ' Complété';
             btnText = 'Revoir';
             btnClass += ' btn-continue';
           } else if (status.unlocked) {
             cardClass += ' unlocked';
             statusChipClass += ' available';
-            statusText = '▶ Disponible';
+            statusText = ' Disponible';
           } else {
             cardClass += ' locked';
             statusChipClass += ' locked';
-            statusText = '🔒 Verrouillé';
+            statusText = ' Verrouillé';
             disabled = true;
           }
 
@@ -477,7 +477,7 @@
 
           return `
             <div class="${cardClass}">
-              <div class="module-number">${status.passed ? '✓' : !status.unlocked || !hasModuleAccess ? '🔒' : tpl.num}</div>
+              <div class="module-number">${status.passed ? '' : !status.unlocked || !hasModuleAccess ? '' : tpl.num}</div>
               <div class="module-info">
                 <h3>Module ${tpl.num} : ${tpl.suffix}</h3>
                 <p>${tpl.desc}</p>
