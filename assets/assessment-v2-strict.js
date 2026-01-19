@@ -629,7 +629,10 @@ const DigiSchoolAssessmentV2 = {
         </div>
         
         <div class="text-center mt-12">
-          <a href="/b2c.html" class="ds-btn ds-btn-primary ds-btn-lg">
+          <button onclick="DigiSchoolEmailCapture.openModal(DigiSchoolAssessmentV2.state)" class="ds-btn ds-btn-primary ds-btn-lg" style="margin-right: 12px;">
+            📧 Recevoir mon rapport complet par email
+          </button>
+          <a href="/b2c.html" class="ds-btn ds-btn-secondary ds-btn-lg" style="margin-right: 12px;">
             Explorer toutes les formations
           </a>
           <button onclick="location.reload()" class="ds-btn ds-btn-secondary ds-btn-lg">
