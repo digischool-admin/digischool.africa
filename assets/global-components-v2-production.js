@@ -218,12 +218,37 @@ const DigiSchoolGlobalComponents = {
       });
     }
     
-    // Active nav link highlighting
+    // Active nav link highlighting (V2.2.x-K.2 ENHANCED)
     const currentPath = window.location.pathname;
-    document.querySelectorAll('.ds-nav-link').forEach(link => {
-      if (link.getAttribute('href') === currentPath || 
-          (currentPath === '/' && link.getAttribute('href') === '/')) {
-        link.classList.add('active');
+    const navLinks = document.querySelectorAll('.ds-nav-link');
+    
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      let isActive = false;
+      
+      // Exact match
+      if (href === currentPath) {
+        isActive = true;
+      }
+      // Homepage special case
+      else if (currentPath === '/' && href === '/') {
+        isActive = true;
+      }
+      // Match /index.html to /
+      else if ((currentPath === '/index.html' || currentPath === '/index') && href === '/') {
+        isActive = true;
+      }
+      // Match section (e.g., /b2c.html matches /b2c-*)
+      else if (currentPath.startsWith(href.replace('.html', '')) && href !== '/') {
+        isActive = true;
+      }
+      
+      if (isActive) {
+        link.classList.add('active', 'nav-active');
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.classList.remove('active', 'nav-active');
+        link.removeAttribute('aria-current');
       }
     });
   }
