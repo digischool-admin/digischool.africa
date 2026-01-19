@@ -101,6 +101,79 @@
   display: none; /* Hide original h2 since it's now in summary */
 }
 </style>
+
+    <style>
+    .ds-accordion {
+      border: 1px solid #E0E7FF;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .ds-accordion-item {
+      border-bottom: 1px solid #E0E7FF;
+    }
+    .ds-accordion-item:last-child {
+      border-bottom: none;
+    }
+    .ds-accordion-header {
+      background: #F8FAFC;
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+    .ds-accordion-header:hover {
+      background: #EEF2FF;
+    }
+    .ds-accordion-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1E293B;
+    }
+    .ds-accordion-icon {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s;
+    }
+    .ds-accordion-item.active .ds-accordion-icon {
+      transform: rotate(180deg);
+    }
+    .ds-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .ds-accordion-item.active .ds-accordion-content {
+      max-height: 5000px;
+    }
+    .ds-accordion-body {
+      padding: 20px;
+      line-height: 1.7;
+    }
+    .accordion-controls {
+      text-align: center;
+      margin: 24px 0;
+    }
+    </style>
+    <script>
+    function toggleAccordion(element) {
+      const item = element.closest('.ds-accordion-item');
+      item.classList.toggle('active');
+    }
+    function toggleAllAccordions(expand) {
+      const items = document.querySelectorAll('.ds-accordion-item');
+      items.forEach(item => {
+        if (expand) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+    </script>
 </head>
 <body>
 

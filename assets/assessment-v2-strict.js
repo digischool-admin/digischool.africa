@@ -82,14 +82,14 @@ const DigiSchoolAssessmentV2 = {
       required: true,
       weight: 60,
       options: [
-        { value: 'gestion-projet', label: '🎯 Gestion de Projet / Pilotage de Projets', domain: 'gestion-projet' },
-        { value: 'leadership', label: '👥 Leadership & Management d\'Équipe', domain: 'leadership' },
-        { value: 'data-analytics', label: '📊 Data Analytics / Analyse de Données', domain: 'data-analytics' },
-        { value: 'excel', label: '📈 Excel Avancé / Automatisation Bureautique', domain: 'excel' },
-        { value: 'powerbi', label: '📉 Power BI / Tableaux de Bord', domain: 'powerbi' },
-        { value: 'marketing', label: '📱 Marketing Digital / Communication', domain: 'marketing' },
-        { value: 'rh', label: '🤝 Ressources Humaines / Gestion RH', domain: 'rh' },
-        { value: 'digital', label: '🚀 Transformation Digitale / Innovation', domain: 'digital' }
+        { value: 'gestion-projet', label: 'Gestion de Projet / Pilotage de Projets', domain: 'gestion-projet' },
+        { value: 'leadership', label: 'Leadership & Management d\'Équipe', domain: 'leadership' },
+        { value: 'data-analytics', label: 'Data Analytics / Analyse de Données', domain: 'data-analytics' },
+        { value: 'excel', label: 'Excel Avancé / Automatisation Bureautique', domain: 'excel' },
+        { value: 'powerbi', label: 'Power BI / Tableaux de Bord', domain: 'powerbi' },
+        { value: 'marketing', label: 'Marketing Digital / Communication', domain: 'marketing' },
+        { value: 'rh', label: 'Ressources Humaines / Gestion RH', domain: 'rh' },
+        { value: 'digital', label: 'Transformation Digitale / Innovation', domain: 'digital' }
       ]
     },
     {
@@ -403,7 +403,16 @@ const DigiSchoolAssessmentV2 = {
               option.classList.add('selected');
               this.state.answers[questionId] = [...currentAnswers, value];
             } else {
-              alert(`Vous ne pouvez sélectionner que ${question.max} réponse(s) maximum.`);
+              // Show non-blocking counter message
+              const helperText = document.querySelector('.helper-text');
+              if (helperText) {
+                helperText.textContent = `Vous avez déjà sélectionné ${currentAnswers.length} réponses (maximum ${question.max})`;
+                helperText.style.color = '#FF6B6B';
+                setTimeout(() => {
+                  helperText.textContent = `Vous pouvez sélectionner ${question.min === 0 ? 'jusqu\'à' : question.min + ' à'} ${question.max} réponse(s)`;
+                  helperText.style.color = '';
+                }, 2000);
+              }
             }
           }
         }
@@ -662,12 +671,12 @@ const DigiSchoolAssessmentV2 = {
       'confirmé': 'Vous êtes un professionnel confirmé',
       'expert': 'Vous êtes un expert dans votre domaine'
     };
-    html += `<p><strong>Niveau d'expérience:</strong> ${experienceLabels[profile.experienceLevel] || 'Non renseigné'} (Score S2: ${scores.S2_experience}/25)</p>`;
+    html += `<p><strong>Niveau d'expérience:</strong> ${experienceLabels[profile.experienceLevel] || 'Non renseigné'} </p>`;
     
     // S1 Domaine prioritaire
     const primaryDomain = this.domains[profile.primaryDomain];
     if (primaryDomain) {
-      html += `<p><strong>Domaine prioritaire:</strong> ${primaryDomain.name} (Score S1: ${scores.S1_domaine[profile.primaryDomain] || 0}/60+)</p>`;
+      html += `<p><strong>Domaine prioritaire:</strong> ${primaryDomain.name} </p>`;
     }
     
     // S3 Contexte
@@ -678,7 +687,7 @@ const DigiSchoolAssessmentV2 = {
       'direction': 'Vous êtes en position de direction'
     };
     if (profile.currentRole) {
-      html += `<p><strong>Rôle actuel:</strong> ${contextLabels[profile.currentRole] || profile.currentRole} (Score S3: ${scores.S3_contexte}/10+)</p>`;
+      html += `<p><strong>Rôle actuel:</strong> ${contextLabels[profile.currentRole] || profile.currentRole} </p>`;
     }
     
     // S4 Objectif
@@ -689,12 +698,12 @@ const DigiSchoolAssessmentV2 = {
       'reconversion': 'Vous envisagez une reconversion professionnelle'
     };
     if (profile.learningObjective) {
-      html += `<p><strong>Objectif:</strong> ${objectiveLabels[profile.learningObjective] || profile.learningObjective} (Score S4: ${scores.S4_objectif}/10+)</p>`;
+      html += `<p><strong>Objectif:</strong> ${objectiveLabels[profile.learningObjective] || profile.learningObjective} </p>`;
     }
     
     // Score total indicatif
-    const totalScore = scores.S2_experience + Object.values(scores.S1_domaine).reduce((a, b) => a + b, 0) + scores.S3_contexte + scores.S4_objectif;
-    html += `<p class="total-score"><strong>Score total:</strong> ${totalScore.toFixed(1)} / 100+</p>`;
+    
+    
     
     html += '</div>';
     
