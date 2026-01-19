@@ -1,1540 +1,534 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiSchool Africa — Plateforme Panafricaine de Formation Professionnelle Premium</title>
+  <meta name="description" content="DigiSchool Africa : formations certifiantes premium, coaching professionnel et services digitaux d'excellence pour particuliers et entreprises en Afrique.">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DigiSchool Africa — Plateforme Panafricaine de Formation Professionnelle</title>
-  <meta name="description" content="DigiSchool Africa : formations certifiantes, coaching professionnel et services digitaux premium pour particuliers et entreprises en Afrique." />
-
-  <!-- ancien style supprimé -->
+  <!-- CSS UNIQUE RESTAURÉ -->
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   
-  
-  <link rel="stylesheet" href="/assets/digischool-v2.3-safe.css">
-  <script src="/assets/inject-layout-v2.2.js" defer></script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/assets/digischool-zoom-layout.css">
-  <script src="/assets/inject-zoom-layout.js" defer></script>
+  <style>
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.04) 0%, rgba(38, 166, 154, 0.04) 100%);
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      padding: var(--space-16) var(--space-8);
+      z-index: 2;
+      position: relative;
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+    
+    .hero-text h1 {
+      font-size: var(--text-6xl);
+      line-height: 1.1;
+      margin-bottom: var(--space-6);
+      letter-spacing: -0.02em;
+    }
+    
+    .hero-text p {
+      font-size: var(--text-xl);
+      line-height: 1.7;
+      color: var(--ds-gray);
+      margin-bottom: var(--space-8);
+    }
+    
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .hero-visual {
+      position: relative;
+    }
+    
+    .hero-card-stack {
+      display: grid;
+      gap: var(--space-4);
+    }
+    
+    .hero-mini-card {
+      background: white;
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all var(--transition-base);
+    }
+    
+    .hero-mini-card:hover {
+      transform: translateX(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .hero-mini-card h4 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+      color: var(--ds-dark);
+    }
+    
+    .hero-mini-card p {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      margin: 0;
+    }
+    
+    /* Features Grid */
+    .features-section {
+      padding: var(--space-20) var(--space-8);
+      background: white;
+    }
+    
+    .features-container {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    
+    .section-header h2 {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .section-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-8);
+    }
+    
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-base);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(30, 136, 229, 0.3);
+    }
+    
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-6);
+      font-size: 32px;
+    }
+    
+    .feature-card h3 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .feature-card p {
+      color: var(--ds-gray);
+      line-height: 1.7;
+    }
+    
+    /* Formations Highlight */
+    .formations-section {
+      padding: var(--space-20) var(--space-8);
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+    }
+    
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    
+    .formation-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .formation-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-hero);
+      transform: scaleX(0);
+      transition: transform var(--transition-base);
+    }
+    
+    .formation-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .formation-card:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .formation-badge {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+    }
+    
+    .formation-card h3 {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .formation-meta {
+      display: flex;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+    }
+    
+    .formation-card p {
+      color: var(--ds-gray);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: var(--space-20) var(--space-8);
+      background: linear-gradient(135deg, var(--ds-dark) 0%, #1a237e 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-content h2 {
+      font-size: var(--text-4xl);
+      color: white;
+      margin-bottom: var(--space-6);
+    }
+    
+    .cta-content p {
+      font-size: var(--text-xl);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: var(--space-8);
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-white {
+      background: white;
+      color: var(--color-primary);
+      padding: var(--space-5) var(--space-8);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      box-shadow: var(--shadow-lg);
+      transition: all var(--transition-base);
+    }
+    
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-text h1 {
+        font-size: var(--text-4xl);
+      }
+      
+      .features-grid,
+      .formations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-
 <body>
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
   
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
+  <!-- Header & Footer injectés automatiquement -->
   
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-
-
-
-  <!-- Hero Premium -->
-  <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="hero-content">
-      <div class="hero-badge">
-        🚀 Plateforme Panafricaine de Formation #1
-      </div>
-      
-      <h1>Transformez Votre Carrière<br>avec DigiSchool Africa</h1>
-      
-      <p class="lead">
-        Formations certifiantes, coaching professionnel et services digitaux premium pour booster votre réussite en Afrique.
-      </p>
-
-      <div class="hero-badges">
-        <div class="badge launch">🚀 Lancement imminent</div>
-        <div class="badge support">🛟 Support 24/7</div>
-      </div>
-
-      <p class="hero-choice-lead" style="font-size: 1.2rem; color: var(--muted); margin-bottom: 32px; animation: fadeInUp 1s ease-out 0.8s both;">Choisissez votre parcours : Entreprise (B2B) ou Particulier (B2C)</p>
-
-      <div class="hero-routing" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; animation: fadeInUp 1s ease-out 1s both;">
-        <a href="./companies.html" class="route-card b2b" data-route="b2b" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 60px; border-radius: 20px; border: 2px solid var(--border); background: var(--card2); backdrop-filter: blur(10px); transition: all 0.4s ease; text-decoration: none; color: var(--text); min-width: 280px; position: relative;">
-          <span style="font-size: 4rem; margin-bottom: 16px;">🏢</span>
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--blue);">Entreprises (B2B)</h3>
-          <p style="font-size: 0.95rem; color: var(--muted); text-align: center; line-height: 1.5;">Formations sur mesure pour vos équipes</p>
-        </a>
-        <a href="./b2c.html" class="route-card b2c" data-route="b2c" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 60px; border-radius: 20px; border: 2px solid var(--border); background: var(--card2); backdrop-filter: blur(10px); transition: all 0.4s ease; text-decoration: none; color: var(--text); min-width: 280px; position: relative;">
-          <span style="font-size: 4rem; margin-bottom: 16px;">🎓</span>
-          <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; color: var(--green);">Particuliers (B2C)</h3>
-          <p style="font-size: 0.95rem; color: var(--muted); text-align: center; line-height: 1.5;">Parcours individuels modulaires</p>
-        </a>
-      </div>
-
-      <div class="hero-actions" style="margin-top: 24px;">
-        <a href="./contact.html" class="btn secondary">📩 Nous Contacter</a>
-        <a href="https://wa.me/2250505111102" target="_blank" rel="noopener" class="btn outline">💬 WhatsApp</a>
+      <div class="hero-grid">
+        <div class="hero-text animate-fade-in">
+          <h1>
+            <span class="text-gradient">DigiSchool Africa</span><br>
+            Votre Partenaire Formation Premium
+          </h1>
+          <p>
+            Formations certifiantes de niveau international, accompagnement personnalisé, 
+            technologies de pointe. Développez vos compétences avec l'excellence africaine.
+          </p>
+          <div class="hero-ctas">
+            <a href="/b2c-assessment.html" class="ds-btn ds-btn-primary ds-btn-lg">
+              🎯 Auto-évaluation (2 min)
+            </a>
+            <a href="/b2c.html" class="ds-btn ds-btn-secondary ds-btn-lg">
+              📚 Voir les formations
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-visual animate-slide-in-right">
+          <div class="hero-card-stack">
+            <div class="hero-mini-card">
+              <h4>🎓 9 Parcours Premium</h4>
+              <p>PMP, Leadership, Data, Excel, Power BI, Marketing, Digital, RH, PowerPoint</p>
+            </div>
+            <div class="hero-mini-card">
+              <h4>⚡ Certifications Reconnues</h4>
+              <p>Standards PMI, Microsoft, Google, Harvard Business School</p>
+            </div>
+            <div class="hero-mini-card">
+              <h4>🤖 IA Intégrée</h4>
+              <p>Assistants virtuels, automatisation, outils de dernière génération</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
-  <!-- Trust Signals Section -->
-  <div class="container">
-    <section class="section" data-reveal>
-      <div class="section-header">
-        <h2 class="section-title">🎯 Ils Nous Font Confiance</h2>
-        <p class="section-subtitle">Des chiffres qui parlent : notre impact concret sur la formation professionnelle en Afrique</p>
+  
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-container">
+      <div class="section-header animate-fade-in">
+        <h2>Pourquoi DigiSchool Africa ?</h2>
+        <p>Une plateforme pensée pour l'excellence professionnelle africaine</p>
       </div>
-
-      <div class="trust-grid">
-        <div class="trust-card">
-          <span class="trust-number" data-count="300">0</span>
-          <div class="trust-label">Apprenants Certifiés</div>
-        </div>
-        <div class="trust-card">
-          <span class="trust-number" data-count="50">0</span>
-          <div class="trust-label">Entreprises Partenaires</div>
-        </div>
-        <div class="trust-card">
-          <span class="trust-number" data-count="95">0</span>
-          <div class="trust-label">% Taux de Satisfaction</div>
-        </div>
-        <div class="trust-card">
-          <span class="trust-number" data-count="24">0</span>
-          <div class="trust-label">Heures de Réponse Max</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Us Section -->
-    <section class="section" data-reveal>
-      <div class="section-header">
-        <h2 class="section-title">✨ Pourquoi Choisir DigiSchool Africa ?</h2>
-        <p class="section-subtitle">Une approche innovante et pragmatique, adaptée aux réalités africaines</p>
-      </div>
-
+      
       <div class="features-grid">
         <div class="feature-card">
-          <span class="feature-icon">🌍</span>
-          <h3>Approche Terrain</h3>
-          <p>Formations conçues pour le contexte africain, avec des cas pratiques issus de l'écosystème local et des enjeux réels du continent.</p>
+          <div class="feature-icon">🎯</div>
+          <h3>Formations Certifiantes</h3>
+          <p>
+            Parcours alignés sur les standards internationaux (PMI, Microsoft, Google). 
+            Certificats reconnus par les entreprises du continent et au-delà.
+          </p>
         </div>
-
+        
         <div class="feature-card">
-          <span class="feature-icon">👨‍🏫</span>
-          <h3>Experts Certifiés</h3>
-          <p>Formateurs professionnels en activité avec 10+ ans d'expérience dans leur domaine et certifications internationales reconnues.</p>
+          <div class="feature-icon">👨‍🏫</div>
+          <h3>Experts de Renommée</h3>
+          <p>
+            Contenus élaborés en référence aux meilleures institutions mondiales : 
+            Harvard, MIT, Stanford, HEC, INSEAD.
+          </p>
         </div>
-
+        
         <div class="feature-card">
-          <span class="feature-icon">🎓</span>
-          <h3>Certifications Reconnues</h3>
-          <p>Délivrance d'attestations et certifications validées par nos partenaires institutionnels et acceptées sur le marché du travail.</p>
+          <div class="feature-icon">🚀</div>
+          <h3>Apprentissage Actif</h3>
+          <p>
+            Cas pratiques, projets réels, quiz interactifs, templates professionnels. 
+            Apprenez en faisant, pas seulement en écoutant.
+          </p>
         </div>
-
+        
         <div class="feature-card">
-          <span class="feature-icon">⚡</span>
+          <div class="feature-icon">🤝</div>
+          <h3>B2B & B2C</h3>
+          <p>
+            Solutions pour particuliers (upskilling) et entreprises (formations sur-mesure, 
+            audit, académie interne).
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
           <h3>Flexibilité Totale</h3>
-          <p>Formations 100% en ligne ou en présentiel, à votre rythme. Support multicanal (WhatsApp, Email, Téléphone) disponible 24/7.</p>
+          <p>
+            Formations courtes (4 jours) ou intensives (10 jours). 
+            Accès immédiat après paiement. Progression à votre rythme.
+          </p>
         </div>
-
+        
         <div class="feature-card">
-          <span class="feature-icon">🤖</span>
-          <h3>IA Embarquée & Outils</h3>
-          <p>Formations augmentées par l'Intelligence Artificielle : outils IA, cas d'usage métiers, prompts réutilisables pour booster votre productivité.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="feature-icon">🤝</span>
-          <h3>Accompagnement Continu</h3>
-          <p>Suivi post-formation, coaching individuel ou collectif, accès à notre réseau d'alumni et opportunités professionnelles.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section" data-reveal>
-      <div class="section-header">
-        <h2 class="section-title">💬 Ce Qu'ils Disent de Nous</h2>
-        <p class="section-subtitle">Des témoignages authentiques de professionnels transformés par nos formations</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            Grâce à la formation Leadership de DigiSchool Africa, j'ai pu restructurer toute mon équipe commerciale. Les résultats sont impressionnants : +40% de CA en 6 mois !
+          <div class="feature-icon">🌍</div>
+          <h3>Panafricain</h3>
+          <p>
+            Conçu pour l'Afrique, par des experts qui comprennent les réalités 
+            du marché africain. Paiements locaux acceptés.
           </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AK</div>
-            <div class="author-info">
-              <div class="author-name">Awa Kouassi</div>
-              <div class="author-title">Directrice Commerciale, Abidjan</div>
-            </div>
-          </div>
         </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            Formation PMP exceptionnelle ! J'ai obtenu ma certification du premier coup. Le formateur connaissait parfaitement le contexte africain. Je recommande à 100%.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Formations Highlight -->
+  <section class="formations-section">
+    <div class="features-container">
+      <div class="section-header animate-fade-in">
+        <h2>Nos Formations Phares</h2>
+        <p>9 parcours d'excellence pour transformer votre carrière</p>
+      </div>
+      
+      <div class="formations-grid">
+        <div class="formation-card">
+          <span class="formation-badge">⭐ BEST-SELLER</span>
+          <h3>PMP — Gestion de Projet</h3>
+          <div class="formation-meta">
+            <span>⏱️ 10 jours</span>
+            <span>📊 4 modules</span>
+            <span>🎓 Certifiant</span>
+          </div>
+          <p>
+            Certification internationalement reconnue. Maîtrisez PMBOK 7, Agile, 
+            outils IA, et préparez l'examen PMP avec confiance.
           </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">KM</div>
-            <div class="author-info">
-              <div class="author-name">Konan Mamadou</div>
-              <div class="author-title">Chef de Projet IT, Dakar</div>
-            </div>
-          </div>
+          <a href="/b2c.html?formation=pmp" class="ds-btn ds-btn-primary">
+            Découvrir →
+          </a>
         </div>
-
-        <div class="testimonial-card">
-          <p class="testimonial-text">
-            Support très réactif, contenu de qualité et prix abordable. La flexibilité des paiements Mobile Money a facilité mon inscription. Excellent investissement !
+        
+        <div class="formation-card">
+          <span class="formation-badge">🔥 POPULAIRE</span>
+          <h3>Data Analytics & Visualisation</h3>
+          <div class="formation-meta">
+            <span>⏱️ 10 jours</span>
+            <span>📊 5 modules</span>
+            <span>🎓 Certifiant</span>
+          </div>
+          <p>
+            Python, SQL, Pandas, visualisation avancée. Devenez Data Analyst 
+            avec compétences recherchées.
           </p>
-          <div class="testimonial-author">
-            <div class="author-avatar">FL</div>
-            <div class="author-info">
-              <div class="author-name">Fatou Ly</div>
-              <div class="author-title">Entrepreneure, Lomé</div>
-            </div>
+          <a href="/b2c.html?formation=data" class="ds-btn ds-btn-primary">
+            Découvrir →
+          </a>
+        </div>
+        
+        <div class="formation-card">
+          <span class="formation-badge">⚡ RAPIDE</span>
+          <h3>Excel Avancé & Automatisation</h3>
+          <div class="formation-meta">
+            <span>⏱️ 6 jours</span>
+            <span>📊 4 modules</span>
+            <span>🎓 Certifiant</span>
           </div>
+          <p>
+            Formules avancées, tableaux croisés dynamiques, VBA, Power Query. 
+            Automatisez vos tâches et gagnez en productivité.
+          </p>
+          <a href="/b2c.html?formation=excel" class="ds-btn ds-btn-primary">
+            Découvrir →
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <section class="section" data-reveal>
-      <div class="cta-banner">
-        <h2>🚀 Prêt à Transformer Votre Carrière ?</h2>
-        <p>Rejoignez des centaines de professionnels qui ont boosté leur carrière avec DigiSchool Africa</p>
-        <div class="hero-actions">
-          <a href="./companies.html" class="btn primary">🏢 Découvrir les Offres B2B</a>
-          <a href="./contact.html" class="btn secondary">📩 Demander une Consultation</a>
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- Section Secteurs Accompagnés (Phase 2.2A Trust Signals) -->
-    <section class="section" data-reveal>
-      <div class="section-header">
-        <h2 class="section-title">🏢 Secteurs Accompagnés</h2>
-        <p class="section-subtitle">Nos formations s'adaptent aux spécificités de votre secteur d'activité</p>
-      </div>
-
-      <div class="grid sectors-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
-        <div class="sector-card" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all 0.4s ease;">
-          <div class="sector-icon" style="font-size:3rem;margin-bottom:16px;">🏦</div>
-          <h3 style="font-size:1.3rem;margin-bottom:12px;color:var(--blue);font-weight:700;">Banque & Assurance</h3>
-          <p style="color:var(--muted);margin-bottom:14px;line-height:1.7;">Montée en compétence des managers terrain pour améliorer la performance commerciale et la relation client.</p>
-          <div style="font-size:0.9rem;color:var(--green);font-weight:600;">→ Plan d'action 30 jours</div>
-        </div>
-
-        <div class="sector-card" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all 0.4s ease;">
-          <div class="sector-icon" style="font-size:3rem;margin-bottom:16px;">📱</div>
-          <h3 style="font-size:1.3rem;margin-bottom:12px;color:var(--blue);font-weight:700;">Telecom & Services</h3>
-          <p style="color:var(--muted);margin-bottom:14px;line-height:1.7;">Formation des équipes commerciales sur les techniques de vente B2B et la gestion de portefeuille clients.</p>
-          <div style="font-size:0.9rem;color:var(--green);font-weight:600;">→ Supports opérationnels</div>
-        </div>
-
-        <div class="sector-card" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all 0.4s ease;">
-          <div class="sector-icon" style="font-size:3rem;margin-bottom:16px;">🛒</div>
-          <h3 style="font-size:1.3rem;margin-bottom:12px;color:var(--blue);font-weight:700;">Distribution & FMCG</h3>
-          <p style="color:var(--muted);margin-bottom:14px;line-height:1.7;">Optimisation des processus de gestion de stock et formation sur les outils de pilotage performance.</p>
-          <div style="font-size:0.9rem;color:var(--green);font-weight:600;">→ Tableaux de bord Excel</div>
-        </div>
-
-        <div class="sector-card" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all 0.4s ease;">
-          <div class="sector-icon" style="font-size:3rem;margin-bottom:16px;">🏭</div>
-          <h3 style="font-size:1.3rem;margin-bottom:12px;color:var(--blue);font-weight:700;">Industrie & Agro</h3>
-          <p style="color:var(--muted);margin-bottom:14px;line-height:1.7;">Renforcement des compétences en gestion de projet et sécurité pour les superviseurs de production.</p>
-          <div style="font-size:0.9rem;color:var(--green);font-weight:600;">→ Certification interne</div>
-        </div>
-
-        <div class="sector-card" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all 0.4s ease;">
-          <div class="sector-icon" style="font-size:3rem;margin-bottom:16px;">🏛️</div>
-          <h3 style="font-size:1.3rem;margin-bottom:12px;color:var(--blue);font-weight:700;">Institutions & Projets</h3>
-          <p style="color:var(--muted);margin-bottom:14px;line-height:1.7;">Formations sur la gestion de projets complexes et le reporting pour les équipes de coordination.</p>
-          <div style="font-size:0.9rem;color:var(--green);font-weight:600;">→ Templates Power BI</div>
-        </div>
-
-        <div class="sector-card" style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px;transition:all 0.4s ease;">
-          <div class="sector-icon" style="font-size:3rem;margin-bottom:16px;">💼</div>
-          <h3 style="font-size:1.3rem;margin-bottom:12px;color:var(--blue);font-weight:700;">PME/PMI & Startups</h3>
-          <p style="color:var(--muted);margin-bottom:14px;line-height:1.7;">Accompagnement sur la structuration RH, la gestion financière et le développement commercial.</p>
-          <div style="font-size:0.9rem;color:var(--green);font-weight:600;">→ Kit RH starter</div>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:48px;">
-        <a href="./brochure-b2b.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:14px;font-weight:700;font-size:1.05rem;text-decoration:none;border:1px solid rgba(34,197,94,0.5);background:linear-gradient(135deg,rgba(34,197,94,0.25),rgba(34,197,94,0.15));color:var(--text);box-shadow:0 4px 14px var(--green-glow);transition:all 0.3s ease;">
-          📚 Télécharger la Brochure B2B
+      
+      <div class="text-center mt-12">
+        <a href="/b2c.html" class="ds-btn ds-btn-primary ds-btn-lg">
+          Voir les 9 formations →
         </a>
       </div>
-    </section>
-  </div>
-
-  <!-- Footer Premium -->
-  
-
-  <!-- Scroll Reveal Script (léger, IntersectionObserver) -->
-  <script>
-    // Scroll Reveal avec IntersectionObserver
-    (function() {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-      };
-
-      const observer = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // Optionnel : arrêter d'observer après l'animation
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      // Observer toutes les sections avec data-reveal
-      document.querySelectorAll('[data-reveal]').forEach(section => {
-        observer.observe(section);
-      });
-
-      // Animated counters pour les trust signals
-      function animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-count'));
-        const duration = 2000; // 2 secondes
-        const increment = target / (duration / 16); // 60fps
-        let current = 0;
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            element.textContent = target + (target === 95 ? '' : '+');
-            clearInterval(timer);
-          } else {
-            element.textContent = Math.floor(current) + (target === 95 ? '' : '+');
-          }
-        }, 16);
-      }
-
-      // Observer pour les counters
-      const counterObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const counters = entry.target.querySelectorAll('[data-count]');
-            counters.forEach(counter => {
-              if (counter.textContent === '0') {
-                animateCounter(counter);
-              }
-            });
-            counterObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      // Observer la section trust signals
-      const trustSection = document.querySelector('.trust-grid');
-      if (trustSection) {
-        counterObserver.observe(trustSection.parentElement);
-      }
-    })();
-  </script>
-
-  <!-- Lead Events Tracking -->
-  <script src="./lead-events.js"></script>
-
-  <!-- B2B/B2C Route Tracking -->
-  <script>
-    (function() {
-      // Track route clicks (B2B or B2C)
-      document.addEventListener('click', function(e) {
-        const routeCard = e.target.closest('[data-route]');
-        if (routeCard && window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
-          const route = routeCard.getAttribute('data-route');
-          if (route === 'b2b') {
-            window.DigiSchoolEvents.trackEvent('route_b2b_click', {
-              source: 'hero_choice',
-              page: window.location.pathname
-            });
-          } else if (route === 'b2c') {
-            window.DigiSchoolEvents.trackEvent('route_b2c_click', {
-              source: 'hero_choice',
-              page: window.location.pathname
-            });
-          }
-        }
-      });
-
-      // Keyboard Enter on route cards
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') {
-          const routeCard = e.target.closest('[data-route]');
-          if (routeCard) {
-            e.preventDefault();
-            routeCard.click();
-          }
-        }
-      });
-    })();
-  </script>
-  <script src="/assets/digischool-chatbot.js" defer></script>
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<footer id="global-footer-v2.3" style="background: linear-gradient(135deg, #0B1B3A 0%, #1a2942 100%); color:#0B1B3A; padding: 60px 20px 30px; margin-top: 80px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
-      
-      <!-- Colonne 1: À propos -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">DigiSchool Africa</h3>
-        <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-          Plateforme panafricaine de formation professionnelle certifiante avec IA embarquée.
-        </p>
-        <div style="display: flex; gap: 12px; margin-top: 16px;">
-          <a href="https://www.linkedin.com/company/digischool-africa" target="_blank" rel="noopener" 
-             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color:#0B1B3A; text-decoration: none; transition: all 0.3s ease;"
-             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a href="https://wa.me/2250505111102" target="_blank" rel="noopener"
-             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color:#0B1B3A; text-decoration: none; transition: all 0.3s ease;"
-             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Colonne 2: Navigation -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Navigation</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px;"><a href="/index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Accueil</a></li>
-          <li style="margin-bottom: 12px;"><a href="/b2c.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Formations B2C</a></li>
-          <li style="margin-bottom: 12px;"><a href="/companies.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Entreprises B2B</a></li>
-          <li style="margin-bottom: 12px;"><a href="/parcours.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Nos Parcours</a></li>
-          <li style="margin-bottom: 12px;"><a href="/b2c-assessment.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Auto-évaluation</a></li>
-          <li style="margin-bottom: 12px;"><a href="/about-premium.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">À propos</a></li>
-        </ul>
-      </div>
-
-      <!-- Colonne 3: Contact -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Contact</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            📧 <a href="mailto:contact@digischool.africa" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">contact@digischool.africa</a>
-          </li>
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            📱 <a href="tel:+2250505111102" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">+225 05 05 11 11 02</a>
-          </li>
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            🌍 Abidjan, Côte d'Ivoire
-          </li>
-        </ul>
-      </div>
-
-      <!-- Colonne 4: Légal -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Informations légales</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px;"><a href="/mentions-legales.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Mentions légales</a></li>
-          <li style="margin-bottom: 12px;"><a href="/cgu.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGU</a></li>
-          <li style="margin-bottom: 12px;"><a href="/cgv.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGV</a></li>
-          <li style="margin-bottom: 12px;"><a href="/politique-confidentialite.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Politique de confidentialité</a></li>
-        </ul>
-      </div>
     </div>
-
-    <!-- Copyright -->
-    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center;">
-      <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
-        &copy; 2026 <strong style="color: #22c55e;">DigiSchool Africa</strong> — Propulsé par <a href="https://www.mydigilab.io" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='#3b82f6'">Digilab</a>
+  </section>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Prêt à transformer votre carrière ?</h2>
+      <p>
+        Rejoignez des centaines de professionnels africains qui ont choisi 
+        l'excellence avec DigiSchool Africa.
       </p>
+      <div class="cta-buttons">
+        <a href="/b2c-assessment.html" class="btn-white">
+          🎯 Commencer mon diagnostic
+        </a>
+        <a href="/contact.html" class="btn-white">
+          💬 Parler à un conseiller
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
-
+  </section>
+  
+  <!-- Scripts V2 Production -->
+  <script src="/assets/global-components-v2-production.js"></script>
+  <script src="/assets/chatbot-manager-v2.js"></script>
+  
 </body>
 </html>

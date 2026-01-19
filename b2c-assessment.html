@@ -1,1011 +1,332 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-évaluation — DigiSchool Africa</title>
+  <meta name="description" content="Découvrez les formations qui correspondent à vos besoins professionnels grâce à notre diagnostic personnalisé de 2 minutes.">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Auto-évaluation (2 min) — DigiSchool Africa</title>
-  <meta name="description" content="Découvrez les formations qui correspondent à vos besoins professionnels grâce à notre quiz personnalisé de 2 minutes." />
+  <!-- CSS UNIQUE RESTAURÉ -->
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   
-  <link rel="canonical" href="https://digischool.africa/b2c-assessment.html" />
-  <link rel="stylesheet" href="./assets/global-design.css" />
-  <link rel="stylesheet" href="./assets/header-footer.css" />
-
   <style>
-    .assessment-container{
+    /* Styles spécifiques à l'auto-évaluation */
+    .assessment-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .assessment-container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 60px 20px 100px;
     }
-
-    .assessment-header{
+    
+    .assessment-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: var(--space-12);
     }
-
-    .assessment-header h1{
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    
+    .assessment-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
     }
-
-    .assessment-header p{
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      max-width: 650px;
-      margin: 0 auto;
+    
+    .assessment-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
     }
-
-    .progress-bar{
+    
+    .progress-bar {
       width: 100%;
       height: 8px;
-      background: var(--bg-card);
-      border-radius: 999px;
-      margin-bottom: 48px;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-8);
       overflow: hidden;
     }
-
-    .progress-fill{
+    
+    .progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--success) 0%, var(--accent) 100%);
-      border-radius: 999px;
-      transition: width 0.4s ease;
+      background: var(--gradient-hero);
+      border-radius: var(--radius-full);
+      transition: width var(--transition-base);
+      width: 12.5%;
     }
-
-    .question-card{
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
+    
+    .question-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      margin-bottom: var(--space-8);
       box-shadow: var(--shadow-lg);
     }
-
-    .question-number{
+    
+    .question-number {
       display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 0.9rem;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: var(--space-4);
     }
-
-    .question-text{
-      font-size: 1.5rem;
+    
+    .question-text {
+      font-size: var(--text-2xl);
       font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 32px;
-      line-height: 1.5;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-8);
+      line-height: 1.4;
     }
-
-    .answers{
+    
+    .answers {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: var(--space-4);
     }
-
-    .answer-option{
+    
+    .answer-option {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 20px 24px;
-      background: var(--bg-surface);
-      border: 2px solid var(--border);
-      border-radius: 12px;
+      gap: var(--space-4);
+      padding: var(--space-5) var(--space-6);
+      background: rgba(0, 0, 0, 0.02);
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
       user-select: none;
     }
-
-    .answer-option:hover{
-      border-color: var(--accent);
-      background: var(--accent-light);
+    
+    .answer-option:hover {
+      border-color: var(--color-primary);
+      background: rgba(30, 136, 229, 0.04);
       transform: translateX(4px);
     }
-
-    .answer-option input[type="radio"]{
-      width: 22px;
-      height: 22px;
-      cursor: pointer;
-      accent-color: var(--accent);
+    
+    .answer-option.selected {
+      background: rgba(30, 136, 229, 0.08);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
     }
-
-    .answer-option label{
+    
+    .answer-option input[type="radio"],
+    .answer-option input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: var(--color-primary);
+    }
+    
+    .answer-label {
       flex: 1;
-      font-size: 1.1rem;
+      font-size: var(--text-lg);
       font-weight: 500;
       cursor: pointer;
-      color: var(--text-primary);
+      color: var(--ds-dark);
     }
-
-    .answer-option.selected{
-      background: var(--accent-light);
-      border-color: var(--accent);
+    
+    .helper-text {
+      margin-top: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      font-style: italic;
     }
-
-    .nav-buttons{
+    
+    .nav-buttons {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
-      margin-top: 40px;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
     }
-
-    .btn{
-      padding: 14px 32px;
-      border-radius: 10px;
-      font-size: 1rem;
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
       font-weight: 600;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all var(--transition-base);
     }
-
-    .btn-secondary{
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: var(--shadow-md);
     }
-
-    .btn-secondary:hover{
-      background: var(--bg-surface);
-      border-color: var(--accent);
-    }
-
-    .btn-primary{
-      background: var(--accent);
-      color:#0B1B3A;
-      box-shadow: 0 4px 12px var(--accent-glow);
-    }
-
-    .btn-primary:hover{
-      background: var(--accent-hover);
+    
+    .btn-primary:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--accent-glow);
+      box-shadow: var(--shadow-xl);
     }
-
-    .btn-primary:disabled{
-      background: var(--bg-card);
-      color: var(--text-muted);
+    
+    .btn-primary:disabled {
+      opacity: 0.5;
       cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
     }
-
-    .results-container{
-      display: none;
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
     }
-
-    .results-container.show{
-      display: block;
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
     }
-
-    .results-header{
-      text-align: center;
-      margin-bottom: 48px;
+    
+    /* Results Styles */
+    .results-container {
+      animation: fadeIn 0.6s ease-out;
     }
-
-    .results-header h2{
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: var(--accent);
+    
+    .results-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
     }
-
-    .results-header p{
-      font-size: 1.2rem;
-      color: var(--text-secondary);
+    
+    .diagnostic-text {
+      font-size: var(--text-lg);
+      line-height: 1.8;
+      color: var(--ds-gray);
     }
-
-    .recommendation-card{
-      background: var(--bg-card);
-      border: 2px solid var(--accent);
-      border-radius: 20px;
-      padding: 32px;
-      margin-bottom: 24px;
+    
+    .diagnostic-list {
+      list-style: none;
+      padding: 0;
     }
-
-    .recommendation-card h3{
-      font-size: 1.8rem;
+    
+    .diagnostic-list li {
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .diagnostic-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .formations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+    }
+    
+    .ds-card-formation {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .ds-card-formation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .ds-card-formation:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .formation-priority {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
       font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 12px;
+      margin-bottom: var(--space-4);
     }
-
-    .recommendation-card .course-list{
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 20px;
+    
+    .formation-duration {
+      color: var(--ds-gray);
+      font-size: var(--text-base);
+      margin-top: var(--space-2);
     }
-
-    .course-item{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 20px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
+    
+    .formation-description {
+      color: var(--ds-gray);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      margin-top: var(--space-4);
     }
-
-    .course-item .icon{
-      font-size: 2rem;
-    }
-
-    .course-item .info{
-      flex: 1;
-    }
-
-    .course-item .title{
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .course-item .price{
-      font-size: 0.95rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .cta-buttons{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 32px;
-      justify-content: center;
-    }
-
-    @media (max-width: 768px){
-      .assessment-header h1{ font-size: 2rem; }
-      .question-card{ padding: 28px 20px; }
-      .question-text{ font-size: 1.3rem; }
-      .nav-buttons{ flex-direction: column; }
+    
+    @media (max-width: 768px) {
+      .assessment-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .question-text {
+        font-size: var(--text-xl);
+      }
+      
+      .answer-label {
+        font-size: var(--text-base);
+      }
+      
+      .formations-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
-  
-  
-  <link rel="stylesheet" href="/assets/digischool-v2.3-safe.css">
-  <script src="/assets/inject-layout-v2.2.js" defer></script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/assets/digischool-zoom-layout.css">
-  <script src="/assets/inject-zoom-layout.js" defer></script>
 </head>
-<body>
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
+<body data-page="assessment">
   
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
+  <!-- Header & Footer injectés automatiquement via JS -->
   
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  <main class="assessment-container">
-    <div class="assessment-header">
-      <h1>🎯 Auto-évaluation (2 minutes)</h1>
-      <p>Répondez à 10 questions pour découvrir les formations qui correspondent à vos besoins professionnels</p>
-    </div>
-
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
-    </div>
-
-    <div id="quiz-container">
-      <!-- Questions injected by JS -->
-    </div>
-
-    <div class="nav-buttons">
-      <button class="btn btn-secondary" id="prev-btn" style="visibility: hidden;">
-        ← Précédent
-      </button>
-      <button class="btn btn-primary" id="next-btn" disabled>
-        Suivant →
-      </button>
-    </div>
-
-    <div class="results-container" id="results-container">
-      <div class="results-header">
-        <h2>✨ Vos Recommandations Personnalisées</h2>
-        <p>Sur la base de votre profil, voici les formations que nous recommandons</p>
-      </div>
-
-      <div class="recommendation-card">
-        <h3>📌 Priorité Haute</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 12px;">Ces formations correspondent parfaitement à votre profil actuel</p>
-        <div class="course-list" id="high-priority-courses"></div>
-      </div>
-
-      <div class="recommendation-card" style="border-color: var(--success);">
-        <h3 style="color: var(--success);">💡 Pour approfondir</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 12px;">Ces formations compléteront vos compétences</p>
-        <div class="course-list" id="secondary-courses"></div>
-      </div>
-
-      <div class="cta-buttons">
-        <a href="./b2c.html" class="btn btn-primary">📚 Voir toutes les formations</a>
-        <button class="btn btn-secondary" onclick="location.reload()">🔄 Refaire le test</button>
-      </div>
-    </div>
-  </main>
-
-  
-
-  <script src="./courses-data.js"></script>
-  <script src="./assets/header-footer.js"></script>
-  <script src="/assets/b2c-assessment-v2.2.js"></script>
-  <script src="./chatbot.js"></script>
-  <script src="./lead-events.js"></script>
-  <script src="/assets/digischool-chatbot.js" defer></script>
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<footer id="global-footer-v2.3" style="background: linear-gradient(135deg, #0B1B3A 0%, #1a2942 100%); color:#0B1B3A; padding: 60px 20px 30px; margin-top: 80px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
-      
-      <!-- Colonne 1: À propos -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">DigiSchool Africa</h3>
-        <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-          Plateforme panafricaine de formation professionnelle certifiante avec IA embarquée.
+  <div class="assessment-wrapper">
+    <div class="assessment-container">
+      <div class="assessment-header animate-fade-in">
+        <h1 class="text-gradient">Auto-évaluation DigiSchool Africa</h1>
+        <p>Découvrez les formations qui correspondent parfaitement à votre profil professionnel</p>
+        <p style="font-size: var(--text-base); color: var(--ds-gray); margin-top: var(--space-2);">
+          ⏱️ 2 minutes • 8 questions • Diagnostic personnalisé
         </p>
-        <div style="display: flex; gap: 12px; margin-top: 16px;">
-          <a href="https://www.linkedin.com/company/digischool-africa" target="_blank" rel="noopener" 
-             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color:#0B1B3A; text-decoration: none; transition: all 0.3s ease;"
-             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a href="https://wa.me/2250505111102" target="_blank" rel="noopener"
-             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color:#0B1B3A; text-decoration: none; transition: all 0.3s ease;"
-             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          </a>
-        </div>
       </div>
-
-      <!-- Colonne 2: Navigation -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Navigation</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px;"><a href="/index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Accueil</a></li>
-          <li style="margin-bottom: 12px;"><a href="/b2c.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Formations B2C</a></li>
-          <li style="margin-bottom: 12px;"><a href="/companies.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Entreprises B2B</a></li>
-          <li style="margin-bottom: 12px;"><a href="/parcours.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Nos Parcours</a></li>
-          <li style="margin-bottom: 12px;"><a href="/b2c-assessment.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Auto-évaluation</a></li>
-          <li style="margin-bottom: 12px;"><a href="/about-premium.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">À propos</a></li>
-        </ul>
+      
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
       </div>
-
-      <!-- Colonne 3: Contact -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Contact</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            📧 <a href="mailto:contact@digischool.africa" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">contact@digischool.africa</a>
-          </li>
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            📱 <a href="tel:+2250505111102" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">+225 05 05 11 11 02</a>
-          </li>
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            🌍 Abidjan, Côte d'Ivoire
-          </li>
-        </ul>
+      
+      <div id="question-container">
+        <!-- Questions injectées dynamiquement -->
       </div>
-
-      <!-- Colonne 4: Légal -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Informations légales</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px;"><a href="/mentions-legales.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Mentions légales</a></li>
-          <li style="margin-bottom: 12px;"><a href="/cgu.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGU</a></li>
-          <li style="margin-bottom: 12px;"><a href="/cgv.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGV</a></li>
-          <li style="margin-bottom: 12px;"><a href="/politique-confidentialite.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Politique de confidentialité</a></li>
-        </ul>
+      
+      <div class="nav-buttons">
+        <button id="btn-prev" class="btn btn-secondary" style="display: none;">
+          ← Précédent
+        </button>
+        <button id="btn-next" class="btn btn-primary" disabled>
+          Suivant →
+        </button>
+        <button id="btn-submit" class="btn btn-primary" style="display: none;" disabled>
+          Voir mes résultats 🎯
+        </button>
       </div>
-    </div>
-
-    <!-- Copyright -->
-    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center;">
-      <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
-        &copy; 2026 <strong style="color: #22c55e;">DigiSchool Africa</strong> — Propulsé par <a href="https://www.mydigilab.io" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='#3b82f6'">Digilab</a>
-      </p>
     </div>
   </div>
-</footer>
-
+  
+  <!-- Scripts V2 Production -->
+  <script src="/assets/global-components-v2-production.js"></script>
+  <script src="/assets/assessment-v2-strict.js"></script>
+  <script src="/assets/chatbot-manager-v2.js"></script>
+  
 </body>
 </html>
