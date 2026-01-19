@@ -1,0 +1,37 @@
+/* DigiSchool Africa - Brand Icons V2.2.x-J */
+
+.ds-icon {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1;
+  margin-right: 0.3em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  vertical-align: middle;
+}
+
+.ds-icon-graduation { color: #1E88E5; } /* Blue */
+.ds-icon-book { color: #26A69A; } /* Green */
+.ds-icon-star { color: #7E57C2; } /* Purple */
+.ds-icon-ai { color: #1E88E5; } /* Blue */
+.ds-icon-time { color: #546E7A; } /* Gray */
+.ds-icon-chart { color: #26A69A; } /* Green */
+.ds-icon-target { color: #1E88E5; } /* Blue */
+.ds-icon-premium { color: #7E57C2; } /* Purple */
+.ds-icon-package { color: #546E7A; } /* Gray */
+.ds-icon-building { color: #1E88E5; } /* Blue */
+.ds-icon-briefcase { color: #1E88E5; } /* Blue */
+
+/* Hover effect for interactive icons */
+.ds-icon:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* Premium gradient icons (optional enhancement) */
+.ds-icon-premium-gradient {
+  background: linear-gradient(135deg, #1E88E5, #26A69A, #7E57C2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
