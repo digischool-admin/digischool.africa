@@ -14,6 +14,59 @@
     p, li { font-size: 1rem; color: #37474F; margin-bottom: 12px; }
     .signature { margin-top: 48px; padding-top: 24px; border-top: 2px solid #ECEFF1; text-align: right; font-style: italic; color: #546E7A; }
   </style>
+
+<style>
+/* Legal Page Accordions */
+.legal-accordion {
+  margin: 24px 0;
+  border: 1px solid #E0E7ED;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.legal-accordion-summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  background: linear-gradient(135deg, rgba(30,136,229,0.03) 0%, rgba(38,166,154,0.03) 100%);
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.legal-accordion-summary:hover {
+  background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
+}
+
+.legal-accordion-summary::marker,
+.legal-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.legal-accordion-summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+  color: #26A69A;
+}
+
+.legal-accordion[open] .legal-accordion-summary::before {
+  transform: rotate(90deg);
+}
+
+.legal-accordion-content {
+  padding: 20px;
+  background: white;
+}
+
+.legal-accordion-content h2 {
+  display: none; /* Hide original h2 since it's now in summary */
+}
+</style>
 </head>
 <body>
 <div class="legal-container">
@@ -22,10 +75,11 @@
 
 <!-- 30-Second Summary -->
 <div class="legal-summary" style="background: linear-gradient(135deg, rgba(30,136,229,0.05) 0%, rgba(38,166,154,0.05) 100%); padding: 48px 32px; margin-bottom: 48px; border-radius: 16px;">
-  <h2 style="text-align: center; font-size: 28px; font-weight: 700; color: #1E88E5; margin-bottom: 12px;">
-    Résumé en 30 secondes
-  </h2>
-  <p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
+  
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Résumé en 30 secondes</summary>
+  <div class="legal-accordion-content">
+<p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
     L'essentiel à retenir — lecture rapide
   </p>
   
@@ -57,14 +111,20 @@
 
   </div>
 </div>
+  </div>
+</details>
 
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">1. Introduction</summary>
+  <div class="legal-accordion-content">
+<p><strong>Digilab</strong> s'engage à protéger la vie privée des utilisateurs de DigiSchool Africa. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.</p>
+  </div>
+</details>
 
-  
-  <h2>1. Introduction</h2>
-  <p><strong>Digilab</strong> s'engage à protéger la vie privée des utilisateurs de DigiSchool Africa. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles.</p>
-  
-  <h2>2. Données Collectées</h2>
-  <p>Nous collectons les données suivantes:</p>
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">2. Données Collectées</summary>
+  <div class="legal-accordion-content">
+<p>Nous collectons les données suivantes:</p>
   <ul>
     <li><strong>Identité</strong>: Nom, prénom</li>
     <li><strong>Contact</strong>: Email, téléphone</li>
@@ -72,9 +132,13 @@
     <li><strong>Navigation</strong>: Adresse IP, cookies, pages visitées</li>
     <li><strong>Formation</strong>: Progression, résultats, certificats</li>
   </ul>
-  
-  <h2>3. Finalités du Traitement</h2>
-  <p>Vos données sont utilisées pour:</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">3. Finalités du Traitement</summary>
+  <div class="legal-accordion-content">
+<p>Vos données sont utilisées pour:</p>
   <ul>
     <li>• Gérer les inscriptions et accès aux formations</li>
     <li>• Assurer le suivi pédagogique</li>
@@ -82,35 +146,55 @@
     <li>• Envoyer des communications (newsletters, offres)</li>
     <li>• Améliorer nos services</li>
   </ul>
-  
-  <h2>4. Base Légale</h2>
-  <p>Le traitement de vos données repose sur:</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">4. Base Légale</summary>
+  <div class="legal-accordion-content">
+<p>Le traitement de vos données repose sur:</p>
   <ul>
     <li><strong>Contrat</strong>: Exécution de la prestation de formation</li>
     <li><strong>Consentement</strong>: Newsletters et communications marketing</li>
     <li><strong>Intérêt légitime</strong>: Amélioration de la plateforme</li>
   </ul>
-  
-  <h2>5. Durée de Conservation</h2>
-  <ul>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">5. Durée de Conservation</summary>
+  <div class="legal-accordion-content">
+<ul>
     <li><strong>Données client</strong>: 5 ans après la dernière activité</li>
     <li><strong>Données comptables</strong>: 10 ans (obligations légales)</li>
     <li><strong>Cookies</strong>: 13 mois maximum</li>
   </ul>
-  
-  <h2>6. Partage des Données</h2>
-  <p>Vos données ne sont <strong>jamais vendues à des tiers</strong>. Elles peuvent être partagées avec:</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">6. Partage des Données</summary>
+  <div class="legal-accordion-content">
+<p>Vos données ne sont <strong>jamais vendues à des tiers</strong>. Elles peuvent être partagées avec:</p>
   <ul>
     <li>Prestataires de paiement (Mobile Money, banques)</li>
     <li>Hébergeurs (GitHub Pages)</li>
     <li>Outils de communication (Email, WhatsApp)</li>
   </ul>
-  
-  <h2>7. Sécurité</h2>
-  <p>Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles pour protéger vos données contre les accès non autorisés, pertes ou divulgations.</p>
-  
-  <h2>8. Vos Droits (RGPD)</h2>
-  <p>Vous disposez des droits suivants:</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">7. Sécurité</summary>
+  <div class="legal-accordion-content">
+<p>Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles pour protéger vos données contre les accès non autorisés, pertes ou divulgations.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">8. Vos Droits (RGPD)</summary>
+  <div class="legal-accordion-content">
+<p>Vous disposez des droits suivants:</p>
   <ul>
     <li><strong>Accès</strong>: Consulter vos données</li>
     <li><strong>Rectification</strong>: Corriger des données inexactes</li>
@@ -119,12 +203,20 @@
     <li><strong>Opposition</strong>: Refuser certains traitements (marketing)</li>
   </ul>
   <p>Pour exercer vos droits: <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a></p>
-  
-  <h2>9. Cookies</h2>
-  <p>Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez les désactiver dans les paramètres de votre navigateur.</p>
-  
-  <h2>10. Modifications</h2>
-  <p>Cette politique peut être mise à jour. Vous serez informé par email de toute modification majeure.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">9. Cookies</summary>
+  <div class="legal-accordion-content">
+<p>Nous utilisons des cookies pour améliorer votre expérience. Vous pouvez les désactiver dans les paramètres de votre navigateur.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">10. Modifications</summary>
+  <div class="legal-accordion-content">
+<p>Cette politique peut être mise à jour. Vous serez informé par email de toute modification majeure.</p>
   
   
 <div class="legal-cta" style="background: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%); border-radius: 16px; padding: 40px; text-align: center; margin-top: 48px;">
@@ -237,3 +329,5 @@
 
 </body>
 </html>
+  </div>
+</details>

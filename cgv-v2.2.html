@@ -14,6 +14,59 @@
     p, li { font-size: 1rem; color: #37474F; margin-bottom: 12px; }
     .signature { margin-top: 48px; padding-top: 24px; border-top: 2px solid #ECEFF1; text-align: right; font-style: italic; color: #546E7A; }
   </style>
+
+<style>
+/* Legal Page Accordions */
+.legal-accordion {
+  margin: 24px 0;
+  border: 1px solid #E0E7ED;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.legal-accordion-summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  background: linear-gradient(135deg, rgba(30,136,229,0.03) 0%, rgba(38,166,154,0.03) 100%);
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.legal-accordion-summary:hover {
+  background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
+}
+
+.legal-accordion-summary::marker,
+.legal-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.legal-accordion-summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+  color: #26A69A;
+}
+
+.legal-accordion[open] .legal-accordion-summary::before {
+  transform: rotate(90deg);
+}
+
+.legal-accordion-content {
+  padding: 20px;
+  background: white;
+}
+
+.legal-accordion-content h2 {
+  display: none; /* Hide original h2 since it's now in summary */
+}
+</style>
 </head>
 <body>
 <div class="legal-container">
@@ -22,10 +75,11 @@
 
 <!-- 30-Second Summary -->
 <div class="legal-summary" style="background: linear-gradient(135deg, rgba(30,136,229,0.05) 0%, rgba(38,166,154,0.05) 100%); padding: 48px 32px; margin-bottom: 48px; border-radius: 16px;">
-  <h2 style="text-align: center; font-size: 28px; font-weight: 700; color: #1E88E5; margin-bottom: 12px;">
-    Résumé en 30 secondes
-  </h2>
-  <p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
+  
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Résumé en 30 secondes</summary>
+  <div class="legal-accordion-content">
+<p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
     L'essentiel à retenir — lecture rapide
   </p>
   
@@ -57,17 +111,27 @@
 
   </div>
 </div>
+  </div>
+</details>
 
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 1 — Champ d'Application</summary>
+  <div class="legal-accordion-content">
+<p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les ventes de formations professionnelles proposées par <strong>Digilab</strong> via la plateforme <strong>DigiSchool Africa</strong>.</p>
+  </div>
+</details>
 
-  
-  <h2>Article 1 — Champ d'Application</h2>
-  <p>Les présentes Conditions Générales de Vente (CGV) s'appliquent à toutes les ventes de formations professionnelles proposées par <strong>Digilab</strong> via la plateforme <strong>DigiSchool Africa</strong>.</p>
-  
-  <h2>Article 2 — Formations & Tarifs</h2>
-  <p>Les formations sont décrites sur le site avec leurs contenus, durées et tarifs en <strong>FCFA (Francs CFA)</strong>. Les prix incluent les supports pédagogiques et le certificat de formation.</p>
-  
-  <h2>Article 3 — Commande & Paiement</h2>
-  <p>La commande d'une formation se fait en ligne via le site. L'utilisateur doit:</p>
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 2 — Formations & Tarifs</summary>
+  <div class="legal-accordion-content">
+<p>Les formations sont décrites sur le site avec leurs contenus, durées et tarifs en <strong>FCFA (Francs CFA)</strong>. Les prix incluent les supports pédagogiques et le certificat de formation.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 3 — Commande & Paiement</summary>
+  <div class="legal-accordion-content">
+<p>La commande d'une formation se fait en ligne via le site. L'utilisateur doit:</p>
   <ol>
     <li>Sélectionner la formation</li>
     <li>Fournir ses coordonnées</li>
@@ -75,15 +139,27 @@
     <li>Recevoir une confirmation par email</li>
   </ol>
   <p><strong>Le paiement est exigible immédiatement</strong>. L'accès à la formation est débloqué après validation du paiement (sous 10 minutes à 24h maximum).</p>
-  
-  <h2>Article 4 — Droit de Rétractation</h2>
-  <p>Conformément au droit ivoirien, <strong>aucun droit de rétractation</strong> n'est applicable aux prestations de formation une fois l'accès débloqué. Cependant, en cas de force majeure ou d'annulation par Digilab, un remboursement intégral sera effectué.</p>
-  
-  <h2>Article 5 — Livraison & Accès</h2>
-  <p>L'accès aux contenus de formation est fourni par email et via le tableau de bord utilisateur. L'apprenant dispose d'un <strong>accès illimité pendant 12 mois</strong> à compter de la date d'inscription.</p>
-  
-  <h2>Article 6 — Garanties</h2>
-  <p><strong>Digilab garantit</strong>:</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 4 — Droit de Rétractation</summary>
+  <div class="legal-accordion-content">
+<p>Conformément au droit ivoirien, <strong>aucun droit de rétractation</strong> n'est applicable aux prestations de formation une fois l'accès débloqué. Cependant, en cas de force majeure ou d'annulation par Digilab, un remboursement intégral sera effectué.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 5 — Livraison & Accès</summary>
+  <div class="legal-accordion-content">
+<p>L'accès aux contenus de formation est fourni par email et via le tableau de bord utilisateur. L'apprenant dispose d'un <strong>accès illimité pendant 12 mois</strong> à compter de la date d'inscription.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 6 — Garanties</summary>
+  <div class="legal-accordion-content">
+<p><strong>Digilab garantit</strong>:</p>
   <ul>
     <li>• Contenus conformes aux descriptions</li>
     <li>• Support technique et pédagogique</li>
@@ -94,12 +170,20 @@
     <li>• L'obtention d'une certification externe (PMP, PECB, etc.)</li>
     <li>• Les résultats professionnels individuels</li>
   </ul>
-  
-  <h2>Article 7 — Responsabilité</h2>
-  <p>Digilab ne pourra être tenu responsable des dommages indirects (perte de revenus, manque à gagner, etc.) résultant de l'utilisation des formations.</p>
-  
-  <h2>Article 8 — Litiges</h2>
-  <p>En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. À défaut, les tribunaux d'<strong>Abidjan, Côte d'Ivoire</strong> seront compétents.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 7 — Responsabilité</summary>
+  <div class="legal-accordion-content">
+<p>Digilab ne pourra être tenu responsable des dommages indirects (perte de revenus, manque à gagner, etc.) résultant de l'utilisation des formations.</p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 8 — Litiges</summary>
+  <div class="legal-accordion-content">
+<p>En cas de litige, une solution amiable sera recherchée avant toute action judiciaire. À défaut, les tribunaux d'<strong>Abidjan, Côte d'Ivoire</strong> seront compétents.</p>
   
   
 <div class="legal-cta" style="background: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%); border-radius: 16px; padding: 40px; text-align: center; margin-top: 48px;">
@@ -212,3 +296,5 @@
 
 </body>
 </html>
+  </div>
+</details>

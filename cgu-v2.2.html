@@ -15,6 +15,59 @@
     p, li { font-size: 1rem; color: #37474F; margin-bottom: 12px; }
     .signature { margin-top: 48px; padding-top: 24px; border-top: 2px solid #ECEFF1; text-align: right; font-style: italic; color: #546E7A; }
   </style>
+
+<style>
+/* Legal Page Accordions */
+.legal-accordion {
+  margin: 24px 0;
+  border: 1px solid #E0E7ED;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.legal-accordion-summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  background: linear-gradient(135deg, rgba(30,136,229,0.03) 0%, rgba(38,166,154,0.03) 100%);
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.legal-accordion-summary:hover {
+  background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
+}
+
+.legal-accordion-summary::marker,
+.legal-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.legal-accordion-summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+  color: #26A69A;
+}
+
+.legal-accordion[open] .legal-accordion-summary::before {
+  transform: rotate(90deg);
+}
+
+.legal-accordion-content {
+  padding: 20px;
+  background: white;
+}
+
+.legal-accordion-content h2 {
+  display: none; /* Hide original h2 since it's now in summary */
+}
+</style>
 </head>
 <body>
 
@@ -65,27 +118,42 @@
     Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de la plateforme <strong>digischool.africa</strong>, éditée par <strong>Digilab</strong>.
   </p>
   
-  <h2>Article 1 — Objet</h2>
-  <p>
+  
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 1 — Objet</summary>
+  <div class="legal-accordion-content">
+<p>
     Les présentes CGU ont pour objet de définir les modalités et conditions d'utilisation de la plateforme DigiSchool Africa, ainsi que les droits et obligations des utilisateurs.
   </p>
-  
-  <h2>Article 2 — Acceptation des CGU</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 2 — Acceptation des CGU</summary>
+  <div class="legal-accordion-content">
+<p>
     L'accès et l'utilisation de la plateforme impliquent l'acceptation pleine et entière des présentes CGU. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser la plateforme.
   </p>
-  
-  <h2>Article 3 — Accès à la Plateforme</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 3 — Accès à la Plateforme</summary>
+  <div class="legal-accordion-content">
+<p>
     La plateforme DigiSchool Africa est accessible gratuitement pour consultation. Cependant, l'accès aux <strong>contenus de formation complets</strong> est conditionné au <strong>paiement des frais de formation</strong> correspondants.
   </p>
   <ul>
     <li><strong>Consultation libre</strong>: Catalogue de formations, descriptions, tarifs, auto-évaluation</li>
     <li><strong>Accès payant</strong>: Modules de formation, cours, exercices, livrables, certificats</li>
   </ul>
-  
-  <h2>Article 4 — Inscription & Compte Utilisateur</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 4 — Inscription & Compte Utilisateur</summary>
+  <div class="legal-accordion-content">
+<p>
     Pour accéder aux formations, l'utilisateur doit:
   </p>
   <ol>
@@ -97,9 +165,13 @@
   <p>
     L'utilisateur est responsable de la confidentialité de ses identifiants de connexion.
   </p>
-  
-  <h2>Article 5 — Paiement & Tarification</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 5 — Paiement & Tarification</summary>
+  <div class="legal-accordion-content">
+<p>
     Les tarifs des formations sont indiqués en <strong>FCFA (Francs CFA)</strong> et incluent tous les frais (cours, supports, certificat).<br><br>
     <strong>Modes de paiement acceptés</strong>:
   </p>
@@ -111,9 +183,13 @@
   <p>
     <strong>Politique de remboursement</strong>: Les paiements sont <strong>non remboursables</strong>, sauf en cas d'annulation de la formation par Digilab ou de force majeure.
   </p>
-  
-  <h2>Article 6 — Propriété Intellectuelle</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 6 — Propriété Intellectuelle</summary>
+  <div class="legal-accordion-content">
+<p>
     Tous les contenus présents sur DigiSchool Africa (textes, vidéos, supports PDF, exercices, quiz) sont la propriété exclusive de <strong>Digilab</strong>.<br><br>
     <strong>Interdictions formelles</strong>:
   </p>
@@ -125,9 +201,13 @@
   <p>
     Toute violation de ces interdictions fera l'objet de poursuites judiciaires.
   </p>
-  
-  <h2>Article 7 — Utilisation de la Plateforme</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 7 — Utilisation de la Plateforme</summary>
+  <div class="legal-accordion-content">
+<p>
     L'utilisateur s'engage à:
   </p>
   <ul>
@@ -139,9 +219,13 @@
   <p>
     Tout comportement abusif, frauduleux ou nuisible entraînera la <strong>suspension immédiate du compte</strong> sans remboursement.
   </p>
-  
-  <h2>Article 8 — Responsabilité de Digilab</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 8 — Responsabilité de Digilab</summary>
+  <div class="legal-accordion-content">
+<p>
     <strong>Digilab s'engage à</strong>:
   </p>
   <ul>
@@ -158,27 +242,43 @@
     <li>• Les résultats professionnels individuels (promotion, recrutement, etc.)</li>
     <li>• Les interruptions de service dues à des causes externes (pannes internet, cyberattaques, etc.)</li>
   </ul>
-  
-  <h2>Article 9 — Données Personnelles (RGPD)</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 9 — Données Personnelles (RGPD)</summary>
+  <div class="legal-accordion-content">
+<p>
     Digilab collecte et traite les données personnelles des utilisateurs conformément à la <strong>Politique de Confidentialité</strong>.<br><br>
     Les utilisateurs disposent d'un droit d'accès, de rectification et de suppression de leurs données.<br>
     Contact: <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a>
   </p>
-  
-  <h2>Article 10 — Modification des CGU</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 10 — Modification des CGU</summary>
+  <div class="legal-accordion-content">
+<p>
     Digilab se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés par email et devront accepter les nouvelles conditions pour continuer à utiliser la plateforme.
   </p>
-  
-  <h2>Article 11 — Loi Applicable & Juridiction</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 11 — Loi Applicable & Juridiction</summary>
+  <div class="legal-accordion-content">
+<p>
     Les présentes CGU sont régies par le <strong>droit ivoirien</strong>.<br>
     En cas de litige, les tribunaux d'<strong>Abidjan, Côte d'Ivoire</strong> seront seuls compétents.
   </p>
-  
-  <h2>Article 12 — Contact</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Article 12 — Contact</summary>
+  <div class="legal-accordion-content">
+<p>
     Pour toute question relative aux CGU:<br>
     <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a><br>
     <a href="tel:+2250505111102" style="color: #1E88E5;">+225 05 05 11 11 02</a>
@@ -296,3 +396,5 @@
 
 </body>
 </html>
+  </div>
+</details>

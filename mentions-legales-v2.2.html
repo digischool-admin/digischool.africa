@@ -48,6 +48,59 @@
       color: #546E7A;
     }
   </style>
+
+<style>
+/* Legal Page Accordions */
+.legal-accordion {
+  margin: 24px 0;
+  border: 1px solid #E0E7ED;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.legal-accordion-summary {
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1E88E5;
+  background: linear-gradient(135deg, rgba(30,136,229,0.03) 0%, rgba(38,166,154,0.03) 100%);
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.legal-accordion-summary:hover {
+  background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
+}
+
+.legal-accordion-summary::marker,
+.legal-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.legal-accordion-summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+  color: #26A69A;
+}
+
+.legal-accordion[open] .legal-accordion-summary::before {
+  transform: rotate(90deg);
+}
+
+.legal-accordion-content {
+  padding: 20px;
+  background: white;
+}
+
+.legal-accordion-content h2 {
+  display: none; /* Hide original h2 since it's now in summary */
+}
+</style>
 </head>
 <body>
 
@@ -57,10 +110,11 @@
 
 <!-- 30-Second Summary -->
 <div class="legal-summary" style="background: linear-gradient(135deg, rgba(30,136,229,0.05) 0%, rgba(38,166,154,0.05) 100%); padding: 48px 32px; margin-bottom: 48px; border-radius: 16px;">
-  <h2 style="text-align: center; font-size: 28px; font-weight: 700; color: #1E88E5; margin-bottom: 12px;">
-    Résumé en 30 secondes
-  </h2>
-  <p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
+  
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">Résumé en 30 secondes</summary>
+  <div class="legal-accordion-content">
+<p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
     L'essentiel à retenir — lecture rapide
   </p>
   
@@ -92,32 +146,46 @@
 
   </div>
 </div>
+  </div>
+</details>
 
-
-  
-  <h2>1. Éditeur de la Plateforme</h2>
-  <p>
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">1. Éditeur de la Plateforme</summary>
+  <div class="legal-accordion-content">
+<p>
     Le site <strong>digischool.africa</strong> est édité par <strong>Digilab</strong>, société de droit ivoirien spécialisée dans la transformation digitale et la formation professionnelle.<br>
     <strong>Siège social</strong>: Abidjan, Cocody, Côte d'Ivoire<br>
     <strong>Email</strong>: contact@digischool.africa<br>
     <strong>Téléphone</strong>: +225 05 05 11 11 02<br>
     <strong>Directeur de publication</strong>: <strong>Hervé Sajori</strong>
   </p>
-  
-  <h2>2. Hébergement</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">2. Hébergement</summary>
+  <div class="legal-accordion-content">
+<p>
     Le site est hébergé par <strong>GitHub Pages</strong> (GitHub, Inc.)<br>
     Adresse: 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA
   </p>
-  
-  <h2>3. Propriété Intellectuelle</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">3. Propriété Intellectuelle</summary>
+  <div class="legal-accordion-content">
+<p>
     L'ensemble des contenus présents sur digischool.africa (textes, images, logos, vidéos, supports de formation) est la propriété exclusive de <strong>Digilab</strong> et de <strong>DigiSchool Africa</strong>, sauf mention contraire.<br><br>
     Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Digilab.
   </p>
-  
-  <h2>4. Protection des Données Personnelles (RGPD)</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">4. Protection des Données Personnelles (RGPD)</summary>
+  <div class="legal-accordion-content">
+<p>
     Digilab s'engage à respecter la confidentialité des utilisateurs. Les données collectées (nom, email, téléphone) sont utilisées uniquement pour:
   </p>
   <ul>
@@ -129,9 +197,13 @@
     Les utilisateurs disposent d'un droit d'accès, de rectification et de suppression de leurs données personnelles.<br>
     Pour toute demande: <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a>
   </p>
-  
-  <h2>5. Responsabilité & Garanties</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">5. Responsabilité & Garanties</summary>
+  <div class="legal-accordion-content">
+<p>
     <strong>DigiSchool Africa</strong> s'efforce de fournir des contenus de formation de haute qualité, actualisés et conformes aux standards internationaux. Cependant:
   </p>
   <ul>
@@ -140,16 +212,24 @@
     <li>L'utilisateur est seul responsable de l'usage qu'il fait des formations</li>
     <li>Digilab décline toute responsabilité en cas de dommage direct ou indirect résultant de l'utilisation du site</li>
   </ul>
-  
-  <h2>6. Partenaires & Références Académiques</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">6. Partenaires & Références Académiques</summary>
+  <div class="legal-accordion-content">
+<p>
     Les logos et références à des institutions (PMI, Microsoft, Harvard, HEC Paris, PECB, etc.) présents sur le site constituent des <strong>références pédagogiques</strong> et des <strong>sources d'inspiration académique</strong>.<br><br>
     <strong>Ces mentions ne constituent PAS des partenariats commerciaux ou des accords de licence</strong>, sauf mention explicite d'un accord formel.<br><br>
     DigiSchool Africa s'inspire des meilleures pratiques internationales et adapte ses contenus au contexte africain.
   </p>
-  
-  <h2>7. Limitation de Responsabilité — Clause Anti-Arnaque</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">7. Limitation de Responsabilité — Clause Anti-Arnaque</summary>
+  <div class="legal-accordion-content">
+<p>
     <strong>Digilab et DigiSchool Africa</strong> s'engagent à:
   </p>
   <ul>
@@ -167,22 +247,34 @@
     <li>• Les décisions prises par les apprenants sur la base des contenus</li>
     <li>• Les interruptions de service dues à des causes indépendantes de notre volonté</li>
   </ul>
-  
-  <h2>8. Conditions d'Accès aux Formations</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">8. Conditions d'Accès aux Formations</summary>
+  <div class="legal-accordion-content">
+<p>
     L'accès aux contenus de formation est strictement conditionné au <strong>paiement complet du tarif annoncé</strong>.<br><br>
     Le mode <strong>Admin</strong> permet un accès illimité à tous les contenus pour des fins de démonstration, de test et de support technique.<br><br>
     Toute utilisation frauduleuse ou accès non autorisé aux contenus fera l'objet de poursuites judiciaires.
   </p>
-  
-  <h2>9. Loi Applicable & Juridiction</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">9. Loi Applicable & Juridiction</summary>
+  <div class="legal-accordion-content">
+<p>
     Les présentes mentions légales sont régies par le <strong>droit ivoirien</strong>.<br>
     En cas de litige, les tribunaux d'<strong>Abidjan, Côte d'Ivoire</strong> seront seuls compétents.
   </p>
-  
-  <h2>10. Contact</h2>
-  <p>
+  </div>
+</details>
+
+<details class="legal-accordion" open>
+  <summary class="legal-accordion-summary">10. Contact</summary>
+  <div class="legal-accordion-content">
+<p>
     Pour toute question relative aux mentions légales, contactez-nous:<br>
     <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a><br>
     <a href="tel:+2250505111102" style="color: #1E88E5;">+225 05 05 11 11 02</a><br>
@@ -301,3 +393,5 @@
 
 </body>
 </html>
+  </div>
+</details>

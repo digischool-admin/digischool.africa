@@ -609,13 +609,17 @@ const DigiSchoolAssessmentV2 = {
     `;
     
     recommendedFormations.slice(0, 6).forEach((formation, index) => {
-      const priorityIcon = index === 0 ? '🥇' : (index === 1 ? '🥈' : '🥉');
+      // Icon SVG based on priority (no emojis)
+      const priorityIcon = index === 0 ? 
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>' : 
+        (index === 1 ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>' : 
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>');
+      
       html += `
         <div class="ds-card-formation">
           <span class="formation-priority">${priorityIcon} ${formation.priority}</span>
-          <div class="formation-score-debug">Score: ${formation.score}</div>
           <h3>${formation.name}</h3>
-          <p class="formation-duration">⏱️ ${formation.duration}</p>
+          <p class="formation-duration">${formation.duration}</p>
           <p class="formation-description">${formation.description}</p>
           <a href="/b2c.html?formation=${encodeURIComponent(formation.id)}" class="ds-btn ds-btn-primary mt-4">
             Découvrir →
