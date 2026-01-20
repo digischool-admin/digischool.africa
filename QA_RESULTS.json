@@ -1,0 +1,79 @@
+[
+  {
+    "page": "index.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "b2c.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "companies.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "parcours.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "b2c-assessment.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "about-premium.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "contact.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "cgu-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "cgv-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "mentions-legales-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  },
+  {
+    "page": "politique-confidentialite-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "emojis": false,
+    "css": true
+  }
+]
