@@ -1,0 +1,112 @@
+{
+  "index.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "b2c-assessment.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "b2c.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "companies.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "parcours.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "about-premium.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "contact.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "mentions-legales-v2.2.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "cgu-v2.2.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "cgv-v2.2.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  },
+  "politique-confidentialite-v2.2.html": {
+    "hardcoded_headers": 0,
+    "hardcoded_footers": 0,
+    "partner_sections": 1,
+    "footer_has_logos": false,
+    "emoji_count": 0,
+    "has_aria_current": false,
+    "has_canonical_css": true,
+    "PASS": true
+  }
+}
