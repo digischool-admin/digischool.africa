@@ -1,0 +1,112 @@
+[
+  {
+    "page": "index.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "b2c.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "companies.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "parcours.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "b2c-assessment.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "about-premium.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "contact.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "cgu-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "cgv-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "mentions-legales-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  },
+  {
+    "page": "politique-confidentialite-v2.2.html",
+    "status": "PASS",
+    "partners": 1,
+    "header_hardcoded": 0,
+    "footer_hardcoded": 0,
+    "emojis": false,
+    "css_canonical": true,
+    "issues": []
+  }
+]
