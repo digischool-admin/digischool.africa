@@ -93,8 +93,8 @@ const DigiSchoolGlobalComponents = {
                 <a href="mailto:contact@digischool.africa" class="ds-footer-link">
                   📧 contact@digischool.africa
                 </a>
-                <a href="tel:+22505051111 02" class="ds-footer-link">
-                  📞 +225 05 05 11 11 02
+                <a href="tel:+22505051111 02" class="ds-btn ds-btn-secondary" style="display:inline-block;margin-top:8px;">
+                  📞 Allo DigiSchool !
                 </a>
                 <div style="margin-top: var(--space-4);">
                   <p style="color: rgba(255,255,255,0.8); font-size: var(--text-sm);">

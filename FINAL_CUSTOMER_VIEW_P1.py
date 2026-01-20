@@ -1,344 +1,62 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto-évaluation — DigiSchool Africa</title>
-  <meta name="description" content="Découvrez les formations qui correspondent à vos besoins professionnels grâce à notre diagnostic personnalisé de 2 minutes.">
-  
-  <!-- CSS UNIQUE RESTAURÉ -->
-  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
-  
-  <style>
-    /* Styles spécifiques à l'auto-évaluation */
-    .assessment-wrapper {
-      min-height: 100vh;
-      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
-      padding: var(--space-12) var(--space-4);
-    }
-    
-    .assessment-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    
-    .assessment-header {
-      text-align: center;
-      margin-bottom: var(--space-12);
-    }
-    
-    .assessment-header h1 {
-      font-size: var(--text-5xl);
-      margin-bottom: var(--space-4);
-    }
-    
-    .assessment-header p {
-      font-size: var(--text-xl);
-      color: var(--ds-gray);
-    }
-    
-    .progress-bar {
-      width: 100%;
-      height: 8px;
-      background: rgba(0, 0, 0, 0.06);
-      border-radius: var(--radius-full);
-      margin-bottom: var(--space-8);
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: var(--gradient-hero);
-      border-radius: var(--radius-full);
-      transition: width var(--transition-base);
-      width: 12.5%;
-    }
-    
-    .question-card {
-      background: white;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: var(--radius-xl);
-      padding: var(--space-10);
-      margin-bottom: var(--space-8);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .question-number {
-      display: inline-block;
-      background: rgba(30, 136, 229, 0.1);
-      color: var(--color-primary);
-      padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-full);
-      font-size: var(--text-sm);
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-    }
-    
-    .question-text {
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      color: var(--ds-dark);
-      margin-bottom: var(--space-8);
-      line-height: 1.4;
-    }
-    
-    .answers {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
-    
-    .answer-option {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      padding: var(--space-5) var(--space-6);
-      background: rgba(0, 0, 0, 0.02);
-      border: 2px solid rgba(0, 0, 0, 0.06);
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: all var(--transition-base);
-      user-select: none;
-    }
-    
-    .answer-option:hover {
-      border-color: var(--color-primary);
-      background: rgba(30, 136, 229, 0.04);
-      transform: translateX(4px);
-    }
-    
-    .answer-option.selected {
-      background: rgba(30, 136, 229, 0.08);
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
-    }
-    
-    .answer-option input[type="radio"],
-    .answer-option input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      accent-color: var(--color-primary);
-    }
-    
-    .answer-label {
-      flex: 1;
-      font-size: var(--text-lg);
-      font-weight: 500;
-      cursor: pointer;
-      color: var(--ds-dark);
-    }
-    
-    .helper-text {
-      margin-top: var(--space-4);
-      font-size: var(--text-sm);
-      color: var(--ds-gray);
-      font-style: italic;
-    }
-    
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: var(--space-4);
-      margin-top: var(--space-8);
-    }
-    
-    .btn {
-      padding: var(--space-4) var(--space-8);
-      border-radius: var(--radius-md);
-      font-size: var(--text-lg);
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: all var(--transition-base);
-    }
-    
-    .btn-primary {
-      background: var(--gradient-hero);
-      color: white;
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn-primary:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-xl);
-    }
-    
-    .btn-primary:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    
-    .btn-secondary {
-      background: white;
-      color: var(--color-primary);
-      border: 2px solid var(--color-primary);
-    }
-    
-    .btn-secondary:hover {
-      background: rgba(30, 136, 229, 0.04);
-      transform: translateY(-2px);
-    }
-    
-    /* Results Styles */
-    .results-container {
-      animation: fadeIn 0.6s ease-out;
-    }
-    
-    .results-header h1 {
-      font-size: var(--text-5xl);
-      margin-bottom: var(--space-4);
-    }
-    
-    .diagnostic-text {
-      font-size: var(--text-lg);
-      line-height: 1.8;
-      color: var(--ds-gray);
-    }
-    
-    .diagnostic-list {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .diagnostic-list li {
-      padding: var(--space-3) 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-    
-    .diagnostic-list li:last-child {
-      border-bottom: none;
-    }
-    
-    .formations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: var(--space-6);
-    }
-    
-    .ds-card-formation {
-      background: white;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: var(--radius-lg);
-      padding: var(--space-8);
-      box-shadow: var(--shadow-md);
-      transition: all var(--transition-base);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .ds-card-formation::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--gradient-hero);
-    }
-    
-    .ds-card-formation:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--color-primary);
-    }
-    
-    .formation-priority {
-      display: inline-block;
-      background: rgba(30, 136, 229, 0.1);
-      color: var(--color-primary);
-      padding: var(--space-2) var(--space-4);
-      border-radius: var(--radius-md);
-      font-size: var(--text-sm);
-      font-weight: 700;
-      margin-bottom: var(--space-4);
-    }
-    
-    .formation-duration {
-      color: var(--ds-gray);
-      font-size: var(--text-base);
-      margin-top: var(--space-2);
-    }
-    
-    .formation-description {
-      color: var(--ds-gray);
-      font-size: var(--text-base);
-      line-height: 1.6;
-      margin-top: var(--space-4);
-    }
-    
-    @media (max-width: 768px) {
-      .assessment-header h1 {
-        font-size: var(--text-3xl);
-      }
-      
-      .question-text {
-        font-size: var(--text-xl);
-      }
-      
-      .answer-label {
-        font-size: var(--text-base);
-      }
-      
-      .formations-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body data-page="assessment">
-  
-  <!-- Header & Footer injectés automatiquement via JS -->
-  
-  <div class="assessment-wrapper">
-    <div class="assessment-container">
-      <div class="assessment-header animate-fade-in">
-        <h1 class="text-gradient">Auto-évaluation DigiSchool Africa</h1>
-        <p>Découvrez les formations qui correspondent parfaitement à votre profil professionnel</p>
-        <p style="font-size: var(--text-base); color: var(--ds-gray); margin-top: var(--space-2);">
-          ⏱ 2 minutes • 8 questions • Diagnostic personnalisé
-        </p>
-      </div>
-      
-      <div class="progress-bar">
-        <div class="progress-fill"></div>
-      </div>
-      
-      <div id="question-container">
-        <!-- Questions injectées dynamiquement -->
-      </div>
-      
-      <div class="nav-buttons">
-        <button id="btn-prev" class="btn btn-secondary" style="display: none;">
-          ← Précédent
-        </button>
-        <button id="btn-next" class="btn btn-primary" disabled>
-          Suivant →
-        </button>
-        <button id="btn-submit" class="btn btn-primary" style="display: none;" disabled>
-          Voir mes résultats <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Scripts V2 Production -->
-  <script src="/assets/global-components-v2-production.js"></script>
-  <script src="/assets/assessment-v2-strict.js"></script>
-  <script src="/assets/email-capture-modal.js"></script>
-  <script src="/assets/chatbot-manager-v2.js"></script>
-  
+#!/usr/bin/env python3
+"""
+V2.2.x-M FINAL CUSTOMER VIEW LOCK
+Exécution STRICTE et LITTÉRALE
+Zéro interprétation créative
+"""
 
+import re
+import os
 
+print("=" * 70)
+print("V2.2.x-M FINAL CUSTOMER VIEW LOCK — DÉMARRAGE")
+print("=" * 70)
 
+# ═══════════════════════════════════════════════════════════════════════
+# PHASE 1: FOOTER FIX — TÉLÉPHONE + SIGNATURE SAJORI
+# ═══════════════════════════════════════════════════════════════════════
 
+print("\n[PHASE 1] Footer Fix: Téléphone CTA + Signature SAJORI")
 
+footer_js = 'assets/global-components-v2-production.js'
 
+with open(footer_js, 'r', encoding='utf-8') as f:
+    content = f.read()
 
+# Fix 1: Remplacer affichage numéro par bouton CTA
+old_phone = '''                <a href="tel:+22505051111 02" class="ds-footer-link">
+                  📞 +225 05 05 11 11 02
+                </a>'''
 
+new_phone = '''                <a href="tel:+22505051111 02" class="ds-btn ds-btn-secondary" style="display:inline-block;margin-top:8px;">
+                  📞 Allo DigiSchool !
+                </a>'''
 
+content = content.replace(old_phone, new_phone)
 
+# Fix 2: Signature SAJORI (pas "Hervé SAJORI")
+# Trouver section directeur et remplacer
+content = re.sub(
+    r'Directeur[^<]*Hervé[^<]*SAJORI',
+    'Directeur de publication : <span style="font-weight:700;letter-spacing:1px;">SAJORI</span>',
+    content,
+    flags=re.IGNORECASE
+)
+
+with open(footer_js, 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("  ✅ Footer: Téléphone → CTA 'Allo DigiSchool!'")
+print("  ✅ Footer: Signature → SAJORI")
+
+# ═══════════════════════════════════════════════════════════════════════
+# PHASE 2: PARTNER LOGOS — BANDE GRISE UNIQUE ENRICHIE
+# ═══════════════════════════════════════════════════════════════════════
+
+print("\n[PHASE 2] Partner Logos: Bande grise unique enrichie (3 catégories)")
+
+# Template avec logos enrichis + catégories
+partner_section_enriched = '''
 <!-- Partner Logos Section UNIQUE -->
 <link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
 <section class="ds-partners-section">
@@ -514,6 +232,48 @@
   </div>
 </section>
 <!-- End Partner Logos -->
+'''
 
-</body>
-</html>
+# Appliquer à toutes les pages
+pages = [
+    'index.html',
+    'b2c.html',
+    'companies.html',
+    'b2c-assessment.html',
+    'about-premium.html',
+    'contact.html',
+    'parcours.html',
+    'cgu-v2.2.html',
+    'cgv-v2.2.html',
+    'mentions-legales-v2.2.html',
+    'politique-confidentialite-v2.2.html'
+]
+
+for page in pages:
+    if not os.path.exists(page):
+        continue
+    
+    with open(page, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Supprimer TOUTES les sections partenaires existantes
+    content = re.sub(
+        r'<!-- Partner Logos Section.*?<!-- End Partner Logos -->',
+        '',
+        content,
+        flags=re.DOTALL
+    )
+    
+    # Insérer la nouvelle bande AVANT </body>
+    if '</body>' in content:
+        content = content.replace('</body>', partner_section_enriched + '\n</body>')
+        print(f"  ✅ {page}: Bande grise unique enrichie (4 catégories)")
+    
+    with open(page, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+print("\n  ✅ PHASE 2 COMPLÈTE: Bande grise unique avec ~22 logos (3 lignes max)")
+
+print("\n" + "=" * 70)
+print("SCRIPT PARTIEL EXÉCUTÉ — SUITE DANS PROCHAINS SCRIPTS")
+print("=" * 70)
