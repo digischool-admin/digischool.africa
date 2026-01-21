@@ -1,1610 +1,910 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formations Particuliers (B2C) — DigiSchool Africa</title>
-  <meta name="description" content="Parcours modulaires 100% en ligne avec IA embarquée. Achetez le pack complet ou module par module. Prix transparents et accès immédiat." />
+  <meta name="description" content="Parcours modulaires 100% en ligne avec IA embarquée. Achetez le pack complet ou module par module. Prix transparents et accès immédiat.">
   
-  <!-- Open Graph -->
-  <meta property="og:title" content="Formations Particuliers (B2C) — DigiSchool Africa" />
-  <meta property="og:description" content="9 parcours professionnels 100% en ligne avec IA embarquée. Pack ou module par module." />
-  <meta property="og:url" content="https://digischool.africa/b2c.html" />
-  <meta property="og:type" content="website" />
-  
-  <link rel="canonical" href="https://digischool.africa/b2c.html" />
-
-  <!-- ancien style supprimé -->
-  
-  
+  <link rel="canonical" href="https://digischool.africa/b2c.html">
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/assets/brand-icons-v2-2-x-j.css">
-</head>
-<body>
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-
-
-
-  <div class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-badge"><span class="ds-icon ds-icon-graduation" style="color: #1E88E5;"></span> FORMATIONS PARTICULIERS (B2C)</div>
-        <h1>9 Parcours Professionnels 100% en Ligne</h1>
-        <p>Développez vos compétences avec l'IA embarquée. Achetez le pack complet ou module par module. Prix transparents, accès immédiat.</p>
-        <div class="online-badge">
-          <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> Accès 100% en ligne — Aucun téléchargement requis
-        </div>
-      </div>
-    </section>
-
-    <!-- Courses Grid -->
-    <section class="section">
+  
+  <style>
+    /* Clone assessment wrapper style */
+    .b2c-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .b2c-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .b2c-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    
+    .b2c-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .b2c-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-8);
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
+    }
+    
+    /* Features cards - clone assessment card style */
+    .features-section {
+      margin-bottom: var(--space-12);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    
+    .feature-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      font-size: 28px;
+    }
+    
+    .feature-card h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .feature-card p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    /* Course cards - clone assessment result card style */
+    .courses-section {
+      margin-bottom: var(--space-12);
+    }
+    
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    
+    .course-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .course-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .course-badge {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+    }
+    
+    .course-card h3 {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .course-meta {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin: var(--space-4) 0;
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+    }
+    
+    .course-price {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: var(--space-4) 0;
+    }
+    
+    .course-card p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+    
+    /* Accordion style - clone assessment style */
+    .course-accordion {
+      margin-top: var(--space-6);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding-top: var(--space-4);
+    }
+    
+    .accordion-toggle {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: var(--space-3) 0;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all var(--transition-base);
+    }
+    
+    .accordion-toggle:hover {
+      color: var(--ds-dark);
+    }
+    
+    .accordion-icon {
+      transition: transform var(--transition-base);
+    }
+    
+    .accordion-toggle.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .accordion-content.active {
+      max-height: 2000px;
+      padding: var(--space-4) 0;
+    }
+    
+    .modules-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .module-item {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .module-item:last-child {
+      border-bottom: none;
+    }
+    
+    .module-item strong {
+      display: block;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .module-item ul {
+      list-style: disc;
+      padding-left: var(--space-6);
+      color: var(--ds-gray);
+    }
+    
+    .module-item li {
+      margin: var(--space-2) 0;
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .b2c-header h1 {
+        font-size: var(--text-3xl);
+      }
       
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
-      <div class="price-note">Total : 306 252 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=leadership-management&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">245 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=leadership-management&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">76 563 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="leadership-management">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-leadership-management" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Leadership Transformationnel & Vision</strong>
-          <ul>
-            <li>Définir et communiquer une vision inspirante</li>
-            <li>Aligner les équipes sur les objectifs stratégiques</li>
-            <li>Développer votre style de leadership authentique</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Management d'Équipes Hybrides & à Distance</strong>
-          <ul>
-            <li>Piloter des équipes distribuées efficacement</li>
-            <li>Maintenir l'engagement et la cohésion</li>
-            <li>Utiliser les outils collaboratifs IA (Slack, Teams, Notion)</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Gestion des Conflits & Communication</strong>
-          <ul>
-            <li>Détecter et résoudre les conflits rapidement</li>
-            <li>Communication assertive et feedback constructif</li>
-            <li>Médiation et négociation avec support IA</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 4: Culture d'Entreprise & Engagement</strong>
-          <ul>
-            <li>Bâtir une culture performante et inclusive</li>
-            <li>Mesurer et booster l'engagement collaborateur</li>
-            <li>Change management et conduite du changement</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (génération vision, feedback, scripts)</li>
-        <li>Microsoft Copilot (collaboration Teams, résumés réunions)</li>
-        <li>Notion AI (documentation processus, suivi OKRs)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Vision et OKRs personnels (document stratégique)</li>
-        <li>Grille de feedback 360° complétée</li>
-        <li>Plan d'action culture & engagement (90 jours)</li>
-        <li>Boîte à outils managériale (templates + prompts IA)</li>
-        <li>Certificat de formation DigiSchool Africa</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Gestion de projet (PMP)</h3>
-  <p class="course-subtitle">Méthodologie PMP alignée et augmentée par l'IA pour une gestion de projet d'excellence</p>
+      .courses-grid, .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body data-page="b2c">
   
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 10 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 4 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Chefs de projet</span>
-  </div>
-
-  <div class="course-description">
-    <p>Méthodologie PMP complète : cadrage, planification, exécution, suivi, clôture avec IA embarquée pour automatisation et prédiction.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">285 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">89 063 FCFA <span class="per-module">x 4</span></div>
-      <div class="price-note">Total : 356 252 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=gestion-projet-pmp&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">285 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=gestion-projet-pmp&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">89 063 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="gestion-projet-pmp">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-gestion-projet-pmp" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Cadrage & Charte Projet</strong>
-          <ul>
-            <li>Rédiger une charte projet alignée PMP</li>
-            <li>Identifier les parties prenantes et leurs intérêts</li>
-            <li>Définir les objectifs SMART et critères de succès</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: WBS & Planification Détaillée</strong>
-          <ul>
-            <li>Construire un WBS exhaustif (Work Breakdown Structure)</li>
-            <li>Créer un planning Gantt avec dépendances</li>
-            <li>Estimer charges et ressources avec IA</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Gestion des Risques</strong>
-          <ul>
-            <li>Identifier et évaluer les risques (matrice)</li>
-            <li>Plans de contingence et de réponse</li>
-            <li>Analyse prédictive IA pour anticiper les déviations</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 4: Suivi & Reporting</strong>
-          <ul>
-            <li>Tableaux de bord projet (avancement, budget, délais)</li>
-            <li>Reporting exécutif automatisé avec IA</li>
-            <li>Gestion de la valeur acquise (EVM)</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (génération charte, WBS, plans de risque)</li>
-        <li>Microsoft Project + Copilot (planification Gantt)</li>
-        <li>Notion AI / Monday.com (suivi collaboratif)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Charte projet complète (document Word/PDF)</li>
-        <li>WBS détaillée et planning Gantt</li>
-        <li>Matrice des risques et plans de contingence</li>
-        <li>Budget prévisionnel et baseline</li>
-        <li>Tableau de bord de reporting exécutif</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Stratégie & Exécution</h3>
-  <p class="course-subtitle">De la vision stratégique à l'exécution opérationnelle avec OKRs et IA</p>
+  <!-- Header injecté via JS -->
   
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 4 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 4 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Dirigeants</span>
-  </div>
-
-  <div class="course-description">
-    <p>Élaboration de stratégie, OKRs, KPIs, transformation digitale et alignement d'équipe pour une exécution sans faille.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">245 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
-      <div class="price-note">Total : 306 252 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=strategie-execution&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">245 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=strategie-execution&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">76 563 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="strategie-execution">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-strategie-execution" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
+  <div class="b2c-wrapper">
+    <div class="b2c-container">
+      
+      <!-- Hero -->
+      <div class="b2c-header animate-fade-in">
+        <h1 class="text-gradient">9 Parcours Professionnels 100% en Ligne</h1>
+        <p>Développez vos compétences avec l'IA embarquée. Achetez le pack complet ou module par module. Prix transparents, accès immédiat.</p>
         
-        <div class="module-item">
-          <strong>Module 1: Élaboration de la Stratégie</strong>
-          <ul>
-            <li>Analyser l'environnement concurrentiel (SWOT, Porter)</li>
-            <li>Définir une stratégie différenciante et claire</li>
-            <li>Communiquer la vision stratégique à tous les niveaux</li>
-          </ul>
+        <div class="cta-buttons">
+          <a href="/b2c-assessment.html" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Diagnostic Gratuit
+          </a>
+          <a href="#formations" class="btn btn-secondary">
+            Voir les Formations
+          </a>
         </div>
-        
-        <div class="module-item">
-          <strong>Module 2: OKRs & KPIs</strong>
-          <ul>
-            <li>Déployer des OKRs alignés sur la stratégie</li>
-            <li>Définir des KPIs actionnables et mesurables</li>
-            <li>Créer des tableaux de bord stratégiques avec IA</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Transformation Digitale & Innovation</strong>
-          <ul>
-            <li>Identifier les opportunités de transformation digitale</li>
-            <li>Prioriser les initiatives avec matrice valeur/effort</li>
-            <li>Piloter l'innovation et expérimentation rapide</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 4: Exécution & Alignement des Équipes</strong>
-          <ul>
-            <li>Cascader les OKRs jusqu'aux équipes opérationnelles</li>
-            <li>Rituels d'exécution (revues hebdo/mensuelles)</li>
-            <li>Lever les blocages et accélérer la vélocité</li>
-          </ul>
-        </div>
-        
       </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (analyse SWOT, génération OKRs)</li>
-        <li>Notion AI / Coda (documentation stratégique)</li>
-        <li>Power BI / Tableau (dashboards KPIs)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Analyse SWOT et diagnostic stratégique</li>
-        <li>OKRs trimestriels cascadés (entreprise → équipes)</li>
-        <li>Roadmap transformation digitale 12 mois</li>
-        <li>Tableau de bord stratégique (KPIs)</li>
-        <li>Plan d'exécution 90 jours</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Finance pour non-financiers</h3>
-  <p class="course-subtitle">Maîtrisez les fondamentaux financiers et prenez des décisions éclairées avec l'IA</p>
-  
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 3 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 3 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Managers</span>
-  </div>
-
-  <div class="course-description">
-    <p>Lecture d'états financiers, budgétisation, rentabilité, ROI et prise de décision basée sur les chiffres avec analyse IA.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">180 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
-      <div class="price-note">Total : 225 000 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=finance-non-financiers&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">180 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=finance-non-financiers&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">75 000 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="finance-non-financiers">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-finance-non-financiers" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
+      
+      <!-- Pourquoi DigiSchool - Features Cards -->
+      <section class="features-section">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Pourquoi DigiSchool Africa ?</h2>
         
-        <div class="module-item">
-          <strong>Module 1: Lecture & Analyse des États Financiers</strong>
-          <ul>
-            <li>Lire et interpréter un bilan comptable</li>
-            <li>Analyser un compte de résultat (P&L)</li>
-            <li>Comprendre le tableau de flux de trésorerie</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Budgétisation & Contrôle de Gestion</strong>
-          <ul>
-            <li>Construire un budget prévisionnel</li>
-            <li>Suivre les écarts budget vs réalisé</li>
-            <li>Piloter les coûts et optimiser les dépenses</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Rentabilité, ROI & Indicateurs Clés</strong>
-          <ul>
-            <li>Calculer la rentabilité d'un projet (ROI, NPV, IRR)</li>
-            <li>Indicateurs de performance financière (marge, EBITDA)</li>
-            <li>Prise de décision basée sur les données avec IA</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (interprétation états financiers)</li>
-        <li>Excel + Copilot (budgétisation automatisée)</li>
-        <li>Power BI (dashboards financiers)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Guide de lecture des états financiers</li>
-        <li>Budget prévisionnel 12 mois (fichier Excel)</li>
-        <li>Calculateur ROI et analyse de rentabilité</li>
-        <li>Tableau de bord financier automatisé</li>
-        <li>Bibliothèque de 30+ prompts finance IA</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Vente B2B & Négociation</h3>
-  <p class="course-subtitle">Prospection intelligente, closing assisté et négociation gagnante avec l'IA</p>
-  
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 5 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 4 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Commerciaux B2B</span>
-  </div>
-
-  <div class="course-description">
-    <p>Prospection B2B, génération de leads, techniques de closing, gestion d'objections et négociation avec automation IA.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">245 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
-      <div class="price-note">Total : 306 252 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=vente-b2b-negociation&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">245 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=vente-b2b-negociation&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">76 563 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="vente-b2b-negociation">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-vente-b2b-negociation" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Prospection B2B & Génération de Leads</strong>
-          <ul>
-            <li>Construire une base de prospects qualifiés (ICP)</li>
-            <li>Techniques de prospection multicanal (LinkedIn, email, cold calling)</li>
-            <li>Automation de la prospection avec IA (scraping, séquences)</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Qualification & Découverte Client</strong>
-          <ul>
-            <li>Cadre BANT/MEDDIC pour qualifier les leads</li>
-            <li>Questions de découverte puissantes</li>
-            <li>Scoring et priorisation automatisée des opportunités</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Techniques de Closing</strong>
-          <ul>
-            <li>Présentation de valeur percutante (value proposition)</li>
-            <li>Gestion des objections (méthode CRAC)</li>
-            <li>Techniques de closing : assumptif, alternative, urgence</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 4: Négociation Commerciale</strong>
-          <ul>
-            <li>Préparation négociation : BATNA, ZOPA, ancrage</li>
-            <li>Tactiques de négociation gagnant-gagnant</li>
-            <li>Finalisation et signature assistée par IA</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (génération scripts, emails, objections)</li>
-        <li>LinkedIn Sales Navigator + AI (prospection)</li>
-        <li>lemlist / Waalaxy (automation emailing)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Liste de 100 prospects qualifiés (fichier Excel)</li>
-        <li>Séquences de prospection multicanal (email + LinkedIn)</li>
-        <li>Pitch deck et scripts de découverte</li>
-        <li>Guide de gestion d'objections (50+ objections)</li>
-        <li>Plan de négociation type (template)</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Service Client & Expérience</h3>
-  <p class="course-subtitle">Excellence du service client et CX augmentée par l'IA pour fidéliser et enchanter</p>
-  
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 3 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 3 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Service client</span>
-  </div>
-
-  <div class="course-description">
-    <p>Techniques de service client d'excellence, gestion des réclamations, CX design et satisfaction client avec automation IA.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">180 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
-      <div class="price-note">Total : 225 000 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=service-client-experience&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">180 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=service-client-experience&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">75 000 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="service-client-experience">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-service-client-experience" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Fondamentaux du Service Client</strong>
-          <ul>
-            <li>Standards d'excellence du service client</li>
-            <li>Communication empathique et professionnelle</li>
-            <li>Résolution rapide et efficace des demandes</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Gestion des Réclamations & Situations Difficiles</strong>
-          <ul>
-            <li>Traiter les réclamations avec méthode</li>
-            <li>Désamorcer les clients mécontents</li>
-            <li>Transformer une réclamation en opportunité</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Expérience Client (CX) & Fidélisation</strong>
-          <ul>
-            <li>Cartographier le parcours client (customer journey)</li>
-            <li>Mesurer la satisfaction (NPS, CSAT, CES)</li>
-            <li>Automatiser le support avec chatbots IA</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (réponses automatisées, FAQ)</li>
-        <li>Zendesk / Freshdesk (support ticketing avec IA)</li>
-        <li>Intercom / Drift (chatbots conversationnels)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Bibliothèque de scripts de réponse (50+ situations)</li>
-        <li>Guide de gestion des réclamations (méthode step-by-step)</li>
-        <li>Customer journey map (template)</li>
-        <li>Plan de mesure satisfaction (NPS, CSAT)</li>
-        <li>Prototype chatbot simple</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>RH & Performance</h3>
-  <p class="course-subtitle">Gestion RH moderne et performance collaborative avec analytics IA</p>
-  
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 4 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 4 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> RH</span>
-  </div>
-
-  <div class="course-description">
-    <p>Recrutement, onboarding, évaluation performance, développement talents et analytics RH avec IA prédictive.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">245 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">76 563 FCFA <span class="per-module">x 4</span></div>
-      <div class="price-note">Total : 306 252 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=rh-performance&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">245 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=rh-performance&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">76 563 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="rh-performance">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-rh-performance" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Recrutement & Onboarding</strong>
-          <ul>
-            <li>Structurer un processus de recrutement efficace</li>
-            <li>Screening CV et entretiens avec IA</li>
-            <li>Onboarding immersif et engageant</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Évaluation de la Performance</strong>
-          <ul>
-            <li>Définir des objectifs SMART et OKRs individuels</li>
-            <li>Entretiens d'évaluation annuels et continus</li>
-            <li>Feedback 360° et plans de développement</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Développement des Talents & Engagement</strong>
-          <ul>
-            <li>Identifier les hauts potentiels</li>
-            <li>Plans de succession et mobilité interne</li>
-            <li>Mesurer et améliorer l'engagement collaborateur</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 4: Analytics RH & Prédiction</strong>
-          <ul>
-            <li>KPIs RH : turnover, absentéisme, time-to-hire</li>
-            <li>Dashboards RH automatisés avec Power BI</li>
-            <li>Prédire le turnover et les départs avec IA</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (rédaction offres, questions entretien)</li>
-        <li>ATS avec IA (Workable, Greenhouse) - screening CV</li>
-        <li>Culture Amp / Officevibe (sondages engagement)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Kit recrutement (offres, questions, grilles évaluation)</li>
-        <li>Plan d'onboarding 90 jours (template)</li>
-        <li>Grille d'entretien annuel et PDI</li>
-        <li>Dashboard RH automatisé (KPIs)</li>
-        <li>Plan de développement talents (template)</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Data & Reporting pour décideurs</h3>
-  <p class="course-subtitle">Exploitez vos données et créez des dashboards décisionnels avec Power BI et IA</p>
-  
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 3 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 3 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Managers</span>
-  </div>
-
-  <div class="course-description">
-    <p>Collecte de données, nettoyage, visualisation Power BI/Tableau et storytelling data pour prendre des décisions éclairées.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">180 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
-      <div class="price-note">Total : 225 000 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=data-reporting-decideurs&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">180 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=data-reporting-decideurs&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">75 000 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="data-reporting-decideurs">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-data-reporting-decideurs" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Fondamentaux de la Data & Excel Avancé</strong>
-          <ul>
-            <li>Structurer et nettoyer des données (Excel/Google Sheets)</li>
-            <li>Formules avancées (RECHERCHEV, SI, TCD)</li>
-            <li>Automatisation avec macros simples et IA</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Visualisation & Dashboards</strong>
-          <ul>
-            <li>Principes de datavisualisation efficace</li>
-            <li>Créer des dashboards Power BI ou Tableau</li>
-            <li>Choisir les bons graphiques (KPIs, tendances, comparaisons)</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Storytelling Data & Décision</strong>
-          <ul>
-            <li>Raconter une histoire avec les données</li>
-            <li>Présenter des insights actionnables</li>
-            <li>Culture data-driven dans l'organisation</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>ChatGPT / Claude (interprétation données, génération insights)</li>
-        <li>Excel + Copilot (formules automatiques, nettoyage)</li>
-        <li>Power BI / Tableau (dashboards avec AI insights)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Fichier Excel maîtrisé (formules avancées, TCD)</li>
-        <li>Dashboard Power BI interactif (projet personnel)</li>
-        <li>Guide de datavisualisation (best practices)</li>
-        <li>Templates de reporting (Excel + Power BI)</li>
-        <li>Bibliothèque de prompts data IA</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="b2c-course-card">
-  <div class="course-badge"><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA EMBARQUÉE</div>
-  <h3>Productivité & Outils (Microsoft 365)</h3>
-  <p class="course-subtitle">Maîtrisez Microsoft 365 et boostez votre productivité avec Copilot et l'IA</p>
-  
-  <div class="course-meta">
-    <span><span class="ds-icon ds-icon-time" style="color: #546E7A;"></span> 2 jours</span>
-    <span><span class="ds-icon ds-icon-chart" style="color: #26A69A;"></span> 3 modules</span>
-    <span><span class="ds-icon ds-icon-target" style="color: #1E88E5;"></span> Tous collaborateurs</span>
-  </div>
-
-  <div class="course-description">
-    <p>Word, Excel, PowerPoint, Teams, Outlook, OneDrive + Copilot IA pour une productivité optimale au quotidien.</p>
-  </div>
-
-  <div class="pricing-section">
-    <div class="price-option pack">
-      <div class="price-label"><span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Prix Pack Complet</div>
-      <div class="price-value">180 000 FCFA</div>
-      <div class="price-note">Économisez 20% vs achat module par module</div>
-    </div>
-    
-    <div class="price-option modules">
-      <div class="price-label"><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Prix par Module</div>
-      <div class="price-value">75 000 FCFA <span class="per-module">x 3</span></div>
-      <div class="price-note">Total : 225 000 FCFA</div>
-    </div>
-  </div>
-
-  <div class="course-actions">
-    <a href="./b2c-checkout.html?course=productivite-m365&type=pack" class="btn primary">
-      <span class="ds-icon ds-icon-premium" style="color: #7E57C2;"></span> Acheter le Pack
-      <span class="price-hint">180 000 FCFA</span>
-    </a>
-    <a href="./b2c-checkout.html?course=productivite-m365&type=module" class="btn secondary">
-      <span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Acheter un Module
-      <span class="price-hint">75 000 FCFA/module</span>
-    </a>
-  </div>
-
-  <div class="course-details-toggle">
-    <button class="details-btn" data-course="productivite-m365">
-       Voir le Programme Complet
-      <span class="chevron"></span>
-    </button>
-  </div>
-
-  <div class="course-details" id="details-productivite-m365" style="display: none;">
-    <div class="details-content">
-      <h4><span class="ds-icon ds-icon-book" style="color: #26A69A;"></span> Modules de Formation</h4>
-      <div class="modules-list">
-        
-        <div class="module-item">
-          <strong>Module 1: Word, Excel, PowerPoint avec Copilot</strong>
-          <ul>
-            <li>Rédiger des documents professionnels rapidement (Word + Copilot)</li>
-            <li>Analyses Excel automatisées (formules, TCD, graphiques)</li>
-            <li>Créer des présentations impactantes (PowerPoint + Designer)</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 2: Collaboration : Teams, Outlook, OneDrive</strong>
-          <ul>
-            <li>Organiser réunions et projets avec Teams</li>
-            <li>Gérer emails efficacement (Outlook + règles automatiques)</li>
-            <li>Partager et co-éditer documents (OneDrive, SharePoint)</li>
-          </ul>
-        </div>
-        
-        <div class="module-item">
-          <strong>Module 3: Productivité & Automation</strong>
-          <ul>
-            <li>Automatiser tâches répétitives (Power Automate)</li>
-            <li>Gérer son temps et ses priorités</li>
-            <li>Sécurité et bonnes pratiques Microsoft 365</li>
-          </ul>
-        </div>
-        
-      </div>
-
-      <h4><span class="ds-icon ds-icon-ai" style="color: #1E88E5;"></span> IA Embarquée & Outils</h4>
-      <ul class="ai-tools-list">
-        <li>Microsoft Copilot (intégré Word, Excel, PPT, Teams, Outlook)</li>
-        <li>Power Automate (automation workflows)</li>
-        <li>OneDrive / SharePoint (collaboration cloud)</li>
-      </ul>
-
-      <h4><span class="ds-icon ds-icon-package" style="color: #546E7A;"></span> Livrables</h4>
-      <ul class="deliverables-list">
-        <li>Classeur de templates professionnels (Word, Excel, PPT)</li>
-        <li>Guide des raccourcis et astuces (PDF)</li>
-        <li>Workflows Power Automate prêts à l'emploi</li>
-        <li>Setup productivité optimisé (checklist)</li>
-        <li>Bibliothèque de prompts Copilot IA</li>
-      </ul>
-
-      <div class="online-notice">
-        <span class="ds-icon ds-icon-star" style="color: #7E57C2;"></span> <strong>Accès 100% en ligne</strong> — Consultez vos supports directement dans la plateforme (pas de téléchargement)
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  
-
-  <!-- Course Data -->
-  <script src="./courses-data.js"></script>
-
-  <!-- Details Toggle Script -->
-  <script>
-    (function() {
-      'use strict';
-
-      // Toggle course details
-      document.querySelectorAll('.details-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          const courseSlug = this.getAttribute('data-course');
-          const details = document.getElementById('details-' + courseSlug);
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>IA Embarquée</h3>
+            <p>Chaque module intègre ChatGPT, Claude, Microsoft Copilot pour automatiser et accélérer votre apprentissage.</p>
+          </div>
           
-          if (details.style.display === 'none' || !details.style.display) {
-            details.style.display = 'block';
-            this.classList.add('active');
-          } else {
-            details.style.display = 'none';
-            this.classList.remove('active');
-          }
-        });
-      });
-
-      // Track B2C buy clicks
-      document.addEventListener('click', function(e) {
-        const buyBtn = e.target.closest('a[href*="b2c-checkout.html"]');
-        if (buyBtn && window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
-          const url = new URL(buyBtn.href, window.location.origin);
-          const courseSlug = url.searchParams.get('course');
-          const type = url.searchParams.get('type');
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12h8M12 8v8"/>
+              </svg>
+            </div>
+            <h3>Modulaire & Flexible</h3>
+            <p>Achetez le pack complet avec -20% d'économie ou module par module selon vos besoins.</p>
+          </div>
           
-          if (type === 'pack') {
-            window.DigiSchoolEvents.trackEvent('b2c_pack_buy_click', {
-              course: courseSlug,
-              page: 'b2c'
-            });
-          } else if (type === 'module') {
-            window.DigiSchoolEvents.trackEvent('b2c_module_buy_click', {
-              course: courseSlug,
-              page: 'b2c'
-            });
-          }
-        }
-      });
-    })();
-  </script>
-
-  <!-- Lead Events Tracking -->
-  <script src="./lead-events.js"></script>
-  <script src="/assets/digischool-chatbot.js" defer></script>
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <h3>Livrables Concrets</h3>
+            <p>Chaque parcours produit 5 à 8 livrables utilisables immédiatement dans votre travail.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3>Accès Immédiat</h3>
+            <p>100% en ligne, disponible 24/7. Commencez dès maintenant sans attendre de session de groupe.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Prix Transparents</h3>
+            <p>Pas de surprise. Prix affichés, paiement sécurisé, accès instantané après validation.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            </div>
+            <h3>Certificat Reconnu</h3>
+            <p>Certificat DigiSchool Africa à la fin de chaque parcours, valorisable sur votre CV et LinkedIn.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Formations Grid -->
+      <section class="courses-section" id="formations">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Nos 9 Parcours Professionnels</h2>
+        
+        <div class="courses-grid">
+          
+          <!-- Formation 1: Leadership -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Leadership & Management</h3>
+            <p>Devenez un leader inspirant et efficace avec des techniques modernes et l'appui de l'IA.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 5 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Manager/Cadre</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 245 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=leadership-management&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+            
+            <div class="course-accordion">
+              <button class="accordion-toggle" onclick="toggleAccordion('leadership')">
+                <span>Voir le Programme</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content" id="accordion-leadership">
+                <div class="modules-list">
+                  <div class="module-item">
+                    <strong>Module 1: Leadership Transformationnel</strong>
+                    <ul>
+                      <li>Définir et communiquer une vision inspirante</li>
+                      <li>Aligner les équipes sur les objectifs stratégiques</li>
+                      <li>Développer votre style de leadership authentique</li>
+                    </ul>
+                  </div>
+                  <div class="module-item">
+                    <strong>Module 2: Management d'Équipes Hybrides</strong>
+                    <ul>
+                      <li>Piloter des équipes distribuées efficacement</li>
+                      <li>Maintenir l'engagement et la cohésion</li>
+                      <li>Utiliser les outils collaboratifs IA</li>
+                    </ul>
+                  </div>
+                  <div class="module-item">
+                    <strong>Module 3: Gestion des Conflits</strong>
+                    <ul>
+                      <li>Détecter et résoudre les conflits rapidement</li>
+                      <li>Communication assertive et feedback constructif</li>
+                      <li>Médiation et négociation avec support IA</li>
+                    </ul>
+                  </div>
+                  <div class="module-item">
+                    <strong>Module 4: Culture d'Entreprise</strong>
+                    <ul>
+                      <li>Bâtir une culture performante et inclusive</li>
+                      <li>Mesurer et booster l'engagement collaborateur</li>
+                      <li>Change management et conduite du changement</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Formation 2: Gestion de Projet -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Gestion de Projet (PMP)</h3>
+            <p>Méthodologie PMP complète avec IA pour automatisation et prédiction de risques.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 10 jours</span>
+              <span>📚 6 modules</span>
+              <span>🎯 Chef de Projet</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 490 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=gestion-projet-pmp&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+            
+            <div class="course-accordion">
+              <button class="accordion-toggle" onclick="toggleAccordion('pmp')">
+                <span>Voir le Programme</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content" id="accordion-pmp">
+                <div class="modules-list">
+                  <div class="module-item">
+                    <strong>Module 1: Cadrage & Initiation</strong>
+                    <ul>
+                      <li>Charte projet et alignement parties prenantes</li>
+                      <li>Définition du périmètre avec IA</li>
+                      <li>Analyse de faisabilité automatisée</li>
+                    </ul>
+                  </div>
+                  <div class="module-item">
+                    <strong>Module 2-6: Planification, Exécution, Suivi, Clôture</strong>
+                    <ul>
+                      <li>WBS et planification avec Microsoft Project + IA</li>
+                      <li>Gestion des risques prédictive</li>
+                      <li>Tableaux de bord automatisés</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Formation 3: Data Analytics -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Data Analytics & Visualisation</h3>
+            <p>Transformez vos données en insights actionnables avec Python, Power BI et IA.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 8 jours</span>
+              <span>📚 5 modules</span>
+              <span>🎯 Analyste/Manager</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 392 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=data-analytics&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+            
+            <div class="course-accordion">
+              <button class="accordion-toggle" onclick="toggleAccordion('data')">
+                <span>Voir le Programme</span>
+                <span class="accordion-icon">▼</span>
+              </button>
+              <div class="accordion-content" id="accordion-data">
+                <div class="modules-list">
+                  <div class="module-item">
+                    <strong>Module 1-3: Collecte, Nettoyage, Analyse</strong>
+                    <ul>
+                      <li>Python pour l'analyse de données (Pandas, NumPy)</li>
+                      <li>Nettoyage et préparation automatisés avec IA</li>
+                      <li>Statistiques descriptives et inférentielles</li>
+                    </ul>
+                  </div>
+                  <div class="module-item">
+                    <strong>Module 4-5: Visualisation & Storytelling</strong>
+                    <ul>
+                      <li>Power BI et Tableau pour dashboards interactifs</li>
+                      <li>Storytelling data-driven</li>
+                      <li>Automatisation des rapports avec IA</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Formation 4: Excel Avancé -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Excel Avancé & IA</h3>
+            <p>Maîtrisez Excel au niveau expert avec Power Query, Power Pivot et Copilot.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 4 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Tous profils</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 196 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=excel-avance&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+          </div>
+          
+          <!-- Formation 5: Power BI -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Power BI & Business Intelligence</h3>
+            <p>Créez des dashboards professionnels et automatisez vos reportings avec Power BI.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 5 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Analyste/Contrôleur</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 245 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=power-bi&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+          </div>
+          
+          <!-- Formation 6: Marketing Digital -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Marketing Digital & IA</h3>
+            <p>Stratégies marketing modernes avec SEO, social media, automation et IA générative.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 6 jours</span>
+              <span>📚 5 modules</span>
+              <span>🎯 Marketing/Growth</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 294 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=marketing-digital&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+          </div>
+          
+          <!-- Formation 7: Transformation Digitale -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Transformation Digitale</h3>
+            <p>Pilotez la transformation digitale de votre organisation avec méthodes agiles et IA.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 4 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 DG/Directeur</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 196 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=transformation-digitale&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+          </div>
+          
+          <!-- Formation 8: RH Moderne -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>RH Moderne & People Analytics</h3>
+            <p>Révolutionnez votre fonction RH avec People Analytics, IA et outils modernes.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 5 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 RH/Manager</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 245 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=rh-moderne&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+          </div>
+          
+          <!-- Formation 9: Stratégie & Exécution -->
+          <div class="course-card">
+            <span class="course-badge">IA EMBARQUÉE</span>
+            <h3>Stratégie & Exécution</h3>
+            <p>Élaborez et exécutez votre stratégie avec OKRs, KPIs et alignment d'équipe.</p>
+            
+            <div class="course-meta">
+              <span>⏱ 4 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 DG/Directeur</span>
+            </div>
+            
+            <div class="course-price">
+              Pack Complet: 196 000 FCFA <span style="font-size: var(--text-sm); color: var(--ds-gray);">(Économisez 20%)</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="./b2c-checkout.html?course=strategie-execution&type=pack" class="btn btn-primary" style="font-size: var(--text-base);">
+                Acheter le Pack
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+    </div>
+  </div>
   
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-
-
-  <!-- V2 Production Components -->
+  <!-- Scripts -->
   <script src="/assets/global-components-v2-production.js"></script>
   <script src="/assets/chatbot-manager-v2.js"></script>
-
-<!-- DigiSchool Premium UX Components V2.2.x-H -->
-<script src="/assets/premium-ux-components-v2.2.x-h.js"></script>
-<script src="/assets/apply-premium-ux-refactor.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Partner Logos Section UNIQUE -->
-<link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
-<section class="ds-partners-section">
-  <div class="ds-partners-container">
-    <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
-    
-    <!-- Catégorie 1: Project / IT / Architecture / Change -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="PMI - Project Management Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60" class="ds-logo-pmi">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
-          </svg>
+  
+  <script>
+    function toggleAccordion(id) {
+      const content = document.getElementById('accordion-' + id);
+      const toggle = event.currentTarget;
+      
+      toggle.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+  </script>
+  
+  <!-- Partner Logos Section -->
+  <link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
+  <section class="ds-partners-section">
+    <div class="ds-partners-container">
+      <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="PMI - Project Management Institute">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Catégorie 2: Finance / Audit / Risk -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="CFA Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="IFAC - International Federation of Accountants">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ISACA - IT Governance & Security">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
-          </svg>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="CFA Institute">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="IFAC">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ISACA">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Catégorie 3: Data / Digital / HR / Supply Chain -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="Microsoft - Cloud & AI">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <rect x="20" y="18" width="14" height="14" fill="#F25022"/>
-            <rect x="36" y="18" width="14" height="14" fill="#7FBA00"/>
-            <rect x="20" y="32" width="14" height="14" fill="#00A4EF"/>
-            <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="AWS - Cloud Computing">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="Google Cloud">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="DAMA - Data Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="CIPD - HR Professional Body">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ASCM - Supply Chain Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="DMI - Digital Marketing Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
-          </svg>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="Microsoft">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <rect x="20" y="18" width="14" height="14" fill="#F25022"/>
+              <rect x="36" y="18" width="14" height="14" fill="#7FBA00"/>
+              <rect x="20" y="32" width="14" height="14" fill="#00A4EF"/>
+              <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="AWS">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="Google Cloud">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="DAMA">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="CIPD">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ASCM">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="DMI">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Universités (ligne dédiée) -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Références Académiques</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="Harvard Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="MIT - Massachusetts Institute of Technology">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="HEC Paris">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
-            <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ESSEC Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="London Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
-          </svg>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Références Académiques</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="Harvard Business School">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="MIT">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="HEC Paris">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
+              <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ESSEC">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="London Business School">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
+            </svg>
+          </div>
         </div>
       </div>
+      
+      <div class="ds-partners-disclaimer">
+        <strong>Note importante</strong> : Les logos ci-dessus représentent des <strong>références académiques et bibliographiques</strong> 
+        utilisées dans nos contenus pédagogiques. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention 
+        d'une certification officielle de ces organismes. Nos parcours vous préparent aux examens externes lorsque pertinent.
+      </div>
     </div>
-    
-    <div class="ds-partners-disclaimer">
-      <strong>Note importante</strong> : Les logos ci-dessus représentent des <strong>références académiques et bibliographiques</strong> 
-      utilisées dans nos contenus pédagogiques. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention 
-      d'une certification officielle de ces organismes (pour l'instant). Nos parcours vous préparent aux examens externes 
-      lorsque pertinent, et intègrent les standards internationaux pour assurer une qualité premium.
-    </div>
-  </div>
-</section>
-<!-- End Partner Logos -->
-
+  </section>
+  
 </body>
 </html>
