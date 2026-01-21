@@ -1,922 +1,814 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parcours de Formation — DigiSchool Africa</title>
-  <meta name="description" content="13 parcours métiers augmentés par l'IA : Gestion de Projet, Finance, Data, RH, Marketing, Supply Chain et plus. Formations professionnelles adaptées à l'Afrique." />
+  <meta name="description" content="9 parcours métiers augmentés par l'IA : Gestion de Projet, Finance, Data, RH, Marketing et plus. Formations professionnelles premium.">
   
-  <!-- Open Graph -->
-  <meta property="og:title" content="Parcours de Formation — DigiSchool Africa" />
-  <meta property="og:description" content="13 parcours métiers augmentés par l'IA pour développer vos compétences professionnelles en Afrique." />
-  <meta property="og:url" content="https://digischool.africa/parcours.html" />
-  <meta property="og:type" content="website" />
-  
-  <link rel="canonical" href="https://digischool.africa/parcours.html" />
-
-  <!-- ancien style supprimé -->
-  
-  
+  <link rel="canonical" href="https://digischool.africa/parcours.html">
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/assets/brand-icons-v2-2-x-j.css">
+  
+  <style>
+    /* Clone assessment wrapper style */
+    .parcours-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .parcours-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .parcours-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    
+    .parcours-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .parcours-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-8);
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
+    }
+    
+    /* How it works - Feature cards */
+    .how-it-works {
+      margin: var(--space-12) 0;
+    }
+    
+    .how-it-works h2 {
+      text-align: center;
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-8);
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-6);
+    }
+    
+    .step-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--space-4);
+    }
+    
+    .step-card h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .step-card p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    /* Parcours cards */
+    .parcours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    
+    .parcours-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .parcours-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .parcours-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .parcours-badge {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+    }
+    
+    .parcours-card h3 {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .parcours-card p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      line-height: 1.6;
+      margin-bottom: var(--space-6);
+    }
+    
+    .parcours-meta {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin: var(--space-4) 0;
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+    }
+    
+    /* Benefits section */
+    .benefits-section {
+      margin: var(--space-12) 0;
+    }
+    
+    .benefits-section h2 {
+      text-align: center;
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-8);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-6);
+    }
+    
+    .benefit-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .benefit-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+      font-size: 28px;
+    }
+    
+    .benefit-card h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .benefit-card p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .parcours-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .steps-grid, .parcours-grid, .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-<body>
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-
-
-
-
-  <div class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Parcours de Formation DigiSchool Africa</h1>
-        <p>
-          Développe des compétences opérationnelles alignées sur les besoins réels des entreprises africaines. 
-          13 parcours métiers augmentés par l'IA pour transformer ta pratique professionnelle.
-        </p>
-        <div class="hero-actions">
-          <a href="#parcours" class="btn btn-primary">Voir les parcours</a>
-          <a href="./b2c.html?from=parcours-hero" class="btn btn-secondary">Commander maintenant </a>
+<body data-page="parcours">
+  
+  <!-- Header injecté via JS -->
+  
+  <div class="parcours-wrapper">
+    <div class="parcours-container">
+      
+      <!-- Hero -->
+      <div class="parcours-header animate-fade-in">
+        <h1 class="text-gradient">9 Parcours Professionnels Premium</h1>
+        <p>Développez des compétences opérationnelles alignées sur les besoins réels des entreprises. Chaque parcours intègre l'IA comme copilote pour automatiser et accélérer votre progression.</p>
+        
+        <div class="cta-buttons">
+          <a href="/b2c-assessment.html" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Commencer le Diagnostic
+          </a>
+          <a href="#parcours" class="btn btn-secondary">
+            Explorer les Parcours
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- INTRODUCTION -->
-    <section class="section fade-in">
-      <h2 class="section-title">Pourquoi ces parcours existent</h2>
-      <p class="section-subtitle">
-        DigiSchool Africa forme des professionnels à des compétences concrètes et mesurables. 
-        Chaque parcours intègre l'IA comme copilote pour automatiser les tâches répétitives et 
-        te concentrer sur l'analyse, la décision et l'impact. Nos formations s'appuient sur des 
-        cas métiers africains et produisent des livrables réutilisables immédiatement en entreprise.
-      </p>
-    </section>
-
-    <!-- POUR QUI CES PARCOURS -->
-    <section class="section fade-in">
-      <h2 class="section-title">Pour qui ces parcours</h2>
-      <div class="publics-grid">
-        <div class="public-card">
-          <h3>Jeunes diplômés</h3>
-          <p>
-            Tu cherches ton premier emploi qualifié ou un stage professionnel. 
-            Ces parcours te donnent les compétences opérationnelles attendues par les recruteurs africains.
-          </p>
-        </div>
-        <div class="public-card">
-          <h3>Professionnels en poste</h3>
-          <p>
-            Tu veux progresser, te reconvertir ou automatiser ton travail avec l'IA. 
-            Ces parcours te permettent d'évoluer sans quitter ton poste actuel.
-          </p>
-        </div>
-        <div class="public-card">
-          <h3>Cadres et managers</h3>
-          <p>
-            Tu pilotes des équipes ou des projets stratégiques. 
-            Ces parcours te donnent les outils d'analyse, de décision et de conduite du changement nécessaires.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- LISTE DES PARCOURS -->
-    <section class="section fade-in" id="parcours">
-      <h2 class="section-title">Les 13 parcours disponibles</h2>
-      <p class="section-subtitle">
-        Chaque parcours dure entre 8 et 16 semaines et produit des livrables professionnels concrets. 
-        Formations disponibles en Intra-entreprise, Inter-entreprises, Bootcamp ou Blended.
-      </p>
-
-      <div class="parcours-grid">
-        <!-- PARCOURS 1 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge"> PRIORITAIRE</div>
-          <h3>Gestion de Projet (PMP-aligned) — IA</h3>
-          <p>
-            Cadre, planifie et pilote des projets complexes avec l'IA. 
-            Automatise le reporting, le suivi budgétaire et la gestion des risques.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 10 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Chef de projet, PMO</span>
+      
+      <!-- Comment ça marche -->
+      <div class="how-it-works">
+        <h2>Comment ça marche</h2>
+        
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Diagnostic Gratuit</h3>
+            <p>Répondez à 10 questions (2 minutes) pour identifier vos forces et le parcours adapté à votre profil.</p>
           </div>
-          <div class="parcours-actions">
-            <a href="./parcours/gestion-projet-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=gestion-projet-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
+          
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Choisissez Votre Parcours</h3>
+            <p>Sélectionnez le parcours recommandé ou explorez les 9 formations disponibles selon vos objectifs.</p>
           </div>
-        </div>
-
-        <!-- PARCOURS 2 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>Finance & Analyse Financière — IA</h3>
-          <p>
-            Analyse automatisée des états financiers, détection d'anomalies et prévisions de trésorerie avec l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 10 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Contrôleur de gestion, Analyste</span>
+          
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Formation Interactive</h3>
+            <p>Modules en ligne avec IA embarquée, exercices pratiques et cas d'usage réels sur 4 à 10 jours.</p>
           </div>
-          <div class="parcours-actions">
-            <a href="./parcours/finance-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=finance-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 3 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>Data & Analytics — IA</h3>
-          <p>
-            Nettoie, analyse et visualise des données avec l'IA. 
-            Crée des dashboards et des analyses prédictives pour la prise de décision.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 12 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Data Analyst, Business Analyst</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/data-analytics-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=data-analytics-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 4 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>RH & Performance — IA</h3>
-          <p>
-            Recrutement augmenté, parcours formation personnalisés et prédiction du turnover avec l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 8 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Responsable RH, Recruteur</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/rh-performance-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=rh-performance-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 5 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>Marketing & Vente B2B — IA</h3>
-          <p>
-            Personnalisation à grande échelle, lead scoring et mesure du ROI en temps réel avec l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 10 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Marketing B2B, Sales Manager</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/marketing-vente-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=marketing-vente-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 6 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">DEV + IA</div>
-          <h3>Digital, IA & Vibecoding</h3>
-          <p>
-            Développement Front/Back, automatisation et création d'applications métier avec des copilotes IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 16 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Développeur, Tech Lead</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/digital-vibecoding.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=digital-vibecoding" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 7 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>Supply Chain & Logistique — IA</h3>
-          <p>
-            Optimise les stocks, prévois la demande et automatise la planification avec l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 10 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Supply Chain Manager, Logisticien</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/supply-chain-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=supply-chain-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 8 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>Management — Cartographie & Ingénierie des Processus</h3>
-          <p>
-            Cartographie, optimise et automatise les processus métier avec l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 8 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Manager opérationnel, Consultant</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/management-processus-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=management-processus-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 9 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">IA EMBARQUÉE</div>
-          <h3>Achats Stratégiques & Sourcing — IA</h3>
-          <p>
-            Analyse des fournisseurs, négociation et optimisation des coûts avec l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 8 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Acheteur, Responsable Achats</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/achats-sourcing-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=achats-sourcing-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 10 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">SÉCURITÉ + IA</div>
-          <h3>Sécurité, Data & Gouvernance</h3>
-          <p>
-            Gouvernance des données, conformité RGPD/GDPR et sécurité augmentée par l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 10 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>DPO, RSSI, Compliance Officer</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/securite-gouvernance-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=securite-gouvernance-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 11 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">DIRIGEANTS</div>
-          <h3>Data, IA & Décision Stratégique</h3>
-          <p>
-            Utilise la data et l'IA pour piloter la stratégie, identifier les opportunités et anticiper les risques.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 6 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>CEO, Directeur Général, C-Level</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/dirigeants-decision-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=dirigeants-decision-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 12 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">CYBER + IA</div>
-          <h3>Cyber-Résilience & Gestion de Crise</h3>
-          <p>
-            Détection des menaces, réponse aux incidents et plans de continuité augmentés par l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 8 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>RSSI, Risk Manager, SOC Analyst</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/cyber-resilience-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=cyber-resilience-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
-          </div>
-        </div>
-
-        <!-- PARCOURS 13 -->
-        <div class="parcours-card fade-in">
-          <div class="parcours-badge">EXPANSION</div>
-          <h3>Stratégie d'Expansion & Multi-Pays</h3>
-          <p>
-            Analyse de marchés, due diligence et stratégies d'implantation régionale augmentées par l'IA.
-          </p>
-          <div class="parcours-meta">
-            <span>⏱ 10 semaines</span>
-            <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>Directeur Expansion, Business Dev</span>
-          </div>
-          <div class="parcours-actions">
-            <a href="./parcours/expansion-multi-pays-ia.html" class="btn btn-primary btn-small">Voir le programme</a>
-            <a href="./b2c.html?from=expansion-multi-pays-ia" class="btn btn-secondary btn-small">Commander maintenant </a>
+          
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Livrables & Certificat</h3>
+            <p>Produisez 5 à 8 livrables professionnels et recevez votre certificat DigiSchool Africa.</p>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- COMMENT CHOISIR -->
-    <section class="section fade-in">
-      <h2 class="section-title">Comment choisir le bon parcours</h2>
-      <p class="section-subtitle">
-        Commence par identifier ton objectif professionnel concret : obtenir un poste, progresser dans ton entreprise 
-        ou piloter un projet stratégique. Ensuite, croise avec les compétences manquantes. Si tu hésites, échange avec 
-        un conseiller DigiSchool : nous analysons ton besoin sous 24 heures et te proposons une recommandation personnalisée 
-        avec un plan de formation adapté.
-      </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 32px;">
-        <a href="https://wa.me/2250505111102?text=Bonjour%20DigiSchool%20Africa%20%F0%9F%91%8B%0AJe%20souhaite%20parler%20%C3%A0%20un%20conseiller%20pour%20choisir%20un%20parcours.%0AMerci%20!" target="_blank" rel="noopener" class="btn btn-primary">Parler à un conseiller</a>
-        <a href="./b2c.html?from=parcours-choix" class="btn btn-secondary">Commander maintenant </a>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="cta-final fade-in">
-      <h2>Prêt à commencer ?</h2>
-      <p>
-        Décris ton besoin en quelques minutes. 
-        Nous te répondons avec un plan de formation personnalisé sous 48 heures.
-      </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="./b2c.html?from=parcours-cta-final" class="btn btn-primary">Commander maintenant </a>
-        <a href="mailto:support@digischool.africa" class="btn btn-secondary">Envoyer un email</a>
-      </div>
-      <p style="margin-top: 24px; font-size: 0.95rem; color: var(--muted2);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>support@digischool.africa • <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+225 05 05 11 11 02 • 
-        <a href="https://wa.me/2250505111102" target="_blank" rel="noopener" style="color: var(--green); text-decoration: none;">WhatsApp</a>
-      </p>
-    </section>
-  </div>
-
-  <!-- FOOTER -->
-  
-
-  <script>
-    // Scroll reveal avec IntersectionObserver
-    (function() {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    })();
-
-    // Smooth scroll pour les ancres
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
-
-  <!-- Lead Events Tracking -->
-  <script src="./lead-events.js"></script>
-
-  <script src="/assets/digischool-chatbot.js" defer></script>
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-
-
-<!-- DigiSchool Premium UX Components V2.2.x-I -->
-<script src="/assets/global-components-v2-production.js"></script>
-<script src="/assets/chatbot-manager-v2.js"></script>
-
-
-
-
-
-
-
-
-
-<!-- Partner Logos Section UNIQUE -->
-<link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
-<section class="ds-partners-section">
-  <div class="ds-partners-container">
-    <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
-    
-    <!-- Catégorie 1: Project / IT / Architecture / Change -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="PMI - Project Management Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60" class="ds-logo-pmi">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
-          </svg>
-        </div>
+      
+      <!-- Parcours Grid -->
+      <section style="margin: var(--space-12) 0;" id="parcours">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Les 9 Parcours Disponibles</h2>
         
-        <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
-          </svg>
+        <div class="parcours-grid">
+          
+          <!-- Parcours 1 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Leadership & Management</h3>
+            <p>Devenez un leader inspirant et efficace avec des techniques modernes et l'appui de l'IA.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 5 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Tous niveaux</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#leadership" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=leadership" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 2 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Gestion de Projet (PMP)</h3>
+            <p>Méthodologie PMP complète avec IA pour automatisation et prédiction de risques.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 10 jours</span>
+              <span>📚 6 modules</span>
+              <span>🎯 Intermédiaire</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#pmp" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=pmp" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 3 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Data Analytics & Visualisation</h3>
+            <p>Transformez vos données en insights actionnables avec Python, Power BI et IA.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 8 jours</span>
+              <span>📚 5 modules</span>
+              <span>🎯 Tous niveaux</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#data" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=data" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 4 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Excel Avancé & IA</h3>
+            <p>Maîtrisez Excel au niveau expert avec Power Query, Power Pivot et Copilot.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 4 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Tous niveaux</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#excel" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=excel" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 5 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Power BI & Business Intelligence</h3>
+            <p>Créez des dashboards professionnels et automatisez vos reportings.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 5 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Tous niveaux</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#powerbi" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=powerbi" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 6 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Marketing Digital & IA</h3>
+            <p>Stratégies marketing modernes avec SEO, social media, automation et IA générative.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 6 jours</span>
+              <span>📚 5 modules</span>
+              <span>🎯 Tous niveaux</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#marketing" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=marketing" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 7 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Transformation Digitale</h3>
+            <p>Pilotez la transformation digitale de votre organisation avec méthodes agiles et IA.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 4 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 Manager/Directeur</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#transformation" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=transformation" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 8 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>RH Moderne & People Analytics</h3>
+            <p>Révolutionnez votre fonction RH avec People Analytics, IA et outils modernes.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 5 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 RH/Manager</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#rh" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=rh" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
+          <!-- Parcours 9 -->
+          <div class="parcours-card">
+            <span class="parcours-badge">IA EMBARQUÉE</span>
+            <h3>Stratégie & Exécution</h3>
+            <p>Élaborez et exécutez votre stratégie avec OKRs, KPIs et alignment d'équipe.</p>
+            
+            <div class="parcours-meta">
+              <span>⏱ 4 jours</span>
+              <span>📚 4 modules</span>
+              <span>🎯 DG/Directeur</span>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/b2c.html#strategie" class="btn btn-primary" style="font-size: var(--text-base);">
+                Voir le Programme
+              </a>
+              <a href="/b2c-checkout.html?course=strategie" class="btn btn-secondary" style="font-size: var(--text-base);">
+                Choisir ce Parcours
+              </a>
+            </div>
+          </div>
+          
         </div>
+      </section>
+      
+      <!-- Ce que vous obtenez -->
+      <div class="benefits-section">
+        <h2>Ce que vous obtenez</h2>
         
-        <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
-          </svg>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <h3>5 à 8 Livrables</h3>
+            <p>Documents professionnels directement réutilisables dans votre travail quotidien.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>IA Embarquée</h3>
+            <p>ChatGPT, Claude, Microsoft Copilot intégrés à chaque module pour automatiser les tâches.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Support Expert</h3>
+            <p>Accès aux formateurs experts via chat et sessions Q&A hebdomadaires en live.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            </div>
+            <h3>Certificat Reconnu</h3>
+            <p>Certificat DigiSchool Africa à valoriser sur votre CV et LinkedIn.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <h3>Accès Immédiat 24/7</h3>
+            <p>100% en ligne, à votre rythme. Commencez quand vous voulez, où vous voulez.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3>Cas Pratiques Réels</h3>
+            <p>Exercices basés sur des cas d'entreprises africaines pour une application immédiate.</p>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Catégorie 2: Finance / Audit / Risk -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="CFA Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="IFAC - International Federation of Accountants">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ISACA - IT Governance & Security">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Catégorie 3: Data / Digital / HR / Supply Chain -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="Microsoft - Cloud & AI">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <rect x="20" y="18" width="14" height="14" fill="#F25022"/>
-            <rect x="36" y="18" width="14" height="14" fill="#7FBA00"/>
-            <rect x="20" y="32" width="14" height="14" fill="#00A4EF"/>
-            <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="AWS - Cloud Computing">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="Google Cloud">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="DAMA - Data Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="CIPD - HR Professional Body">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ASCM - Supply Chain Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="DMI - Digital Marketing Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Universités (ligne dédiée) -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Références Académiques</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="Harvard Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="MIT - Massachusetts Institute of Technology">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="HEC Paris">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
-            <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ESSEC Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="London Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <div class="ds-partners-disclaimer">
-      <strong>Note importante</strong> : Les logos ci-dessus représentent des <strong>références académiques et bibliographiques</strong> 
-      utilisées dans nos contenus pédagogiques. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention 
-      d'une certification officielle de ces organismes (pour l'instant). Nos parcours vous préparent aux examens externes 
-      lorsque pertinent, et intègrent les standards internationaux pour assurer une qualité premium.
+      
     </div>
   </div>
-</section>
-<!-- End Partner Logos -->
-
+  
+  <!-- Scripts -->
+  <script src="/assets/global-components-v2-production.js"></script>
+  <script src="/assets/chatbot-manager-v2.js"></script>
+  
+  <!-- Partner Logos Section -->
+  <link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
+  <section class="ds-partners-section">
+    <div class="ds-partners-container">
+      <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="PMI - Project Management Institute">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="CFA Institute">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="IFAC">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ISACA">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="Microsoft">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <rect x="20" y="18" width="14" height="14" fill="#F25022"/>
+              <rect x="36" y="18" width="14" height="14" fill="#7FBA00"/>
+              <rect x="20" y="32" width="14" height="14" fill="#00A4EF"/>
+              <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="AWS">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="Google Cloud">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="DAMA">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="CIPD">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ASCM">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="DMI">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Références Académiques</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="Harvard Business School">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="MIT">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="HEC Paris">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
+              <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ESSEC">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="London Business School">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-disclaimer">
+        <strong>Note importante</strong> : Les logos ci-dessus représentent des <strong>références académiques et bibliographiques</strong> 
+        utilisées dans nos contenus pédagogiques. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention 
+        d'une certification officielle de ces organismes. Nos parcours vous préparent aux examens externes lorsque pertinent.
+      </div>
+    </div>
+  </section>
+  
 </body>
 </html>
