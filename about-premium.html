@@ -4,712 +4,718 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>À Propos — DigiSchool Africa</title>
+  <meta name="description" content="DigiSchool Africa : formations professionnelles premium adaptées à l'Afrique. Mission, vision et expertise.">
   
-  
-  
+  <link rel="canonical" href="https://digischool.africa/about-premium.html">
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <style>
+    /* Clone assessment wrapper style */
+    .about-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .about-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .about-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    
+    .about-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .about-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-8);
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
+    }
+    
+    /* Cards grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    
+    .about-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-hero);
+    }
+    
+    .about-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary);
+    }
+    
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(30, 136, 229, 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-4);
+    }
+    
+    .about-card h3 {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-3);
+      color: var(--ds-dark);
+    }
+    
+    .about-card p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    /* Leadership card */
+    .leadership-card {
+      background: white;
+      border: 2px solid var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-10);
+      margin: var(--space-8) 0;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .leadership-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--gradient-hero);
+    }
+    
+    .leadership-badge {
+      display: inline-block;
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+    }
+    
+    .founder-name {
+      text-align: center;
+      margin: var(--space-6) 0;
+    }
+    
+    .founder-name h3 {
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: var(--space-2);
+    }
+    
+    .founder-name p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+    }
+    
+    /* Accordion */
+    .accordion-item {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-4);
+      overflow: hidden;
+    }
+    
+    .accordion-header {
+      padding: var(--space-6);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all var(--transition-base);
+    }
+    
+    .accordion-header:hover {
+      background: rgba(30, 136, 229, 0.04);
+    }
+    
+    .accordion-header h3 {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin: 0;
+    }
+    
+    .accordion-icon {
+      transition: transform var(--transition-base);
+    }
+    
+    .accordion-header.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .accordion-content.active {
+      max-height: 500px;
+    }
+    
+    .accordion-body {
+      padding: 0 var(--space-6) var(--space-6);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      .about-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
-<body>
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-
-
-
-
-
+<body data-page="about">
   
-  <!-- Hero Premium -->
-  <section class="hero-premium">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">Notre Mission : Transformer l'Afrique par la Formation</h1>
-        <p class="hero-subtitle">
-          DigiSchool Africa est née d'une conviction profonde : les talents africains méritent une formation de classe mondiale, ancrée dans leur réalité, augmentée par l'intelligence artificielle.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vision Section -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="text-center mb-lg">Notre Vision</h2>
-      <div class="grid-premium grid-2">
-        <div class="card-premium">
-          <h3> Afrique 2030</h3>
-          <p>Faire de l'Afrique un continent de référence en matière de compétences professionnelles augmentées par l'IA. Chaque professionnel africain doit avoir accès à une formation de niveau international, adaptée à son contexte.</p>
+  <!-- Header injecté via JS -->
+  
+  <div class="about-wrapper">
+    <div class="about-container">
+      
+      <!-- Hero -->
+      <div class="about-header animate-fade-in">
+        <h1 class="text-gradient">À Propos de DigiSchool Africa</h1>
+        <p>Nous transformons les talents africains grâce à des formations professionnelles premium, ancrées dans la réalité du continent et augmentées par l'intelligence artificielle.</p>
+        
+        <div class="cta-buttons">
+          <a href="/b2c.html" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+            Explorer les Formations
+          </a>
+          <a href="/contact.html" class="btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Parler à un Conseiller
+          </a>
         </div>
-        <div class="card-premium">
-          <h3> Excellence & Inclusion</h3>
-          <p>Combiner rigueur académique, méthodes innovantes et accessibilité. Nos formations sont conçues pour être exigeantes tout en restant accessibles financièrement et géographiquement.</p>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Digilab Link Section -->
-  <section class="section section-gradient">
-    <div class="container">
-      <h2 class="text-center mb-lg">Un Héritage d'Innovation : Digilab</h2>
-      <div class="card-premium" style="max-width: 800px; margin: 0 auto;">
-        <p class="mb-md">
-          DigiSchool Africa est portée par <strong>Digilab</strong>, pionnier de la transformation digitale en Afrique. Fort de son expertise en IA, data science et innovation, Digilab apporte à DigiSchool :
-        </p>
-        <ul style="list-style: none; padding: 0;">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg><strong>Expertise IA</strong> : Contenus augmentés par l'intelligence artificielle</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg><strong>Méthodologie Éprouvée</strong> : Partenaire de confiance pour de nombreuses organisations africaines</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg><strong>Réseau Africain</strong> : Présence dans 12 pays</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><polyline points="20 6 9 17 4 12"/></svg><strong>Innovation Continue</strong> : Labs R&D dédiés à l'éducation</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fondateur Section -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="text-center mb-lg">Le Fondateur</h2>
-      <div class="card-premium" style="max-width: 700px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 24px;">
-          <div style="display: inline-block; padding: 16px 32px; background: linear-gradient(135deg, rgba(30,136,229,0.08), rgba(38,166,154,0.08)); border-radius: 12px;">
-            <h3 style="font-size: 2rem; font-weight: 800; letter-spacing: 2px; margin: 0;">
-              Hervé <span class="gradient-text">S-A-J-O-R-I</span>
-            </h3>
-            <p style="margin-top: 8px; color: var(--gray-dark); font-size: 0.9rem;">Fondateur & CEO</p>
+      
+      <!-- Mission & Vision -->
+      <section style="margin: var(--space-12) 0;">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Mission & Vision</h2>
+        
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3>Notre Mission</h3>
+            <p>Démocratiser l'accès à une formation professionnelle d'excellence en Afrique. Chaque talent africain mérite des compétences de classe mondiale, adaptées à son contexte et augmentées par l'IA.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3>Notre Vision</h3>
+            <p>Faire de l'Afrique un continent de référence en matière de compétences professionnelles augmentées par l'IA d'ici 2030. Excellence pédagogique et accessibilité sans compromis.</p>
           </div>
         </div>
-        <p>
-          Entrepreneur et visionnaire, Hervé S-A-J-O-R-I a fondé DigiSchool Africa avec une ambition claire : démocratiser l'accès à une formation professionnelle d'excellence en Afrique.
-        </p>
-        <p>
-          Son parcours à la tête de Digilab lui a permis de comprendre les enjeux de transformation des entreprises africaines. Aujourd'hui, il met cette expertise au service de la formation continue pour créer une nouvelle génération de talents prêts pour l'économie de demain.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Nos Principes -->
-  <section class="section section-soft">
-    <div class="container">
-      <h2 class="text-center mb-lg">Nos Principes Fondamentaux</h2>
-      <div class="grid-premium grid-3">
-        <div class="card-premium">
-          <div class="card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-              <path d="M2 17l10 5 10-5"></path>
-              <path d="M2 12l10 5 10-5"></path>
+      </section>
+      
+      <!-- Ce qui nous différencie -->
+      <section style="margin: var(--space-12) 0;">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Ce qui nous différencie</h2>
+        
+        <div class="cards-grid">
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3>Learn-by-Doing</h3>
+            <p>80% pratique, 20% théorie. Chaque heure de formation produit des livrables directement applicables dans votre travail.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+              </svg>
+            </div>
+            <h3>IA Embarquée</h3>
+            <p>ChatGPT, Claude, Microsoft Copilot intégrés à chaque module pour automatiser les tâches répétitives et accélérer l'apprentissage.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <h3>Livrables Actionnables</h3>
+            <p>5 à 8 livrables professionnels par parcours : templates, dashboards, plans d'action, stratégies prêtes à déployer.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                <path d="M2 12h20"/>
+              </svg>
+            </div>
+            <h3>Contexte Africain</h3>
+            <p>Cas d'usage, exemples et exercices basés sur des contextes d'entreprises africaines. Pertinence maximale, zéro théorie hors-sol.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Flexibilité B2C/B2B</h3>
+            <p>Particuliers, entreprises, formats Intra/Inter/Bootcamp. Nous nous adaptons à vos contraintes et objectifs.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Support Expert</h3>
+            <p>Formateurs terrain disponibles via chat, sessions Q&A live hebdomadaires et support personnalisé.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Leadership -->
+      <section style="margin: var(--space-12) 0;">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Leadership & Éthique</h2>
+        
+        <!-- Founder Card -->
+        <div class="leadership-card">
+          <span class="leadership-badge">FONDATEUR & CEO</span>
+          
+          <div class="founder-name">
+            <h3>Hervé <span class="text-gradient">SAJORI</span></h3>
+            <p>Entrepreneur & Visionnaire</p>
+          </div>
+          
+          <p style="font-size: var(--text-lg); color: var(--ds-gray); line-height: 1.6; margin-bottom: var(--space-6);">
+            Entrepreneur et visionnaire, Hervé SAJORI a fondé DigiSchool Africa avec une ambition claire : démocratiser l'accès à une formation professionnelle d'excellence en Afrique.
+          </p>
+          
+          <p style="font-size: var(--text-base); color: var(--ds-gray); line-height: 1.6;">
+            Son parcours à la tête de Digilab, pionnier de la transformation digitale en Afrique, lui a permis de comprendre les enjeux de transformation des entreprises. Aujourd'hui, il met cette expertise au service de la formation continue pour créer une nouvelle génération de talents prêts pour l'économie de demain.
+          </p>
+        </div>
+        
+        <!-- Sub cards -->
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); margin-top: var(--space-6);">
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3>Méthode & Pédagogie</h3>
+            <p>Nos parcours intègrent les standards internationaux (PMI, AXELOS, CFA, DAMA...) tout en restant 100% adaptés au contexte africain.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3>Éthique & Confidentialité</h3>
+            <p>Vos données sont traitées avec la plus stricte confidentialité. Zéro spam, zéro partage avec des tiers. Respect total de votre vie privée.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Valeurs -->
+      <section style="margin: var(--space-12) 0;">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Nos Valeurs</h2>
+        
+        <div class="cards-grid">
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <circle cx="12" cy="8" r="7"/>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+              </svg>
+            </div>
+            <h3>Excellence</h3>
+            <p>Qualité irréprochable dans nos contenus, nos formateurs et notre accompagnement. Aucun compromis.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Impact</h3>
+            <p>Chaque formation doit produire un impact mesurable : compétences, livrables, résultats concrets.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Partenariat</h3>
+            <p>Nous collaborons avec de nombreuses organisations pour garantir pertinence et qualité de nos parcours.</p>
+          </div>
+          
+          <div class="about-card">
+            <div class="card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+              </svg>
+            </div>
+            <h3>Innovation</h3>
+            <p>Veille continue sur les nouvelles technologies, méthodes et outils pour rester à la pointe.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ -->
+      <section style="margin: var(--space-12) 0;">
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Questions Fréquentes</h2>
+        
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion('faq1')">
+            <h3>Comment sont conçus les parcours ?</h3>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
             </svg>
           </div>
-          <h3>Excellence Pédagogique</h3>
-          <p>Contenus de qualité, validés par des experts métiers et enrichis par l'IA.</p>
+          <div class="accordion-content" id="faq1">
+            <div class="accordion-body">
+              <p>Nos parcours sont co-créés par des experts métiers africains et des formateurs terrain. Nous intégrons les standards internationaux (PMI, AXELOS, CFA, DAMA...) tout en adaptant 100% du contenu au contexte africain. Chaque module est testé auprès d'apprenants pilotes avant déploiement.</p>
+            </div>
+          </div>
         </div>
         
-        <div class="card-premium">
-          <div class="card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 6v6l4 2"></path>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion('faq2')">
+            <h3>Quel est le rôle des partenaires/standards affichés ?</h3>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
             </svg>
           </div>
-          <h3>Praticité Avant Tout</h3>
-          <p>Zéro théorie inutile. Chaque heure de formation = compétences directement applicables.</p>
+          <div class="accordion-content" id="faq2">
+            <div class="accordion-body">
+              <p>Les logos de partenaires et standards (PMI, AXELOS, Harvard, HEC...) représentent des <strong>références bibliographiques et pédagogiques</strong> que nous utilisons dans nos contenus. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention d'une certification de ces organismes. Nos parcours vous préparent aux examens externes lorsque pertinent.</p>
+            </div>
+          </div>
         </div>
         
-        <div class="card-premium">
-          <div class="card-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-              <circle cx="9" cy="7" r="4"></circle>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion('faq3')">
+            <h3>B2C vs B2B : comment ça marche ?</h3>
+            <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
             </svg>
           </div>
-          <h3>Accompagnement Humain</h3>
-          <p>IA + Humain. Nos formations combinent technologie et accompagnement personnalisé.</p>
+          <div class="accordion-content" id="faq3">
+            <div class="accordion-body">
+              <p><strong>B2C (Particuliers) :</strong> Inscriptions individuelles en ligne. Prix transparents, paiement par pack ou module par module, accès immédiat 24/7.</p>
+              <p><strong>B2B (Entreprises) :</strong> Formations sur mesure pour vos équipes. Formats Intra-Entreprise, Inter-Entreprises ou Bootcamp. Tarifs sur devis selon vos besoins spécifiques. Proposition détaillée sous 72h.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Nos Résultats -->
-  <section class="section section-white">
-    <div class="container">
-      <h2 class="text-center mb-lg">Nos Résultats en Chiffres</h2>
-      <div class="grid-premium grid-4">
-        <div class="card-premium text-center">
-          <h2 class="gradient-text" style="font-size: 3rem; margin-bottom: 8px;">9</h2>
-          <p style="font-weight: 600; color: var(--text-primary);">Parcours Métiers</p>
-        </div>
-        <div class="card-premium text-center">
-          <h2 class="gradient-text" style="font-size: 3rem; margin-bottom: 8px;">500+</h2>
-          <p style="font-weight: 600; color: var(--text-primary);">Professionnels Formés</p>
-        </div>
-        <div class="card-premium text-center">
-          <h2 class="gradient-text" style="font-size: 3rem; margin-bottom: 8px;">50+</h2>
-          <p style="font-weight: 600; color: var(--text-primary);">Entreprises Partenaires</p>
-        </div>
-        <div class="card-premium text-center">
-          <h2 class="gradient-text" style="font-size: 3rem; margin-bottom: 8px;">95%</h2>
-          <p style="font-weight: 600; color: var(--text-primary);">Taux de Satisfaction</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Final -->
-  <section class="section section-gradient">
-    <div class="container text-center">
-      <h2 class="mb-md">Prêt à Rejoindre l'Excellence ?</h2>
-      <p class="mb-lg" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 48px;">
-        Que vous soyez un professionnel en quête de compétences ou une entreprise souhaitant transformer ses équipes, DigiSchool Africa est votre partenaire.
-      </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="/b2c.html" class="btn-premium btn-primary">Explorer les Formations B2C</a>
-        <a href="/companies.html" class="btn-premium btn-secondary">Découvrir l'Offre B2B</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  
-
-  <!-- Chatbot -->
-  <script src="/assets/digischool-chatbot.js"></script>
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-
-
-  <!-- V2 Production Components -->
-  <script src="/assets/global-components-v2-production.js"></script>
-  <script src="/assets/chatbot-manager-v2.js"></script>
-
-<!-- DigiSchool Premium UX Components V2.2.x-H -->
-<script src="/assets/premium-ux-components-v2.2.x-h.js"></script>
-<script src="/assets/apply-premium-ux-refactor.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Partner Logos Section UNIQUE -->
-<link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
-<section class="ds-partners-section">
-  <div class="ds-partners-container">
-    <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
-    
-    <!-- Catégorie 1: Project / IT / Architecture / Change -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="PMI - Project Management Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60" class="ds-logo-pmi">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Catégorie 2: Finance / Audit / Risk -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="CFA Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="IFAC - International Federation of Accountants">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ISACA - IT Governance & Security">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Catégorie 3: Data / Digital / HR / Supply Chain -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="Microsoft - Cloud & AI">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <rect x="20" y="18" width="14" height="14" fill="#F25022"/>
-            <rect x="36" y="18" width="14" height="14" fill="#7FBA00"/>
-            <rect x="20" y="32" width="14" height="14" fill="#00A4EF"/>
-            <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="AWS - Cloud Computing">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="Google Cloud">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="DAMA - Data Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="CIPD - HR Professional Body">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ASCM - Supply Chain Management">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="DMI - Digital Marketing Institute">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Universités (ligne dédiée) -->
-    <div class="ds-partners-category">
-      <h4 class="ds-partners-subtitle">Références Académiques</h4>
-      <div class="ds-partners-grid">
-        <div class="ds-partner-logo" data-tooltip="Harvard Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="MIT - Massachusetts Institute of Technology">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="HEC Paris">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
-            <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="ESSEC Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
-          </svg>
-        </div>
-        
-        <div class="ds-partner-logo" data-tooltip="London Business School">
-          <svg width="80" height="60" viewBox="0 0 80 60">
-            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-    
-    <div class="ds-partners-disclaimer">
-      <strong>Note importante</strong> : Les logos ci-dessus représentent des <strong>références académiques et bibliographiques</strong> 
-      utilisées dans nos contenus pédagogiques. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention 
-      d'une certification officielle de ces organismes (pour l'instant). Nos parcours vous préparent aux examens externes 
-      lorsque pertinent, et intègrent les standards internationaux pour assurer une qualité premium.
+      </section>
+      
     </div>
   </div>
-</section>
-<!-- End Partner Logos -->
-
+  
+  <!-- Scripts -->
+  <script src="/assets/global-components-v2-production.js"></script>
+  <script src="/assets/chatbot-manager-v2.js"></script>
+  
+  <script>
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const header = content.previousElementSibling;
+      
+      header.classList.toggle('active');
+      content.classList.toggle('active');
+    }
+  </script>
+  
+  <!-- Partner Logos Section -->
+  <link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
+  <section class="ds-partners-section">
+    <div class="ds-partners-container">
+      <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="PMI - Project Management Institute">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="CFA Institute">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="IFAC">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ISACA">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="Microsoft">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <rect x="20" y="18" width="14" height="14" fill="#F25022"/>
+              <rect x="36" y="18" width="14" height="14" fill="#7FBA00"/>
+              <rect x="20" y="32" width="14" height="14" fill="#00A4EF"/>
+              <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="AWS">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="Google Cloud">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="DAMA">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="CIPD">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ASCM">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="DMI">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-category">
+        <h4 class="ds-partners-subtitle">Références Académiques</h4>
+        <div class="ds-partners-grid">
+          <div class="ds-partner-logo" data-tooltip="Harvard Business School">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="MIT">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="HEC Paris">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
+              <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="ESSEC">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
+            </svg>
+          </div>
+          <div class="ds-partner-logo" data-tooltip="London Business School">
+            <svg width="80" height="60" viewBox="0 0 80 60">
+              <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ds-partners-disclaimer">
+        <strong>Note importante</strong> : Les logos ci-dessus représentent des <strong>références académiques et bibliographiques</strong> 
+        utilisées dans nos contenus pédagogiques. Suivre une formation DigiSchool Africa ne garantit pas automatiquement l'obtention 
+        d'une certification officielle de ces organismes. Nos parcours vous préparent aux examens externes lorsque pertinent.
+      </div>
+    </div>
+  </section>
+  
 </body>
 </html>
