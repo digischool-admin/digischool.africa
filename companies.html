@@ -108,39 +108,60 @@
       margin-bottom: var(--space-8);
     }
     
-    .clients-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: var(--space-4);
-      margin-top: var(--space-6);
+    /* Carousel rows */
+    .clients-carousel-row {
+      overflow: hidden;
+      margin: var(--space-6) 0;
+      position: relative;
     }
     
-    .client-logo-pill {
+    .clients-carousel-track {
+      display: flex;
+      gap: var(--space-4);
+      animation: scroll-left 40s linear infinite;
+    }
+    
+    .clients-carousel-row:nth-child(3) .clients-carousel-track {
+      animation-direction: reverse;
+    }
+    
+    .clients-carousel-row:hover .clients-carousel-track {
+      animation-play-state: paused;
+    }
+    
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    .client-logo-card {
+      flex: 0 0 auto;
       background: rgba(0, 0, 0, 0.02);
       border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: var(--radius-md);
-      padding: var(--space-5) var(--space-4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 80px;
+      padding: var(--space-5) var(--space-6);
+      min-width: 160px;
+      text-align: center;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--ds-gray);
+      text-decoration: none;
       transition: all var(--transition-base);
-      cursor: default;
+      white-space: nowrap;
     }
     
-    .client-logo-pill:hover {
+    .client-logo-card:hover {
       background: rgba(30, 136, 229, 0.04);
       border-color: var(--color-primary);
+      color: var(--color-primary);
       transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
     }
     
-    .client-logo-pill span {
-      font-size: var(--text-sm);
-      font-weight: 600;
-      color: var(--ds-gray);
-      text-align: center;
-    }
     
     /* Tabs - Premium style */
     .tabs-container {
@@ -402,9 +423,15 @@
         justify-content: center;
       }
       
-      .clients-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-3);
+      .client-logo-card {
+        min-width: 120px;
+        padding: var(--space-4) var(--space-5);
+        font-size: var(--text-xs);
+      }
+      
+      .clients-carousel-track {
+        animation-duration: 30s;
+      }
       }
       
       .client-logo-pill {
@@ -412,9 +439,6 @@
         padding: var(--space-4) var(--space-3);
       }
       
-      .client-logo-pill span {
-        font-size: var(--text-xs);
-      }
     }
     
     /* Program Accordion Styles */
@@ -538,56 +562,92 @@
         <h2>Ils nous font confiance</h2>
         <p class="subtitle">Ils ont déjà fait confiance à nos experts-consultants-formateurs pour la montée en compétence de leurs équipes lors de formations, de transferts de compétences projets, ou de coaching.</p>
         
-        <div class="clients-grid">
-          <div class="client-logo-pill">
-            <span>Orange CI</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>MTN</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Ecobank</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Total Energies</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>NSIA Banque</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Air Côte d'Ivoire</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Bolloré Transport</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>SODECI</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>CIE</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>SOTRA</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Ivoire Télécom</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>PwC Côte d'Ivoire</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Deloitte</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>Afriland First Bank</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>SACO</span>
-          </div>
-          <div class="client-logo-pill">
-            <span>+ 50 autres clients</span>
+        <!-- Ligne 1 -->
+        <div class="clients-carousel-row">
+          <div class="clients-carousel-track">
+            <a href="https://www.apromac.ci" target="_blank" class="client-logo-card">APROMAC</a>
+            <a href="https://gs2e.ci" target="_blank" class="client-logo-card">GS2E</a>
+            <a href="https://www.care.org" target="_blank" class="client-logo-card">CARE</a>
+            <a href="https://www.sunu.com" target="_blank" class="client-logo-card">SUNU</a>
+            <a href="https://www.ubagroup.com" target="_blank" class="client-logo-card">UBA</a>
+            <a href="https://www.bni.ci" target="_blank" class="client-logo-card">BNI</a>
+            <a href="https://coricamining.com" target="_blank" class="client-logo-card">CORICA</a>
+            <a href="https://www.ecobank.com" target="_blank" class="client-logo-card">ECOBANK</a>
+            <a href="https://www.cnps.ci" target="_blank" class="client-logo-card">CNPS</a>
+            <a href="https://www.fdfp.ci" target="_blank" class="client-logo-card">FDFP</a>
+          
+            <a href="https://www.apromac.ci" target="_blank" class="client-logo-card">APROMAC</a>
+            <a href="https://gs2e.ci" target="_blank" class="client-logo-card">GS2E</a>
+            <a href="https://www.care.org" target="_blank" class="client-logo-card">CARE</a>
+            <a href="https://www.sunu.com" target="_blank" class="client-logo-card">SUNU</a>
+            <a href="https://www.ubagroup.com" target="_blank" class="client-logo-card">UBA</a>
+            <a href="https://www.bni.ci" target="_blank" class="client-logo-card">BNI</a>
+            <a href="https://coricamining.com" target="_blank" class="client-logo-card">CORICA</a>
+            <a href="https://www.ecobank.com" target="_blank" class="client-logo-card">ECOBANK</a>
+            <a href="https://www.cnps.ci" target="_blank" class="client-logo-card">CNPS</a>
+            <a href="https://www.fdfp.ci" target="_blank" class="client-logo-card">FDFP</a>
           </div>
         </div>
+        
+        <!-- Ligne 2 -->
+        <div class="clients-carousel-row">
+          <div class="clients-carousel-track">
+            <a href="https://www.mugefci.ci" target="_blank" class="client-logo-card">MUGEFCI</a>
+            <a href="https://www.wuri.com" target="_blank" class="client-logo-card">WURI</a>
+            <a href="https://www.push.ci" target="_blank" class="client-logo-card">PUSH</a>
+            <a href="https://www.bnetd.ci" target="_blank" class="client-logo-card">BNETD</a>
+            <a href="https://www.banquepopulaire.ci" target="_blank" class="client-logo-card">BANQUE POPULAIRE</a>
+            <a href="https://www.auchan.ci" target="_blank" class="client-logo-card">AUCHAN</a>
+            <a href="https://www.burida.ci" target="_blank" class="client-logo-card">BURIDA</a>
+            <a href="https://www.fonctionpublique.gouv.ci" target="_blank" class="client-logo-card">MIN. FONCTION PUBLIQUE</a>
+            <a href="https://www.bsic-bank.com" target="_blank" class="client-logo-card">BSIC</a>
+            <a href="https://www.douanes.ci" target="_blank" class="client-logo-card">DOUANES CI</a>
+            <a href="https://www.portabidjan.ci" target="_blank" class="client-logo-card">PAA</a>
+            <a href="https://www.cgrae.ci" target="_blank" class="client-logo-card">CGRAE</a>
+          
+            <a href="https://www.mugefci.ci" target="_blank" class="client-logo-card">MUGEFCI</a>
+            <a href="https://www.wuri.com" target="_blank" class="client-logo-card">WURI</a>
+            <a href="https://www.push.ci" target="_blank" class="client-logo-card">PUSH</a>
+            <a href="https://www.bnetd.ci" target="_blank" class="client-logo-card">BNETD</a>
+            <a href="https://www.banquepopulaire.ci" target="_blank" class="client-logo-card">BANQUE POPULAIRE</a>
+            <a href="https://www.auchan.ci" target="_blank" class="client-logo-card">AUCHAN</a>
+            <a href="https://www.burida.ci" target="_blank" class="client-logo-card">BURIDA</a>
+            <a href="https://www.fonctionpublique.gouv.ci" target="_blank" class="client-logo-card">MIN. FONCTION PUBLIQUE</a>
+            <a href="https://www.bsic-bank.com" target="_blank" class="client-logo-card">BSIC</a>
+            <a href="https://www.douanes.ci" target="_blank" class="client-logo-card">DOUANES CI</a>
+            <a href="https://www.portabidjan.ci" target="_blank" class="client-logo-card">PAA</a>
+            <a href="https://www.cgrae.ci" target="_blank" class="client-logo-card">CGRAE</a>
+          </div>
+        </div>
+        
+        <!-- Ligne 3 -->
+        <div class="clients-carousel-row">
+          <div class="clients-carousel-track">
+            <a href="https://www.orange.ci" target="_blank" class="client-logo-card">ORANGE</a>
+            <a href="https://www.djamo.io" target="_blank" class="client-logo-card">DJAMO</a>
+            <a href="https://www.mtn.ci" target="_blank" class="client-logo-card">MTN</a>
+            <a href="https://www.oneci.ci" target="_blank" class="client-logo-card">ONECI</a>
+            <a href="https://www.conseilcafecacao.ci" target="_blank" class="client-logo-card">CONSEIL CAFE-CACAO</a>
+            <a href="https://www.sgci.gouv.ci" target="_blank" class="client-logo-card">SGCI</a>
+            <a href="https://www.solibra.ci" target="_blank" class="client-logo-card">SOLIBRA</a>
+            <a href="https://www.tresor.gouv.ci" target="_blank" class="client-logo-card">TRESOR IVOIRIEN</a>
+            <a href="https://www.s3c.ci" target="_blank" class="client-logo-card">S3C</a>
+            <a href="https://www.bayer.com" target="_blank" class="client-logo-card">BAYER</a>
+          
+            <a href="https://www.orange.ci" target="_blank" class="client-logo-card">ORANGE</a>
+            <a href="https://www.djamo.io" target="_blank" class="client-logo-card">DJAMO</a>
+            <a href="https://www.mtn.ci" target="_blank" class="client-logo-card">MTN</a>
+            <a href="https://www.oneci.ci" target="_blank" class="client-logo-card">ONECI</a>
+            <a href="https://www.conseilcafecacao.ci" target="_blank" class="client-logo-card">CONSEIL CAFE-CACAO</a>
+            <a href="https://www.sgci.gouv.ci" target="_blank" class="client-logo-card">SGCI</a>
+            <a href="https://www.solibra.ci" target="_blank" class="client-logo-card">SOLIBRA</a>
+            <a href="https://www.tresor.gouv.ci" target="_blank" class="client-logo-card">TRESOR IVOIRIEN</a>
+            <a href="https://www.s3c.ci" target="_blank" class="client-logo-card">S3C</a>
+            <a href="https://www.bayer.com" target="_blank" class="client-logo-card">BAYER</a>
+          </div>
+        </div>
+      </div>
+            <span>SACO</span>
       </div>
       
       <!-- Tabs: Intra / Inter / Bootcamp -->
