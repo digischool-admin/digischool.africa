@@ -1,1544 +1,605 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finaliser votre commande — DigiSchool Africa</title>
+  <meta name="description" content="Finalisez votre commande de formation professionnelle avec DigiSchool Africa.">
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Commande — DigiSchool Africa</title>
-  <meta name="description" content="Finalisez votre commande de formation professionnelle 100% en ligne avec IA embarquée." />
-  
-  <link rel="canonical" content="https://digischool.africa/b2c-checkout.html" />
-
-  <!-- ancien style supprimé -->
-  
-  
-  <link rel="stylesheet" href="/assets/digischool-v2.3-safe.css">
-  <script src="/assets/inject-layout-v2.2.js" defer></script>
+  <!-- CSS UNIQUE RESTAURÉ -->
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/assets/digischool-zoom-layout.css">
-  <script src="/assets/inject-zoom-layout.js" defer></script>
+  
+  <style>
+    /* Clone assessment wrapper style */
+    .assessment-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .assessment-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .assessment-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
+    }
+    
+    .assessment-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .assessment-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+    }
+    
+    /* Checkout specific cards */
+    .checkout-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      margin-bottom: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .checkout-card h2 {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-6);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    
+    .checkout-card h3 {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Summary section */
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .summary-row:last-child {
+      border-bottom: none;
+      padding-top: var(--space-6);
+      margin-top: var(--space-4);
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    
+    .summary-label {
+      font-size: var(--text-lg);
+      color: var(--ds-gray);
+      font-weight: 500;
+    }
+    
+    .summary-value {
+      font-size: var(--text-lg);
+      color: var(--ds-dark);
+      font-weight: 600;
+    }
+    
+    /* Payment methods grid */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    
+    .payment-card {
+      background: rgba(0, 0, 0, 0.02);
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    
+    .payment-card:hover {
+      border-color: var(--color-primary);
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .payment-icon {
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .payment-icon img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    
+    .payment-label {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ds-dark);
+    }
+    
+    .payment-number {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      font-family: monospace;
+    }
+    
+    /* Form styles */
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .required {
+      color: #ef4444;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: var(--space-4);
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      transition: all var(--transition-base);
+      font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-group small {
+      display: block;
+      margin-top: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+    }
+    
+    /* Buttons */
+    .btn-primary {
+      width: 100%;
+      padding: var(--space-5) var(--space-8);
+      background: var(--gradient-hero);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .btn-secondary {
+      width: 100%;
+      padding: var(--space-4) var(--space-6);
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      margin-top: var(--space-4);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.04);
+    }
+    
+    /* Notice box */
+    .notice-box {
+      background: rgba(126, 87, 194, 0.08);
+      border: 1px solid rgba(126, 87, 194, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      margin-bottom: var(--space-6);
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+    
+    .notice-box strong {
+      color: var(--ds-dark);
+    }
+    
+    /* Error state */
+    .error-card {
+      background: white;
+      border: 2px solid #ef4444;
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .error-card h2 {
+      color: #ef4444;
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .error-card p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+      margin-bottom: var(--space-8);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .assessment-wrapper {
+        padding: var(--space-8) var(--space-4);
+      }
+      
+      .assessment-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .assessment-header p {
+        font-size: var(--text-lg);
+      }
+      
+      .checkout-card {
+        padding: var(--space-6);
+      }
+      
+      .checkout-card h2 {
+        font-size: var(--text-2xl);
+      }
+      
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body>
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
+<body data-page="checkout">
+  <!-- Header injecté via JS -->
   
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-<!-- DigiSchool Africa - Header Global V2.3 (Branding Fort + Zero Duplication) -->
-<header class="digischool-global-header" id="ds-header">
-  <div class="ds-header-container">
-    <a href="/" class="ds-header-logo" aria-label="DigiSchool Africa - Accueil">
-      <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa" class="ds-logo-img">
-    </a>
-    
-    <nav class="ds-header-nav" id="ds-nav" aria-label="Navigation principale">
-      <a href="/" class="ds-nav-link">Accueil</a>
-      <a href="/b2c.html" class="ds-nav-link">Formations B2C</a>
-      <a href="/companies.html" class="ds-nav-link">Entreprises</a>
-      <a href="/b2c-assessment.html" class="ds-nav-link">Auto-évaluation</a>
-      <a href="/about-premium.html" class="ds-nav-link">À propos</a>
-    </nav>
-    
-    <div class="ds-header-actions">
-      <a href="/b2c.html" class="ds-header-cta">Explorer les formations</a>
-      <button class="ds-menu-toggle" id="ds-menu-toggle" aria-label="Menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<style>
-  /* ===== HEADER GLOBAL V2.3 - ZERO DUPLICATION ===== */
-  .digischool-global-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .digischool-global-header.scrolled {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  }
-  
-  .ds-header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  
-  /* Logo PLUS GRAND */
-  .ds-header-logo {
-    flex-shrink: 0;
-  }
-  
-  .ds-logo-img {
-    height: 50px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .ds-header-logo:hover .ds-logo-img {
-    transform: scale(1.05);
-  }
-  
-  /* Navigation */
-  .ds-header-nav {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  .ds-nav-link {
-    color: #37474F;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 4px;
-  }
-  
-  .ds-nav-link:hover {
-    color: #26A69A;
-  }
-  
-  .ds-nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #26A69A, #1E88E5);
-    transition: width 0.3s ease;
-  }
-  
-  .ds-nav-link:hover::after {
-    width: 100%;
-  }
-  
-  /* CTA */
-  .ds-header-cta {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #1E88E5, #7C4DFF, #26A69A);
-    color:#0B1B3A;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.25);
-  }
-  
-  .ds-header-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(30, 136, 229, 0.35);
-  }
-  
-  /* Menu Mobile */
-  .ds-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-  }
-  
-  .ds-menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: #37474F;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .ds-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-header-container {
-      padding: 16px 24px;
-    }
-    
-    .ds-header-nav {
-      position: fixed;
-      top: 86px;
-      left: 0;
-      right: 0;
-      background: white;
-      flex-direction: column;
-      padding: 28px;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      transform: translateY(-150%);
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .ds-header-nav.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .ds-menu-toggle {
-      display: flex;
-    }
-    
-    .ds-header-cta {
-      display: none;
-    }
-    
-    .ds-logo-img {
-      height: 44px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ds-header-container {
-      padding: 14px 18px;
-    }
-    
-    .ds-logo-img {
-      height: 38px;
-    }
-  }
-</style>
-
-<script>
-(function() {
-  const header = document.getElementById('ds-header');
-  const menuToggle = document.getElementById('ds-menu-toggle');
-  const nav = document.getElementById('ds-nav');
-  
-  // Scroll effect
-  if (header) {
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > 60) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  }
-  
-  // Mobile menu
-  if (menuToggle && nav) {
-    menuToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      nav.classList.toggle('active');
-    });
-    
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!menuToggle.contains(e.target) && !nav.contains(e.target)) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      }
-    });
-    
-    // Close on link click
-    nav.querySelectorAll('.ds-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('active');
-      });
-    });
-  }
-})();
-</script>
-
-
-
-
-
-  <div class="container">
-    <!-- Header -->
-    <div class="checkout-header">
-      <h1>🛒 Finaliser votre Commande</h1>
-      <p>Formation 100% en ligne avec accès immédiat après paiement</p>
-    </div>
-
-    <!-- Online Notice -->
-    <div class="online-notice">
-      <strong>✨ Accès 100% en ligne — Aucun téléchargement</strong>
-      <p>Consultez vos supports directement dans la plateforme. Accès immédiat après validation de votre commande.</p>
-    </div>
-
-    <!-- Order Summary -->
-    <div class="order-summary">
-      <h2>📋 Récapitulatif de Commande</h2>
-      <div class="summary-item">
-        <span class="summary-label">Formation :</span>
-        <span class="summary-value" id="course-title">Chargement...</span>
+  <div class="assessment-wrapper">
+    <div class="assessment-container">
+      <div class="assessment-header animate-fade-in">
+        <h1>Finaliser votre commande</h1>
+        <p>Validation simple et paiement sécurisé via Mobile Money</p>
       </div>
-      <div class="summary-item">
-        <span class="summary-label">Type d'achat :</span>
-        <span class="summary-value" id="purchase-type">Chargement...</span>
-      </div>
-      <div class="summary-item" id="module-selector-container" style="display: none; flex-direction: column; align-items: flex-start;">
-        <div class="module-selector">
-          <h3>Sélectionnez votre module</h3>
-          <select id="module-select">
-            <option value="">-- Choisir un module --</option>
-          </select>
+      
+      <!-- Course Summary Card -->
+      <div class="checkout-card animate-fade-in" id="summary-section">
+        <h2>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Récapitulatif de votre commande
+        </h2>
+        
+        <div id="course-details">
+          <!-- Rempli dynamiquement -->
         </div>
       </div>
-      <div class="summary-item">
-        <span class="summary-label">Prix TTC :</span>
-        <span class="summary-value" id="total-price">0 FCFA</span>
+      
+      <!-- Contact Form Card -->
+      <div class="checkout-card animate-fade-in">
+        <h2>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          Vos coordonnées
+        </h2>
+        
+        <form id="checkout-form">
+          <div class="form-group">
+            <label for="name">Nom complet <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required placeholder="Ex: Jean KOUASSI">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email professionnel <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="Ex: jean.kouassi@entreprise.com">
+            <small>Pour recevoir votre accès à la formation</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Téléphone / WhatsApp <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="Ex: +225 07 XX XX XX XX">
+            <small>Pour confirmer votre commande</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="company">Entreprise / Organisation (optionnel)</label>
+            <input type="text" id="company" name="company" placeholder="Ex: ABC Corporation">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message / Questions (optionnel)</label>
+            <textarea id="message" name="message" placeholder="Dites-nous si vous avez des questions..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn-primary">
+            Valider ma commande
+          </button>
+        </form>
       </div>
-    </div>
-
-    <!-- Order Form -->
-    <div class="order-form">
-      <h2>👤 Vos Informations</h2>
-      <form id="checkout-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-        <input type="hidden" name="course" id="form-course" />
-        <input type="hidden" name="purchase_type" id="form-type" />
-        <input type="hidden" name="module" id="form-module" />
-        <input type="hidden" name="price" id="form-price" />
-
-        <div class="form-group">
-          <label for="name">Nom complet <span class="required">*</span></label>
-          <input type="text" id="name" name="name" required placeholder="Ex: Jean Kouassi" />
+      
+      <!-- Payment Methods Card -->
+      <div class="checkout-card animate-fade-in">
+        <h2>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Paiement Mobile Money
+        </h2>
+        
+        <div class="notice-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          <div>
+            <strong>Important :</strong> Après validation, nous vous contacterons pour finaliser le paiement via l'un des moyens ci-dessous. Aucun paiement en ligne automatisé.
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="email">Email <span class="required">*</span></label>
-          <input type="email" id="email" name="email" required placeholder="Ex: jean.kouassi@example.com" />
-          <small>Vous recevrez vos accès de connexion à cette adresse</small>
+        
+        <div class="payment-grid">
+          <a href="tel:+2250714678289" class="payment-card">
+            <div class="payment-icon">
+              <img src="/assets/orange-money.png" alt="Orange Money" onerror="this.style.display='none'">
+            </div>
+            <div class="payment-label">Orange Money</div>
+            <div class="payment-number">07 14 67 82 89</div>
+          </a>
+          
+          <a href="tel:+2250665231403" class="payment-card">
+            <div class="payment-icon">
+              <img src="/assets/mtn-momo.png" alt="MTN MoMo" onerror="this.style.display='none'">
+            </div>
+            <div class="payment-label">MTN MoMo</div>
+            <div class="payment-number">06 65 23 14 03</div>
+          </a>
+          
+          <a href="tel:+2250151666801" class="payment-card">
+            <div class="payment-icon">
+              <img src="/assets/moov-money.png" alt="Moov Money" onerror="this.style.display='none'">
+            </div>
+            <div class="payment-label">Moov Money</div>
+            <div class="payment-number">01 51 66 68 01</div>
+          </a>
+          
+          <a href="https://wa.me/2250151664653" target="_blank" rel="noopener" class="payment-card">
+            <div class="payment-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="#25D366">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </div>
+            <div class="payment-label">Wave / WhatsApp</div>
+            <div class="payment-number">01 51 66 46 53</div>
+          </a>
         </div>
-
-        <div class="form-group">
-          <label for="phone">Téléphone / WhatsApp <span class="required">*</span></label>
-          <input type="tel" id="phone" name="phone" required placeholder="Ex: " />
-          <small>Pour confirmer votre commande et vous contacter si besoin</small>
-        </div>
-
-        <div class="form-group">
-          <label for="company">Entreprise / Organisation (optionnel)</label>
-          <input type="text" id="company" name="company" placeholder="Ex: ABC Corporation" />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message / Questions (optionnel)</label>
-          <textarea id="message" name="message" placeholder="Dites-nous si vous avez des questions ou besoins particuliers..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn" id="submit-btn">
-          ✅ Valider ma Commande
-        </button>
-      </form>
-    </div>
-
-    <!-- Payment Methods -->
-    <div class="payment-section">
-      <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Paiement (après validation)</h2>
-      <div class="payment-notice">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg> <strong>Important :</strong> Après validation de votre commande, nous vous contacterons pour finaliser le paiement via l'un des moyens ci-dessous. <strong>Aucun paiement en ligne automatisé.</strong>
+        
+        <a href="javascript:void(0)" class="btn-secondary" onclick="window.openPaymentModal?.()">
+          📞 Allo DigiSchool !
+        </a>
       </div>
-
-      <div class="payment-methods">
-        <a class="payment-item" href="tel:+2250714678289" aria-label="Appeler Orange Money">
-          <img src="./assets/orange-money.png" alt="Orange Money" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">Orange Money</span>
-            <span class="num">+225 07 14 67 82 89</span>
-          </div>
-        </a>
-
-        <a class="payment-item" href="tel:+2250665231403" aria-label="Appeler MTN MoMo">
-          <img src="./assets/mtn-momo.png" alt="MTN MoMo" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">MTN MoMo</span>
-            <span class="num">+225 06 65 23 14 03</span>
-          </div>
-        </a>
-
-        <a class="payment-item" href="tel:+2250151666801" aria-label="Appeler Moov Money">
-          <img src="./assets/moov-money.png" alt="Moov Money" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">Moov Money</span>
-            <span class="num">+225 01 51 66 68 01</span>
-          </div>
-        </a>
-
-        <a class="payment-item" href="tel:+2250151664653" aria-label="Appeler Wave">
-          <img src="./assets/wave.png" alt="Wave" loading="lazy" decoding="async">
-          <div class="details">
-            <span class="label">Wave</span>
-            <span class="num">+225 01 51 66 46 53</span>
-          </div>
-        </a>
-
-        <a class="payment-item" href="https://wa.me/2250151664653" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
-          <div class="icon">💬</div>
-          <div class="details">
-            <span class="label">WhatsApp Business</span>
-            <span class="num">+225 01 51 66 46 53</span>
-          </div>
-        </a>
-
-        <a class="payment-item" href="mailto:support@digischool.africa" aria-label="Envoyer un email au support">
-          <div class="icon">@</div>
-          <div class="details">
-            <span class="label">Email support</span>
-            <span class="num">support@digischool.africa</span>
-          </div>
-        </a>
+      
+      <!-- Error state (hidden by default) -->
+      <div class="error-card" id="error-state" style="display: none;">
+        <h2>Formation introuvable</h2>
+        <p>La formation demandée n'existe pas ou le lien est incomplet.</p>
+        <a href="/b2c.html" class="btn-primary">Retour au catalogue B2C</a>
       </div>
     </div>
   </div>
-
-  <!-- Footer -->
   
-
-  <!-- Course Data -->
-  <script src="./courses-data.js"></script>
-
+  <!-- Footer injecté via JS -->
+  
+  <!-- Global Components -->
+  <script src="/assets/global-components-v2-production.js"></script>
+  <script src="/assets/payment-contact-modal.js"></script>
+  <script src="/assets/chatbot-manager-v2.js"></script>
+  
   <!-- Checkout Logic -->
   <script>
     (function() {
       'use strict';
-
-      // Parse URL params
-      const urlParams = new URLSearchParams(window.location.search);
-      const courseSlug = urlParams.get('course');
-      const purchaseType = urlParams.get('type'); // 'pack' or 'module'
-
-      if (!courseSlug || !purchaseType) {
-        // Show premium error instead of alert
-        document.body.innerHTML = `
-          <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%); padding: 32px;">
-            <div style="max-width: 600px; background: white; border-radius: 16px; padding: 48px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); text-align: center;">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" style="margin: 0 auto 24px;">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="15" y1="9" x2="9" y2="15"/>
-                <line x1="9" y1="9" x2="15" y2="15"/>
-              </svg>
-              <h1 style="font-size: 32px; font-weight: 700; color: #0B1B3A; margin-bottom: 16px;">Paramètres manquants</h1>
-              <p style="font-size: 18px; color: #546E7A; margin-bottom: 32px; line-height: 1.6;">
-                Veuillez sélectionner une formation depuis notre catalogue.
-              </p>
-              <a href="./b2c.html" style="padding: 14px 32px; background: linear-gradient(135deg, #1E88E5, #26A69A); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 12px rgba(30,136,229,0.3); transition: transform 0.2s; display: inline-block;">
-                ← Retour au catalogue
-              </a>
-            </div>
-          </div>
-        `;
-        return;
-      }
-
-      // Normalize course slug (handle aliases)
-      const normalizedSlug = courseSlug.toLowerCase().trim().replace(/[_\s]+/g, '-').replace(/&/g, '-');
       
-      // Alias mapping for common variations
-      const slugAliases = {
+      // Slug normalization and alias mapping
+      const SLUG_ALIASES = {
         'leadership': 'leadership-management',
+        'leadership-management': 'leadership-management',
+        'leadership-&-management': 'leadership-management',
         'management-leadership': 'leadership-management',
+        
         'pmp': 'gestion-projet-pmp',
         'gestion-projet': 'gestion-projet-pmp',
-        'projet': 'gestion-projet-pmp',
-        'data-analytics': 'data-analytics',
+        'gestion-projet-pmp': 'gestion-projet-pmp',
+        'project-management': 'gestion-projet-pmp',
+        
+        'strategy': 'strategie-execution',
+        'strategie': 'strategie-execution',
+        'strategie-execution': 'strategie-execution',
+        
         'data': 'data-analytics',
-        'analytics': 'data-analytics',
-        'excel': 'excel',
-        'powerbi': 'powerbi',
-        'power-bi': 'powerbi',
-        'marketing': 'marketing',
-        'marketing-digital': 'marketing',
-        'rh': 'rh-performance',
-        'rh-performance': 'rh-performance',
-        'digital': 'productivite-m365',
-        'm365': 'productivite-m365'
+        'data-analytics': 'data-analytics',
+        'data-analysis': 'data-analytics',
+        
+        'excel': 'excel-avance',
+        'excel-avance': 'excel-avance',
+        'excel-advanced': 'excel-avance',
+        
+        'powerbi': 'powerbi-reporting',
+        'power-bi': 'powerbi-reporting',
+        'powerbi-reporting': 'powerbi-reporting',
+        
+        'marketing': 'marketing-digital',
+        'marketing-digital': 'marketing-digital',
+        'digital-marketing': 'marketing-digital',
+        
+        'transformation': 'transformation-digitale',
+        'transformation-digitale': 'transformation-digitale',
+        'digital-transformation': 'transformation-digitale',
+        
+        'rh': 'rh-moderne',
+        'rh-moderne': 'rh-moderne',
+        'ressources-humaines': 'rh-moderne'
       };
       
-      const finalSlug = slugAliases[normalizedSlug] || normalizedSlug;
-
-      // Load course data (using normalized slug)
-      const course = window.getCourseBySlugorId && window.getCourseBySlugorId(finalSlug);
-      if (!course) {
-        // Show premium error page instead of alert
-        document.body.innerHTML = `
-          <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%); padding: 32px;">
-            <div style="max-width: 600px; background: white; border-radius: 16px; padding: 48px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); text-align: center;">
-              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2" style="margin: 0 auto 24px;">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-              <h1 style="font-size: 32px; font-weight: 700; color: #0B1B3A; margin-bottom: 16px;">Formation introuvable</h1>
-              <p style="font-size: 18px; color: #546E7A; margin-bottom: 32px; line-height: 1.6;">
-                Désolé, nous n'avons pas trouvé la formation demandée. Elle a peut-être été modifiée ou n'existe plus.
-              </p>
-              <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a href="./b2c.html" style="padding: 14px 32px; background: linear-gradient(135deg, #1E88E5, #26A69A); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 12px rgba(30,136,229,0.3); transition: transform 0.2s;">
-                  ← Retour au catalogue
-                </a>
-                <a href="./parcours.html" style="padding: 14px 32px; background: white; color: #1E88E5; border: 2px solid #1E88E5; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s;">
-                  Explorer toutes les formations
-                </a>
-              </div>
-            </div>
-          </div>
-        `;
+      function normalizeSlug(slug) {
+        if (!slug) return null;
+        const normalized = slug.toLowerCase().trim().replace(/[\s_]+/g, '-');
+        return SLUG_ALIASES[normalized] || normalized;
+      }
+      
+      // Parse URL params
+      const urlParams = new URLSearchParams(window.location.search);
+      const rawSlug = urlParams.get('course');
+      const courseSlug = normalizeSlug(rawSlug);
+      const purchaseType = urlParams.get('type') || 'pack';
+      
+      if (!courseSlug) {
+        showError();
         return;
       }
-
-      // Update summary
-      document.getElementById('course-title').textContent = course.title;
-      document.getElementById('purchase-type').textContent = purchaseType === 'pack' ? '💎 Pack Complet' : '📦 Module Individuel';
-
-      // Set form hidden fields
-      document.getElementById('form-course').value = course.title;
-      document.getElementById('form-type').value = purchaseType;
-
-      // Price logic
-      let finalPrice = 0;
-      if (purchaseType === 'pack') {
-        finalPrice = course.pack_price_xof;
-        document.getElementById('total-price').textContent = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
-        document.getElementById('form-price').value = finalPrice;
-      } else if (purchaseType === 'module') {
-        // Show module selector
-        document.getElementById('module-selector-container').style.display = 'flex';
-        const select = document.getElementById('module-select');
-        course.modules.forEach(function(mod, idx) {
-          const option = document.createElement('option');
-          option.value = idx;
-          option.textContent = 'Module ' + (idx + 1) + ': ' + mod.name + ' (' + course.module_price_xof.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA)';
-          select.appendChild(option);
-        });
-
-        select.addEventListener('change', function() {
-          if (this.value !== '') {
-            finalPrice = course.module_price_xof;
-            document.getElementById('total-price').textContent = finalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' FCFA';
-            document.getElementById('form-price').value = finalPrice;
-            document.getElementById('form-module').value = course.modules[parseInt(this.value)].name;
-            document.getElementById('submit-btn').disabled = false;
-          } else {
-            document.getElementById('total-price').textContent = '0 FCFA';
-            document.getElementById('form-price').value = '';
-            document.getElementById('form-module').value = '';
-            document.getElementById('submit-btn').disabled = true;
-          }
-        });
-
-        // Initially disable submit until module selected
-        document.getElementById('submit-btn').disabled = true;
+      
+      // Get course data
+      const course = window.getCourseBySlugorId?.(courseSlug);
+      
+      if (!course) {
+        showError();
+        return;
       }
-
-      // Form submission tracking and redirect
-      const form = document.getElementById('checkout-form');
-      form.addEventListener('submit', function(e) {
+      
+      // Display course details
+      displayCourseDetails(course, purchaseType);
+      
+      // Handle form submission
+      document.getElementById('checkout-form').addEventListener('submit', function(e) {
         e.preventDefault();
-
-        // Track event
-        if (window.DigiSchoolEvents && typeof window.DigiSchoolEvents.trackEvent === 'function') {
-          const trackType = purchaseType === 'pack' ? 'b2c_pack_buy_click' : 'b2c_module_buy_click';
-          window.DigiSchoolEvents.trackEvent(trackType, {
-            course: courseSlug,
-            price: finalPrice,
-            page: 'checkout',
-            timestamp: Date.now()
-          });
-        }
-
-        // Disable submit button
-        const submitBtn = document.getElementById('submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = '⏳ Traitement...';
-
-        // Get form data
-        const formData = new FormData(form);
-
-        // For MVP: Directly redirect to access page
-        // In production: Would send to Formspree, wait for success, then redirect
-        
-        // Simulate processing delay
-        setTimeout(function() {
-          // Build redirect URL with purchase info
-          let redirectUrl = './b2c-access.html?type=' + purchaseType + '&course=' + courseSlug;
-          
-          if (purchaseType === 'module') {
-            const selectedModule = document.getElementById('module-select').value;
-            if (selectedModule !== '') {
-              // For module purchase, pass the module number (1-based)
-              redirectUrl += '&modules=' + (parseInt(selectedModule) + 1);
-            }
-          }
-
-          // Redirect to access page
-          window.location.href = redirectUrl;
-        }, 1500);
-
-        // Optional: Submit to Formspree in background (fire-and-forget)
-        if (form.action && form.action !== '' && !form.action.includes('YOUR_FORMSPREE_ID')) {
-          fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          }).then(function(response) {
-            console.log('Form submitted to Formspree:', response.ok ? 'success' : 'failed');
-          }).catch(function(error) {
-            console.log('Formspree submission error:', error);
-          });
-        }
+        handleCheckout(course, purchaseType);
       });
+      
+      function displayCourseDetails(course, type) {
+        const isPack = type === 'pack';
+        const price = isPack ? course.packPrice : course.modulePrice;
+        const priceFormatted = price ? price.toLocaleString('fr-FR') + ' FCFA' : 'Sur devis';
+        
+        const html = `
+          <div class="summary-row">
+            <span class="summary-label">Formation</span>
+            <span class="summary-value">${course.title}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Type</span>
+            <span class="summary-value">${isPack ? 'Pack Complet (4 modules)' : 'Module Individuel'}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Durée</span>
+            <span class="summary-value">${course.duration || 'Variable'}</span>
+          </div>
+          ${price ? `
+          <div class="summary-row">
+            <span class="summary-label">Prix total</span>
+            <span class="summary-value">${priceFormatted}</span>
+          </div>
+          ` : ''}
+        `;
+        
+        document.getElementById('course-details').innerHTML = html;
+        document.getElementById('summary-section').style.display = 'block';
+        document.getElementById('error-state').style.display = 'none';
+      }
+      
+      function showError() {
+        document.getElementById('summary-section').style.display = 'none';
+        document.querySelector('.checkout-card:nth-of-type(2)').style.display = 'none';
+        document.querySelector('.checkout-card:nth-of-type(3)').style.display = 'none';
+        document.getElementById('error-state').style.display = 'block';
+      }
+      
+      function handleCheckout(course, type) {
+        const formData = new FormData(document.getElementById('checkout-form'));
+        const data = {
+          course: course.title,
+          courseId: course.id,
+          type: type,
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          company: formData.get('company'),
+          message: formData.get('message'),
+          timestamp: new Date().toISOString()
+        };
+        
+        console.log('Commande validée:', data);
+        
+        // Show success message
+        alert('✅ Commande validée !\n\nNous vous contacterons dans les prochaines heures pour finaliser le paiement.\n\nMerci de votre confiance !');
+        
+        // Optionally redirect or reset
+        // window.location.href = '/b2c.html?success=1';
+      }
     })();
   </script>
-
-  <!-- B2C Learning System -->
-  <script src="./b2c-learning-system.js"></script>
-
-  <!-- Lead Events Tracking -->
-  <script src="./lead-events.js"></script>
-  <script src="/assets/digischool-chatbot.js" defer></script>
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<!-- DigiSchool Africa - Footer Global V2.3 (100% Consistant) -->
-
-
-<style>
-  /* ===== FOOTER GLOBAL V2.3 - 100% CONSISTANT ===== */
-  .digischool-global-footer {
-    background: linear-gradient(180deg, #FAFAFA 0%, #FFFFFF 100%);
-    border-top: 1px solid #ECEFF1;
-    margin-top: auto;
-    width: 100%;
-  }
-  
-  .ds-footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 60px 32px 32px;
-  }
-  
-  /* Footer Top */
-  .ds-footer-top {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr;
-    gap: 60px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid #ECEFF1;
-  }
-  
-  .ds-footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .ds-footer-logo {
-    height: 40px;
-    width: auto;
-  }
-  
-  .ds-footer-tagline {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #546E7A;
-    margin: 0;
-  }
-  
-  /* Footer Links */
-  .ds-footer-links-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-  
-  .ds-footer-column {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .ds-footer-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: #1A237E;
-    margin: 0 0 8px 0;
-  }
-  
-  .ds-footer-link {
-    font-size: 14px;
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-link:hover {
-    color: #26A69A;
-  }
-  
-  /* Footer Bottom */
-  .ds-footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 32px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .ds-footer-copyright {
-    font-size: 14px;
-    color: #78909C;
-    margin: 0;
-  }
-  
-  .ds-footer-digilab {
-    color: #1E88E5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-digilab:hover {
-    color: #26A69A;
-  }
-  
-  .ds-footer-contact {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-  }
-  
-  .ds-footer-contact-link {
-    color: #546E7A;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .ds-footer-contact-link:hover {
-    color: #1E88E5;
-  }
-  
-  .ds-footer-separator {
-    color: #B0BEC5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 960px) {
-    .ds-footer-top {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-  }
-  
-  @media (max-width: 640px) {
-    .ds-footer-container {
-      padding: 48px 24px 24px;
-    }
-    
-    .ds-footer-links-group {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-    
-    .ds-footer-bottom {
-      flex-direction: column;
-      text-align: center;
-      gap: 16px;
-    }
-    
-    .ds-footer-contact {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .ds-footer-separator {
-      display: none;
-    }
-  }
-</style>
-
-
-<footer id="global-footer-v2.3" style="background: linear-gradient(135deg, #0B1B3A 0%, #1a2942 100%); color:#0B1B3A; padding: 60px 20px 30px; margin-top: 80px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px;">
-      
-      <!-- Colonne 1: À propos -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">DigiSchool Africa</h3>
-        <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin-bottom: 16px;">
-          Plateforme panafricaine de formation professionnelle certifiante avec IA embarquée.
-        </p>
-        <div style="display: flex; gap: 12px; margin-top: 16px;">
-          <a href="https://www.linkedin.com/company/digischool-africa" target="_blank" rel="noopener" 
-             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color:#0B1B3A; text-decoration: none; transition: all 0.3s ease;"
-             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-            <svg width="20" height="20" fill="#FFFFFF" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a href="https://wa.me/225" target="_blank" rel="noopener"
-             style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; color:#0B1B3A; text-decoration: none; transition: all 0.3s ease;"
-             onmouseover="this.style.background='#22c55e'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-            <svg width="20" height="20" fill="#FFFFFF" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Colonne 2: Navigation -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Navigation</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px;"><a href="/index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Accueil</a></li>
-          <li style="margin-bottom: 12px;"><a href="/b2c.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Formations B2C</a></li>
-          <li style="margin-bottom: 12px;"><a href="/companies.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Entreprises B2B</a></li>
-          <li style="margin-bottom: 12px;"><a href="/parcours.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Nos Parcours</a></li>
-          <li style="margin-bottom: 12px;"><a href="/b2c-assessment.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Auto-évaluation</a></li>
-          <li style="margin-bottom: 12px;"><a href="/about-premium.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">À propos</a></li>
-        </ul>
-      </div>
-
-      <!-- Colonne 3: Contact -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Contact</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:contact@digischool.africa" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">contact@digischool.africa</a>
-          </li>
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            📱 <a href="tel:" style="color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'"></a>
-          </li>
-          <li style="margin-bottom: 12px; color: rgba(255,255,255,0.8); font-size: 14px;">
-            🌍 Abidjan, Côte d'Ivoire
-          </li>
-        </ul>
-      </div>
-
-      <!-- Colonne 4: Légal -->
-      <div>
-        <h3 style="color: #22c55e; font-size: 18px; font-weight: 600; margin-bottom: 16px;">Informations légales</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 12px;"><a href="/mentions-legales.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Mentions légales</a></li>
-          <li style="margin-bottom: 12px;"><a href="/cgu.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGU</a></li>
-          <li style="margin-bottom: 12px;"><a href="/cgv.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">CGV</a></li>
-          <li style="margin-bottom: 12px;"><a href="/politique-confidentialite.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Politique de confidentialité</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Copyright -->
-    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center;">
-      <p style="color: rgba(255,255,255,0.6); font-size: 14px;">
-        &copy; 2026 <strong style="color: #22c55e;">DigiSchool Africa</strong> — Propulsé par <a href="https://www.mydigilab.io" target="_blank" rel="noopener" style="color: #3b82f6; text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='#22c55e'" onmouseout="this.style.color='#3b82f6'">Digilab</a>
-      </p>
-    </div>
-  </div>
-</footer>
-
 </body>
 </html>
