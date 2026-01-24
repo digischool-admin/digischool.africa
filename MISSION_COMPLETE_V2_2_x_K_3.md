@@ -232,7 +232,7 @@ curl -I https://digischool.africa/
 **Date**: 19 Janvier 2026 19:45 GMT  
 **Version**: V2.2.x-K.3 FINAL COMPLIANCE LOCK  
 **Commit**: e83ea4c  
-**Signature**: Hervé SAJORI, Directeur DigiSchool Africa
+**Signature**: Jean Pierre SAJORI, Directeur DigiSchool Africa
 
 ---
 

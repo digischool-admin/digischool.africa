@@ -52,7 +52,7 @@
 - ✅ Remplacé: "Bibliothèque de prompts" → "Outils IA intégrés"
 
 ### **3. À PROPOS** ✅
-- ✅ Nom: "Hervé SAGORY" → "SAJORI" uniquement
+- ✅ Nom: "Jean Pierre SAJORI" → "SAJORI" uniquement
 - ✅ Claims: "200 entreprises" → "nombreuses organisations"
 
 ### **4. PAGES LÉGALES** ✅

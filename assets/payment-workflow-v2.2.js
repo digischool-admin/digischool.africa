@@ -154,7 +154,7 @@
             
             <div class="payment-method">
               <h3>💰 Western Union / MoneyGram</h3>
-              <p><strong>Nom:</strong> SAJORI Hervé</p>
+              <p><strong>Nom:</strong> SAJORI Jean Pierre</p>
               <p><strong>Pays:</strong> Côte d'Ivoire</p>
               <p><strong>Ville:</strong> Abidjan</p>
             </div>

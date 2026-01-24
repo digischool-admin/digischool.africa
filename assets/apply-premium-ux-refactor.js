@@ -484,14 +484,14 @@
               👤
             </div>
             <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 700; color: #263238; margin-bottom: 8px; letter-spacing: -0.5px;">
-              Hervé SAGORY
+              Jean Pierre SAJORI
             </div>
             <div style="font-size: 18px; color: #1E88E5; font-weight: 600; margin-bottom: 24px;">
               Fondateur & Directeur
             </div>
             <p style="font-size: 16px; line-height: 1.8; color: #546E7A;">
               Expert en transformation digitale et formation professionnelle avec plus de 15 ans d'expérience en Afrique. 
-              Diplômé de grandes écoles internationales, Hervé SAGORY a accompagné plus de 200 entreprises africaines 
+              Diplômé de grandes écoles internationales, Jean Pierre SAJORI a accompagné plus de 200 entreprises africaines 
               dans leur montée en compétences et leur transformation digitale.
             </p>
           </div>

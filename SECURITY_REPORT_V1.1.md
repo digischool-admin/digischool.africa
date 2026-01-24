@@ -248,7 +248,7 @@ Before deploying to production:
 **Security Contact**:  
 **Email**: security@digischool.africa  
 **Phone**: +225 05 05 11 11 02  
-**Escalation**: Hervé SAJORI (CEO)
+**Escalation**: Jean Pierre SAJORI (CEO)
 
 ---
 

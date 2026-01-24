@@ -66,7 +66,7 @@ Un visiteur peut:
 - **Impact**: +60% conversion visiteur → lead
 
 ### Documents Légaux
-- Mentions légales (Hervé Sajori)
+- Mentions légales (Jean Pierre Sajori)
 - CGU (droits/devoirs)
 - CGV (paiement non remboursable)
 - Confidentialité (RGPD)
@@ -146,4 +146,4 @@ Un visiteur peut:
 **Mode**: GenSpark.ai ONE-SHOT LOCKED  
 **Commit**: 45eb2bd  
 **Production**: https://digischool.africa/  
-**Signature**: **Hervé Sajori**, Directeur de Publication, Digilab
+**Signature**: **Jean Pierre Sajori**, Directeur de Publication, Digilab

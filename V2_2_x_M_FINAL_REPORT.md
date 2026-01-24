@@ -17,7 +17,7 @@
 
 ### **PHASE 1: FOOTER FIXES** ✅ Commit c95f9ea
 - ✅ Téléphone: Bouton CTA "📞 Allo DigiSchool !" (au lieu du numéro brut)
-- ✅ Signature: "SAJORI" stylisé (pas "Hervé SAJORI")
+- ✅ Signature: "SAJORI" stylisé (pas "Jean Pierre SAJORI")
 - ✅ Fichier: `assets/global-components-v2-production.js`
 
 ### **PHASE 2: PARTNER LOGOS BANDE GRISE UNIQUE** ✅ Commit c95f9ea
@@ -37,7 +37,7 @@
 - ✅ Structure: Tabs formats + Accordions détails
 
 **B) About (about-premium.html)**:
-- ✅ Nom: "SAJORI" uniquement (pas "Hervé SAJORI")
+- ✅ Nom: "SAJORI" uniquement (pas "Jean Pierre SAJORI")
 - ✅ Structure: Cards mission/vision + Sections
 
 **C) Legal (4 pages)**:
@@ -102,7 +102,7 @@
 | ❌ Zéro emoji | ✅ 0 emoji détecté (6/6 pages) |
 | ❌ Zéro icône hors charte | ✅ SVG palette DigiSchool uniquement |
 | ✅ Footer CTA téléphone | ✅ "Allo DigiSchool !" implémenté |
-| ✅ Signature SAJORI | ✅ Pas "Hervé SAJORI" |
+| ✅ Signature SAJORI | ✅ Pas "Jean Pierre SAJORI" |
 | ✅ Partner logos unique | ✅ 1 bande grise (22 logos, 4 catégories) |
 | ✅ Prix B2B "Sur devis" | ✅ Partout (Intra/Inter/Bootcamp) |
 | ✅ Prompts non exposés | ✅ Code blocks supprimés |

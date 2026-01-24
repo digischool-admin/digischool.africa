@@ -116,7 +116,7 @@ grep -iE '#FF[0-9A-F]{4}|#[A-F0-9]{2}0000|yellow|red' assets/*.css
 ### **D) About Page**
 **Fichier**: `about-premium.html`
 
-**Nom**: "Hervé SAJORI" → `<span style="font-family:'Brush Script MT',cursive;">SAJORI</span>`  
+**Nom**: "Jean Pierre SAJORI" → `<span style="font-family:'Brush Script MT',cursive;">SAJORI</span>`  
 **Claims**: "200 entreprises" → "de nombreuses organisations"
 
 ### **E) Legal Pages**

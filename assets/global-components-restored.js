@@ -124,7 +124,7 @@ const DigiSchoolGlobalComponents = {
           <div class="ds-footer-bottom">
             <p>
               © ${new Date().getFullYear()} DigiSchool Africa SARL. Tous droits réservés.<br>
-              Directeur: <strong>Hervé SAJORI</strong>
+              Directeur: <strong>Jean Pierre SAJORI</strong>
             </p>
             <p style="margin-top: var(--space-2); font-size: var(--text-xs);">
               Plateforme développée avec ❤️ pour l'excellence africaine

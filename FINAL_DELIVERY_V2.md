@@ -260,7 +260,7 @@ B2C Content:
 
 - **Mission statement:** DigiSchool Africa vision
 - **Digilab partnership:** Link to https://www.mydigilab.io
-- **Team section:** Director "Hervé S.a.jo.ri."
+- **Team section:** Director "Jean Pierre S.a.jo.ri."
 - **Credibility blocks:** Trust badges, stats
 - **CTA:** B2C and B2B entry points
 

@@ -96,7 +96,7 @@ Les questions suivantes sont **recommandées** mais nécessitent une implémenta
 
 ### **Corrections Factuelles** ✅
 
-1. ✅ **Nom corrigé**: Hervé **SAJORI** (S-A-J-O-R-I)
+1. ✅ **Nom corrigé**: Jean Pierre **SAJORI** (S-A-J-O-R-I)
 2. ✅ **Claims softened**: "nombreuses organisations" (au lieu de "200 entreprises")
 
 ---

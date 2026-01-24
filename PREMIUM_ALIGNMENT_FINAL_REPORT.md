@@ -75,7 +75,7 @@ Aligner **TOUTES** les pages sur le référentiel unique Homepage (index.html) a
 ### **WORKSTREAM 4: ABOUT PAGE VERIFICATION**
 
 **Vérifications**:
-- ✅ Nom: "Hervé SAJORI" (ou S-A-J-O-R-I stylisé)
+- ✅ Nom: "Jean Pierre SAJORI" (ou S-A-J-O-R-I stylisé)
 - ✅ Claims: "nombreuses organisations" (softened)
 - ✅ Structure: Cards/Sections visuelles
 - ✅ Pas de "200 entreprises" explicite

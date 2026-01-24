@@ -44,7 +44,7 @@
 - **Modal**: Copier numéro + WhatsApp + Fermer
 
 **2. Signature SAJORI** ✅
-- **Avant**: "Directeur de publication : Hervé SAJORI"
+- **Avant**: "Directeur de publication : Jean Pierre SAJORI"
 - **Après**: "Directeur de publication : **SAJORI**" (cursive stylisé)
 
 ### **B) ASSESSMENT HARMONISATION**
@@ -75,7 +75,7 @@
 **Fichier**: `about-premium.html`
 
 **1. Nom** ✅
-- **Avant**: "Hervé SAJORI" ou "Hervé SAGORY"
+- **Avant**: "Jean Pierre SAJORI" ou "Jean Pierre SAJORI"
 - **Après**: "**SAJORI**" stylisé (cursive, signature)
 
 **2. Claims** ✅
@@ -108,7 +108,7 @@
 | 5 | ❌ Zéro couleur interdite | ✅ | Palette DigiSchool stricte |
 | 6 | ❌ Zéro prompt exposé | ✅ | Companies: code blocks supprimés |
 | 7 | ✅ CTA téléphone modal | ✅ | "Allo DigiSchool!" + modal fonctionnel |
-| 8 | ✅ Signature SAJORI | ✅ | Stylisée cursive (pas "Hervé") |
+| 8 | ✅ Signature SAJORI | ✅ | Stylisée cursive (pas "Jean Pierre") |
 | 9 | ✅ Partner logos unique | ✅ | 1 bande/page (22 logos, 4 catégories) |
 | 10 | ✅ Assessment 10 questions | ✅ | UI harmonisée + Q6 max=3 |
 | 11 | ✅ Prix B2B "Sur devis" | ✅ | Intra/Inter/Bootcamp cohérents |

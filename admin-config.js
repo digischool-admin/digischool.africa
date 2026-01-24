@@ -130,7 +130,7 @@
 
   // Certificate Signature Configuration
   const CERTIFICATE_CONFIG = {
-    signatoryName: 'Hervé S-A-J-O-R-I', // Stylized signature
+    signatoryName: 'Jean Pierre S-A-J-O-R-I', // Stylized signature
     signatoryTitle: 'Directeur Général',
     organizationName: 'DigiSchool Africa',
     issuingAuthority: 'DigiSchool Africa',

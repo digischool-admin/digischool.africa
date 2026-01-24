@@ -89,7 +89,7 @@ $ grep -i "prompt" companies.html
 **Page:** `about-premium.html`
 
 **Fixes Applied:**
-- ✅ Name: "Hervé SAGORY" → "SAJORI" (signature stylized)
+- ✅ Name: "Jean Pierre SAJORI" → "SAJORI" (signature stylized)
 - ✅ Claims: "200 entreprises" → "nombreuses organisations"
 - ✅ Mission/Vision/Values structured in cards
 

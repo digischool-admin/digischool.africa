@@ -360,7 +360,7 @@ document.querySelector('.ds-nav-link.active') !== null  // ✅ PASS
 
 **Email**: contact@digischool.africa  
 **Phone**: +225 05 05 11 11 02  
-**Director**: Hervé Sajori  
+**Director**: Jean Pierre Sajori  
 **GitHub**: https://github.com/digischool-admin/digischool.africa
 
 ---

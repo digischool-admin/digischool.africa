@@ -353,7 +353,7 @@ Countries to target in launch marketing:
 - Hours: Lun-Ven 9h-18h GMT
 
 ### Admin
-- Platform Owner: Hervé S.a.jo.ri., Directeur des Programmes
+- Platform Owner: Jean Pierre S.a.jo.ri., Directeur des Programmes
 - Technical: GenSpark AI Agent (automation)
 
 ---

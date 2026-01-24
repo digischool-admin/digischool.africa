@@ -43,7 +43,7 @@
 - CGU (7KB)
 - CGV (8KB)
 - Politique de Confidentialité (7.5KB)
-- **Signature Hervé Sajori** intégrée (Directeur DigiSchool Africa)
+- **Signature Jean Pierre Sajori** intégrée (Directeur DigiSchool Africa)
 
 ---
 
@@ -93,7 +93,7 @@
 
 - **Email:** contact@digischool.africa
 - **Site:** https://digischool.africa/
-- **Directeur:** Hervé SAJORI
+- **Directeur:** Jean Pierre SAJORI
 - **Support:** Mode admin + console debug pour troubleshooting
 
 ---

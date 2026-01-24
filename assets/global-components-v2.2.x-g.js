@@ -523,7 +523,7 @@ const DigiSchoolGlobalComponents = {
           <div class="ds-footer-bottom">
             <p>
               © ${this.config.year} DigiSchool Africa SARL. Tous droits réservés.<br>
-              Directeur: Hervé SAJORI | Propulsé par <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab</a>
+              Directeur: Jean Pierre SAJORI | Propulsé par <a href="https://www.mydigilab.io" target="_blank" rel="noopener">Digilab</a>
             </p>
           </div>
         </div>

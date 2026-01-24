@@ -65,7 +65,7 @@ $ grep -i "prompt" companies.html
 ```
 
 ### **3. ABOUT PAGE (`about-premium.html`)**
-- ✅ Name: "Hervé SAGORY" → "SAJORI" only
+- ✅ Name: "Jean Pierre SAJORI" → "SAJORI" only
 - ✅ Claims: "200 entreprises" → "nombreuses organisations"
 
 ### **4. LEGAL PAGES**

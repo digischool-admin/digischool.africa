@@ -108,7 +108,7 @@ B) **Q6 Multi-Select (3 Max)**
 **Verification**:
 A) **Name Correction**
    - **Before**: N/A (already correct)
-   - **Current**: "Hervé S-A-J-O-R-I" (correct spelling)
+   - **Current**: "Jean Pierre S-A-J-O-R-I" (correct spelling)
    - **Result**: ✅ PASS
 
 B) **Enterprise Claim**
@@ -205,7 +205,7 @@ B) **Enterprise Claim**
 
 - **Email**: contact@digischool.africa
 - **Phone**: +225 05 05 11 11 02
-- **Directeur**: Hervé SAJORI
+- **Directeur**: Jean Pierre SAJORI
 - **Company**: Digilab
 - **GitHub**: https://github.com/digischool-admin/digischool.africa
 
