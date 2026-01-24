@@ -68,8 +68,8 @@ const DigiSchoolGlobalComponents = {
                 <a href="/b2c.html" class="ds-footer-link">Catalogue B2C</a>
                 <a href="/companies.html" class="ds-footer-link">Solutions B2B</a>
                 <a href="/b2c-assessment.html" class="ds-footer-link">Auto-évaluation</a>
-                <a href="/b2b-custom-request.html" class="ds-footer-link">Formation sur-mesure</a>
-                <a href="/b2c-idea-box.html" class="ds-footer-link">Proposer une formation</a>
+                <a href="/b2b-custom-request.html" class="ds-footer-link ds-footer-highlight">Formation sur-mesure</a>
+                <a href="/b2c-idea-box.html" class="ds-footer-link ds-footer-highlight">Proposer une formation</a>
               </div>
             </div>
             
