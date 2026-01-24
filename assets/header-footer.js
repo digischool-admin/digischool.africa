@@ -15,9 +15,9 @@
   };
 
   const CONTACT_LINKS = {
-    whatsapp: 'https://wa.me/2250505111102',
+    whatsapp: 'https://wa.me/225',
     email: 'support@digischool.africa',
-    phone: '+225 05 05 11 11 02'
+    phone: '+225 '
   };
 
   function renderHeader() {

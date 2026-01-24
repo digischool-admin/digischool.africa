@@ -400,8 +400,8 @@
           href: '/b2b-custom-request.html'
         },
         secondaryCTA: {
-          text: '📞 +225 05 05 11 11 02',
-          href: 'tel:+2250505111102'
+          text: '📞 +225 ',
+          href: 'tel:+225'
         },
         background: 'gradient'
       });
@@ -584,7 +584,7 @@
           icon: '📞',
           title: 'Téléphone',
           description: 'Parlez directement à un conseiller',
-          cta: { text: '+225 05 05 11 11 02', href: 'tel:+2250505111102', style: 'primary' }
+          cta: { text: '+225 ', href: 'tel:+225', style: 'primary' }
         },
         {
           icon: '✉️',

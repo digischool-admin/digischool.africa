@@ -30,7 +30,7 @@
         options: ['Nos formations', 'Nos méthodes', 'Nos résultats', 'Contact']
       },
       'Contact': {
-        text: '📞 Nous sommes à votre écoute !\n\n📧 Email: support@digischool.africa\n📱 WhatsApp: +225 05 05 11 11 02\n\nOu laissez-nous votre question ici 👇'
+        text: '📞 Nous sommes à votre écoute !\n\n📧 Email: support@digischool.africa\n📱 WhatsApp: +225 \n\nOu laissez-nous votre question ici 👇'
       }
     },
     
@@ -130,7 +130,7 @@
         // Redirection
         if (option === 'Voir tous les cours') window.location.href = '/b2c.html';
         if (option === 'Demander un devis') window.location.href = '/companies.html';
-        if (option === 'Contact commercial') window.open('https://wa.me/2250505111102', '_blank');
+        if (option === 'Contact commercial') window.open('https://wa.me/225', '_blank');
       }
     },
     

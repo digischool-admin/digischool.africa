@@ -474,7 +474,7 @@ const DigiSchoolChatbot = {
       return 'Oui ! Toutes nos formations délivrent un certificat DigiSchool Africa reconnu. Certaines préparent aussi à des certifications internationales (PMP, Microsoft, etc.).';
     }
 
-    return 'Merci pour votre message ! Pour une réponse personnalisée, contactez-nous à <a href="mailto:contact@digischool.africa">contact@digischool.africa</a> ou appelez le <a href="tel:+22505051111 02">+225 05 05 11 11 02</a>.';
+    return 'Merci pour votre message ! Pour une réponse personnalisée, contactez-nous à <a href="mailto:contact@digischool.africa">contact@digischool.africa</a> ou appelez le <a href="href="javascript:void(0)" onclick="openPaymentModal()">Allo DigiSchool </a>.';
   },
 
   recordInteraction() {
