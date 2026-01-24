@@ -1,8 +1,8 @@
 /**
  * ╔═══════════════════════════════════════════════════════════════╗
- * ║  DigiSchool Africa — GLOBAL COMPONENTS V2.2.x-E               ║
+ * ║  DigiSchool Africa — GLOBAL COMPONENTS V2.2.x-F               ║
  * ║  Header & Footer Universels — Production Ready                ║
- * ║  Téléphone: +225 05 05 11 11 02 | Logos Partenaires           ║
+ * ║  Contact Multi-Opérateurs | Logos Partenaires                 ║
  * ╚═══════════════════════════════════════════════════════════════╝
  */
 
