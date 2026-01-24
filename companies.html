@@ -416,6 +416,82 @@
         font-size: var(--text-xs);
       }
     }
+    
+    /* Program Accordion Styles */
+    .programme-accordion {
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    
+    .accordion-toggle {
+      width: 100%;
+      background: rgba(30, 136, 229, 0.05);
+      border: 1px solid rgba(30, 136, 229, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--color-primary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .accordion-toggle:hover {
+      background: rgba(30, 136, 229, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    
+    .accordion-content.active {
+      max-height: 2000px;
+      margin-top: var(--space-4);
+    }
+    
+    .day-item {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    
+    .day-item strong {
+      display: block;
+      font-size: var(--text-lg);
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+    
+    .day-item ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .day-item li {
+      padding-left: var(--space-6);
+      margin-bottom: var(--space-2);
+      position: relative;
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    .day-item li:before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-secondary);
+      font-weight: 700;
+    }
   </style>
 </head>
 <body data-page="companies">
@@ -726,6 +802,56 @@
               <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 jours</span>
               <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Intra / Inter / Bootcamp</span>
             </div>
+            
+            <div class="programme-accordion">
+              <button class="accordion-toggle" onclick="toggleProgramme('leadership')">
+                <span>Voir le Programme</span>
+                <span>▼</span>
+              </button>
+              <div class="accordion-content" id="programme-leadership">
+                <div class="day-item">
+                  <strong>Jour 1 : Leadership Transformationnel</strong>
+                  <ul>
+                    <li>Définir et communiquer une vision inspirante</li>
+                    <li>Aligner les équipes sur les objectifs stratégiques</li>
+                    <li>Développer votre style de leadership authentique</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jour 2 : Management d'Équipes Hybrides</strong>
+                  <ul>
+                    <li>Piloter des équipes distribuées efficacement</li>
+                    <li>Maintenir l'engagement et la cohésion à distance</li>
+                    <li>Utiliser les outils collaboratifs et IA</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jour 3 : Gestion des Conflits</strong>
+                  <ul>
+                    <li>Détecter et résoudre les conflits rapidement</li>
+                    <li>Communication assertive et feedback constructif</li>
+                    <li>Médiation et négociation avec support IA</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jour 4 : Culture d'Entreprise & Engagement</strong>
+                  <ul>
+                    <li>Bâtir une culture performante et inclusive</li>
+                    <li>Mesurer et booster l'engagement collaborateur</li>
+                    <li>Outils de mesure et tableaux de bord RH</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jour 5 : Change Management & Projet Final</strong>
+                  <ul>
+                    <li>Conduire le changement organisationnel</li>
+                    <li>Anticiper les résistances et mobiliser</li>
+                    <li>Projet final : Plan de leadership à 90 jours</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
             <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
               <a href="/contact.html?formation=leadership" class="btn btn-secondary" style="font-size: var(--text-base);">
                 Demander une Proposition
@@ -741,6 +867,56 @@
               <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 10 jours</span>
               <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Intra / Inter / Bootcamp</span>
             </div>
+            
+            <div class="programme-accordion">
+              <button class="accordion-toggle" onclick="toggleProgramme('pmp')">
+                <span>Voir le Programme</span>
+                <span>▼</span>
+              </button>
+              <div class="accordion-content" id="programme-pmp">
+                <div class="day-item">
+                  <strong>Jours 1-2 : Cadrage de Projet</strong>
+                  <ul>
+                    <li>Définir la charte projet et identifier les parties prenantes</li>
+                    <li>Élaborer le business case et l'étude de faisabilité</li>
+                    <li>Utiliser l'IA pour l'analyse des risques initiaux</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jours 3-4 : Planification Projet</strong>
+                  <ul>
+                    <li>Créer le WBS et estimer les ressources</li>
+                    <li>Élaborer le planning avec MS Project et IA</li>
+                    <li>Planifier les risques, qualité et communication</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jours 5-6 : Exécution & Pilotage</strong>
+                  <ul>
+                    <li>Diriger et gérer l'équipe projet</li>
+                    <li>Gérer les approvisionnements et contrats</li>
+                    <li>Automatiser le reporting avec l'IA</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jours 7-8 : Maîtrise & Contrôle</strong>
+                  <ul>
+                    <li>Surveiller les coûts, délais et périmètre</li>
+                    <li>Gérer les changements et les risques</li>
+                    <li>Prédire les dérives avec l'IA prédictive</li>
+                  </ul>
+                </div>
+                <div class="day-item">
+                  <strong>Jours 9-10 : Clôture & Certification</strong>
+                  <ul>
+                    <li>Clôturer le projet et capitaliser les leçons</li>
+                    <li>Préparation intensive à l'examen PMP</li>
+                    <li>Projet final et simulation d'examen</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
             <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
               <a href="/contact.html?formation=pmp" class="btn btn-secondary" style="font-size: var(--text-base);">
                 Demander une Proposition
@@ -872,6 +1048,21 @@
       // Add active to selected tab
       event.target.classList.add('active');
       document.getElementById('tab-' + tabName).classList.add('active');
+    }
+    
+    function toggleProgramme(formationId) {
+      const content = document.getElementById('programme-' + formationId);
+      const allContents = document.querySelectorAll('.accordion-content');
+      
+      // Close all other accordions
+      allContents.forEach(c => {
+        if (c !== content) {
+          c.classList.remove('active');
+        }
+      });
+      
+      // Toggle current accordion
+      content.classList.toggle('active');
     }
   </script>
   
