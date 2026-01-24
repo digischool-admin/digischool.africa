@@ -317,6 +317,278 @@
       margin: 0;
     }
     
+    /* Progress tracker */
+    .progress-tracker {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-8);
+      position: relative;
+      padding: 0 var(--space-4);
+    }
+    
+    .progress-tracker::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 0;
+    }
+    
+    .progress-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .progress-step-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-2);
+      font-weight: 700;
+      color: var(--ds-gray);
+      transition: all var(--transition-base);
+    }
+    
+    .progress-step.active .progress-step-icon {
+      background: var(--gradient-hero);
+      border-color: var(--color-primary);
+      color: white;
+    }
+    
+    .progress-step.completed .progress-step-icon {
+      background: var(--color-secondary);
+      border-color: var(--color-secondary);
+      color: white;
+    }
+    
+    .progress-step-label {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      font-weight: 500;
+    }
+    
+    .progress-step.active .progress-step-label {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    
+    /* Payment logos grid */
+    .payment-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    
+    .payment-logo-btn {
+      aspect-ratio: 1;
+      background: rgba(0, 0, 0, 0.02);
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .payment-logo-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="rgba(0,0,0,0.02)" font-size="10" font-weight="700">DigiSchool Africa</text></svg>') repeat;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    
+    .payment-logo-btn:hover {
+      border-color: var(--color-primary);
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .payment-logo-btn img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: var(--space-2);
+    }
+    
+    .payment-logo-name {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--ds-dark);
+    }
+    
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: var(--space-4);
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      max-width: 480px;
+      width: 100%;
+      box-shadow: var(--shadow-2xl);
+      animation: modalSlideIn 0.3s ease;
+    }
+    
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-base);
+    }
+    
+    .modal-close:hover {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+    
+    .payment-number-display {
+      background: rgba(30, 136, 229, 0.08);
+      border: 2px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      text-align: center;
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      font-family: monospace;
+      color: var(--color-primary);
+      margin: var(--space-6) 0;
+      letter-spacing: 2px;
+    }
+    
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    
+    .modal-btn {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      border: none;
+      font-size: var(--text-base);
+    }
+    
+    .modal-btn-primary {
+      background: var(--gradient-hero);
+      color: white;
+    }
+    
+    .modal-btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    
+    .modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    /* Timer */
+    .timer-display {
+      background: rgba(126, 87, 194, 0.08);
+      border: 1px solid rgba(126, 87, 194, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      text-align: center;
+      margin-top: var(--space-6);
+    }
+    
+    .timer-display h3 {
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .timer-countdown {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      color: #7E57C2;
+      font-family: monospace;
+    }
+    
+    /* File upload */
+    .file-upload-zone {
+      border: 2px dashed rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+      background: rgba(0, 0, 0, 0.02);
+    }
+    
+    .file-upload-zone:hover {
+      border-color: var(--color-primary);
+      background: rgba(30, 136, 229, 0.04);
+    }
+    
+    .file-upload-zone.dragover {
+      border-color: var(--color-secondary);
+      background: rgba(38, 166, 154, 0.08);
+    }
+    
+    /* Anti-capture */
+    .no-capture {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .assessment-wrapper {
@@ -339,13 +611,26 @@
         font-size: var(--text-2xl);
       }
       
-      .payment-grid {
-        grid-template-columns: 1fr;
+      .payment-logos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .progress-tracker {
+        flex-wrap: wrap;
+      }
+      
+      .progress-step {
+        flex-basis: 50%;
+        margin-bottom: var(--space-4);
+      }
+      
+      .progress-step-label {
+        font-size: var(--text-xs);
       }
     }
   </style>
 </head>
-<body data-page="checkout">
+<body data-page="checkout" class="no-capture">
   <!-- Header injecté via JS -->
   
   <div class="assessment-wrapper">
@@ -353,6 +638,30 @@
       <div class="assessment-header animate-fade-in">
         <h1>Finaliser votre commande</h1>
         <p>Validation simple et paiement sécurisé via Mobile Money</p>
+      </div>
+      
+      <!-- Progress Tracker -->
+      <div class="progress-tracker" id="progress-tracker">
+        <div class="progress-step active" data-step="validation">
+          <div class="progress-step-icon">1</div>
+          <div class="progress-step-label">Validation</div>
+        </div>
+        <div class="progress-step" data-step="paiement">
+          <div class="progress-step-icon">2</div>
+          <div class="progress-step-label">Paiement</div>
+        </div>
+        <div class="progress-step" data-step="preuve">
+          <div class="progress-step-icon">3</div>
+          <div class="progress-step-label">Preuve</div>
+        </div>
+        <div class="progress-step" data-step="confirmation">
+          <div class="progress-step-icon">4</div>
+          <div class="progress-step-label">Confirmation</div>
+        </div>
+        <div class="progress-step" data-step="acces">
+          <div class="progress-step-icon">5</div>
+          <div class="progress-step-label">Accès</div>
+        </div>
       </div>
       
       <!-- Course Summary Card -->
@@ -415,7 +724,7 @@
       </div>
       
       <!-- Payment Methods Card -->
-      <div class="checkout-card animate-fade-in">
+      <div class="checkout-card animate-fade-in" id="payment-section" style="display: none;">
         <h2>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
             <rect x="1" y="4" width="22" height="16" rx="2"/>
@@ -431,49 +740,101 @@
             <line x1="12" y1="8" x2="12.01" y2="8"/>
           </svg>
           <div>
-            <strong>Important :</strong> Après validation, nous vous contacterons pour finaliser le paiement via l'un des moyens ci-dessous. Aucun paiement en ligne automatisé.
+            <strong>Cliquez sur un logo</strong> pour révéler le numéro et effectuer votre paiement. Le numéro sera copié automatiquement.
           </div>
         </div>
         
-        <div class="payment-grid">
-          <a href="tel:+2250714678289" class="payment-card">
-            <div class="payment-icon">
-              <img src="/assets/orange-money.png" alt="Orange Money" onerror="this.style.display='none'">
-            </div>
-            <div class="payment-label">Orange Money</div>
-            <div class="payment-number">07 14 67 82 89</div>
-          </a>
+        <div class="payment-logos-grid">
+          <button class="payment-logo-btn" onclick="window.showPaymentNumber('ORANGE', '0714678289')" type="button">
+            <img src="/assets/orange-money.png" alt="Orange Money" onerror="this.style.display='none'">
+            <div class="payment-logo-name">Orange Money</div>
+          </button>
           
-          <a href="tel:+2250665231403" class="payment-card">
-            <div class="payment-icon">
-              <img src="/assets/mtn-momo.png" alt="MTN MoMo" onerror="this.style.display='none'">
-            </div>
-            <div class="payment-label">MTN MoMo</div>
-            <div class="payment-number">06 65 23 14 03</div>
-          </a>
+          <button class="payment-logo-btn" onclick="window.showPaymentNumber('MTN', '0665231403')" type="button">
+            <img src="/assets/mtn-momo.png" alt="MTN MoMo" onerror="this.style.display='none'">
+            <div class="payment-logo-name">MTN MoMo</div>
+          </button>
           
-          <a href="tel:+2250151666801" class="payment-card">
-            <div class="payment-icon">
-              <img src="/assets/moov-money.png" alt="Moov Money" onerror="this.style.display='none'">
-            </div>
-            <div class="payment-label">Moov Money</div>
-            <div class="payment-number">01 51 66 68 01</div>
-          </a>
+          <button class="payment-logo-btn" onclick="window.showPaymentNumber('MOOV', '0151666801')" type="button">
+            <img src="/assets/moov-money.png" alt="Moov Money" onerror="this.style.display='none'">
+            <div class="payment-logo-name">Moov Money</div>
+          </button>
           
-          <a href="https://wa.me/2250151664653" target="_blank" rel="noopener" class="payment-card">
-            <div class="payment-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="#25D366">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-              </svg>
-            </div>
-            <div class="payment-label">Wave / WhatsApp</div>
-            <div class="payment-number">01 51 66 46 53</div>
-          </a>
+          <button class="payment-logo-btn" onclick="window.showPaymentNumber('WAVE', '0151664653', true)" type="button">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="#25D366">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <div class="payment-logo-name">Wave</div>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Proof Upload Section -->
+      <div class="checkout-card animate-fade-in" id="proof-section" style="display: none;">
+        <h2>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          Preuve de paiement
+        </h2>
+        
+        <div class="form-group">
+          <label for="payment-ref">Référence de transaction <span class="required">*</span></label>
+          <input type="text" id="payment-ref" placeholder="Ex: OM240125XXXX" required>
+          <small>Numéro de référence fourni par l'opérateur</small>
         </div>
         
-        <a href="javascript:void(0)" class="btn-secondary" onclick="window.openPaymentModal?.()">
-          📞 Allo DigiSchool !
-        </a>
+        <div class="form-group">
+          <label>Capture d'écran du paiement</label>
+          <div class="file-upload-zone" id="file-upload-zone">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="margin: 0 auto var(--space-4);">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <p style="margin: 0; color: var(--ds-gray);">Cliquez ou glissez votre fichier ici</p>
+            <small>PNG, JPG ou PDF (max 5MB)</small>
+            <input type="file" id="proof-file" accept="image/*,.pdf" style="display: none;">
+          </div>
+          <div id="file-preview" style="margin-top: var(--space-4); display: none;"></div>
+        </div>
+        
+        <button type="button" class="btn-primary" onclick="window.submitProof()">
+          Envoyer la preuve
+        </button>
+      </div>
+      
+      <!-- Confirmation Section -->
+      <div class="checkout-card animate-fade-in" id="confirmation-section" style="display: none;">
+        <h2 style="text-align: center; color: var(--color-secondary);">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin: 0 auto var(--space-4); display: block;">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Commande en cours de traitement
+        </h2>
+        
+        <p style="text-align: center; font-size: var(--text-lg); color: var(--ds-gray); margin-bottom: var(--space-6);">
+          Nous avons bien reçu votre preuve de paiement. Notre équipe vérifie votre commande.
+        </p>
+        
+        <div class="timer-display">
+          <h3>Traitement en cours</h3>
+          <div class="timer-countdown" id="timer-countdown">30:00</div>
+          <p style="margin-top: var(--space-2); color: var(--ds-gray); font-size: var(--text-sm);">Temps maximum de traitement</p>
+        </div>
+        
+        <div style="background: rgba(38, 166, 154, 0.08); border: 1px solid rgba(38, 166, 154, 0.2); border-radius: var(--radius-md); padding: var(--space-6); margin-top: var(--space-6);">
+          <p style="margin: 0; color: var(--ds-dark);">
+            <strong>Un reçu sera envoyé à :</strong><br>
+            <span id="confirmation-email" style="color: var(--color-primary); font-weight: 600;"></span>
+          </p>
+          <button type="button" class="btn-secondary" onclick="window.changeEmail()" style="margin-top: var(--space-4);">
+            Modifier mon email
+          </button>
+        </div>
       </div>
       
       <!-- Fallback state (hidden by default) -->
@@ -510,181 +871,213 @@
   <script src="/assets/payment-contact-modal.js"></script>
   <script src="/assets/chatbot-manager-v2.js"></script>
   
+  
+  <!-- Payment Number Modal -->
+  <div id="payment-modal" style="display: none;"></div>
+  
   <!-- Checkout Logic -->
   <script>
+    // Anti-capture measures
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'p' || e.key === 'S' || e.key === 'P')) {
+        e.preventDefault();
+      }
+    });
+    
     (function() {
       'use strict';
       
-      // Slug normalization and alias mapping
-      const SLUG_ALIASES = {
-        'leadership': 'leadership-management',
-        'leadership-management': 'leadership-management',
-        'leadership-&-management': 'leadership-management',
-        'leadership-and-management': 'leadership-management',
-        'management-leadership': 'leadership-management',
-        
-        'pmp': 'gestion-projet-pmp',
-        'gestion-projet': 'gestion-projet-pmp',
-        'gestion-projet-pmp': 'gestion-projet-pmp',
-        'project-management': 'gestion-projet-pmp',
-        
-        'strategy': 'strategie-execution',
-        'strategie': 'strategie-execution',
-        'strategie-execution': 'strategie-execution',
-        
-        'data': 'data-analytics',
-        'data-analytics': 'data-analytics',
-        'data-analysis': 'data-analytics',
-        
-        'excel': 'excel-avance',
-        'excel-avance': 'excel-avance',
-        'excel-advanced': 'excel-avance',
-        
-        'powerbi': 'power-bi',
-        'power-bi': 'power-bi',
-        'powerbi-reporting': 'power-bi',
-        
-        'marketing': 'marketing-digital',
-        'marketing-digital': 'marketing-digital',
-        'digital-marketing': 'marketing-digital',
-        
-        'transformation': 'transformation-digitale',
-        'transformation-digitale': 'transformation-digitale',
-        'digital-transformation': 'transformation-digitale',
-        
-        'rh': 'rh-moderne',
-        'rh-moderne': 'rh-moderne',
-        'ressources-humaines': 'rh-moderne'
+      // Formations mapping
+      const FORMATIONS_DB = {
+        'leadership-management': {
+          title: 'Leadership & Management',
+          duration: '5 jours',
+          modules: 4,
+          packPrice: 245000,
+          modulePrice: 76563,
+          isB2B: false
+        },
+        'gestion-projet-pmp': {
+          title: 'Gestion de Projet (PMP)',
+          duration: '10 jours',
+          modules: 4,
+          packPrice: 306252,
+          modulePrice: 76563,
+          isB2B: false
+        },
+        'data-analytics': {
+          title: 'Data Analytics & Visualisation',
+          duration: '8 jours',
+          modules: 4,
+          packPrice: 245000,
+          modulePrice: 76563,
+          isB2B: false
+        },
+        'excel-avance': {
+          title: 'Excel Avancé + IA',
+          duration: '4 jours',
+          modules: 4,
+          packPrice: 163125,
+          modulePrice: 51000,
+          isB2B: false
+        },
+        'power-bi': {
+          title: 'Power BI & Reporting',
+          duration: '5 jours',
+          modules: 4,
+          packPrice: 204000,
+          modulePrice: 63750,
+          isB2B: false
+        },
+        'marketing-digital': {
+          title: 'Marketing Digital',
+          duration: '6 jours',
+          modules: 4,
+          packPrice: 245000,
+          modulePrice: 76563,
+          isB2B: false
+        },
+        'transformation-digitale': {
+          title: 'Transformation Digitale',
+          duration: '4 jours',
+          modules: 4,
+          packPrice: 163125,
+          modulePrice: 51000,
+          isB2B: false
+        },
+        'rh-moderne': {
+          title: 'RH Moderne & People Analytics',
+          duration: '5 jours',
+          modules: 4,
+          packPrice: 204000,
+          modulePrice: 63750,
+          isB2B: false
+        },
+        'strategie-execution': {
+          title: 'Stratégie & Exécution',
+          duration: '4 jours',
+          modules: 4,
+          packPrice: 163125,
+          modulePrice: 51000,
+          isB2B: false
+        }
       };
       
-      function normalizeSlug(slug) {
-        if (!slug) return null;
-        const normalized = slug.toLowerCase().trim().replace(/[\s_]+/g, '-');
-        return SLUG_ALIASES[normalized] || normalized;
+      // Parse URL params
+      const urlParams = new URLSearchParams(window.location.search);
+      let courseSlug = urlParams.get('course');
+      let purchaseType = urlParams.get('type') || (urlParams.get('pack') ? 'pack' : 'module');
+      const moduleId = urlParams.get('module');
+      const isB2B = urlParams.get('b2b') === '1';
+      
+      // Normalize slug
+      if (courseSlug) {
+        courseSlug = courseSlug.toLowerCase().trim().replace(/\s+/g, '-');
       }
       
-      // Liste des 9 formations
-      const COURSES_LIST = [
-        { slug: 'leadership-management', title: 'Leadership & Management', duration: '5 jours' },
-        { slug: 'gestion-projet-pmp', title: 'Gestion de Projet (PMP)', duration: '10 jours' },
-        { slug: 'data-analytics', title: 'Data Analytics', duration: '8 jours' },
-        { slug: 'excel-avance', title: 'Excel Avancé', duration: '4 jours' },
-        { slug: 'power-bi', title: 'Power BI & Reporting', duration: '5 jours' },
-        { slug: 'marketing-digital', title: 'Marketing Digital', duration: '6 jours' },
-        { slug: 'transformation-digitale', title: 'Transformation Digitale', duration: '4 jours' },
-        { slug: 'rh-moderne', title: 'RH Moderne', duration: '5 jours' },
-        { slug: 'strategie-execution', title: 'Stratégie & Exécution', duration: '4 jours' }
-      ];
-      
-      // Parse URL params (ignore 'v' cache busting param)
-      const urlParams = new URLSearchParams(window.location.search);
-      const rawSlug = urlParams.get('course');
-      const courseSlug = normalizeSlug(rawSlug);
-      const purchaseType = urlParams.get('type') || 'pack';
-      
-      // Check if we have required params
-      if (!courseSlug) {
+      // Check params
+      if (!courseSlug || !FORMATIONS_DB[courseSlug]) {
         showFallback();
         return;
       }
       
-      // Get course data
-      const course = window.getCourseBySlugorId?.(courseSlug);
+      const formation = FORMATIONS_DB[courseSlug];
       
-      if (!course) {
-        // Try static list
-        const staticCourse = COURSES_LIST.find(c => c.slug === courseSlug);
-        if (staticCourse) {
-          displayCourseDetailsStatic(staticCourse, purchaseType);
-        } else {
-          showFallback();
-        }
+      // B2B redirect
+      if (isB2B || formation.isB2B) {
+        showB2BOption(formation);
         return;
       }
       
       // Display course details
-      displayCourseDetails(course, purchaseType);
+      displayCourseDetails(formation, purchaseType, moduleId);
+      
+      // State
+      let currentStep = 'validation';
+      let userEmail = '';
+      let proofData = {};
       
       // Handle form submission
       document.getElementById('checkout-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        handleCheckout(course, purchaseType);
+        handleValidation();
+      });
+      
+      // File upload
+      const fileZone = document.getElementById('file-upload-zone');
+      const fileInput = document.getElementById('proof-file');
+      
+      fileZone.addEventListener('click', () => fileInput.click());
+      fileZone.addEventListener('dragover', e => {
+        e.preventDefault();
+        fileZone.classList.add('dragover');
+      });
+      fileZone.addEventListener('dragleave', () => fileZone.classList.remove('dragover'));
+      fileZone.addEventListener('drop', e => {
+        e.preventDefault();
+        fileZone.classList.remove('dragover');
+        if (e.dataTransfer.files.length) {
+          fileInput.files = e.dataTransfer.files;
+          showFilePreview(e.dataTransfer.files[0]);
+        }
+      });
+      fileInput.addEventListener('change', e => {
+        if (e.target.files.length) {
+          showFilePreview(e.target.files[0]);
+        }
       });
       
       function showFallback() {
         document.getElementById('summary-section').style.display = 'none';
         document.querySelector('.checkout-card:nth-of-type(2)').style.display = 'none';
-        document.querySelector('.checkout-card:nth-of-type(3)').style.display = 'none';
         document.getElementById('fallback-state').style.display = 'block';
         
-        // Display courses list
-        const listHTML = COURSES_LIST.map(course => `
-          <a href="/b2c-checkout.html?course=${course.slug}&type=pack" class="mini-course-card">
-            <h4>${course.title}</h4>
-            <p>${course.duration} • Pack Complet</p>
-          </a>
-        `).join('');
+        const listHTML = Object.keys(FORMATIONS_DB).map(slug => {
+          const f = FORMATIONS_DB[slug];
+          return `
+            <a href="/b2c-checkout.html?course=${slug}&type=pack" class="mini-course-card">
+              <h4>${f.title}</h4>
+              <p>${f.duration} • Pack Complet</p>
+            </a>
+          `;
+        }).join('');
         
         document.getElementById('courses-list').innerHTML = listHTML;
       }
       
-      function displayCourseDetailsStatic(course, type) {
-        const isPack = type === 'pack';
-        
-        const html = `
-          <div class="summary-row">
-            <span class="summary-label">Formation</span>
-            <span class="summary-value">${course.title}</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Type</span>
-            <span class="summary-value">${isPack ? 'Pack Complet (4 modules)' : 'Module Individuel'}</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Durée</span>
-            <span class="summary-value">${course.duration}</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Prix</span>
-            <span class="summary-value">Sur devis</span>
-          </div>
+      function showB2BOption(formation) {
+        document.getElementById('summary-section').innerHTML = `
+          <h2>Formation B2B détectée</h2>
+          <p>${formation.title} est disponible pour les entreprises.</p>
+          <a href="/companies.html" class="btn-primary">Demander un devis B2B</a>
+          <button class="btn-secondary" onclick="window.location.reload()">Je souhaite payer en ligne (B2C)</button>
         `;
-        
-        document.getElementById('course-details').innerHTML = html;
-        document.getElementById('summary-section').style.display = 'block';
-        document.getElementById('fallback-state').style.display = 'none';
-        
-        // Handle form
-        document.getElementById('checkout-form').addEventListener('submit', function(e) {
-          e.preventDefault();
-          handleCheckoutStatic(course, type);
-        });
       }
       
-      function displayCourseDetails(course, type) {
+      function displayCourseDetails(formation, type, moduleId) {
         const isPack = type === 'pack';
-        const price = isPack ? course.packPrice : course.modulePrice;
-        const priceFormatted = price ? price.toLocaleString('fr-FR') + ' FCFA' : 'Sur devis';
+        const price = isPack ? formation.packPrice : formation.modulePrice;
+        const priceFormatted = price.toLocaleString('fr-FR') + ' FCFA';
         
         const html = `
           <div class="summary-row">
             <span class="summary-label">Formation</span>
-            <span class="summary-value">${course.title}</span>
+            <span class="summary-value">${formation.title}</span>
           </div>
           <div class="summary-row">
             <span class="summary-label">Type</span>
-            <span class="summary-value">${isPack ? 'Pack Complet (4 modules)' : 'Module Individuel'}</span>
+            <span class="summary-value">${isPack ? 'Pack Complet (' + formation.modules + ' modules)' : 'Module ' + (moduleId || '1')}</span>
           </div>
           <div class="summary-row">
             <span class="summary-label">Durée</span>
-            <span class="summary-value">${course.duration || 'Variable'}</span>
+            <span class="summary-value">${formation.duration}</span>
           </div>
-          ${price ? `
           <div class="summary-row">
             <span class="summary-label">Prix total</span>
             <span class="summary-value">${priceFormatted}</span>
           </div>
-          ` : ''}
         `;
         
         document.getElementById('course-details').innerHTML = html;
@@ -692,43 +1085,140 @@
         document.getElementById('fallback-state').style.display = 'none';
       }
       
-      function handleCheckoutStatic(course, type) {
+      function handleValidation() {
         const formData = new FormData(document.getElementById('checkout-form'));
-        const data = {
-          course: course.title,
-          courseSlug: course.slug,
-          type: type,
+        userEmail = formData.get('email');
+        
+        console.log('Validation:', {
           name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone'),
-          company: formData.get('company'),
-          message: formData.get('message'),
-          timestamp: new Date().toISOString()
-        };
+          email: userEmail,
+          phone: formData.get('phone')
+        });
         
-        console.log('Commande validée:', data);
-        
-        alert('✅ Commande validée !\n\nNous vous contacterons dans les prochaines heures pour finaliser le paiement.\n\nMerci de votre confiance !');
+        // Move to payment step
+        updateProgress('paiement');
+        document.querySelector('.checkout-card:nth-of-type(2)').style.display = 'none';
+        document.getElementById('payment-section').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
       
-      function handleCheckout(course, type) {
-        const formData = new FormData(document.getElementById('checkout-form'));
-        const data = {
-          course: course.title,
-          courseId: course.id,
-          type: type,
-          name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone'),
-          company: formData.get('company'),
-          message: formData.get('message'),
-          timestamp: new Date().toISOString()
-        };
+      function updateProgress(step) {
+        currentStep = step;
+        const steps = ['validation', 'paiement', 'preuve', 'confirmation', 'acces'];
+        const currentIndex = steps.indexOf(step);
         
-        console.log('Commande validée:', data);
-        
-        alert('✅ Commande validée !\n\nNous vous contacterons dans les prochaines heures pour finaliser le paiement.\n\nMerci de votre confiance !');
+        document.querySelectorAll('.progress-step').forEach((el, i) => {
+          el.classList.remove('active', 'completed');
+          if (i < currentIndex) el.classList.add('completed');
+          else if (i === currentIndex) el.classList.add('active');
+        });
       }
+      
+      window.showPaymentNumber = function(operator, number, isWave = false) {
+        const modal = document.getElementById('payment-modal');
+        modal.innerHTML = `
+          <div class="modal-overlay" onclick="if(event.target === this) this.parentElement.style.display='none'">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 style="margin: 0;">Payer via ${operator}</h3>
+                <button class="modal-close" onclick="document.getElementById('payment-modal').style.display='none'">×</button>
+              </div>
+              <div class="payment-number-display">${number}</div>
+              <div class="modal-actions">
+                <button class="modal-btn modal-btn-primary" onclick="navigator.clipboard.writeText('${number}').then(() => {this.innerHTML = '✓ Copié !'; setTimeout(() => this.innerHTML = 'Copier le numéro', 2000);})">
+                  Copier le numéro
+                </button>
+                ${isWave ? `
+                <button class="modal-btn modal-btn-secondary" onclick="window.open('https://wa.me/225${number}', '_blank')">
+                  Ouvrir WhatsApp
+                </button>
+                ` : ''}
+                <button class="modal-btn modal-btn-secondary" onclick="window.markAsPaid('${operator}', '${number}')">
+                  J'ai payé
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        modal.style.display = 'block';
+        navigator.clipboard.writeText(number);
+      };
+      
+      window.markAsPaid = function(operator, number) {
+        document.getElementById('payment-modal').style.display = 'none';
+        updateProgress('preuve');
+        document.getElementById('payment-section').style.display = 'none';
+        document.getElementById('proof-section').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      
+      function showFilePreview(file) {
+        if (file.size > 5 * 1024 * 1024) {
+          alert('Fichier trop volumineux (max 5MB)');
+          return;
+        }
+        
+        const preview = document.getElementById('file-preview');
+        preview.style.display = 'block';
+        preview.innerHTML = `
+          <div style="background: rgba(38, 166, 154, 0.08); border: 1px solid rgba(38, 166, 154, 0.2); border-radius: var(--radius-md); padding: var(--space-4); display: flex; align-items: center; gap: var(--space-3);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+              <polyline points="13 2 13 9 20 9"/>
+            </svg>
+            <span style="flex: 1; font-weight: 600;">${file.name}</span>
+            <button onclick="document.getElementById('proof-file').value=''; document.getElementById('file-preview').style.display='none';" style="background: none; border: none; cursor: pointer; color: #ef4444; font-weight: 700;">×</button>
+          </div>
+        `;
+      }
+      
+      window.submitProof = function() {
+        const ref = document.getElementById('payment-ref').value;
+        const file = document.getElementById('proof-file').files[0];
+        
+        if (!ref || !file) {
+          alert('Veuillez remplir tous les champs obligatoires.');
+          return;
+        }
+        
+        proofData = { ref, fileName: file.name, timestamp: new Date().toISOString() };
+        console.log('Proof submitted:', proofData);
+        
+        // Move to confirmation
+        updateProgress('confirmation');
+        document.getElementById('proof-section').style.display = 'none';
+        document.getElementById('confirmation-section').style.display = 'block';
+        document.getElementById('confirmation-email').textContent = userEmail;
+        startTimer();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      
+      function startTimer() {
+        let seconds = 30 * 60;
+        const display = document.getElementById('timer-countdown');
+        
+        const interval = setInterval(() => {
+          const mins = Math.floor(seconds / 60);
+          const secs = seconds % 60;
+          display.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+          
+          if (seconds <= 0) {
+            clearInterval(interval);
+            display.textContent = 'Traitement terminé';
+            updateProgress('acces');
+          }
+          
+          seconds--;
+        }, 1000);
+      }
+      
+      window.changeEmail = function() {
+        const newEmail = prompt('Nouveau email:', userEmail);
+        if (newEmail && newEmail.includes('@')) {
+          userEmail = newEmail;
+          document.getElementById('confirmation-email').textContent = userEmail;
+        }
+      };
     })();
   </script>
 </body>
