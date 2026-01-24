@@ -1012,29 +1012,13 @@
   <!-- Cart System -->
   <script src="/assets/cart-system.js"></script>
   <script>
-    // Add to cart and redirect to checkout
+    // Direct checkout links (simple URL-based flow)
     function buyPack(courseId) {
-      if (CartManager.addItem(courseId, 'pack')) {
-        window.location.href = '/b2c-checkout.html';
-      } else {
-        alert('Erreur lors de l\'ajout au panier');
-      }
+      window.location.href = `/b2c-checkout.html?course=${courseId}&type=pack`;
     }
     
     function buyModule(courseId, moduleNum, moduleTitle) {
-      if (CartManager.addItem(courseId, 'module', moduleNum, moduleTitle)) {
-        // Show feedback without redirect
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = '✓ Ajouté';
-        btn.style.background = 'var(--color-secondary)';
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-        }, 1500);
-      } else {
-        alert('Erreur lors de l\'ajout au panier');
-      }
+      window.location.href = `/b2c-checkout.html?course=${courseId}&type=module&module=${moduleNum}`;
     }
   </script>
   
