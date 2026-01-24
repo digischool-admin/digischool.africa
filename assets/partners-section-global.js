@@ -71,9 +71,11 @@
           </div>
           
           <p class="ds-partners-disclaimer">
-            <strong>Note</strong> : Ces références représentent des sources académiques et professionnelles 
-            utilisées dans nos contenus pédagogiques. DigiSchool Africa n'est pas affilié à ces organismes 
-            sauf mention explicite d'un accord formel.
+            <strong>Références académiques et professionnelles</strong> : Ces organismes représentent des sources 
+            de référence et des standards internationaux utilisés dans l'élaboration de nos contenus pédagogiques. 
+            Les certifications officielles de ces organismes sont délivrées exclusivement par leurs canaux respectifs. 
+            DigiSchool Africa délivre des certificats de formation et peut vous accompagner dans la préparation 
+            aux standards internationaux.
           </p>
         </div>
       </section>
