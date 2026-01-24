@@ -106,44 +106,6 @@ const DigiSchoolGlobalComponents = {
             </div>
           </div>
           
-          <!-- Partners Section (LOGOS AU LIEU DE TEXTE) -->
-          <div class="ds-footer-partners" style="margin-top: var(--space-16); padding-top: var(--space-12); border-top: 1px solid rgba(255,255,255,0.1);">
-            <h4 style="text-align: center; color: white; margin-bottom: var(--space-8); font-size: var(--text-lg);">
-              Nos Partenaires & Références Académiques
-            </h4>
-            <div class="ds-partners-logos-grid" style="display: flex; justify-content: center; align-items: center; gap: var(--space-8); flex-wrap: wrap; opacity: 0.8;">
-              <!-- PMI -->
-              <div class="partner-logo" style="background: white; padding: 12px 20px; border-radius: 8px;">
-                <span style="color: #002855; font-weight: 700; font-size: 18px; letter-spacing: 1px;">PMI</span>
-              </div>
-              
-              <!-- Microsoft -->
-              <div class="partner-logo" style="background: white; padding: 12px 20px; border-radius: 8px;">
-                <span style="color: #00A4EF; font-weight: 700; font-size: 18px;">Microsoft</span>
-              </div>
-              
-              <!-- Google -->
-              <div class="partner-logo" style="background: white; padding: 12px 20px; border-radius: 8px;">
-                <span style="color: #4285F4; font-weight: 700; font-size: 18px;">Google</span>
-              </div>
-              
-              <!-- Harvard Business School -->
-              <div class="partner-logo" style="background: white; padding: 12px 20px; border-radius: 8px;">
-                <span style="color: #A41034; font-weight: 700; font-size: 16px;">Harvard<br>Business School</span>
-              </div>
-              
-              <!-- MIT Sloan -->
-              <div class="partner-logo" style="background: white; padding: 12px 20px; border-radius: 8px;">
-                <span style="color: #8B0000; font-weight: 700; font-size: 16px;">MIT<br>Sloan</span>
-              </div>
-              
-              <!-- INSEAD -->
-              <div class="partner-logo" style="background: white; padding: 12px 20px; border-radius: 8px;">
-                <span style="color: #003893; font-weight: 700; font-size: 18px;">INSEAD</span>
-              </div>
-            </div>
-          </div>
-          
           <!-- Footer Bottom -->
           <div class="ds-footer-bottom">
             <p>
@@ -268,6 +230,14 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
 (function() {
   const script = document.createElement('script');
   script.src = '/assets/payment-contact-modal.js';
+  script.defer = true;
+  document.head.appendChild(script);
+})();
+
+// Load partners section script
+(function() {
+  const script = document.createElement('script');
+  script.src = '/assets/partners-section-global.js';
   script.defer = true;
   document.head.appendChild(script);
 })();
