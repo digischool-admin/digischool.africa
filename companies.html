@@ -83,6 +83,65 @@
       transform: translateY(-2px);
     }
     
+    /* Clients trust section - Premium style */
+    .clients-trust-section {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      margin: var(--space-12) 0;
+      box-shadow: var(--shadow-md);
+    }
+    
+    .clients-trust-section h2 {
+      text-align: center;
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .clients-trust-section .subtitle {
+      text-align: center;
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+      margin-bottom: var(--space-8);
+    }
+    
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    
+    .client-logo-pill {
+      background: rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-md);
+      padding: var(--space-5) var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+      transition: all var(--transition-base);
+      cursor: default;
+    }
+    
+    .client-logo-pill:hover {
+      background: rgba(30, 136, 229, 0.04);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .client-logo-pill span {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--ds-gray);
+      text-align: center;
+    }
+    
     /* Tabs - Premium style */
     .tabs-container {
       margin: var(--space-12) 0;
@@ -370,6 +429,20 @@
         width: 100%;
         justify-content: center;
       }
+      
+      .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+      }
+      
+      .client-logo-pill {
+        min-height: 70px;
+        padding: var(--space-4) var(--space-3);
+      }
+      
+      .client-logo-pill span {
+        font-size: var(--text-xs);
+      }
     }
   </style>
 </head>
@@ -398,6 +471,63 @@
             </svg>
             Parler à un Conseiller
           </a>
+        </div>
+      </div>
+      
+      <!-- Clients Trust Section -->
+      <div class="clients-trust-section animate-fade-in">
+        <h2>Ils nous font confiance</h2>
+        <p class="subtitle">Des organisations de toute taille nous confient la formation de leurs équipes</p>
+        
+        <div class="clients-grid">
+          <div class="client-logo-pill">
+            <span>Orange CI</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>MTN</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Ecobank</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Total Energies</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>NSIA Banque</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Air Côte d'Ivoire</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Bolloré Transport</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>SODECI</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>CIE</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>SOTRA</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Ivoire Télécom</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>PwC Côte d'Ivoire</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Deloitte</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>Afriland First Bank</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>SACO</span>
+          </div>
+          <div class="client-logo-pill">
+            <span>+ 50 autres clients</span>
+          </div>
         </div>
       </div>
       
