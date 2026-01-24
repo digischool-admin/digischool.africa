@@ -886,11 +886,11 @@
           </div>
         </a>
 
-        <a class="payment-item" href="tel:+2250565231403" aria-label="Appeler MTN MoMo">
+        <a class="payment-item" href="tel:+2250665231403" aria-label="Appeler MTN MoMo">
           <img src="./assets/mtn-momo.png" alt="MTN MoMo" loading="lazy" decoding="async">
           <div class="details">
             <span class="label">MTN MoMo</span>
-            <span class="num">+225 05 65 23 14 03</span>
+            <span class="num">+225 06 65 23 14 03</span>
           </div>
         </a>
 
@@ -910,11 +910,11 @@
           </div>
         </a>
 
-        <a class="payment-item" href="https://wa.me/225" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
+        <a class="payment-item" href="https://wa.me/2250151664653" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">
           <div class="icon">💬</div>
           <div class="details">
-            <span class="label">WhatsApp</span>
-            <span class="num"></span>
+            <span class="label">WhatsApp Business</span>
+            <span class="num">+225 01 51 66 46 53</span>
           </div>
         </a>
 
@@ -946,13 +946,56 @@
       const purchaseType = urlParams.get('type'); // 'pack' or 'module'
 
       if (!courseSlug || !purchaseType) {
-        alert('Paramètres manquants. Veuillez revenir au catalogue B2C.');
-        window.location.href = './b2c.html';
+        // Show premium error instead of alert
+        document.body.innerHTML = `
+          <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%); padding: 32px;">
+            <div style="max-width: 600px; background: white; border-radius: 16px; padding: 48px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); text-align: center;">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#FF6B6B" stroke-width="2" style="margin: 0 auto 24px;">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="15" y1="9" x2="9" y2="15"/>
+                <line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+              <h1 style="font-size: 32px; font-weight: 700; color: #0B1B3A; margin-bottom: 16px;">Paramètres manquants</h1>
+              <p style="font-size: 18px; color: #546E7A; margin-bottom: 32px; line-height: 1.6;">
+                Veuillez sélectionner une formation depuis notre catalogue.
+              </p>
+              <a href="./b2c.html" style="padding: 14px 32px; background: linear-gradient(135deg, #1E88E5, #26A69A); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 12px rgba(30,136,229,0.3); transition: transform 0.2s; display: inline-block;">
+                ← Retour au catalogue
+              </a>
+            </div>
+          </div>
+        `;
         return;
       }
 
-      // Load course data
-      const course = window.getCourseBySlugorId && window.getCourseBySlugorId(courseSlug);
+      // Normalize course slug (handle aliases)
+      const normalizedSlug = courseSlug.toLowerCase().trim().replace(/[_\s]+/g, '-').replace(/&/g, '-');
+      
+      // Alias mapping for common variations
+      const slugAliases = {
+        'leadership': 'leadership-management',
+        'management-leadership': 'leadership-management',
+        'pmp': 'gestion-projet-pmp',
+        'gestion-projet': 'gestion-projet-pmp',
+        'projet': 'gestion-projet-pmp',
+        'data-analytics': 'data-analytics',
+        'data': 'data-analytics',
+        'analytics': 'data-analytics',
+        'excel': 'excel',
+        'powerbi': 'powerbi',
+        'power-bi': 'powerbi',
+        'marketing': 'marketing',
+        'marketing-digital': 'marketing',
+        'rh': 'rh-performance',
+        'rh-performance': 'rh-performance',
+        'digital': 'productivite-m365',
+        'm365': 'productivite-m365'
+      };
+      
+      const finalSlug = slugAliases[normalizedSlug] || normalizedSlug;
+
+      // Load course data (using normalized slug)
+      const course = window.getCourseBySlugorId && window.getCourseBySlugorId(finalSlug);
       if (!course) {
         // Show premium error page instead of alert
         document.body.innerHTML = `
