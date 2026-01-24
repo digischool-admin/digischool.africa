@@ -285,6 +285,66 @@
         grid-template-columns: 1fr;
       }
     }
+    
+    /* Toast animations */
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+    }
+    
+    /* Email capture block styling */
+    .email-capture-block {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(30, 136, 229, 0.04);
+      border-radius: var(--radius-lg);
+      border: 2px solid rgba(30, 136, 229, 0.2);
+    }
+    
+    .email-capture-block input {
+      padding: 14px 18px;
+      border: 2px solid #e0e0e0;
+      border-radius: var(--radius-md);
+      font-size: var(--text-base);
+      width: 300px;
+      margin-right: 12px;
+      transition: all var(--transition-base);
+    }
+    
+    .email-capture-block input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .email-capture-block {
+        display: block !important;
+      }
+      
+      .email-capture-block input {
+        width: 100%;
+        margin-bottom: 12px;
+        margin-right: 0;
+      }
+    }
   </style>
 </head>
 <body data-page="assessment">
@@ -316,7 +376,9 @@
         <button id="btn-next" class="btn btn-primary" disabled>
           Suivant →
         </button>
-        
+        <button id="btn-submit" class="btn btn-primary" style="display: none;" disabled>
+          Voir mes recommandations ✨
+        </button>
       </div>
     </div>
   </div>

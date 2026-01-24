@@ -403,16 +403,8 @@ const DigiSchoolAssessmentV2 = {
               option.classList.add('selected');
               this.state.answers[questionId] = [...currentAnswers, value];
             } else {
-              // Show non-blocking counter message
-              const helperText = document.querySelector('.helper-text');
-              if (helperText) {
-                helperText.textContent = `Vous avez déjà sélectionné ${currentAnswers.length} réponses (maximum ${question.max})`;
-                helperText.style.color = '#FF6B6B';
-                setTimeout(() => {
-                  helperText.textContent = `Vous pouvez sélectionner ${question.min === 0 ? 'jusqu\'à' : question.min + ' à'} ${question.max} réponse(s)`;
-                  helperText.style.color = '';
-                }, 2000);
-              }
+              // Show toast notification (non-blocking)
+              this.showToast(`Maximum ${question.max} choix`);
             }
           }
         }
@@ -593,27 +585,23 @@ const DigiSchoolAssessmentV2 = {
     console.log('Recommandations:', this.state.recommendedFormations);
   },
 
-  // Affichage résultats avec diagnostic TRACÉ
+  // Affichage résultats REFACTORÉ (NUCLEAR EXECUTION)
   displayResults() {
     const container = document.getElementById('question-container');
-    const { profile, scores, recommendedFormations } = this.state;
+    const { recommendedFormations } = this.state;
     
-    let diagnostic = this.generateTracedDiagnostic();
+    // Generate expert report and store in localStorage
+    this.generateAndStoreExpertReport();
     
     let html = `
       <div class="results-container animate-fade-in">
         <div class="results-header text-center mb-12">
-          <h1 class="text-gradient">Votre Profil DigiSchool Africa</h1>
-          <p class="text-lead">Diagnostic personnalisé basé sur vos 10 réponses</p>
+          <h1 class="text-gradient">Vos recommandations de formation</h1>
+          <p class="text-lead">Formations sélectionnées selon votre profil</p>
         </div>
         
         <div class="ds-card mb-8">
-          <h2 class="mb-4">📊 Votre Diagnostic (100% Tracé)</h2>
-          ${diagnostic}
-        </div>
-        
-        <div class="ds-card mb-8">
-          <h2 class="mb-6">🎯 Vos Formations Recommandées</h2>
+          <h2 class="mb-6">Formations recommandées</h2>
           <div class="formations-grid">
     `;
     
@@ -642,15 +630,16 @@ const DigiSchoolAssessmentV2 = {
         </div>
         
         <div class="text-center mt-12">
-          <button onclick="DigiSchoolEmailCapture.openModal(DigiSchoolAssessmentV2.state)" class="ds-btn ds-btn-primary ds-btn-lg" style="margin-right: 12px;">
-            📧 Recevoir mon rapport complet par email
-          </button>
-          <a href="/b2c.html" class="ds-btn ds-btn-secondary ds-btn-lg" style="margin-right: 12px;">
-            Explorer toutes les formations
+          <a href="/b2c.html" class="btn btn-primary btn-lg" style="margin-right: 16px;">
+            Passer commande
           </a>
-          <button onclick="location.reload()" class="ds-btn ds-btn-secondary ds-btn-lg">
-            Refaire l'évaluation
-          </button>
+          
+          <div class="email-capture-block" style="display: inline-block; margin-top: 24px;">
+            <input type="email" id="email-capture" placeholder="Votre email" style="padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; width: 280px; margin-right: 8px;" />
+            <button onclick="DigiSchoolAssessmentV2.sendExpertReport()" class="btn btn-primary btn-lg">
+              Recevoir le rapport détaillé par email
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -658,56 +647,193 @@ const DigiSchoolAssessmentV2 = {
     container.innerHTML = html;
   },
 
-  // Diagnostic TRACÉ (chaque phrase = réponse)
-  generateTracedDiagnostic() {
-    const { profile, scores } = this.state;
+  // Toast notification (non-blocking)
+  showToast(message) {
+    const toast = document.createElement('div');
+    toast.className = 'ds-toast';
+    toast.textContent = message;
+    toast.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #FF6B6B;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 16px;
+      font-weight: 600;
+      z-index: 9999;
+      animation: slideIn 0.3s ease-out;
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.animation = 'slideOut 0.3s ease-in';
+      setTimeout(() => toast.remove(), 300);
+    }, 2000);
+  },
+  
+  // Generate Expert Report (HTML string)
+  generateExpertReport() {
+    const { profile, scores, recommendedFormations } = this.state;
+    const date = new Date().toLocaleDateString('fr-FR');
     
-    let html = '<div class="diagnostic-traced">';
+    let html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Rapport Expert DigiSchool Africa - ${date}</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    h1 { color: #1E88E5; border-bottom: 3px solid #26A69A; padding-bottom: 10px; }
+    h2 { color: #26A69A; margin-top: 30px; }
+    .section { background: #f9f9f9; padding: 20px; margin: 20px 0; border-left: 4px solid #1E88E5; }
+    .profile-tag { display: inline-block; background: #e3f2fd; color: #1E88E5; padding: 4px 12px; border-radius: 4px; margin: 4px; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background: #1E88E5; color: white; }
+    .formation-card { border: 2px solid #1E88E5; padding: 15px; margin: 10px 0; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Rapport Expert d'Évaluation DigiSchool Africa</h1>
+  <p><strong>Date:</strong> ${date}</p>
+  
+  <div class="section">
+    <h2>1. Synthèse du Profil</h2>
+    <p><strong>Niveau d'expérience:</strong> <span class="profile-tag">${profile.experienceLevel || 'Non renseigné'}</span></p>
+    <p><strong>Rôle actuel:</strong> <span class="profile-tag">${profile.currentRole || 'Non renseigné'}</span></p>
+    <p><strong>Domaine prioritaire:</strong> <span class="profile-tag">${this.domains[profile.primaryDomain]?.name || 'Non renseigné'}</span></p>
+    <p><strong>Objectif d'apprentissage:</strong> <span class="profile-tag">${profile.learningObjective || 'Non renseigné'}</span></p>
+    <p><strong>Disponibilité:</strong> <span class="profile-tag">${profile.timeAvailability || 'Non renseigné'}</span></p>
     
-    // S2 Expérience
-    const experienceLabels = {
-      'débutant': 'Vous débutez votre parcours professionnel',
-      'intermédiaire': 'Vous avez une première expérience significative',
-      'confirmé': 'Vous êtes un professionnel confirmé',
-      'expert': 'Vous êtes un expert dans votre domaine'
-    };
-    html += `<p><strong>Niveau d'expérience:</strong> ${experienceLabels[profile.experienceLevel] || 'Non renseigné'} </p>`;
+    <h3>Forces identifiées:</h3>
+    <ul>
+      <li>Clarté de l'objectif professionnel (Score S4: ${scores.S4_objectif.toFixed(1)})</li>
+      <li>Niveau d'expérience adapté aux formations recommandées (Score S2: ${scores.S2_experience.toFixed(1)})</li>
+      <li>Contexte professionnel favorable (Score S3: ${scores.S3_contexte.toFixed(1)})</li>
+    </ul>
     
-    // S1 Domaine prioritaire
-    const primaryDomain = this.domains[profile.primaryDomain];
-    if (primaryDomain) {
-      html += `<p><strong>Domaine prioritaire:</strong> ${primaryDomain.name} </p>`;
-    }
+    <h3>Risques potentiels:</h3>
+    <ul>
+      <li>Disponibilité limitée: ${profile.timeAvailability === 'flexible' ? 'Vérifier la compatibilité avec le rythme de formation' : 'Rythme adapté'}</li>
+      <li>Expérience: ${profile.experienceLevel === 'débutant' ? 'Prévoir un accompagnement renforcé' : 'Niveau suffisant'}</li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h2>2. Matrice de Compétences</h2>
+    <table>
+      <tr><th>Domaine</th><th>Score</th><th>Niveau recommandé</th></tr>`;
     
-    // S3 Contexte
-    const contextLabels = {
-      'étudiant': 'Vous êtes en début de carrière',
-      'opérationnel': 'Vous occupez un poste opérationnel',
-      'manager': 'Vous êtes en position de management',
-      'direction': 'Vous êtes en position de direction'
-    };
-    if (profile.currentRole) {
-      html += `<p><strong>Rôle actuel:</strong> ${contextLabels[profile.currentRole] || profile.currentRole} </p>`;
-    }
+    Object.entries(scores.S1_domaine).sort((a,b) => b[1] - a[1]).forEach(([domain, score]) => {
+      const domainName = this.domains[domain]?.name || domain;
+      html += `<tr><td>${domainName}</td><td>${score}</td><td>${score >= 60 ? 'Prioritaire' : score >= 10 ? 'Complémentaire' : 'Optionnel'}</td></tr>`;
+    });
     
-    // S4 Objectif
-    const objectiveLabels = {
-      'découverte': 'Vous souhaitez découvrir un nouveau domaine',
-      'productivité': 'Vous cherchez à gagner en productivité immédiate',
-      'certification': 'Vous visez une certification reconnue',
-      'reconversion': 'Vous envisagez une reconversion professionnelle'
-    };
-    if (profile.learningObjective) {
-      html += `<p><strong>Objectif:</strong> ${objectiveLabels[profile.learningObjective] || profile.learningObjective} </p>`;
-    }
+    html += `</table>
+  </div>
+  
+  <div class="section">
+    <h2>3. Recommandations de Parcours</h2>`;
     
-    // Score total indicatif
+    recommendedFormations.slice(0, 5).forEach((formation, index) => {
+      html += `
+      <div class="formation-card">
+        <h3>${index + 1}. ${formation.name}</h3>
+        <p><strong>Durée:</strong> ${formation.duration} | <strong>Score d'adéquation:</strong> ${formation.score}</p>
+        <p><strong>Priorité:</strong> ${formation.priority}</p>
+        <p>${formation.description}</p>
+        <p><strong>Niveau conseillé:</strong> ${formation.level.join(', ')}</p>
+      </div>`;
+    });
     
-    
-    
-    html += '</div>';
+    html += `
+  </div>
+  
+  <div class="section">
+    <h2>4. Questions d'Entretien Recommandées</h2>
+    <ul>
+      <li>Quels sont vos objectifs professionnels à 6-12 mois ?</li>
+      <li>Avez-vous des contraintes de disponibilité spécifiques ?</li>
+      <li>Souhaitez-vous une certification externe reconnue ?</li>
+      <li>Quel est votre niveau actuel dans le domaine ${this.domains[profile.primaryDomain]?.name || ''} ?</li>
+      <li>Disposez-vous d'un soutien de votre employeur pour cette formation ?</li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h2>5. KPI d'Évaluation Post-Formation</h2>
+    <table>
+      <tr><th>KPI</th><th>Méthode de mesure</th></tr>
+      <tr><td>Taux de complétion</td><td>Suivi des modules complétés</td></tr>
+      <tr><td>Score d'évaluation finale</td><td>Tests de validation des acquis</td></tr>
+      <tr><td>Application pratique</td><td>Projet fil rouge / cas pratique</td></tr>
+      <tr><td>Satisfaction apprenant</td><td>NPS post-formation</td></tr>
+      <tr><td>Impact professionnel</td><td>Suivi à 3-6 mois (promotion, projet, responsabilités)</td></tr>
+    </table>
+  </div>
+  
+  <div class="section">
+    <h2>6. Recommandations Ingénierie de Formation</h2>
+    <ul>
+      <li><strong>Modalités:</strong> ${profile.timeAvailability === 'immersif' ? 'Formation intensive sur courte période' : 'Formation étalée avec modules progressifs'}</li>
+      <li><strong>Accompagnement:</strong> ${profile.experienceLevel === 'débutant' ? 'Tutorat renforcé + sessions de Q&R' : 'Suivi standard avec coach'}</li>
+      <li><strong>Outils:</strong> Plateforme LMS + IA embarquée pour personnalisation</li>
+      <li><strong>Certification:</strong> ${profile.learningObjective === 'certification' ? 'Prioriser une formation avec certification reconnue' : 'Focus compétences opérationnelles'}</li>
+    </ul>
+  </div>
+  
+  <hr>
+  <p style="text-align: center; color: #666; margin-top: 40px;">
+    <strong>DigiSchool Africa</strong> | contact@digischool.africa | https://digischool.africa
+  </p>
+</body>
+</html>`;
     
     return html;
+  },
+  
+  // Store expert report in localStorage
+  generateAndStoreExpertReport() {
+    const expertReport = this.generateExpertReport();
+    localStorage.setItem('digischool_expert_report', expertReport);
+    console.log('Expert report generated and stored in localStorage');
+  },
+  
+  // Send expert report via mailto
+  sendExpertReport() {
+    const email = document.getElementById('email-capture')?.value;
+    if (!email || !email.includes('@')) {
+      this.showToast('Veuillez saisir un email valide');
+      return;
+    }
+    
+    const reportHTML = localStorage.getItem('digischool_expert_report');
+    if (!reportHTML) {
+      this.showToast('Rapport non disponible');
+      return;
+    }
+    
+    // Create download link for HTML report
+    const blob = new Blob([reportHTML], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `DigiSchool_Rapport_Expert_${new Date().toISOString().split('T')[0]}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    // Open mailto with report summary
+    const subject = 'DigiSchool Africa - Votre Rapport Expert';
+    const body = `Bonjour,\n\nMerci de votre intérêt pour DigiSchool Africa.\n\nVotre rapport expert détaillé est maintenant téléchargé sur votre ordinateur.\n\nPour toute question : contact@digischool.africa\n\nCordialement,\nL'équipe DigiSchool Africa`;
+    
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    
+    this.showToast('Rapport téléchargé et email ouvert');
   }
 };
 
