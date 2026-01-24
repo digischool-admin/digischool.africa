@@ -394,14 +394,33 @@ const DigiSchoolAssessmentV2 = {
           const input = option.querySelector('input');
           
           if (input.checked) {
+            // Deselect
             input.checked = false;
             option.classList.remove('selected');
             this.state.answers[questionId] = currentAnswers.filter(v => v !== value);
+            
+            // Re-enable all options when deselecting
+            document.querySelectorAll(`[data-question="${questionId}"]`).forEach(opt => {
+              opt.classList.remove('disabled');
+              opt.style.opacity = '1';
+              opt.style.cursor = 'pointer';
+            });
           } else {
             if (currentAnswers.length < question.max) {
               input.checked = true;
               option.classList.add('selected');
               this.state.answers[questionId] = [...currentAnswers, value];
+              
+              // Disable other options if max reached
+              if (currentAnswers.length + 1 >= question.max) {
+                document.querySelectorAll(`[data-question="${questionId}"]`).forEach(opt => {
+                  if (!opt.classList.contains('selected')) {
+                    opt.classList.add('disabled');
+                    opt.style.opacity = '0.5';
+                    opt.style.cursor = 'not-allowed';
+                  }
+                });
+              }
             } else {
               // Show toast notification (non-blocking)
               this.showToast(`Maximum ${question.max} choix`);
@@ -752,7 +771,29 @@ const DigiSchoolAssessmentV2 = {
   </div>
   
   <div class="section">
-    <h2>4. Questions d'Entretien Recommandées</h2>
+    <h2>4. Plan d'Action 30/60/90 Jours</h2>
+    <table>
+      <tr><th>Période</th><th>Objectifs</th><th>Actions</th></tr>
+      <tr>
+        <td><strong>30 jours</strong></td>
+        <td>• Inscription et démarrage<br>• Compréhension des fondamentaux</td>
+        <td>• S'inscrire à la formation prioritaire<br>• Compléter les 2 premiers modules<br>• Identifier un projet pilote d'application</td>
+      </tr>
+      <tr>
+        <td><strong>60 jours</strong></td>
+        <td>• Montée en compétence<br>• Application pratique</td>
+        <td>• Compléter 50% de la formation<br>• Appliquer les acquis sur le projet pilote<br>• Partager avec l'équipe/manager</td>
+      </tr>
+      <tr>
+        <td><strong>90 jours</strong></td>
+        <td>• Finalisation et certification<br>• Impact mesurable</td>
+        <td>• Compléter 100% et obtenir le certificat<br>• Mesurer l'impact du projet pilote<br>• Planifier la formation suivante</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="section">
+    <h2>5. Questions d'Entretien Recommandées</h2>
     <ul>
       <li>Quels sont vos objectifs professionnels à 6-12 mois ?</li>
       <li>Avez-vous des contraintes de disponibilité spécifiques ?</li>
@@ -763,7 +804,7 @@ const DigiSchoolAssessmentV2 = {
   </div>
   
   <div class="section">
-    <h2>5. KPI d'Évaluation Post-Formation</h2>
+    <h2>6. KPI d'Évaluation Post-Formation</h2>
     <table>
       <tr><th>KPI</th><th>Méthode de mesure</th></tr>
       <tr><td>Taux de complétion</td><td>Suivi des modules complétés</td></tr>
@@ -775,7 +816,7 @@ const DigiSchoolAssessmentV2 = {
   </div>
   
   <div class="section">
-    <h2>6. Recommandations Ingénierie de Formation</h2>
+    <h2>7. Recommandations Ingénierie de Formation</h2>
     <ul>
       <li><strong>Modalités:</strong> ${profile.timeAvailability === 'immersif' ? 'Formation intensive sur courte période' : 'Formation étalée avec modules progressifs'}</li>
       <li><strong>Accompagnement:</strong> ${profile.experienceLevel === 'débutant' ? 'Tutorat renforcé + sessions de Q&R' : 'Suivi standard avec coach'}</li>
