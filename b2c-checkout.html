@@ -761,8 +761,10 @@
           </button>
           
           <button class="payment-logo-btn" onclick="window.showPaymentNumber('WAVE', '0151664653', true)" type="button">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="#25D366">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            <svg width="48" height="48" viewBox="0 0 100 100">
+              <rect width="100" height="100" rx="20" fill="#21C0FC"/>
+              <path d="M50 25 L35 55 L42 55 L50 40 L58 55 L65 55 Z" fill="white"/>
+              <ellipse cx="50" cy="70" rx="8" ry="5" fill="white"/>
             </svg>
             <div class="payment-logo-name">Wave</div>
           </button>
@@ -777,33 +779,42 @@
             <polyline points="17 8 12 3 7 8"/>
             <line x1="12" y1="3" x2="12" y2="15"/>
           </svg>
-          Preuve de paiement
+          Envoyer ma preuve de paiement
         </h2>
         
-        <div class="form-group">
-          <label for="payment-ref">Référence de transaction <span class="required">*</span></label>
-          <input type="text" id="payment-ref" placeholder="Ex: OM240125XXXX" required>
-          <small>Numéro de référence fourni par l'opérateur</small>
-        </div>
-        
-        <div class="form-group">
-          <label>Capture d'écran du paiement</label>
-          <div class="file-upload-zone" id="file-upload-zone">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="margin: 0 auto var(--space-4);">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <polyline points="21 15 16 10 5 21"/>
-            </svg>
-            <p style="margin: 0; color: var(--ds-gray);">Cliquez ou glissez votre fichier ici</p>
-            <small>PNG, JPG ou PDF (max 5MB)</small>
-            <input type="file" id="proof-file" accept="image/*,.pdf" style="display: none;">
+        <div class="notice-box" style="margin-bottom: var(--space-6);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          <div>
+            <strong>Choisissez votre méthode d'envoi</strong> : WhatsApp Business (instantané) ou Email (avec pièce jointe)
           </div>
-          <div id="file-preview" style="margin-top: var(--space-4); display: none;"></div>
         </div>
         
-        <button type="button" class="btn-primary" onclick="window.submitProof()">
-          Envoyer la preuve
-        </button>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+          <button type="button" class="btn-primary" onclick="window.sendProofViaWhatsApp()" style="display: flex; align-items: center; justify-content: center; gap: var(--space-2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            WhatsApp Business
+          </button>
+          
+          <button type="button" class="btn-secondary" onclick="window.sendProofViaEmail()" style="display: flex; align-items: center; justify-content: center; gap: var(--space-2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Email
+          </button>
+        </div>
+        
+        <div style="padding: var(--space-4); background: rgba(126,87,194,0.05); border-radius: var(--radius-md); text-align: center;">
+          <p style="margin: 0; font-size: var(--text-sm); color: var(--ds-gray);">
+            <strong>Traitement sous 30 minutes</strong> • Votre preuve sera vérifiée par notre équipe pour activation de votre accès
+          </p>
+        </div>
       </div>
       
       <!-- Confirmation Section -->
@@ -870,6 +881,7 @@
   <script src="/assets/global-components-v2-production.js"></script>
   <script src="/assets/payment-contact-modal.js"></script>
   <script src="/assets/chatbot-manager-v2.js"></script>
+  <script src="/assets/cart-system.js"></script>
   
   
   <!-- Payment Number Modal -->
@@ -1057,42 +1069,97 @@
       }
       
       function displayCourseDetails(formation, type, moduleId) {
-        const isPack = type === 'pack';
-        const price = isPack ? formation.packPrice : formation.modulePrice;
-        const priceFormatted = price.toLocaleString('fr-FR') + ' FCFA';
+        // NEW: Use cart system instead of URL params
+        const cart = window.CartManager ? window.CartManager.getCart() : null;
         
-        const html = `
-          <div class="summary-row">
-            <span class="summary-label">Formation</span>
-            <span class="summary-value">${formation.title}</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Type</span>
-            <span class="summary-value">${isPack ? 'Pack Complet (' + formation.modules + ' modules)' : 'Module ' + (moduleId || '1')}</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Durée</span>
-            <span class="summary-value">${formation.duration}</span>
-          </div>
-          <div class="summary-row">
-            <span class="summary-label">Prix total</span>
-            <span class="summary-value">${priceFormatted}</span>
-          </div>
-        `;
-        
-        document.getElementById('course-details').innerHTML = html;
-        document.getElementById('summary-section').style.display = 'block';
-        document.getElementById('fallback-state').style.display = 'none';
+        if (cart && cart.items.length > 0) {
+          // Display cart items
+          let html = '';
+          let total = 0;
+          
+          cart.items.forEach((item, index) => {
+            const itemTotal = item.unitPrice * item.qty;
+            total += itemTotal;
+            
+            html += `
+              <div class="summary-row" style="border-bottom: 1px solid rgba(0,0,0,0.06); padding-bottom: var(--space-3); margin-bottom: var(--space-3);">
+                <div style="flex: 1;">
+                  <div style="font-weight: 600; color: var(--ds-dark);">${item.courseTitle}</div>
+                  <div style="font-size: var(--text-sm); color: var(--ds-gray);">
+                    ${item.itemType === 'pack' ? 'Pack Complet' : item.moduleTitle}
+                    ${item.duration ? ' • ' + item.duration : ''}
+                  </div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-weight: 600; color: var(--color-primary);">${item.unitPrice.toLocaleString('fr-FR')} FCFA</div>
+                  ${item.qty > 1 ? `<div style="font-size: var(--text-sm); color: var(--ds-gray);">x${item.qty}</div>` : ''}
+                </div>
+              </div>
+            `;
+          });
+          
+          html += `
+            <div class="summary-row" style="padding-top: var(--space-3); margin-top: var(--space-3); border-top: 2px solid var(--color-primary);">
+              <span class="summary-label" style="font-size: var(--text-xl); font-weight: 700;">Total</span>
+              <span class="summary-value" style="font-size: var(--text-xl); font-weight: 700; color: var(--color-primary);">${total.toLocaleString('fr-FR')} FCFA</span>
+            </div>
+          `;
+          
+          document.getElementById('course-details').innerHTML = html;
+          document.getElementById('summary-section').style.display = 'block';
+          if (document.getElementById('fallback-state')) {
+            document.getElementById('fallback-state').style.display = 'none';
+          }
+        } else {
+          // Fallback to old behavior if no cart
+          const isPack = type === 'pack';
+          const price = isPack ? formation.packPrice : formation.modulePrice;
+          const priceFormatted = price.toLocaleString('fr-FR') + ' FCFA';
+          
+          const html = `
+            <div class="summary-row">
+              <span class="summary-label">Formation</span>
+              <span class="summary-value">${formation.title}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Type</span>
+              <span class="summary-value">${isPack ? 'Pack Complet (' + formation.modules + ' modules)' : 'Module ' + (moduleId || '1')}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Durée</span>
+              <span class="summary-value">${formation.duration}</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Prix total</span>
+              <span class="summary-value">${priceFormatted}</span>
+            </div>
+          `;
+          
+          document.getElementById('course-details').innerHTML = html;
+          document.getElementById('summary-section').style.display = 'block';
+          if (document.getElementById('fallback-state')) {
+            document.getElementById('fallback-state').style.display = 'none';
+          }
+        }
       }
       
       function handleValidation() {
         const formData = new FormData(document.getElementById('checkout-form'));
         userEmail = formData.get('email');
         
+        // Create order with OrderManager
+        const order = window.OrderManager ? window.OrderManager.createOrder() : null;
+        if (order) {
+          console.log('Order created:', order.orderId);
+          // Store order ID for proof section
+          window.currentOrderId = order.orderId;
+        }
+        
         console.log('Validation:', {
           name: formData.get('name'),
           email: userEmail,
-          phone: formData.get('phone')
+          phone: formData.get('phone'),
+          orderId: order ? order.orderId : 'N/A'
         });
         
         // Move to payment step
@@ -1218,6 +1285,82 @@
           userEmail = newEmail;
           document.getElementById('confirmation-email').textContent = userEmail;
         }
+      };
+      
+      // Proof sending functions
+      window.sendProofViaWhatsApp = function() {
+        const order = window.OrderManager ? window.OrderManager.getPendingOrder() : null;
+        const cart = window.CartManager ? window.CartManager.getCart() : { items: [] };
+        
+        if (!order && cart.items.length === 0) {
+          alert('Aucune commande en attente');
+          return;
+        }
+        
+        const orderId = order ? order.orderId : 'N/A';
+        const total = order ? order.total : window.CartManager.getTotal();
+        
+        let itemsList = '';
+        const items = order ? order.items : cart.items;
+        items.forEach(item => {
+          itemsList += `- ${item.courseTitle} (${item.itemType === 'pack' ? 'Pack' : item.moduleTitle})%0A`;
+        });
+        
+        const message = `*Preuve de paiement DigiSchool Africa*%0A%0A` +
+          `Commande: ${orderId}%0A` +
+          `Total: ${total.toLocaleString('fr-FR')} FCFA%0A%0A` +
+          `*Articles:*%0A${itemsList}%0A` +
+          `Je joins la capture de mon reçu de paiement.`;
+        
+        const whatsappUrl = `https://wa.me/${window.CONFIG.WAVE_WHATSAPP_NUMBER.replace(/\+/g, '')}?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+        
+        // Show confirmation
+        setTimeout(() => {
+          document.getElementById('proof-section').style.display = 'none';
+          document.getElementById('confirmation-section').style.display = 'block';
+          updateProgress('confirmation');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 1000);
+      };
+      
+      window.sendProofViaEmail = function() {
+        const order = window.OrderManager ? window.OrderManager.getPendingOrder() : null;
+        const cart = window.CartManager ? window.CartManager.getCart() : { items: [] };
+        
+        if (!order && cart.items.length === 0) {
+          alert('Aucune commande en attente');
+          return;
+        }
+        
+        const orderId = order ? order.orderId : 'N/A';
+        const total = order ? order.total : window.CartManager.getTotal();
+        
+        let itemsList = '';
+        const items = order ? order.items : cart.items;
+        items.forEach(item => {
+          itemsList += `- ${item.courseTitle} (${item.itemType === 'pack' ? 'Pack' : item.moduleTitle})\n`;
+        });
+        
+        const subject = `Preuve de paiement - Commande ${orderId}`;
+        const body = `Bonjour,\n\n` +
+          `Je vous envoie la preuve de paiement pour ma commande :\n\n` +
+          `Numéro de commande : ${orderId}\n` +
+          `Montant total : ${total.toLocaleString('fr-FR')} FCFA\n\n` +
+          `Articles commandés :\n${itemsList}\n\n` +
+          `Merci de vérifier et d'activer mon accès.\n\n` +
+          `Cordialement`;
+        
+        const mailtoUrl = `mailto:support@digischool.africa?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+        
+        // Show confirmation
+        setTimeout(() => {
+          document.getElementById('proof-section').style.display = 'none';
+          document.getElementById('confirmation-section').style.display = 'block';
+          updateProgress('confirmation');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 1000);
       };
     })();
   </script>
