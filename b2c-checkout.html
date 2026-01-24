@@ -265,23 +265,56 @@
     /* Error state */
     .error-card {
       background: white;
-      border: 2px solid #ef4444;
+      border: 2px solid rgba(239, 68, 68, 0.3);
       border-radius: var(--radius-xl);
-      padding: var(--space-10);
+      padding: var(--space-8);
       text-align: center;
       box-shadow: var(--shadow-lg);
+      margin-bottom: var(--space-8);
     }
     
     .error-card h2 {
       color: #ef4444;
-      font-size: var(--text-4xl);
+      font-size: var(--text-3xl);
       margin-bottom: var(--space-4);
     }
     
     .error-card p {
-      font-size: var(--text-xl);
+      font-size: var(--text-lg);
       color: var(--ds-gray);
-      margin-bottom: var(--space-8);
+      margin-bottom: var(--space-6);
+    }
+    
+    /* Mini course cards */
+    .mini-course-card {
+      background: rgba(0, 0, 0, 0.02);
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      transition: all var(--transition-base);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .mini-course-card:hover {
+      border-color: var(--color-primary);
+      background: rgba(30, 136, 229, 0.04);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .mini-course-card h4 {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .mini-course-card p {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      margin: 0;
     }
     
     /* Responsive */
@@ -443,11 +476,29 @@
         </a>
       </div>
       
-      <!-- Error state (hidden by default) -->
-      <div class="error-card" id="error-state" style="display: none;">
-        <h2>Formation introuvable</h2>
-        <p>La formation demandée n'existe pas ou le lien est incomplet.</p>
-        <a href="/b2c.html" class="btn-primary">Retour au catalogue B2C</a>
+      <!-- Fallback state (hidden by default) -->
+      <div id="fallback-state" style="display: none;">
+        <div class="error-card">
+          <h2>Paramètres manquants</h2>
+          <p>Veuillez sélectionner une formation depuis notre catalogue.</p>
+          <a href="/b2c.html" class="btn-secondary" style="margin-bottom: var(--space-8);">Retour au catalogue</a>
+        </div>
+        
+        <div class="checkout-card">
+          <h2>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Ou choisissez directement :
+          </h2>
+          
+          <div id="courses-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4); margin-top: var(--space-6);">
+            <!-- Rempli dynamiquement -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -469,6 +520,7 @@
         'leadership': 'leadership-management',
         'leadership-management': 'leadership-management',
         'leadership-&-management': 'leadership-management',
+        'leadership-and-management': 'leadership-management',
         'management-leadership': 'leadership-management',
         
         'pmp': 'gestion-projet-pmp',
@@ -488,9 +540,9 @@
         'excel-avance': 'excel-avance',
         'excel-advanced': 'excel-avance',
         
-        'powerbi': 'powerbi-reporting',
-        'power-bi': 'powerbi-reporting',
-        'powerbi-reporting': 'powerbi-reporting',
+        'powerbi': 'power-bi',
+        'power-bi': 'power-bi',
+        'powerbi-reporting': 'power-bi',
         
         'marketing': 'marketing-digital',
         'marketing-digital': 'marketing-digital',
@@ -511,14 +563,28 @@
         return SLUG_ALIASES[normalized] || normalized;
       }
       
-      // Parse URL params
+      // Liste des 9 formations
+      const COURSES_LIST = [
+        { slug: 'leadership-management', title: 'Leadership & Management', duration: '5 jours' },
+        { slug: 'gestion-projet-pmp', title: 'Gestion de Projet (PMP)', duration: '10 jours' },
+        { slug: 'data-analytics', title: 'Data Analytics', duration: '8 jours' },
+        { slug: 'excel-avance', title: 'Excel Avancé', duration: '4 jours' },
+        { slug: 'power-bi', title: 'Power BI & Reporting', duration: '5 jours' },
+        { slug: 'marketing-digital', title: 'Marketing Digital', duration: '6 jours' },
+        { slug: 'transformation-digitale', title: 'Transformation Digitale', duration: '4 jours' },
+        { slug: 'rh-moderne', title: 'RH Moderne', duration: '5 jours' },
+        { slug: 'strategie-execution', title: 'Stratégie & Exécution', duration: '4 jours' }
+      ];
+      
+      // Parse URL params (ignore 'v' cache busting param)
       const urlParams = new URLSearchParams(window.location.search);
       const rawSlug = urlParams.get('course');
       const courseSlug = normalizeSlug(rawSlug);
       const purchaseType = urlParams.get('type') || 'pack';
       
+      // Check if we have required params
       if (!courseSlug) {
-        showError();
+        showFallback();
         return;
       }
       
@@ -526,7 +592,13 @@
       const course = window.getCourseBySlugorId?.(courseSlug);
       
       if (!course) {
-        showError();
+        // Try static list
+        const staticCourse = COURSES_LIST.find(c => c.slug === courseSlug);
+        if (staticCourse) {
+          displayCourseDetailsStatic(staticCourse, purchaseType);
+        } else {
+          showFallback();
+        }
         return;
       }
       
@@ -538,6 +610,56 @@
         e.preventDefault();
         handleCheckout(course, purchaseType);
       });
+      
+      function showFallback() {
+        document.getElementById('summary-section').style.display = 'none';
+        document.querySelector('.checkout-card:nth-of-type(2)').style.display = 'none';
+        document.querySelector('.checkout-card:nth-of-type(3)').style.display = 'none';
+        document.getElementById('fallback-state').style.display = 'block';
+        
+        // Display courses list
+        const listHTML = COURSES_LIST.map(course => `
+          <a href="/b2c-checkout.html?course=${course.slug}&type=pack" class="mini-course-card">
+            <h4>${course.title}</h4>
+            <p>${course.duration} • Pack Complet</p>
+          </a>
+        `).join('');
+        
+        document.getElementById('courses-list').innerHTML = listHTML;
+      }
+      
+      function displayCourseDetailsStatic(course, type) {
+        const isPack = type === 'pack';
+        
+        const html = `
+          <div class="summary-row">
+            <span class="summary-label">Formation</span>
+            <span class="summary-value">${course.title}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Type</span>
+            <span class="summary-value">${isPack ? 'Pack Complet (4 modules)' : 'Module Individuel'}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Durée</span>
+            <span class="summary-value">${course.duration}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-label">Prix</span>
+            <span class="summary-value">Sur devis</span>
+          </div>
+        `;
+        
+        document.getElementById('course-details').innerHTML = html;
+        document.getElementById('summary-section').style.display = 'block';
+        document.getElementById('fallback-state').style.display = 'none';
+        
+        // Handle form
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+          handleCheckoutStatic(course, type);
+        });
+      }
       
       function displayCourseDetails(course, type) {
         const isPack = type === 'pack';
@@ -567,14 +689,26 @@
         
         document.getElementById('course-details').innerHTML = html;
         document.getElementById('summary-section').style.display = 'block';
-        document.getElementById('error-state').style.display = 'none';
+        document.getElementById('fallback-state').style.display = 'none';
       }
       
-      function showError() {
-        document.getElementById('summary-section').style.display = 'none';
-        document.querySelector('.checkout-card:nth-of-type(2)').style.display = 'none';
-        document.querySelector('.checkout-card:nth-of-type(3)').style.display = 'none';
-        document.getElementById('error-state').style.display = 'block';
+      function handleCheckoutStatic(course, type) {
+        const formData = new FormData(document.getElementById('checkout-form'));
+        const data = {
+          course: course.title,
+          courseSlug: course.slug,
+          type: type,
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          company: formData.get('company'),
+          message: formData.get('message'),
+          timestamp: new Date().toISOString()
+        };
+        
+        console.log('Commande validée:', data);
+        
+        alert('✅ Commande validée !\n\nNous vous contacterons dans les prochaines heures pour finaliser le paiement.\n\nMerci de votre confiance !');
       }
       
       function handleCheckout(course, type) {
@@ -593,11 +727,7 @@
         
         console.log('Commande validée:', data);
         
-        // Show success message
         alert('✅ Commande validée !\n\nNous vous contacterons dans les prochaines heures pour finaliser le paiement.\n\nMerci de votre confiance !');
-        
-        // Optionally redirect or reset
-        // window.location.href = '/b2c.html?success=1';
       }
     })();
   </script>
