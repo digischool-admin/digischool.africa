@@ -6,12 +6,12 @@
 (function() {
   'use strict';
 
-  // Official numbers (placeholders - replace with real numbers)
+  // Official numbers
   const CONTACT_NUMBERS = {
-    ORANGE: '+2250777123456',
-    MTN: '+2250545123456',
-    MOOV: '+2250101123456',
-    WAVE_WHATSAPP: '+2250709123456'
+    ORANGE: '+2250714678289',
+    MTN: '+2250665231403',
+    MOOV: '+2250151666801',
+    WAVE_WHATSAPP: '+2250151664653'
   };
 
   // Create modal HTML
