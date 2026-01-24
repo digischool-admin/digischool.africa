@@ -954,8 +954,30 @@
       // Load course data
       const course = window.getCourseBySlugorId && window.getCourseBySlugorId(courseSlug);
       if (!course) {
-        alert('Formation introuvable. Veuillez revenir au catalogue.');
-        window.location.href = './b2c.html';
+        // Show premium error page instead of alert
+        document.body.innerHTML = `
+          <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%); padding: 32px;">
+            <div style="max-width: 600px; background: white; border-radius: 16px; padding: 48px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); text-align: center;">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2" style="margin: 0 auto 24px;">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              <h1 style="font-size: 32px; font-weight: 700; color: #0B1B3A; margin-bottom: 16px;">Formation introuvable</h1>
+              <p style="font-size: 18px; color: #546E7A; margin-bottom: 32px; line-height: 1.6;">
+                Désolé, nous n'avons pas trouvé la formation demandée. Elle a peut-être été modifiée ou n'existe plus.
+              </p>
+              <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="./b2c.html" style="padding: 14px 32px; background: linear-gradient(135deg, #1E88E5, #26A69A); color: white; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; box-shadow: 0 4px 12px rgba(30,136,229,0.3); transition: transform 0.2s;">
+                  ← Retour au catalogue
+                </a>
+                <a href="./parcours.html" style="padding: 14px 32px; background: white; color: #1E88E5; border: 2px solid #1E88E5; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.2s;">
+                  Explorer toutes les formations
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
         return;
       }
 

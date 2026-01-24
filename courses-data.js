@@ -1054,4 +1054,9 @@
     course.module_price_xof = Math.ceil((course.pack_price_xof * 1.25) / course.modules.length);
   });
 
+  // Helper function to get course by slug or id
+  window.getCourseBySlugorId = function(slugOrId) {
+    return window.DigiSchoolCourses.find(c => c.slug === slugOrId || c.id === slugOrId);
+  };
+
 })();
