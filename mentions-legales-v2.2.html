@@ -7,38 +7,206 @@
   <meta name="description" content="Mentions légales de la plateforme DigiSchool Africa, éditée par Digilab.">
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
   <style>
-    body {
-      background: #FFFFFF;
-      color: #0B1B3A;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      line-height: 1.8;
+    .assessment-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
     }
-    .legal-container {
+    
+    .assessment-container {
       max-width: 900px;
-      margin: 100px auto 60px;
-      padding: 40px;
-      background: #FAFAFA;
-      border-radius: 12px;
+      margin: 0 auto;
     }
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: #1E88E5;
-      margin-bottom: 20px;
+    
+    .assessment-header {
+      text-align: center;
+      margin-bottom: var(--space-12);
     }
-    h2 {
-      font-size: 1.6rem;
+    
+    .assessment-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .assessment-header p {
+      font-size: var(--text-xl);
+      color: var(--ds-gray);
+    }
+
+    .legal-summary {
+      background: linear-gradient(135deg, rgba(30,136,229,0.05) 0%, rgba(38,166,154,0.05) 100%);
+      padding: 48px 32px;
+      margin-bottom: 48px;
+      border-radius: 16px;
+    }
+
+    .legal-summary h2 {
+      text-align: center;
+      font-size: 28px;
       font-weight: 700;
-      color: #26A69A;
-      margin-top: 32px;
+      color: #1E88E5;
       margin-bottom: 12px;
     }
-    p, li {
+
+    .legal-summary .subtitle {
+      text-align: center;
+      font-size: 14px;
+      color: #546E7A;
+      margin-bottom: 32px;
+    }
+
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .summary-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .summary-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .summary-card svg {
+      margin-bottom: 12px;
+    }
+
+    .summary-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #263238;
+      margin-bottom: 8px;
+    }
+
+    .summary-card p {
+      font-size: 13px;
+      color: #546E7A;
+      line-height: 1.6;
+    }
+
+    .contact-card {
+      background: white;
+      border: 2px solid #1E88E5;
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+      box-shadow: 0 4px 16px rgba(30,136,229,0.15);
+    }
+
+    .contact-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1E88E5;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .contact-item svg {
+      margin: 0 auto 12px;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #1E88E5;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .contact-item a {
+      color: #546E7A;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .contact-item a:hover {
+      color: #1E88E5;
+    }
+
+    .legal-accordion {
+      margin: 24px 0;
+      border: 1px solid #E0E7ED;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .legal-accordion-summary {
+      cursor: pointer;
+      padding: 20px 24px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1E88E5;
+      background: linear-gradient(135deg, rgba(30,136,229,0.03) 0%, rgba(38,166,154,0.03) 100%);
+      list-style: none;
+      user-select: none;
+      transition: background 0.2s ease;
+    }
+
+    .legal-accordion-summary:hover {
+      background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
+    }
+
+    .legal-accordion-summary::marker,
+    .legal-accordion-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .legal-accordion-summary::before {
+      content: '▶';
+      display: inline-block;
+      margin-right: 12px;
+      transition: transform 0.2s ease;
+      color: #26A69A;
+    }
+
+    .legal-accordion[open] .legal-accordion-summary::before {
+      transform: rotate(90deg);
+    }
+
+    .legal-accordion-content {
+      padding: 24px;
+      background: white;
+      line-height: 1.8;
+    }
+
+    .legal-accordion-content p,
+    .legal-accordion-content li {
       font-size: 1rem;
       color: #37474F;
       margin-bottom: 12px;
     }
+
+    .legal-accordion-content ul {
+      margin-left: 20px;
+    }
+
     .signature {
       margin-top: 48px;
       padding-top: 24px;
@@ -47,361 +215,249 @@
       font-style: italic;
       color: #546E7A;
     }
+
+    @media (max-width: 768px) {
+      .assessment-wrapper {
+        padding: var(--space-8) var(--space-4);
+      }
+      
+      .assessment-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .summary-cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-
-<style>
-/* Legal Page Accordions */
-.legal-accordion {
-  margin: 24px 0;
-  border: 1px solid #E0E7ED;
-  border-radius: 8px;
-  overflow: hidden;
-  background: white;
-}
-
-.legal-accordion-summary {
-  cursor: pointer;
-  padding: 16px 20px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #1E88E5;
-  background: linear-gradient(135deg, rgba(30,136,229,0.03) 0%, rgba(38,166,154,0.03) 100%);
-  list-style: none;
-  user-select: none;
-  transition: background 0.2s ease;
-}
-
-.legal-accordion-summary:hover {
-  background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(38,166,154,0.08) 100%);
-}
-
-.legal-accordion-summary::marker,
-.legal-accordion-summary::-webkit-details-marker {
-  display: none;
-}
-
-.legal-accordion-summary::before {
-  content: '▶';
-  display: inline-block;
-  margin-right: 12px;
-  transition: transform 0.2s ease;
-  color: #26A69A;
-}
-
-.legal-accordion[open] .legal-accordion-summary::before {
-  transform: rotate(90deg);
-}
-
-.legal-accordion-content {
-  padding: 20px;
-  background: white;
-}
-
-.legal-accordion-content h2 {
-  display: none; /* Hide original h2 since it's now in summary */
-}
-</style>
-
-    <style>
-    .ds-accordion {
-      border: 1px solid #E0E7FF;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-    .ds-accordion-item {
-      border-bottom: 1px solid #E0E7FF;
-    }
-    .ds-accordion-item:last-child {
-      border-bottom: none;
-    }
-    .ds-accordion-header {
-      background: #F8FAFC;
-      padding: 16px 20px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.2s;
-    }
-    .ds-accordion-header:hover {
-      background: #EEF2FF;
-    }
-    .ds-accordion-header h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1E293B;
-    }
-    .ds-accordion-icon {
-      width: 24px;
-      height: 24px;
-      transition: transform 0.3s;
-    }
-    .ds-accordion-item.active .ds-accordion-icon {
-      transform: rotate(180deg);
-    }
-    .ds-accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-    .ds-accordion-item.active .ds-accordion-content {
-      max-height: 5000px;
-    }
-    .ds-accordion-body {
-      padding: 20px;
-      line-height: 1.7;
-    }
-    .accordion-controls {
-      text-align: center;
-      margin: 24px 0;
-    }
-    </style>
-    <script>
-    function toggleAccordion(element) {
-      const item = element.closest('.ds-accordion-item');
-      item.classList.toggle('active');
-    }
-    function toggleAllAccordions(expand) {
-      const items = document.querySelectorAll('.ds-accordion-item');
-      items.forEach(item => {
-        if (expand) {
-          item.classList.add('active');
-        } else {
-          item.classList.remove('active');
-        }
-      });
-    }
-    </script>
 </head>
 <body>
 
-<div class="legal-container">
-  <h1> Mentions Légales</h1>
-  <p><strong>Dernière mise à jour</strong>: 18 janvier 2026</p>
-
-<!-- 30-Second Summary -->
-<div class="legal-summary" style="background: linear-gradient(135deg, rgba(30,136,229,0.05) 0%, rgba(38,166,154,0.05) 100%); padding: 48px 32px; margin-bottom: 48px; border-radius: 16px;">
-  
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">Résumé en 30 secondes</summary>
-  <div class="legal-accordion-content">
-<p style="text-align: center; font-size: 14px; color: #546E7A; margin-bottom: 32px;">
-    L'essentiel à retenir — lecture rapide
-  </p>
-  
-  <div class="summary-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+<div class="assessment-wrapper">
+  <div class="assessment-container">
     
-    <div class="summary-card" style="background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 32px; margin-bottom: 12px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 6h6M9 10h6M9 14h6"/></svg></div>
-      <h3 style="font-size: 16px; font-weight: 700; color: #263238; margin-bottom: 8px;">Éditeur</h3>
-      <p style="font-size: 13px; color: #546E7A; line-height: 1.6;">Digilab — Société ivoirienne de transformation digitale</p>
+    <div class="assessment-header">
+      <h1>Mentions Légales</h1>
+      <p>Dernière mise à jour: 18 janvier 2026</p>
     </div>
 
-    <div class="summary-card" style="background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 32px; margin-bottom: 12px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M5.5 21c0-3.86 3.13-7 7-7h1c3.87 0 7 3.14 7 7"/></svg></div>
-      <h3 style="font-size: 16px; font-weight: 700; color: #263238; margin-bottom: 8px;">Directeur</h3>
-      <p style="font-size: 13px; color: #546E7A; line-height: 1.6;">Hervé Sajori — Directeur de Publication</p>
+    <div class="legal-summary">
+      <h2>Résumé en 30 secondes</h2>
+      <p class="subtitle">L'essentiel à retenir — lecture rapide</p>
+      
+      <div class="summary-cards">
+        <div class="summary-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+            <path d="M9 6h6M9 10h6M9 14h6"/>
+          </svg>
+          <h3>Éditeur</h3>
+          <p>Digilab — Société ivoirienne de transformation digitale</p>
+        </div>
+
+        <div class="summary-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+            <circle cx="12" cy="7" r="4"/>
+            <path d="M5.5 21c0-3.86 3.13-7 7-7h1c3.87 0 7 3.14 7 7"/>
+          </svg>
+          <h3>Directeur</h3>
+          <p>Hervé Sajori — Directeur de Publication</p>
+        </div>
+
+        <div class="summary-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <h3>Hébergement</h3>
+          <p>Infrastructure cloud professionnelle • Données sécurisées • Serveurs géo-distribués</p>
+        </div>
+
+        <div class="summary-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <h3>Contact</h3>
+          <p>contact@digischool.africa • +225 05 05 11 11 02</p>
+        </div>
+      </div>
     </div>
 
-    <div class="summary-card" style="background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 32px; margin-bottom: 12px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-      <h3 style="font-size: 16px; font-weight: 700; color: #263238; margin-bottom: 8px;">Hébergement</h3>
-      <p style="font-size: 13px; color: #546E7A; line-height: 1.6;">Infrastructure cloud professionnelle • Données sécurisées • Serveurs géo-distribués</p>
+    <p style="margin-bottom: 32px; color: #546E7A;">
+      Le site <strong>digischool.africa</strong> est édité par <strong>Digilab</strong>, société de droit ivoirien spécialisée dans la transformation digitale et la formation professionnelle.
+    </p>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">1. Éditeur de la Plateforme</summary>
+      <div class="legal-accordion-content">
+        <p>
+          Le site <strong>digischool.africa</strong> est édité par <strong>Digilab</strong>, société de droit ivoirien spécialisée dans la transformation digitale et la formation professionnelle.<br>
+          <strong>Siège social</strong>: Abidjan, Cocody, Côte d'Ivoire<br>
+          <strong>Email</strong>: contact@digischool.africa<br>
+          <strong>Téléphone</strong>: +225 05 05 11 11 02<br>
+          <strong>Directeur de publication</strong>: <strong>Hervé Sajori</strong>
+        </p>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">2. Hébergement</summary>
+      <div class="legal-accordion-content">
+        <p>
+          Le site est hébergé par <strong>GitHub Pages</strong> (GitHub, Inc.)<br>
+          Adresse: 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA
+        </p>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">3. Propriété Intellectuelle</summary>
+      <div class="legal-accordion-content">
+        <p>
+          L'ensemble des contenus présents sur digischool.africa (textes, images, logos, vidéos, supports de formation) est la propriété exclusive de <strong>Digilab</strong> et de <strong>DigiSchool Africa</strong>, sauf mention contraire.
+        </p>
+        <p>
+          Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Digilab.
+        </p>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">4. Protection des Données Personnelles (RGPD)</summary>
+      <div class="legal-accordion-content">
+        <p>Digilab s'engage à respecter la confidentialité des utilisateurs. Les données collectées (nom, email, téléphone) sont utilisées uniquement pour:</p>
+        <ul>
+          <li>La gestion des inscriptions aux formations</li>
+          <li>L'envoi d'informations pédagogiques et administratives</li>
+          <li>L'amélioration de nos services</li>
+        </ul>
+        <p>
+          Les utilisateurs disposent d'un droit d'accès, de rectification et de suppression de leurs données personnelles.<br>
+          Pour toute demande: <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a>
+        </p>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">5. Responsabilité & Garanties</summary>
+      <div class="legal-accordion-content">
+        <p><strong>DigiSchool Africa</strong> s'efforce de fournir des contenus de formation de haute qualité, actualisés et conformes aux standards internationaux. Cependant:</p>
+        <ul>
+          <li>Les contenus sont fournis à titre informatif et éducatif</li>
+          <li>Digilab ne peut garantir l'exactitude absolue de toutes les informations</li>
+          <li>L'utilisateur est seul responsable de l'usage qu'il fait des formations</li>
+          <li>Digilab décline toute responsabilité en cas de dommage direct ou indirect résultant de l'utilisation du site</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">6. Partenaires & Références Académiques</summary>
+      <div class="legal-accordion-content">
+        <p>
+          Les logos et références à des institutions (PMI, Microsoft, Harvard, HEC Paris, PECB, etc.) présents sur le site constituent des <strong>références pédagogiques</strong> et des <strong>sources d'inspiration académique</strong>.
+        </p>
+        <p>
+          <strong>Ces mentions ne constituent PAS des partenariats commerciaux ou des accords de licence</strong>, sauf mention explicite d'un accord formel.
+        </p>
+        <p>
+          DigiSchool Africa s'inspire des meilleures pratiques internationales et adapte ses contenus au contexte africain.
+        </p>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">7. Limitation de Responsabilité</summary>
+      <div class="legal-accordion-content">
+        <p><strong>Digilab et DigiSchool Africa</strong> s'engagent à:</p>
+        <ul>
+          <li>Fournir des formations de qualité professionnelle</li>
+          <li>Respecter les engagements pédagogiques annoncés</li>
+          <li>Assurer un suivi personnalisé des apprenants</li>
+          <li>Délivrer des certificats authentiques</li>
+        </ul>
+        <p><strong>Digilab ne peut être tenu responsable de</strong>:</p>
+        <ul>
+          <li>L'échec à un examen de certification externe (PMP, etc.) après la formation</li>
+          <li>Les résultats professionnels individuels des apprenants</li>
+          <li>Les décisions prises par les apprenants sur la base des contenus</li>
+          <li>Les interruptions de service dues à des causes indépendantes de notre volonté</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">8. Conditions d'Accès aux Formations</summary>
+      <div class="legal-accordion-content">
+        <p>
+          L'accès aux contenus de formation est strictement conditionné au <strong>paiement complet du tarif annoncé</strong>.
+        </p>
+        <p>
+          Le mode <strong>Admin</strong> permet un accès illimité à tous les contenus pour des fins de démonstration, de test et de support technique.
+        </p>
+        <p>
+          Toute utilisation frauduleuse ou accès non autorisé aux contenus fera l'objet de poursuites judiciaires.
+        </p>
+      </div>
+    </details>
+
+    <details class="legal-accordion">
+      <summary class="legal-accordion-summary">9. Loi Applicable & Juridiction</summary>
+      <div class="legal-accordion-content">
+        <p>
+          Les présentes mentions légales sont régies par le <strong>droit ivoirien</strong>.<br>
+          En cas de litige, les tribunaux d'<strong>Abidjan, Côte d'Ivoire</strong> seront seuls compétents.
+        </p>
+      </div>
+    </details>
+
+    <div class="contact-card">
+      <h3>Nous contacter</h3>
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <strong>Email</strong>
+          <a href="mailto:contact@digischool.africa">contact@digischool.africa</a>
+        </div>
+        <div class="contact-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <strong>Téléphone</strong>
+          <a href="tel:+2250505111102">+225 05 05 11 11 02</a>
+        </div>
+        <div class="contact-item">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7E57C2" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <strong>Adresse</strong>
+          <span style="color: #546E7A; font-size: 14px;">Abidjan, Cocody, Côte d'Ivoire</span>
+        </div>
+      </div>
     </div>
 
-    <div class="summary-card" style="background: white; border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <div style="font-size: 32px; margin-bottom: 12px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-      <h3 style="font-size: 16px; font-weight: 700; color: #263238; margin-bottom: 8px;">Contact</h3>
-      <p style="font-size: 13px; color: #546E7A; line-height: 1.6;">contact@digischool.africa • +225 05 05 11 11 02</p>
+    <div class="signature">
+      <p><strong>Hervé Sajori</strong><br>Directeur de Publication<br>Digilab & DigiSchool Africa</p>
     </div>
 
-  </div>
-</div>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">1. Éditeur de la Plateforme</summary>
-  <div class="legal-accordion-content">
-<p>
-    Le site <strong>digischool.africa</strong> est édité par <strong>Digilab</strong>, société de droit ivoirien spécialisée dans la transformation digitale et la formation professionnelle.<br>
-    <strong>Siège social</strong>: Abidjan, Cocody, Côte d'Ivoire<br>
-    <strong>Email</strong>: contact@digischool.africa<br>
-    <strong>Téléphone</strong>: +225 05 05 11 11 02<br>
-    <strong>Directeur de publication</strong>: <strong>Hervé Sajori</strong>
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">2. Hébergement</summary>
-  <div class="legal-accordion-content">
-<p>
-    Le site est hébergé par <strong>GitHub Pages</strong> (GitHub, Inc.)<br>
-    Adresse: 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">3. Propriété Intellectuelle</summary>
-  <div class="legal-accordion-content">
-<p>
-    L'ensemble des contenus présents sur digischool.africa (textes, images, logos, vidéos, supports de formation) est la propriété exclusive de <strong>Digilab</strong> et de <strong>DigiSchool Africa</strong>, sauf mention contraire.<br><br>
-    Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Digilab.
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">4. Protection des Données Personnelles (RGPD)</summary>
-  <div class="legal-accordion-content">
-<p>
-    Digilab s'engage à respecter la confidentialité des utilisateurs. Les données collectées (nom, email, téléphone) sont utilisées uniquement pour:
-  </p>
-  <ul>
-    <li>La gestion des inscriptions aux formations</li>
-    <li>L'envoi d'informations pédagogiques et administratives</li>
-    <li>L'amélioration de nos services</li>
-  </ul>
-  <p>
-    Les utilisateurs disposent d'un droit d'accès, de rectification et de suppression de leurs données personnelles.<br>
-    Pour toute demande: <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a>
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">5. Responsabilité & Garanties</summary>
-  <div class="legal-accordion-content">
-<p>
-    <strong>DigiSchool Africa</strong> s'efforce de fournir des contenus de formation de haute qualité, actualisés et conformes aux standards internationaux. Cependant:
-  </p>
-  <ul>
-    <li>Les contenus sont fournis à titre informatif et éducatif</li>
-    <li>Digilab ne peut garantir l'exactitude absolue de toutes les informations</li>
-    <li>L'utilisateur est seul responsable de l'usage qu'il fait des formations</li>
-    <li>Digilab décline toute responsabilité en cas de dommage direct ou indirect résultant de l'utilisation du site</li>
-  </ul>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">6. Partenaires & Références Académiques</summary>
-  <div class="legal-accordion-content">
-<p>
-    Les logos et références à des institutions (PMI, Microsoft, Harvard, HEC Paris, PECB, etc.) présents sur le site constituent des <strong>références pédagogiques</strong> et des <strong>sources d'inspiration académique</strong>.<br><br>
-    <strong>Ces mentions ne constituent PAS des partenariats commerciaux ou des accords de licence</strong>, sauf mention explicite d'un accord formel.<br><br>
-    DigiSchool Africa s'inspire des meilleures pratiques internationales et adapte ses contenus au contexte africain.
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">7. Limitation de Responsabilité — Clause Anti-Arnaque</summary>
-  <div class="legal-accordion-content">
-<p>
-    <strong>Digilab et DigiSchool Africa</strong> s'engagent à:
-  </p>
-  <ul>
-    <li>• Fournir des formations de qualité professionnelle</li>
-    <li>• Respecter les engagements pédagogiques annoncés</li>
-    <li>• Assurer un suivi personnalisé des apprenants</li>
-    <li>• Délivrer des certificats authentiques</li>
-  </ul>
-  <p>
-    <strong>Digilab ne peut être tenu responsable de</strong>:
-  </p>
-  <ul>
-    <li>• L'échec à un examen de certification externe (PMP, etc.) après la formation</li>
-    <li>• Les résultats professionnels individuels des apprenants</li>
-    <li>• Les décisions prises par les apprenants sur la base des contenus</li>
-    <li>• Les interruptions de service dues à des causes indépendantes de notre volonté</li>
-  </ul>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">8. Conditions d'Accès aux Formations</summary>
-  <div class="legal-accordion-content">
-<p>
-    L'accès aux contenus de formation est strictement conditionné au <strong>paiement complet du tarif annoncé</strong>.<br><br>
-    Le mode <strong>Admin</strong> permet un accès illimité à tous les contenus pour des fins de démonstration, de test et de support technique.<br><br>
-    Toute utilisation frauduleuse ou accès non autorisé aux contenus fera l'objet de poursuites judiciaires.
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">9. Loi Applicable & Juridiction</summary>
-  <div class="legal-accordion-content">
-<p>
-    Les présentes mentions légales sont régies par le <strong>droit ivoirien</strong>.<br>
-    En cas de litige, les tribunaux d'<strong>Abidjan, Côte d'Ivoire</strong> seront seuls compétents.
-  </p>
-  </div>
-</details>
-
-<details class="legal-accordion" open>
-  <summary class="legal-accordion-summary">10. Contact</summary>
-  <div class="legal-accordion-content">
-<p>
-    Pour toute question relative aux mentions légales, contactez-nous:<br>
-    <a href="mailto:contact@digischool.africa" style="color: #1E88E5;">contact@digischool.africa</a><br>
-    <a href="tel:+2250505111102" style="color: #1E88E5;">+225 05 05 11 11 02</a><br>
-     Abidjan, Cocody, Côte d'Ivoire
-  </p>
-  
-  
-<div class="legal-cta" style="background: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%); border-radius: 16px; padding: 40px; text-align: center; margin-top: 48px;">
-  <h3 style="color: white; font-size: 24px; font-weight: 700; margin-bottom: 16px;">
-    Des questions sur nos conditions ?
-  </h3>
-  <p style="color: rgba(255,255,255,0.9); font-size: 16px; margin-bottom: 24px;">
-    Notre équipe est disponible pour vous accompagner
-  </p>
-  <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-    <a href="/contact.html" class="btn" style="background: white; color: #1E88E5; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">
-      Nous contacter
-    </a>
-    <a href="/b2c.html" class="btn" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block; border: 1px solid rgba(255,255,255,0.4);">
-      Voir les formations
-    </a>
-  </div>
-</div>
-
-<div class="signature">
-    <p><strong>Hervé Sajori</strong><br>Directeur de Publication<br>Digilab & DigiSchool Africa</p>
   </div>
 </div>
 
 <script src="/assets/digischool-chatbot.js" defer></script>
-<!-- DigiSchool Premium UX Components V2.2.x-I -->
 <script src="/assets/global-components-v2-production.js"></script>
 <script src="/assets/chatbot-manager-v2.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Partner Logos Section UNIQUE -->
 <link rel="stylesheet" href="/assets/partner-logos-v2-2-x-k.css">
 <section class="ds-partners-section">
   <div class="ds-partners-container">
     <h3 class="ds-partners-title">Références Académiques & Standards Professionnels</h3>
     
-    <!-- Catégorie 1: Project / IT / Architecture / Change -->
     <div class="ds-partners-category">
       <h4 class="ds-partners-subtitle">Gestion de Projet, IT & Architecture</h4>
       <div class="ds-partners-grid">
@@ -410,25 +466,21 @@
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#1E88E5">PMI</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="AXELOS - ITIL, PRINCE2">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">AXELOS</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="The Open Group - TOGAF">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#1E88E5">TOGAF</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="PROSCI - Change Management">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">PROSCI</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="ASQ - Quality Management">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#26A69A">ASQ</text>
@@ -437,7 +489,6 @@
       </div>
     </div>
     
-    <!-- Catégorie 2: Finance / Audit / Risk -->
     <div class="ds-partners-category">
       <h4 class="ds-partners-subtitle">Finance, Audit & Risques</h4>
       <div class="ds-partners-grid">
@@ -446,34 +497,34 @@
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">CFA</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="IFAC - International Federation of Accountants">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">IFAC</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="IIA - Internal Audit">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#7E57C2">IIA</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="ISACA - IT Governance & Security">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#1E88E5">ISACA</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="PECB - ISO Standards">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#1E88E5">PECB</text>
           </svg>
         </div>
+        <div class="ds-partner-logo" data-tooltip="ISO - International Standards">
+          <svg width="80" height="60" viewBox="0 0 80 60">
+            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#1E88E5">ISO</text>
+          </svg>
+        </div>
       </div>
     </div>
     
-    <!-- Catégorie 3: Data / Digital / HR / Supply Chain -->
     <div class="ds-partners-category">
       <h4 class="ds-partners-subtitle">Data, Digital, RH & Supply Chain</h4>
       <div class="ds-partners-grid">
@@ -485,37 +536,36 @@
             <rect x="36" y="32" width="14" height="14" fill="#FFB900"/>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="AWS - Cloud Computing">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#FF9900">AWS</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="Google Cloud">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="12" font-weight="700" fill="#4285F4">Google</text>
           </svg>
         </div>
-        
+        <div class="ds-partner-logo" data-tooltip="Oracle - Enterprise Solutions">
+          <svg width="80" height="60" viewBox="0 0 80 60">
+            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#F80000">Oracle</text>
+          </svg>
+        </div>
         <div class="ds-partner-logo" data-tooltip="DAMA - Data Management">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#26A69A">DAMA</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="CIPD - HR Professional Body">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#7E57C2">CIPD</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="ASCM - Supply Chain Management">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="13" font-weight="700" fill="#26A69A">ASCM</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="DMI - Digital Marketing Institute">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">DMI</text>
@@ -524,7 +574,6 @@
       </div>
     </div>
     
-    <!-- Universités (ligne dédiée) -->
     <div class="ds-partners-category">
       <h4 class="ds-partners-subtitle">Références Académiques</h4>
       <div class="ds-partners-grid">
@@ -533,29 +582,42 @@
             <text x="40" y="32" text-anchor="middle" font-family="serif" font-size="14" font-weight="700" fill="#A51C30">HARVARD</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="MIT - Massachusetts Institute of Technology">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#A31F34">MIT</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="HEC Paris">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="26" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#E30613">HEC</text>
             <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="9" fill="#546E7A">Paris</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="ESSEC Business School">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#00205B">ESSEC</text>
           </svg>
         </div>
-        
         <div class="ds-partner-logo" data-tooltip="London Business School">
           <svg width="80" height="60" viewBox="0 0 80 60">
             <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#3E2C8C">LBS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-partners-category">
+      <h4 class="ds-partners-subtitle">Institutions Locales</h4>
+      <div class="ds-partners-grid">
+        <div class="ds-partner-logo" data-tooltip="FDFP - Fonds de Développement de la Formation Professionnelle">
+          <svg width="80" height="60" viewBox="0 0 80 60">
+            <text x="40" y="32" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="#1E88E5">FDFP</text>
+          </svg>
+        </div>
+        <div class="ds-partner-logo" data-tooltip="EC-Council - Cybersecurity">
+          <svg width="80" height="60" viewBox="0 0 80 60">
+            <text x="40" y="28" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#26A69A">EC</text>
+            <text x="40" y="40" text-anchor="middle" font-family="Arial" font-size="10" font-weight="700" fill="#26A69A">COUNCIL</text>
           </svg>
         </div>
       </div>
@@ -569,9 +631,6 @@
     </div>
   </div>
 </section>
-<!-- End Partner Logos -->
 
 </body>
 </html>
-  </div>
-</details>
