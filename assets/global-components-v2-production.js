@@ -93,9 +93,9 @@ const DigiSchoolGlobalComponents = {
                 <a href="mailto:contact@digischool.africa" class="ds-footer-link">
                   📧 contact@digischool.africa
                 </a>
-                <a href="tel:+22505051111 02" class="ds-btn ds-btn-secondary" style="display:inline-block;margin-top:8px;">
+                <button onclick="openPaymentModal()" class="ds-btn ds-btn-secondary" style="display:inline-block;margin-top:8px;border:none;cursor:pointer;background:linear-gradient(135deg,#1E88E5,#26A69A);color:white;padding:12px 24px;border-radius:8px;font-weight:600;transition:transform 0.2s;">
                   📞 Allo DigiSchool !
-                </a>
+                </button>
                 <div style="margin-top: var(--space-4);">
                   <p style="color: rgba(255,255,255,0.8); font-size: var(--text-sm);">
                     Abidjan, Côte d'Ivoire<br>
@@ -264,22 +264,11 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
   DigiSchoolGlobalComponents.inject();
 }
 
-// Modal téléphone
-window.dsPhoneModal = function() {
-  const modal = document.createElement('div');
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;';
-  modal.innerHTML = `
-    <div style="background:white;padding:32px;border-radius:12px;max-width:400px;text-align:center;">
-      <h3 style="margin-bottom:16px;color:#1E88E5;">Contactez DigiSchool Africa</h3>
-      <p style="font-size:1.5rem;font-weight:700;margin:16px 0;color:#0B1B3A;">+225 05 05 11 11 02</p>
-      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;">
-        <button onclick="navigator.clipboard.writeText('+22505051111 02');alert('Numéro copié!')" style="padding:12px 24px;background:#26A69A;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;">Copier</button>
-        <a href="https://wa.me/22505051111 02" target="_blank" style="padding:12px 24px;background:#25D366;color:white;border:none;border-radius:8px;text-decoration:none;font-weight:600;display:inline-block;">WhatsApp</a>
-        <button onclick="this.closest('div[style*=fixed]').remove()" style="padding:12px 24px;background:#546E7A;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;">Fermer</button>
-      </div>
-    </div>
-  `;
-  modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
-  document.body.appendChild(modal);
-};
+// Load payment modal script
+(function() {
+  const script = document.createElement('script');
+  script.src = '/assets/payment-contact-modal.js';
+  script.defer = true;
+  document.head.appendChild(script);
+})();
 
