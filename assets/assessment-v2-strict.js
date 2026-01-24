@@ -363,11 +363,18 @@ const DigiSchoolAssessmentV2 = {
           </label>
         `;
       });
-      html += `<p class="helper-text">Vous pouvez sélectionner ${question.min === 0 ? 'jusqu\'à' : question.min + ' à'} ${question.max} réponse(s)</p>`;
+      html += `<p class="helper-text" id="counter-${question.id}">Sélectionnez jusqu'à ${question.max} réponse(s) • <strong>0/${question.max} sélectionné(s)</strong></p>`;
     }
 
     html += `</div></div>`;
     container.innerHTML = html;
+    
+    // Initialize counter for multiple choice
+    if (question.type === 'multiple') {
+      const currentAnswers = this.state.answers[question.id] || [];
+      this.updateMultipleCounter(question.id, currentAnswers.length, question.max);
+    }
+    
     this.bindAnswerEvents();
   },
 
@@ -399,6 +406,10 @@ const DigiSchoolAssessmentV2 = {
             option.classList.remove('selected');
             this.state.answers[questionId] = currentAnswers.filter(v => v !== value);
             
+            // Update counter
+            const newCount = currentAnswers.length - 1;
+            this.updateMultipleCounter(questionId, newCount, question.max);
+            
             // Re-enable all options when deselecting
             document.querySelectorAll(`[data-question="${questionId}"]`).forEach(opt => {
               opt.classList.remove('disabled');
@@ -411,8 +422,12 @@ const DigiSchoolAssessmentV2 = {
               option.classList.add('selected');
               this.state.answers[questionId] = [...currentAnswers, value];
               
+              // Update counter
+              const newCount = currentAnswers.length + 1;
+              this.updateMultipleCounter(questionId, newCount, question.max);
+              
               // Disable other options if max reached
-              if (currentAnswers.length + 1 >= question.max) {
+              if (newCount >= question.max) {
                 document.querySelectorAll(`[data-question="${questionId}"]`).forEach(opt => {
                   if (!opt.classList.contains('selected')) {
                     opt.classList.add('disabled');
@@ -649,15 +664,19 @@ const DigiSchoolAssessmentV2 = {
         </div>
         
         <div class="text-center mt-12">
-          <a href="/b2c.html" class="btn btn-primary btn-lg" style="margin-right: 16px;">
+          <a href="/b2c.html" class="btn btn-primary btn-lg" style="margin-right: 16px; display: inline-block;">
             Passer commande
           </a>
           
-          <div class="email-capture-block" style="display: inline-block; margin-top: 24px;">
-            <input type="email" id="email-capture" placeholder="Votre email" style="padding: 12px 16px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; width: 280px; margin-right: 8px;" />
-            <button onclick="DigiSchoolAssessmentV2.sendExpertReport()" class="btn btn-primary btn-lg">
-              Recevoir le rapport détaillé par email
-            </button>
+          <div class="email-capture-block" style="display: block; margin-top: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <h3 style="margin-bottom: 16px; color: #1E88E5;">Recevoir mon rapport détaillé par email</h3>
+            <div style="display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap;">
+              <input type="email" id="email-capture" placeholder="Votre email professionnel" style="padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; width: 320px;" />
+              <button onclick="DigiSchoolAssessmentV2.sendExpertReport()" class="btn btn-primary btn-lg">
+                Envoyer le rapport
+              </button>
+            </div>
+            <p style="margin-top: 12px; font-size: 14px; color: #666; font-style: italic;">Profiling expert • Plan 30/60/90 jours • Matrice de compétences</p>
           </div>
         </div>
       </div>
@@ -666,6 +685,14 @@ const DigiSchoolAssessmentV2 = {
     container.innerHTML = html;
   },
 
+  // Update multiple choice counter
+  updateMultipleCounter(questionId, currentCount, maxCount) {
+    const counter = document.getElementById(`counter-${questionId}`);
+    if (counter) {
+      counter.innerHTML = `Sélectionnez jusqu'à ${maxCount} réponse(s) • <strong style="color: ${currentCount >= maxCount ? '#26A69A' : '#1E88E5'}">${currentCount}/${maxCount} sélectionné(s)</strong>`;
+    }
+  },
+  
   // Toast notification (non-blocking)
   showToast(message) {
     const toast = document.createElement('div');
