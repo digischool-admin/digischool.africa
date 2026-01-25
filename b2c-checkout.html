@@ -270,18 +270,6 @@
       opacity: 0.3;
     }
     
-    /* Timer */
-    .timer {
-      font-size: var(--text-4xl);
-      font-weight: 700;
-      color: var(--color-primary);
-      text-align: center;
-      padding: var(--space-6);
-      background: rgba(30, 136, 229, 0.05);
-      border-radius: var(--radius-lg);
-      margin: var(--space-6) 0;
-    }
-    
     /* Progress bar */
     .progress-steps {
       display: flex;
@@ -461,6 +449,9 @@
           </div>
           
           <h3>1. Choisissez votre opérateur de paiement</h3>
+          <p style="color: var(--ds-gray); font-size: var(--text-sm); margin-bottom: var(--space-4);">
+            Les numéros de paiement vous seront communiqués lors de la validation de votre commande
+          </p>
           <div class="operators-grid" id="operatorGrid">
             <div class="operator-card" data-operator="Orange" onclick="selectOperator('Orange', '+2250714678289')">
               <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#FF6600"/>
@@ -521,13 +512,18 @@
             </button>
           </div>
           
-          <div id="verificationSection" class="hidden">
-            <h3 style="text-align: center; color: var(--ds-gray); margin: var(--space-8) 0 var(--space-4);">
-              ⏳ Vérification en cours...
-            </h3>
-            <div class="timer" id="verificationTimer">15:00</div>
-            <p style="text-align: center; color: var(--ds-gray);">
-              Notre équipe vérifie votre paiement. Vous recevrez un email de confirmation dans les prochaines minutes.
+          <!-- Manual Process Explanation -->
+          <div style="background: rgba(30, 136, 229, 0.05); border-left: 4px solid var(--color-primary); padding: var(--space-6); border-radius: var(--radius-md); margin: var(--space-8) 0;">
+            <h3 style="color: var(--color-primary); margin-bottom: var(--space-4);">Après votre paiement — Que se passe-t-il ?</h3>
+            <ol style="line-height: 2; color: var(--ds-dark); margin-left: var(--space-6);">
+              <li><strong>Vous effectuez le paiement Mobile Money</strong></li>
+              <li><strong>Vous envoyez la preuve de paiement</strong> par email à <a href="mailto:support@digischool.africa" style="color: var(--color-primary);">support@digischool.africa</a></li>
+              <li><strong>Notre équipe vérifie manuellement</strong> le paiement</li>
+              <li><strong>Vous recevez un email de confirmation</strong> sous 24h ouvrées</li>
+              <li><strong>Vos accès e-learning</strong> vous sont transmis par email</li>
+            </ol>
+            <p style="margin-top: var(--space-4); font-style: italic; color: var(--ds-gray);">
+              Ce processus est manuel dans le cadre du lancement V1
             </p>
           </div>
           
@@ -563,7 +559,6 @@
     let selectedOperatorNumber = null;
     let orderId = null;
     let userEmail = '';
-    let verificationTimerInterval = null;
     
     // Initialize checkout
     function initCheckout() {
@@ -641,7 +636,7 @@
       html += '</tbody></table>';
       
       html += '<div class="total-section"><div class="total-row">';
-      html += `<span>TOTAL</span><span>${formatPrice(total)}</span>`;
+      html += `<span>TOTAL (Hors TVA)</span><span>${formatPrice(total)}</span>`;
       html += '</div></div>';
       
       container.innerHTML = html;
@@ -842,29 +837,6 @@ Cordialement`;
       
       // Open email client
       window.location.href = mailtoLink;
-      
-      // Show verification section
-      document.getElementById('verificationSection').classList.remove('hidden');
-      startVerificationTimer();
-    }
-    
-    // Start verification timer
-    function startVerificationTimer() {
-      let timeLeft = 15 * 60; // 15 minutes
-      const timerDisplay = document.getElementById('verificationTimer');
-      
-      verificationTimerInterval = setInterval(() => {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        timerDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        
-        timeLeft--;
-        
-        if (timeLeft < 0) {
-          clearInterval(verificationTimerInterval);
-          timerDisplay.textContent = 'Temps écoulé';
-        }
-      }, 1000);
     }
     
     // Remove item from cart
