@@ -172,6 +172,59 @@
       margin-bottom: var(--space-3);
     }
     
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: var(--space-6);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-primary);
+      color: white;
+      padding: var(--space-4) var(--space-6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-2xl);
+      font-weight: 600;
+      z-index: 1000;
+      animation: slideUp 0.3s ease;
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+      to { transform: translateX(-50%) translateY(0); opacity: 1; }
+    }
+    
+    /* Phone number display */
+    .phone-number-display {
+      background: rgba(30, 136, 229, 0.05);
+      border: 2px solid var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      text-align: center;
+      margin: var(--space-6) 0;
+    }
+    
+    .phone-number-display .operator-name {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .phone-number-display .phone-number {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 2px;
+      cursor: pointer;
+      user-select: all;
+    }
+    
+    .phone-number-display .copy-hint {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      margin-top: var(--space-2);
+    }
+    
     .form-group {
       margin-bottom: var(--space-6);
     }
@@ -425,10 +478,27 @@
               <div style="font-weight: 600; margin-top: var(--space-2);">Moov Money</div>
             </div>
             <div class="operator-card" data-operator="Wave" onclick="selectOperator('Wave', '+2250151664653')">
-              <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#5DADE2"/>
-              <text x="30" y="38" text-anchor="middle" fill="white" font-size="16" font-weight="700">Wave</text></svg>
+              <svg viewBox="0 0 60 60">
+                <rect width="60" height="60" rx="8" fill="#5DADE2"/>
+                <g transform="translate(30, 30)">
+                  <!-- Wave penguin logo simplified -->
+                  <ellipse cx="0" cy="2" rx="10" ry="12" fill="white"/>
+                  <ellipse cx="-3" cy="0" rx="2" ry="2" fill="#000"/>
+                  <ellipse cx="3" cy="0" rx="2" ry="2" fill="#000"/>
+                  <path d="M-2,4 Q0,6 2,4" stroke="#FF9800" stroke-width="1.5" fill="none"/>
+                  <ellipse cx="-8" cy="5" rx="3" ry="6" fill="white"/>
+                  <ellipse cx="8" cy="5" rx="3" ry="6" fill="white"/>
+                </g>
+              </svg>
               <div style="font-weight: 600; margin-top: var(--space-2);">Wave</div>
             </div>
+          </div>
+          
+          <!-- Phone Number Display -->
+          <div id="phoneNumberDisplay" class="phone-number-display hidden">
+            <div class="operator-name" id="operatorName"></div>
+            <div class="phone-number" id="phoneNumber" onclick="copyPhoneNumber()"></div>
+            <div class="copy-hint">👆 Cliquez pour copier</div>
           </div>
           
           <div id="paymentInstructions" class="hidden" style="background: rgba(30, 136, 229, 0.05); padding: var(--space-6); border-radius: var(--radius-lg); margin: var(--space-6) 0;">
@@ -616,11 +686,24 @@
       selectedOperator = operator;
       selectedOperatorNumber = number;
       
-      // Update UI
+      // Update UI - selected state
       document.querySelectorAll('.operator-card').forEach(card => {
         card.classList.remove('selected');
       });
       event.currentTarget.classList.add('selected');
+      
+      // Show phone number display
+      const phoneDisplay = document.getElementById('phoneNumberDisplay');
+      const operatorNameEl = document.getElementById('operatorName');
+      const phoneNumberEl = document.getElementById('phoneNumber');
+      
+      operatorNameEl.textContent = `${operator} Mobile Money`;
+      phoneNumberEl.textContent = number;
+      phoneDisplay.classList.remove('hidden');
+      
+      // Copy to clipboard automatically
+      copyToClipboard(number);
+      showToast('Numéro copié dans le presse-papiers!');
       
       // Show instructions
       const instructionsDiv = document.getElementById('paymentInstructions');
@@ -632,12 +715,67 @@
       instructionsText.innerHTML = `
         <strong>1.</strong> Composez le code de ${operator} sur votre téléphone<br>
         <strong>2.</strong> Effectuez un transfert de <strong style="color: var(--color-primary); font-size: var(--text-xl);">${formattedTotal}</strong><br>
-        <strong>3.</strong> Vers le numéro : <strong>${number}</strong><br>
+        <strong>3.</strong> Vers le numéro ci-dessus (déjà copié)<br>
         <strong>4.</strong> Prenez une capture d'écran de la confirmation<br>
         <strong>5.</strong> Envoyez-nous votre preuve via le bouton ci-dessous
       `;
       
       instructionsDiv.classList.remove('hidden');
+    }
+    
+    // Copy phone number
+    function copyPhoneNumber() {
+      if (selectedOperatorNumber) {
+        copyToClipboard(selectedOperatorNumber);
+        showToast('Numéro copié!');
+      }
+    }
+    
+    // Copy to clipboard helper
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(err => {
+          console.error('Clipboard error:', err);
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    }
+    
+    // Fallback copy method
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+      } catch (err) {
+        console.error('Fallback copy failed:', err);
+      }
+      document.body.removeChild(textarea);
+    }
+    
+    // Show toast notification
+    function showToast(message) {
+      // Remove existing toast
+      const existingToast = document.querySelector('.toast');
+      if (existingToast) existingToast.remove();
+      
+      // Create new toast
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      
+      // Remove after 3 seconds
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
     }
     
     // Send proof by email
