@@ -1373,15 +1373,48 @@
   
   <!-- Cart System -->
   <script src="/assets/cart-system.js"></script>
+  
+  <!-- Floating Cart Button -->
+  <div id="floatingCart" style="position: fixed; bottom: var(--space-6); right: var(--space-6); z-index: 999;">
+    <a href="/b2c-cart.html" class="btn btn-primary" style="display: flex; align-items: center; gap: var(--space-2); padding: var(--space-4) var(--space-6); box-shadow: var(--shadow-2xl);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      <span id="cartCount">0</span>
+    </a>
+  </div>
+  
   <script>
-    // Cart-based checkout (with visual feedback)
+    // Update cart count display
+    function updateCartCount() {
+      if (typeof CartManager !== 'undefined') {
+        const count = CartManager.getItemCount();
+        const countEl = document.getElementById('cartCount');
+        if (countEl) {
+          countEl.textContent = count;
+          document.getElementById('floatingCart').style.display = count > 0 ? 'block' : 'none';
+        }
+      }
+    }
+    
+    // Cart-based workflow (NO immediate redirect for pack)
     function buyPack(courseId) {
       if (typeof CartManager !== 'undefined') {
         CartManager.addItem(courseId, 'pack');
+        
         // Visual feedback
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Ajouté au panier';
+        btn.style.backgroundColor = 'var(--color-secondary)';
+        
+        updateCartCount();
+        
         setTimeout(() => {
-          window.location.href = `/b2c-checkout.html`;
-        }, 300);
+          btn.textContent = originalText;
+          btn.style.backgroundColor = '';
+        }, 2000);
       } else {
         // Fallback to direct URL
         window.location.href = `/b2c-checkout.html?course=${courseId}&type=pack`;
@@ -1391,11 +1424,15 @@
     function buyModule(courseId, moduleNum, moduleTitle) {
       if (typeof CartManager !== 'undefined') {
         CartManager.addItem(courseId, 'module', moduleNum, `Module ${moduleNum}`);
+        
         // Visual feedback
         const btn = event.target;
         const originalText = btn.textContent;
         btn.textContent = '✓ Ajouté';
         btn.style.backgroundColor = 'var(--color-secondary)';
+        
+        updateCartCount();
+        
         setTimeout(() => {
           btn.textContent = originalText;
           btn.style.backgroundColor = '';
@@ -1405,6 +1442,9 @@
         window.location.href = `/b2c-checkout.html?course=${courseId}&type=module&module=${moduleNum}`;
       }
     }
+    
+    // Initialize cart count on load
+    document.addEventListener('DOMContentLoaded', updateCartCount);
   </script>
   
 </body>

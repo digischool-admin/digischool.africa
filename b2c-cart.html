@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Panier — DigiSchool Africa</title>
+  <meta name="description" content="Votre sélection de formations professionnelles">
+  
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <style>
+    .cart-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .cart-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .cart-header {
+      text-align: center;
+      margin-bottom: var(--space-10);
+    }
+    
+    .cart-header h1 {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+      background: var(--gradient-hero);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cart-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: var(--radius-xl);
+      padding: var(--space-10);
+      margin-bottom: var(--space-6);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .cart-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-6) 0;
+    }
+    
+    .cart-table th {
+      background: rgba(30, 136, 229, 0.05);
+      padding: var(--space-4);
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .cart-table td {
+      padding: var(--space-4);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    
+    .cart-table tr:hover {
+      background: rgba(30, 136, 229, 0.02);
+    }
+    
+    .item-badge {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .badge-pack {
+      background: rgba(30, 136, 229, 0.1);
+      color: var(--color-primary);
+    }
+    
+    .badge-module {
+      background: rgba(126, 87, 194, 0.1);
+      color: #7E57C2;
+    }
+    
+    .btn-remove {
+      background: rgba(244, 67, 54, 0.1);
+      color: #f44336;
+      border: none;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    
+    .btn-remove:hover {
+      background: rgba(244, 67, 54, 0.2);
+    }
+    
+    .cart-actions {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: space-between;
+      margin-top: var(--space-6);
+      flex-wrap: wrap;
+    }
+    
+    .empty-cart {
+      text-align: center;
+      padding: var(--space-12);
+    }
+    
+    .empty-cart svg {
+      width: 100px;
+      height: 100px;
+      margin-bottom: var(--space-6);
+      opacity: 0.3;
+    }
+    
+    @media (max-width: 768px) {
+      .cart-table {
+        font-size: var(--text-sm);
+      }
+      
+      .cart-table th,
+      .cart-table td {
+        padding: var(--space-2);
+      }
+      
+      .cart-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="cart-wrapper">
+    <div class="cart-container">
+      
+      <div class="cart-header">
+        <h1>Mon Panier</h1>
+        <p style="font-size: var(--text-xl); color: var(--ds-gray);">
+          Votre sélection de formations professionnelles
+        </p>
+      </div>
+      
+      <!-- Cart Content -->
+      <div id="cartContent" class="cart-card">
+        <!-- Populated by JS -->
+      </div>
+      
+      <!-- Empty State -->
+      <div id="emptyCart" class="cart-card empty-cart" style="display: none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <h2>Votre panier est vide</h2>
+        <p style="color: var(--ds-gray); margin-bottom: var(--space-6);">
+          Parcourez notre catalogue pour ajouter des formations
+        </p>
+        <a href="/b2c.html" class="btn btn-primary">Retour au catalogue</a>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="/assets/global-components-v2-production.js"></script>
+  <script src="/assets/chatbot-manager-v2.js"></script>
+  <script src="/assets/cart-system.js"></script>
+  
+  <script>
+    function initCart() {
+      const cart = CartManager.getCart();
+      
+      if (!cart.items || cart.items.length === 0) {
+        showEmptyCart();
+        return;
+      }
+      
+      renderCart();
+    }
+    
+    function showEmptyCart() {
+      document.getElementById('cartContent').style.display = 'none';
+      document.getElementById('emptyCart').style.display = 'block';
+    }
+    
+    function renderCart() {
+      const cart = CartManager.getCart();
+      const container = document.getElementById('cartContent');
+      
+      let html = '<h2 style="margin-bottom: var(--space-6);">Votre sélection</h2>';
+      html += '<table class="cart-table"><thead><tr>';
+      html += '<th>Formation</th>';
+      html += '<th>Type</th>';
+      html += '<th>Prix</th>';
+      html += '<th>Action</th>';
+      html += '</tr></thead><tbody>';
+      
+      cart.items.forEach((item, index) => {
+        const badge = item.itemType === 'pack' 
+          ? '<span class="item-badge badge-pack">Pack Complet</span>'
+          : `<span class="item-badge badge-module">${item.moduleTitle || 'Module'}</span>`;
+        
+        html += `<tr>
+          <td><strong>${item.courseTitle}</strong><br><small style="color: var(--ds-gray);">${item.duration}</small></td>
+          <td>${badge}</td>
+          <td><strong>${formatPrice(item.unitPrice)}</strong></td>
+          <td><button class="btn-remove" onclick="removeItem(${index})">Supprimer</button></td>
+        </tr>`;
+      });
+      
+      html += '</tbody></table>';
+      
+      html += '<div class="cart-actions">';
+      html += '<div>';
+      html += '<button class="btn btn-secondary" onclick="clearCart()">Vider le panier</button>';
+      html += ' <a href="/b2c.html" class="btn btn-secondary">Ajouter d\'autres formations</a>';
+      html += '</div>';
+      html += '<button class="btn btn-primary" onclick="goToCheckout()">Valider ma sélection</button>';
+      html += '</div>';
+      
+      container.innerHTML = html;
+    }
+    
+    function removeItem(index) {
+      if (confirm('Retirer cet article du panier ?')) {
+        CartManager.removeItem(index);
+        const cart = CartManager.getCart();
+        if (cart.items.length === 0) {
+          showEmptyCart();
+        } else {
+          renderCart();
+        }
+      }
+    }
+    
+    function clearCart() {
+      if (confirm('Vider complètement votre panier ?')) {
+        CartManager.clear();
+        showEmptyCart();
+      }
+    }
+    
+    function goToCheckout() {
+      window.location.href = '/b2c-checkout.html';
+    }
+    
+    function formatPrice(price) {
+      return new Intl.NumberFormat('fr-FR').format(price) + ' FCFA';
+    }
+    
+    document.addEventListener('DOMContentLoaded', initCart);
+  </script>
+  
+</body>
+</html>
