@@ -18,8 +18,8 @@ const COURSE_CATALOG = {
     title: 'Leadership & Management',
     duration: '5 jours',
     modules: 4,
-    packPrice: 306252,
-    modulePrice: 76563,
+    packPrice: 214376,
+    modulePrice: 69672,
     description: 'Leadership transformationnel, management d\'équipes hybrides, gestion des conflits'
   },
   'gestion-projet-pmp': {
@@ -27,44 +27,44 @@ const COURSE_CATALOG = {
     title: 'Gestion de Projet (PMP)',
     duration: '10 jours',
     modules: 6,
-    packPrice: 490000,
-    modulePrice: 81667,
+    packPrice: 321564,
+    modulePrice: 69672,
     description: 'Méthodologie PMP complète avec IA pour automatisation'
   },
   'data-analytics': {
     id: 'data-analytics',
-    title: 'Data Analytics & Power BI',
+    title: 'Data Analytics & Visualisation',
     duration: '8 jours',
     modules: 5,
-    packPrice: 408432,
-    modulePrice: 81686,
+    packPrice: 267970,
+    modulePrice: 69672,
     description: 'Analyse de données et visualisation avec Power BI'
   },
   'excel-avance': {
     id: 'excel-avance',
-    title: 'Excel Avancé',
+    title: 'Excel Avancé & IA',
     duration: '4 jours',
     modules: 4,
-    packPrice: 204216,
-    modulePrice: 51054,
+    packPrice: 214376,
+    modulePrice: 69672,
     description: 'Maîtrise avancée d\'Excel pour l\'analyse de données'
   },
   'power-bi': {
     id: 'power-bi',
-    title: 'Power BI',
+    title: 'Power BI & Business Intelligence',
     duration: '5 jours',
     modules: 4,
-    packPrice: 255270,
-    modulePrice: 63818,
+    packPrice: 214376,
+    modulePrice: 69672,
     description: 'Business Intelligence et visualisation de données'
   },
   'marketing-digital': {
     id: 'marketing-digital',
     title: 'Marketing Digital & IA',
     duration: '6 jours',
-    modules: 4,
-    packPrice: 306252,
-    modulePrice: 76563,
+    modules: 5,
+    packPrice: 267970,
+    modulePrice: 69672,
     description: 'Stratégie digitale et marketing automation avec IA'
   },
   'transformation-digitale': {
@@ -72,8 +72,8 @@ const COURSE_CATALOG = {
     title: 'Transformation Digitale',
     duration: '4 jours',
     modules: 4,
-    packPrice: 204216,
-    modulePrice: 51054,
+    packPrice: 214376,
+    modulePrice: 69672,
     description: 'Conduire la transformation digitale de l\'entreprise'
   },
   'rh-moderne': {
@@ -81,8 +81,8 @@ const COURSE_CATALOG = {
     title: 'RH Moderne & People Analytics',
     duration: '5 jours',
     modules: 4,
-    packPrice: 255270,
-    modulePrice: 63818,
+    packPrice: 214376,
+    modulePrice: 69672,
     description: 'RH stratégiques et people analytics'
   },
   'strategie-execution': {
@@ -90,9 +90,18 @@ const COURSE_CATALOG = {
     title: 'Stratégie & Exécution',
     duration: '4 jours',
     modules: 4,
-    packPrice: 204216,
-    modulePrice: 51054,
+    packPrice: 214376,
+    modulePrice: 69672,
     description: 'Stratégie d\'entreprise et excellence opérationnelle'
+  },
+  'm365-productivite': {
+    id: 'm365-productivite',
+    title: 'Productivité & Microsoft 365',
+    duration: '4 jours',
+    modules: 4,
+    packPrice: 214376,
+    modulePrice: 69672,
+    description: 'Productivité et collaboration avec Microsoft 365'
   }
 };
 

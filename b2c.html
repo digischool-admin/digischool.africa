@@ -1207,6 +1207,7 @@
   <!-- Scripts -->
   <script src="/assets/global-components-v2-production.js"></script>
   <script src="/assets/chatbot-manager-v2.js"></script>
+  <script src="/assets/cart-system.js"></script>
   
   <script>
     function toggleAccordion(id) {
@@ -1373,13 +1374,36 @@
   <!-- Cart System -->
   <script src="/assets/cart-system.js"></script>
   <script>
-    // Direct checkout links (simple URL-based flow)
+    // Cart-based checkout (with visual feedback)
     function buyPack(courseId) {
-      window.location.href = `/b2c-checkout.html?course=${courseId}&type=pack`;
+      if (typeof CartManager !== 'undefined') {
+        CartManager.addItem(courseId, 'pack');
+        // Visual feedback
+        setTimeout(() => {
+          window.location.href = `/b2c-checkout.html`;
+        }, 300);
+      } else {
+        // Fallback to direct URL
+        window.location.href = `/b2c-checkout.html?course=${courseId}&type=pack`;
+      }
     }
     
     function buyModule(courseId, moduleNum, moduleTitle) {
-      window.location.href = `/b2c-checkout.html?course=${courseId}&type=module&module=${moduleNum}`;
+      if (typeof CartManager !== 'undefined') {
+        CartManager.addItem(courseId, 'module', moduleNum, `Module ${moduleNum}`);
+        // Visual feedback
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Ajouté';
+        btn.style.backgroundColor = 'var(--color-secondary)';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.backgroundColor = '';
+        }, 1500);
+      } else {
+        // Fallback to direct URL
+        window.location.href = `/b2c-checkout.html?course=${courseId}&type=module&module=${moduleNum}`;
+      }
     }
   </script>
   
