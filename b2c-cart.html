@@ -10,6 +10,46 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   <style>
+    /* Cart navigation bar */
+    .cart-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: var(--space-3) var(--space-4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      margin-bottom: var(--space-8);
+    }
+    
+    .cart-nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .progress-mini {
+      display: flex;
+      gap: var(--space-2);
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .progress-mini-step {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      font-weight: 500;
+    }
+    
+    .progress-mini-step.active {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    
+    .progress-mini-arrow {
+      color: var(--ds-gray);
+      font-size: var(--text-xs);
+    }
+    
     .cart-wrapper {
       min-height: 100vh;
       background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
@@ -139,6 +179,21 @@
   </style>
 </head>
 <body>
+  
+  <!-- Cart Navigation Bar -->
+  <div class="cart-nav">
+    <div class="cart-nav-container">
+      <div class="progress-mini">
+        <span class="progress-mini-step">Catalogue</span>
+        <span class="progress-mini-arrow">→</span>
+        <span class="progress-mini-step active">Panier</span>
+        <span class="progress-mini-arrow">→</span>
+        <span class="progress-mini-step">Paiement</span>
+        <span class="progress-mini-arrow">→</span>
+        <span class="progress-mini-step">Confirmation</span>
+      </div>
+    </div>
+  </div>
   
   <div class="cart-wrapper">
     <div class="cart-container">
