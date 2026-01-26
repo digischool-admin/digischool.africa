@@ -1,12 +1,12 @@
 /**
- * DigiSchool Africa - Catalogue 30 Parcours V1.1
+ * DigiSchool Africa - Catalogue 30 Parcours V1.2
  * 10 Piliers × 3 Niveaux (Fondation, Maîtrise, Leadership)
- * Source unique de vérité pour B2C et B2B
- * DIFFÉRENCIATION COMPLÈTE - Zéro duplication textuelle
+ * DIFFÉRENCIATION COMPLÈTE - Zéro duplication textuelle entre parcours
+ * Chaque module est spécifique au pilier + niveau + métier
  */
 
 const DIGISCHOOL_CATALOG = {
-  version: "1.1",
+  version: "1.2",
   
   pillars: [
     { id: "p01", name: "Leadership & Management", icon: "👔" },
@@ -21,7 +21,6 @@ const DIGISCHOOL_CATALOG = {
     { id: "p10", name: "Marketing, Commercial & Growth + Culture Entrepreneuriale", icon: "💡" }
   ],
   
-  // Pricing base (FCFA)
   pricing: {
     fondation: { pack: 214376, modules_count: 4 },
     maitrise: { pack: 267970, modules_count: 5 },
@@ -32,34 +31,33 @@ const DIGISCHOOL_CATALOG = {
     return Math.round((pack_fcfa * 1.3) / modules_count);
   },
   
-  // Detailed courses with unique content per pillar + level
   courses: [
-    // ========== PILIER 1: LEADERSHIP & MANAGEMENT ==========
+    // ========== P01: LEADERSHIP & MANAGEMENT ==========
     {
       id: "p01-fondation", pillarId: "p01", pillarName: "Leadership & Management", pillarIcon: "👔",
       level: "Fondation", title: "Leadership & Management — Fondation",
-      short: "Posture managériale, communication d'équipe, feedback constructif et premiers pas en leadership avec IA embarquée",
+      short: "Posture managériale, animation d'équipe, feedback et premiers pas en leadership pour jeunes managers",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Posture Managériale & Communication", bullets: [
-          "Développer sa présence et son assertivité en contexte professionnel",
-          "Techniques de communication interpersonnelle et écoute active",
-          "IA pour analyser le style de communication et ajuster le discours"
+        { id: "m1", title: "Posture & Communication Managériale", bullets: [
+          "Développer son assertivité et sa présence en contexte professionnel",
+          "Écoute active, reformulation et gestion des émotions en équipe",
+          "IA pour analyser votre style de communication et proposer des ajustements"
         ]},
-        { id: "m2", title: "Animer une Réunion d'Équipe", bullets: [
-          "Structurer un ordre du jour et faciliter les échanges",
-          "Gérer les personnalités difficiles et conflits naissants",
-          "Outils collaboratifs (Teams, Miro) et IA pour résumer les décisions"
+        { id: "m2", title: "Animer une Réunion d'Équipe Efficace", bullets: [
+          "Structurer un ordre du jour et faciliter les échanges productifs",
+          "Gérer les personnalités difficiles et désamorcer les tensions",
+          "Outils collaboratifs (Teams, Miro) + IA pour résumer les décisions"
         ]},
         { id: "m3", title: "Donner du Feedback Constructif", bullets: [
-          "Modèle DESC et feedback 360° pour améliorer la performance",
+          "Modèle DESC et feedback 360° pour améliorer la performance individuelle",
           "Reconnaître les succès et corriger les écarts sans démotiver",
-          "Suivi des plans d'action individuels avec tableaux de bord"
+          "Suivi des plans d'action avec tableaux de bord individuels"
         ]},
-        { id: "m4", title: "Projet: Plan d'Action Managérial 30 Jours", bullets: [
-          "Diagnostic de votre équipe et identification des leviers d'action",
-          "Construire votre feuille de route managériale sur 30 jours",
-          "Présentation au groupe et validation par un coach expert"
+        { id: "m4", title: "Projet Fil Rouge: Plan Managérial 30 Jours", bullets: [
+          "Diagnostic de votre équipe et identification des leviers d'action rapides",
+          "Construire votre feuille de route managériale sur les 30 premiers jours",
+          "Présentation au groupe et feedback personnalisé par un coach expert"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -68,33 +66,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p01-maitrise", pillarId: "p01", pillarName: "Leadership & Management", pillarIcon: "👔",
       level: "Maîtrise", title: "Leadership & Management — Maîtrise",
-      short: "Management d'équipes hybrides, gestion des conflits complexes, culture d'engagement et pilotage RH avec IA prédictive",
+      short: "Leadership transformationnel, management hybride, gestion des conflits complexes et culture d'engagement",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Leadership Transformationnel", bullets: [
-          "Définir et communiquer une vision inspirante alignée sur la stratégie",
-          "Mobiliser les équipes autour d'objectifs communs et créer du sens",
-          "IA pour cartographier l'engagement et identifier les influenceurs clés"
+        { id: "m1", title: "Leadership Transformationnel & Vision", bullets: [
+          "Définir et communiquer une vision inspirante alignée sur la stratégie entreprise",
+          "Mobiliser les équipes autour d'objectifs communs et créer du sens au quotidien",
+          "IA pour cartographier l'engagement collectif et identifier les influenceurs clés"
         ]},
         { id: "m2", title: "Management d'Équipes Hybrides (Présentiel/Distanciel)", bullets: [
-          "Piloter la performance en mode distribué avec rituels efficaces",
-          "Maintenir la cohésion et la collaboration à distance",
-          "Outils de collaboration avancés (Slack, Asana) et IA pour le suivi"
+          "Piloter la performance en mode distribué avec rituels adaptés",
+          "Maintenir cohésion, collaboration et innovation à distance",
+          "Outils avancés (Slack, Asana, Notion) + IA pour le suivi temps réel"
         ]},
-        { id: "m3", title: "Gestion des Conflits & Médiation", bullets: [
-          "Détecter les signaux faibles et intervenir avant l'escalade",
-          "Techniques de médiation et négociation gagnant-gagnant",
-          "IA pour analyser les dynamiques d'équipe et prédire les tensions"
+        { id: "m3", title: "Gestion Avancée des Conflits & Médiation", bullets: [
+          "Détecter les signaux faibles et intervenir avant l'escalade critique",
+          "Techniques de médiation professionnelle et négociation gagnant-gagnant",
+          "IA pour analyser les dynamiques d'équipe et anticiper les tensions"
         ]},
-        { id: "m4", title: "Culture d'Entreprise & Engagement Collaborateur", bullets: [
-          "Bâtir une culture performante, inclusive et résiliente",
-          "Mesurer l'engagement avec eNPS et enquêtes pulse",
-          "Plans d'action RH basés sur la data et amélioration continue"
+        { id: "m4", title: "Bâtir une Culture d'Engagement Durable", bullets: [
+          "Créer une culture performante, inclusive et résiliente face au changement",
+          "Mesurer l'engagement avec eNPS, enquêtes pulse et analytics RH",
+          "Plans d'action RH data-driven et amélioration continue de l'expérience collaborateur"
         ]},
         { id: "m5", title: "Capstone: Stratégie Managériale 90 Jours", bullets: [
-          "Diagnostic organisationnel et identification des gaps culturels",
-          "Plan de transformation managériale avec KPIs d'engagement",
-          "Pitch exécutif devant un jury d'experts RH"
+          "Diagnostic organisationnel complet et identification des gaps culturels prioritaires",
+          "Plan de transformation managériale avec KPIs d'engagement et de rétention",
+          "Pitch exécutif devant jury d'experts RH et validation terrain"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -103,70 +101,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p01-leadership", pillarId: "p01", pillarName: "Leadership & Management", pillarIcon: "👔",
       level: "Leadership", title: "Leadership & Management — Leadership",
-      short: "Direction d'équipes multi-sites, transformation culturelle, pilotage exécutif et change management stratégique",
+      short: "Vision stratégique, gouvernance organisationnelle, pilotage de la performance multi-équipes et transformation culturelle à grande échelle",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Vision Stratégique & Alignement Organisationnel", bullets: [
-          "Élaborer une vision long terme et cascade stratégique",
-          "Aligner les directions fonctionnelles sur les priorités groupe",
-          "IA pour simuler des scénarios stratégiques et anticiper les impacts"
+        { id: "m1", title: "Vision Stratégique & Direction Générale", bullets: [
+          "Élaborer une vision long terme et traduire en roadmap exécutable sur 3-5 ans",
+          "Arbitrages stratégiques complexes et allocation optimale des ressources rares",
+          "IA pour la veille stratégique, la simulation de scénarios et le war gaming"
         ]},
-        { id: "m2", title: "Gouvernance Managériale & Operating Model", bullets: [
-          "Définir les instances de décision (COMEX, CODIR, comités métier)",
-          "Clarifier les rôles RACI et éviter les zones grises",
-          "Framework de gouvernance pour piloter une organisation matricielle"
+        { id: "m2", title: "Gouvernance Organisationnelle & Operating Model", bullets: [
+          "Design organisationnel adapté à la stratégie et au contexte marché",
+          "Framework de gouvernance: comités décisionnels, RACI et circuits de validation",
+          "Alignement stratégie-exécution et accountability à tous les niveaux"
         ]},
-        { id: "m3", title: "Pilotage de la Performance Multi-Équipes", bullets: [
-          "Construire des KPIs consolidés et tableaux de bord exécutifs",
-          "Management transverse et résolution des interdépendances",
-          "Coaching des managers N-1 et développement du leadership collectif"
+        { id: "m3", title: "Pilotage Performance Multi-Équipes", bullets: [
+          "KPIs consolidés, tableaux de bord exécutifs et reporting au board",
+          "Management transverse, gestion des interdépendances et synergies inter-BU",
+          "Culture de performance collective et coaching systématique des managers N-1"
         ]},
-        { id: "m4", title: "Gestion des Talents & Succession Planning", bullets: [
-          "Identifier les high potentials et construire des plans de carrière",
-          "Préparer la relève pour les postes clés (succession planning)",
-          "IA pour cartographier les compétences critiques et gaps"
+        { id: "m4", title: "Risques Stratégiques, Conformité & Audit", bullets: [
+          "Cartographie des risques stratégiques (marché, opérationnel, réputationnel)",
+          "Programme de conformité groupe et contrôle interne multi-sites",
+          "Préparation aux audits externes, certifications ISO et due diligence investisseurs"
         ]},
         { id: "m5", title: "Transformation Culturelle & Change at Scale", bullets: [
-          "Conduire le changement organisationnel à grande échelle",
-          "Gérer les résistances, mobiliser les ambassadeurs et mesurer l'adoption",
-          "Stratégies de communication interne et employee engagement"
+          "Conduire le changement stratégique dans des organisations complexes multi-pays",
+          "Scaling des opérations, internationalisation et transformation digitale accélérée",
+          "Gestion des résistances, engagement des parties prenantes et storytelling exécutif"
         ]},
-        { id: "m6", title: "Board Pack: Présentation Exécutive", bullets: [
-          "Préparer une présentation stratégique pour le Conseil (Board)",
-          "Business cases, recommandations et gestion des questions difficiles",
-          "Simulation de COMEX avec jury d'experts et feedback 360°"
+        { id: "m6", title: "Board Pack & Simulation Comité Direction", bullets: [
+          "Préparer des présentations exécutives (Board, actionnaires, conseil d'administration)",
+          "Business cases stratégiques, recommandations d'investissement et pitch DG",
+          "Simulation de comités de direction: Q&A sous pression, gestion de crise et décisions rapides"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "PREINSCRIPTION", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 2: GESTION DE PROJET & PMO ==========
+
+    // ========== P02: GESTION DE PROJET & PMO ==========
     {
       id: "p02-fondation", pillarId: "p02", pillarName: "Gestion de Projet & PMO", pillarIcon: "📊",
       level: "Fondation", title: "Gestion de Projet & PMO — Fondation",
-      short: "Fondamentaux PMP, cadrage, planning, suivi de projet et premiers livrables avec IA pour automatiser les tâches",
+      short: "Bases de la gestion de projet, planification, suivi et reporting avec outils standards et IA",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Introduction à la Gestion de Projet PMP", bullets: [
-          "Cycle de vie d'un projet: initiation, planification, exécution, clôture",
-          "Vocabulaire métier (WBS, jalons, livrables, risques)",
-          "IA pour générer des templates de projet et structurer le travail"
+        { id: "m1", title: "Fondamentaux de la Gestion de Projet", bullets: [
+          "Cycle de vie projet: cadrage, planification, exécution, clôture",
+          "Vocabulaire métier (WBS, jalons, livrables, ressources, risques)",
+          "IA pour générer automatiquement une structure projet initiale"
         ]},
-        { id: "m2", title: "Cadrage & Charte de Projet", bullets: [
-          "Définir les objectifs SMART et le périmètre du projet",
-          "Identifier les parties prenantes et construire la matrice RACI",
-          "Outils: MS Project, Trello, IA pour automatiser la documentation"
+        { id: "m2", title: "Planification avec MS Project & IA", bullets: [
+          "Créer un planning réaliste: tâches, durées, dépendances, chemin critique",
+          "Estimer les ressources et budgets avec méthodes bottom-up et analogiques",
+          "IA pour optimiser l'allocation des ressources et détecter les goulots"
         ]},
-        { id: "m3", title: "Planning & Suivi de Projet", bullets: [
-          "Créer un diagramme de Gantt et estimer les durées",
-          "Suivre l'avancement avec les indicateurs SPI et CPI",
-          "Tableaux de bord projet automatisés avec Power BI et IA"
+        { id: "m3", title: "Suivi & Reporting de Projet", bullets: [
+          "Mesurer l'avancement avec KPIs (délai, coût, périmètre, qualité)",
+          "Créer des tableaux de bord et rapports d'avancement hebdomadaires",
+          "Automatiser le reporting avec IA et alertes préventives sur les dérives"
         ]},
-        { id: "m4", title: "Projet Fil Rouge: Livrable Client", bullets: [
-          "Piloter un mini-projet de A à Z avec un cas réel",
-          "Produire la charte, le planning et le rapport de clôture",
-          "Soutenance devant un jury et validation des compétences"
+        { id: "m4", title: "Projet Fil Rouge: Pilotage d'un Projet Réel", bullets: [
+          "Gérer un mini-projet du cadrage à la clôture avec livrables réels",
+          "Présenter les résultats, leçons apprises et recommandations d'amélioration",
+          "Validation par un chef de projet senior et certification des acquis"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -175,33 +173,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p02-maitrise", pillarId: "p02", pillarName: "Gestion de Projet & PMO", pillarIcon: "📊",
       level: "Maîtrise", title: "Gestion de Projet & PMO — Maîtrise",
-      short: "Méthodologie PMP avancée, gestion des risques, multi-projets, agilité hybride et préparation certification PMP",
+      short: "Méthodologie PMP avancée, gestion de portefeuille, PMO et préparation certification PMP avec IA prédictive",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Management de Projet Complexe (PMP)", bullets: [
-          "Gérer des projets multi-sites avec budgets élevés",
-          "Intégration des processus PMBOK 7 et méthodes agiles (Scrum/Kanban)",
-          "IA pour prédire les dérives et proposer des actions correctives"
+        { id: "m1", title: "Cadrage Avancé & Business Case", bullets: [
+          "Élaborer une charte projet solide et identifier toutes les parties prenantes",
+          "Construire le business case: ROI, VAN, TRI et analyse coûts-bénéfices",
+          "IA pour l'analyse de risques préliminaire et la simulation de scénarios"
         ]},
-        { id: "m2", title: "Gestion des Risques & Qualité Projet", bullets: [
-          "Identification, analyse et mitigation des risques majeurs",
-          "Plans de contingence et réserves management",
-          "Audits qualité et amélioration continue du projet"
+        { id: "m2", title: "Planification Multi-Projets & PMO", bullets: [
+          "Gérer un portefeuille de projets avec priorisation et arbitrages stratégiques",
+          "Mettre en place un PMO (Project Management Office) efficient",
+          "Outils avancés (MS Project Server, Jira, Monday) + IA pour la planification capacitaire"
         ]},
-        { id: "m3", title: "Pilotage Multi-Projets & Portefeuille", bullets: [
-          "Prioriser les projets selon la stratégie d'entreprise",
-          "Arbitrer les ressources et gérer les interdépendances",
-          "Tableaux de bord consolidés et reporting exécutif"
+        { id: "m3", title: "Pilotage Performance & Earned Value Management", bullets: [
+          "Maîtriser l'EVM (Earned Value Management) pour anticiper les dérives budget/délai",
+          "Tableaux de bord exécutifs multi-projets et reporting au comité de pilotage",
+          "IA prédictive pour forecaster la date de fin et le budget final"
         ]},
-        { id: "m4", title: "Gestion des Parties Prenantes & Communication", bullets: [
-          "Cartographier les stakeholders et gérer leurs attentes",
-          "Communication de crise et gestion des changements",
-          "IA pour automatiser le reporting et alerter sur les signaux faibles"
+        { id: "m4", title: "Gestion des Risques & Qualité Projet", bullets: [
+          "Cartographie exhaustive des risques, matrice probabilité-impact et plans de mitigation",
+          "Standards qualité (ISO 21500, PMBOK) et audits qualité internes",
+          "IA pour identifier les risques cachés et proposer des actions correctives"
         ]},
-        { id: "m5", title: "Capstone: Certification PMP Prep", bullets: [
-          "Révision intensive des 10 domaines PMBOK 7",
-          "Simulation d'examen PMP avec 200 questions",
-          "Coaching personnalisé et stratégies pour réussir l'examen"
+        { id: "m5", title: "Capstone + Préparation Certification PMP", bullets: [
+          "Projet complexe end-to-end avec cahier des charges client réel",
+          "Préparation intensive à l'examen PMP (180 questions, 230 minutes)",
+          "Simulation d'examen, correction détaillée et validation par formateur certifié PMP"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -210,70 +208,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p02-leadership", pillarId: "p02", pillarName: "Gestion de Projet & PMO", pillarIcon: "📊",
       level: "Leadership", title: "Gestion de Projet & PMO — Leadership",
-      short: "Direction de PMO, gouvernance de portefeuille, transformation Agile/SAFe et pilotage stratégique de programmes",
+      short: "Gouvernance de portefeuille stratégique, PMO d'entreprise, transformation Agile à l'échelle et pilotage programmes complexes multi-pays",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie & Gouvernance de Portefeuille", bullets: [
-          "Aligner le portefeuille de projets sur la stratégie d'entreprise",
-          "Définir les critères de sélection et priorisation des projets",
-          "IA pour optimiser l'allocation des ressources et maximiser le ROI"
+        { id: "m1", title: "Gouvernance de Portefeuille Stratégique", bullets: [
+          "Aligner le portefeuille de projets sur la stratégie d'entreprise et les OKRs",
+          "Processus de sélection, priorisation et arrêt de projets avec scoring multi-critères",
+          "IA pour optimiser l'allocation budgétaire et maximiser la création de valeur"
         ]},
-        { id: "m2", title: "Structuration & Pilotage d'un PMO", bullets: [
-          "Créer un Project Management Office (PMO) de classe mondiale",
-          "Standardiser les méthodes, templates et processus projet",
-          "Mettre en place des centres d'excellence et coaching des PMs"
+        { id: "m2", title: "PMO d'Entreprise & Centre d'Excellence", bullets: [
+          "Structurer un PMO d'entreprise: rôles, processus, outils et méthodologies standards",
+          "Développer un centre d'excellence projet avec formation continue des chefs de projet",
+          "Système de gestion de la connaissance projet et capitalisation des retours d'expérience"
         ]},
-        { id: "m3", title: "Transformation Agile & Scaling (SAFe, LeSS)", bullets: [
-          "Conduire la transformation Agile à l'échelle (SAFe, LeSS, Scrum@Scale)",
-          "Aligner les équipes produit et IT sur les OKRs stratégiques",
-          "IA pour suivre les sprints, vélocité et prédire les livraisons"
+        { id: "m3", title: "Pilotage de Programmes Multi-Projets", bullets: [
+          "Gérer des programmes complexes avec interdépendances fortes entre projets",
+          "Coordination transverse, gestion des synergies et résolution des conflits de ressources",
+          "Tableaux de bord programme consolidés et reporting exécutif au board"
         ]},
-        { id: "m4", title: "Gestion des Programmes & Mega-Projets", bullets: [
-          "Piloter des programmes transverses avec multiples projets interdépendants",
-          "Gérer les risques systémiques et la complexité organisationnelle",
-          "Reporting exécutif et communication au COMEX"
+        { id: "m4", title: "Transformation Agile at Scale (SAFe, LeSS)", bullets: [
+          "Déployer une transformation Agile à l'échelle de l'organisation (SAFe, LeSS, Spotify)",
+          "Accompagner le changement culturel: mindset agile, équipes autonomes et amélioration continue",
+          "IA pour mesurer la vélocité, la qualité et prédire les sprints futurs"
         ]},
-        { id: "m5", title: "Risk, Compliance & Audit de Projets", bullets: [
-          "Cartographie des risques stratégiques et plans de mitigation",
-          "Audits internes et préparation aux audits externes (ISO, PRINCE2)",
-          "Conformité réglementaire et gouvernance des données projet"
+        { id: "m5", title: "Risques Stratégiques & Conformité Projet", bullets: [
+          "Cartographie des risques stratégiques au niveau portefeuille et programmes",
+          "Conformité réglementaire (RGPD, ISO 27001, SOX) dans les projets critiques",
+          "Préparation aux audits externes et due diligence investisseurs sur les projets clés"
         ]},
-        { id: "m6", title: "Board Simulation: Présentation de Portefeuille", bullets: [
-          "Préparer un rapport de portefeuille pour le Conseil",
-          "Défendre les investissements et arbitrages stratégiques",
-          "Simulation de comité de direction avec jury d'experts PMO"
+        { id: "m6", title: "Board Pack Programme & Simulation Comex", bullets: [
+          "Préparer des présentations exécutives sur l'avancement du portefeuille de projets",
+          "Business cases de programmes stratégiques et recommandations d'investissement",
+          "Simulation de comité exécutif: défendre un programme sous pression et gérer les arbitrages"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
-      status: "PREINSCRIPTION", tags: ["IA embarquée", "APC", "Day-1 Operational"]
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
+      status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 3: DATA, BI & PERFORMANCE ==========
+
+    // ========== P03: DATA, BI & PERFORMANCE ==========
     {
       id: "p03-fondation", pillarId: "p03", pillarName: "Data, BI & Performance", pillarIcon: "📈",
       level: "Fondation", title: "Data, BI & Performance — Fondation",
-      short: "Excel avancé, Power BI basics, visualisation de données et premiers dashboards interactifs avec IA",
+      short: "Excel avancé, Power BI, visualisation de données et storytelling data pour débutants",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Excel Avancé & Power Query", bullets: [
-          "Formules complexes (INDEX/EQUIV, RECHERCHEV, tableaux croisés dynamiques)",
-          "Nettoyer et transformer les données avec Power Query",
-          "IA pour automatiser les traitements répétitifs et détecter les anomalies"
+        { id: "m1", title: "Excel Avancé pour l'Analyse de Données", bullets: [
+          "Tableaux croisés dynamiques, formules avancées (INDEX/EQUIV, SI.CONDITIONS)",
+          "Nettoyer et structurer les données avec Power Query",
+          "IA pour détecter les anomalies et suggérer des analyses pertinentes"
         ]},
-        { id: "m2", title: "Introduction à Power BI", bullets: [
-          "Connecter des sources de données (Excel, SQL, API)",
-          "Créer des visualisations percutantes (graphiques, cartes, KPIs)",
-          "Publier et partager des rapports interactifs"
+        { id: "m2", title: "Introduction à Power BI & Visualisation", bullets: [
+          "Créer des dashboards interactifs avec Power BI Desktop",
+          "Connecter multiples sources de données (Excel, SQL, API)",
+          "Principes de data visualisation: choix des graphiques et storytelling visuel"
         ]},
-        { id: "m3", title: "Construire un Dashboard Opérationnel", bullets: [
-          "Définir les KPIs métier et structurer un tableau de bord",
-          "Design thinking pour la data viz: clarté, hiérarchie, storytelling",
-          "Automatiser les mises à jour avec Power Automate et IA"
+        { id: "m3", title: "KPIs Métier & Tableaux de Bord Opérationnels", bullets: [
+          "Identifier les KPIs pertinents par fonction (Ventes, RH, Finance, Ops)",
+          "Construire des tableaux de bord opérationnels pour le suivi quotidien",
+          "Automatiser les rapports hebdomadaires avec Power BI Service et IA"
         ]},
-        { id: "m4", title: "Projet: Dashboard de Performance Métier", bullets: [
-          "Analyser un jeu de données réel et identifier les insights clés",
-          "Produire un dashboard complet avec recommandations actionnables",
-          "Présentation devant un jury data et validation des compétences"
+        { id: "m4", title: "Projet Fil Rouge: Dashboard Métier Complet", bullets: [
+          "Créer un dashboard interactif sur un cas réel d'entreprise (ventes, RH ou finance)",
+          "Présenter les insights clés et recommandations data-driven à un comité métier",
+          "Validation par un expert BI et certification des compétences opérationnelles"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -282,33 +280,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p03-maitrise", pillarId: "p03", pillarName: "Data, BI & Performance", pillarIcon: "📈",
       level: "Maîtrise", title: "Data, BI & Performance — Maîtrise",
-      short: "Analytics avancée, modélisation prédictive, Python/SQL, architecture BI et pilotage data-driven",
+      short: "Business Intelligence avancée, analyses prédictives, SQL et architecture data warehouse avec IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Analyse de Données Avancée (SQL & Python)", bullets: [
-          "Requêtes SQL complexes (jointures, CTE, window functions)",
-          "Analyse exploratoire avec Python (Pandas, NumPy, Matplotlib)",
-          "IA pour automatiser l'exploration et générer des hypothèses"
+        { id: "m1", title: "SQL Avancé & Data Modeling", bullets: [
+          "Requêtes SQL complexes (JOIN, sous-requêtes, window functions)",
+          "Modélisation en étoile et flocon pour data warehouses",
+          "IA pour optimiser les requêtes et suggérer des index pertinents"
         ]},
-        { id: "m2", title: "Modélisation Prédictive & Machine Learning", bullets: [
-          "Régression, classification et clustering pour prédire les comportements",
-          "Segmentation clients, churn prediction et recommandations",
-          "Outils no-code (Azure ML, Dataiku) et IA embarquée"
+        { id: "m2", title: "Power BI Avancé & DAX", bullets: [
+          "Maîtriser le langage DAX pour les calculs avancés et mesures dynamiques",
+          "Créer des rapports paginés et dashboards exécutifs multi-pages",
+          "Intégration de Python/R dans Power BI pour analyses statistiques avancées"
         ]},
-        { id: "m3", title: "Architecture BI & Data Warehouse", bullets: [
-          "Concevoir une architecture de données moderne (lakehouse, data mesh)",
-          "ETL/ELT avec SSIS, Talend ou Airflow",
-          "Gouvernance des données et qualité (data lineage, catalogues)"
+        { id: "m3", title: "Analyses Prédictives & Machine Learning", bullets: [
+          "Introduction au machine learning: régression, classification, clustering",
+          "Modèles prédictifs avec Python (scikit-learn) ou Azure ML",
+          "IA pour automatiser la sélection de modèles et le feature engineering"
         ]},
-        { id: "m4", title: "Tableaux de Bord Exécutifs & Storytelling Data", bullets: [
-          "Construire des dashboards pour le COMEX avec visualisations executive-ready",
-          "Raconter une histoire avec les données: structure, insights, recommandations",
-          "Automatisation des rapports mensuels avec IA et alertes intelligentes"
+        { id: "m4", title: "Architecture BI & Data Governance", bullets: [
+          "Concevoir une architecture BI évolutive (ETL, data lake, data warehouse)",
+          "Data governance: qualité des données, sécurité et conformité (RGPD)",
+          "Mettre en place un catalogue de données et des pipelines automatisés"
         ]},
-        { id: "m5", title: "Capstone: Projet Data End-to-End", bullets: [
-          "Analyser un problème business complexe avec approche data-driven",
-          "Construire une solution complète (collecte, analyse, modèle, dashboard)",
-          "Soutenance devant un jury data et validation des compétences avancées"
+        { id: "m5", title: "Capstone: Solution BI End-to-End", bullets: [
+          "Projet complet: extraction, transformation, modélisation, visualisation et prédiction",
+          "Présenter une solution BI complète avec recommandations stratégiques au board",
+          "Validation par un Data Architect et certification des compétences avancées"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -317,70 +315,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p03-leadership", pillarId: "p03", pillarName: "Data, BI & Performance", pillarIcon: "📈",
       level: "Leadership", title: "Data, BI & Performance — Leadership",
-      short: "Direction data, stratégie data-driven, CDO responsibilities, AI governance et data monetization",
+      short: "Stratégie data-driven, gouvernance data d'entreprise, CDO et transformation data à l'échelle groupe",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie Data & Roadmap CDO", bullets: [
-          "Définir la vision data de l'entreprise et les priorités stratégiques",
-          "Construire une roadmap data sur 3 ans avec quick wins et transformations",
-          "IA pour évaluer la maturité data et benchmarker avec le marché"
+        { id: "m1", title: "Stratégie Data-Driven & Vision CDO", bullets: [
+          "Élaborer une stratégie data alignée sur les objectifs business groupe",
+          "Rôle du Chief Data Officer: organisation, équipe, roadmap et quick wins",
+          "IA pour identifier les opportunités data à forte valeur ajoutée"
         ]},
-        { id: "m2", title: "Gouvernance Data & AI Ethics", bullets: [
-          "Mettre en place une gouvernance data (comités, rôles, processus)",
-          "Éthique de l'IA: biais, transparence, RGPD et conformité",
-          "Frameworks de gouvernance (DAMA-DMBOK, COBIT for Data)"
+        { id: "m2", title: "Gouvernance Data d'Entreprise", bullets: [
+          "Framework de gouvernance: ownership, stewardship, qualité et conformité",
+          "Politiques de sécurité des données et gestion des accès (RBAC, ABAC)",
+          "Conformité réglementaire multi-pays (RGPD, CCPA, lois locales)"
         ]},
-        { id: "m3", title: "Data Monetization & Business Value", bullets: [
-          "Identifier les opportunités de monétisation des données",
-          "Créer des produits data et générer de nouveaux revenus",
-          "Mesurer le ROI des initiatives data et communiquer la valeur au Board"
+        { id: "m3", title: "Architecture Data Groupe (Data Mesh, Data Fabric)", bullets: [
+          "Concevoir une architecture data moderne: data lake, lakehouse, data fabric",
+          "Approche Data Mesh: data products, domaines métier et fédération",
+          "Cloud data platforms (Azure Synapse, AWS Redshift, Google BigQuery) et IA"
         ]},
-        { id: "m4", title: "Transformation Culturelle Data-Driven", bullets: [
-          "Installer une culture data-driven dans toute l'organisation",
-          "Former les équipes à la data literacy et aux outils BI",
-          "Change management pour adopter les décisions basées sur les données"
+        { id: "m4", title: "Transformation Data & Change Management", bullets: [
+          "Conduire la transformation culturelle vers une organisation data-driven",
+          "Développer les compétences data à tous les niveaux (data literacy)",
+          "Accompagner le changement: résistances, adoption et mesure de l'impact"
         ]},
-        { id: "m5", title: "Architecture Data & Cloud Strategy", bullets: [
-          "Concevoir une architecture data moderne (multi-cloud, hybrid)",
-          "Choisir les technologies (Snowflake, Databricks, Azure, AWS)",
-          "Migration vers le cloud et optimisation des coûts"
+        { id: "m5", title: "Monétisation des Données & Data Products", bullets: [
+          "Créer des data products vendables en interne et externe",
+          "Business models data: vente de données, insights-as-a-service, APIs payantes",
+          "IA pour identifier les segments clients et optimiser le pricing"
         ]},
-        { id: "m6", title: "Board Presentation: Data Strategy", bullets: [
-          "Préparer une présentation stratégique data pour le Conseil",
-          "Défendre les investissements data et démontrer le ROI",
-          "Simulation de COMEX avec jury d'experts CDO et Q&A"
+        { id: "m6", title: "Board Pack Data & Simulation Comex", bullets: [
+          "Préparer des présentations exécutives sur la valeur créée par la data",
+          "Business cases data: investissements, ROI et recommandations stratégiques",
+          "Simulation comité exécutif: défendre une roadmap data sous pression du board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 4: FINANCE, CONTRÔLE DE GESTION & INVESTISSEMENT ==========
+
+    // ========== P04: FINANCE, CONTRÔLE DE GESTION & INVESTISSEMENT ==========
     {
       id: "p04-fondation", pillarId: "p04", pillarName: "Finance, Contrôle de Gestion & Investissement", pillarIcon: "💰",
       level: "Fondation", title: "Finance, Contrôle de Gestion & Investissement — Fondation",
-      short: "Comptabilité générale, lecture des états financiers, budgétisation et analyse de rentabilité avec Excel et IA",
+      short: "Comptabilité de base, lecture d'états financiers, budgétisation et analyse financière pour non-financiers",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Fondamentaux de Comptabilité & Finance", bullets: [
-          "Comprendre le bilan, compte de résultat et flux de trésorerie",
-          "Principes comptables et cycles d'écritures",
-          "IA pour automatiser la lecture des états financiers et détecter les anomalies"
+        { id: "m1", title: "Comptabilité Générale & États Financiers", bullets: [
+          "Principes comptables de base: débit, crédit, journal, grand livre",
+          "Lire et interpréter un bilan, compte de résultat et flux de trésorerie",
+          "IA pour extraire automatiquement les chiffres clés et détecter les anomalies"
         ]},
         { id: "m2", title: "Analyse Financière & Ratios Clés", bullets: [
-          "Calculer et interpréter les ratios de liquidité, rentabilité, solvabilité",
-          "Analyser la santé financière d'une entreprise",
-          "Outils Excel avancés et IA pour générer des rapports automatisés"
+          "Calculer et interpréter les ratios de liquidité, solvabilité et rentabilité",
+          "Analyser la santé financière d'une entreprise et identifier les signaux d'alerte",
+          "Benchmarker avec les concurrents et le secteur à l'aide de l'IA"
         ]},
-        { id: "m3", title: "Budgétisation & Prévisions Financières", bullets: [
-          "Construire un budget annuel par centre de coût",
-          "Suivi des écarts budget/réalisé et analyse des variances",
-          "Tableaux de bord financiers avec Power BI et IA prédictive"
+        { id: "m3", title: "Budgétisation & Prévisions", bullets: [
+          "Construire un budget prévisionnel par centre de coût et par activité",
+          "Suivre les écarts budget vs réel et proposer des actions correctives",
+          "Automatiser les forecasts avec des modèles prédictifs et IA"
         ]},
-        { id: "m4", title: "Projet: Analyse Financière d'Entreprise", bullets: [
-          "Analyser les états financiers d'une entreprise réelle",
-          "Produire un rapport d'analyse avec recommandations",
-          "Présentation devant un jury finance et validation des acquis"
+        { id: "m4", title: "Projet Fil Rouge: Analyse Financière d'Entreprise", bullets: [
+          "Analyser les états financiers d'une entreprise réelle sur 3 ans",
+          "Présenter un diagnostic financier complet avec recommandations actionnables",
+          "Validation par un expert-comptable ou contrôleur de gestion senior"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -389,33 +387,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p04-maitrise", pillarId: "p04", pillarName: "Finance, Contrôle de Gestion & Investissement", pillarIcon: "💰",
       level: "Maîtrise", title: "Finance, Contrôle de Gestion & Investissement — Maîtrise",
-      short: "Contrôle de gestion avancé, business planning, valorisation d'entreprise et décisions d'investissement avec modèles financiers",
+      short: "Contrôle de gestion avancé, analyse coûts-bénéfices, valorisation d'entreprise et décisions d'investissement avec IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
         { id: "m1", title: "Contrôle de Gestion Stratégique", bullets: [
-          "Piloter la performance avec le Balanced Scorecard et KPIs financiers",
-          "Analyse des écarts et plans d'action correctifs",
-          "IA pour automatiser le reporting de gestion et prédire les dérives"
+          "Mettre en place un système de contrôle de gestion complet (reporting, KPIs, tableaux de bord)",
+          "Analyse des écarts, des coûts par activité (méthode ABC) et du seuil de rentabilité",
+          "IA pour détecter les dérives budgétaires et proposer des scénarios d'optimisation"
         ]},
-        { id: "m2", title: "Business Planning & Modélisation Financière", bullets: [
-          "Construire un business plan complet (hypothèses, P&L, cash flow, bilan)",
-          "Modéliser des scénarios (optimiste, réaliste, pessimiste)",
-          "Excel avancé avec macros VBA et IA pour simuler des projections"
+        { id: "m2", title: "Valorisation d'Entreprise & DCF", bullets: [
+          "Méthodes de valorisation: DCF (Discounted Cash Flow), multiples de marché, actif net réévalué",
+          "Construire un modèle financier complet sur Excel avec projections 5 ans",
+          "IA pour automatiser les projections et simuler différents scénarios de croissance"
         ]},
-        { id: "m3", title: "Valorisation d'Entreprise & M&A", bullets: [
-          "Méthodes de valorisation (DCF, multiples, actif net réévalué)",
-          "Évaluer des cibles d'acquisition et négocier des deals",
-          "Due diligence financière et intégration post-fusion"
+        { id: "m3", title: "Décisions d'Investissement & Business Cases", bullets: [
+          "Évaluer la rentabilité d'un projet: VAN, TRI, délai de récupération",
+          "Construire des business cases solides pour convaincre les décideurs",
+          "Analyse de sensibilité et simulations Monte Carlo avec IA"
         ]},
-        { id: "m4", title: "Décisions d'Investissement & ROI", bullets: [
-          "Analyser la rentabilité des projets (VAN, TRI, payback)",
-          "Arbitrer entre plusieurs investissements selon les critères financiers",
-          "Tableaux de bord d'investissement et suivi des performances"
+        { id: "m4", title: "Gestion de Trésorerie & Cash Management", bullets: [
+          "Piloter la trésorerie: budget de trésorerie, BFR et optimisation du cash",
+          "Financement court terme (crédit de trésorerie, affacturage) et placement excédents",
+          "IA prédictive pour anticiper les besoins de trésorerie et éviter les ruptures"
         ]},
-        { id: "m5", title: "Capstone: Business Case Complet", bullets: [
-          "Élaborer un business case pour un projet d'investissement réel",
-          "Modéliser les impacts financiers sur 5 ans et défendre le projet",
-          "Présentation devant un comité d'investissement simulé"
+        { id: "m5", title: "Capstone: Projet d'Investissement Complexe", bullets: [
+          "Évaluer un projet d'investissement industriel ou d'acquisition avec due diligence",
+          "Présenter un business case complet avec recommandation Go/No-Go au comité d'investissement",
+          "Validation par un directeur financier et certification des compétences avancées"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -424,70 +422,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p04-leadership", pillarId: "p04", pillarName: "Finance, Contrôle de Gestion & Investissement", pillarIcon: "💰",
       level: "Leadership", title: "Finance, Contrôle de Gestion & Investissement — Leadership",
-      short: "Direction financière, stratégie d'investissement, levées de fonds, relations investisseurs et pilotage financier groupe",
+      short: "Direction financière, stratégie financière groupe, M&A et pilotage financier multi-entités avec IA prédictive",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie Financière & Allocation de Capital", bullets: [
-          "Définir la stratégie financière long terme de l'entreprise",
-          "Optimiser l'allocation de capital entre investissements et dividendes",
-          "IA pour simuler des scénarios macro-économiques et sectoriels"
+        { id: "m1", title: "Stratégie Financière & Vision CFO", bullets: [
+          "Élaborer la stratégie financière alignée sur la stratégie d'entreprise et les objectifs de croissance",
+          "Optimisation de la structure financière: fonds propres, dette, levée de fonds",
+          "IA pour modéliser différents scénarios de financement et d'allocation du capital"
         ]},
-        { id: "m2", title: "Gouvernance Financière & Contrôle Interne", bullets: [
-          "Mettre en place un système de contrôle interne robuste (COSO, SOX)",
-          "Audits financiers et conformité réglementaire",
-          "Framework de gouvernance pour piloter les risques financiers"
+        { id: "m2", title: "Pilotage Financier Groupe Multi-Entités", bullets: [
+          "Consolidation des comptes groupe: normes IFRS, élimination inter-compagnies",
+          "Contrôle de gestion groupe: reporting consolidé, KPIs par BU et par région",
+          "Tableaux de bord exécutifs financiers et reporting au board/actionnaires"
         ]},
-        { id: "m3", title: "Levées de Fonds & Relations Investisseurs", bullets: [
-          "Préparer une levée de fonds (equity, dette, obligations)",
-          "Pitcher devant des investisseurs (VCs, Private Equity, banques)",
-          "Gérer les relations investisseurs et la communication financière"
+        { id: "m3", title: "Fusions & Acquisitions (M&A)", bullets: [
+          "Processus M&A complet: origination, due diligence, valorisation, négociation, intégration",
+          "Structurer une acquisition: montages juridiques, financements et synergies",
+          "IA pour identifier des cibles d'acquisition et évaluer les synergies potentielles"
         ]},
-        { id: "m4", title: "Pilotage Financier Groupe & Consolidation", bullets: [
-          "Consolider les comptes de multiples filiales (normes IFRS, US GAAP)",
-          "Piloter la trésorerie groupe et optimiser le BFR",
-          "Reporting consolidé et tableaux de bord pour le Board"
+        { id: "m4", title: "Gestion des Risques Financiers", bullets: [
+          "Cartographie des risques financiers: marché (change, taux), crédit, liquidité",
+          "Stratégies de couverture: instruments dérivés (forwards, options, swaps)",
+          "IA pour anticiper les crises de liquidité et optimiser les couvertures"
         ]},
-        { id: "m5", title: "Gestion de Crise & Restructuration Financière", bullets: [
-          "Diagnostiquer une situation de crise financière",
-          "Plans de redressement: restructuration de dette, cessions d'actifs",
-          "Communication de crise et négociation avec les créanciers"
+        { id: "m5", title: "Relations Investisseurs & Levée de Fonds", bullets: [
+          "Préparer des roadshows investisseurs: pitch deck, modèle financier, Q&A",
+          "Négocier avec des investisseurs (VC, PE, fonds souverains): term sheet, valorisation, dilution",
+          "IA pour identifier les investisseurs pertinents et préparer les due diligence"
         ]},
-        { id: "m6", title: "Board Presentation: Financial Strategy", bullets: [
-          "Préparer une présentation financière pour le Conseil d'administration",
-          "Défendre la stratégie d'investissement et les arbitrages budgétaires",
-          "Simulation de comité financier avec jury d'experts CFO"
+        { id: "m6", title: "Board Pack Financier & Simulation Comex", bullets: [
+          "Préparer des présentations financières pour le board: résultats, forecasts, recommandations",
+          "Business cases stratégiques: investissements majeurs, acquisitions, restructurations",
+          "Simulation comité exécutif: défendre une stratégie financière sous pression des actionnaires"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 5: GOUVERNANCE, RISQUES & CONFORMITÉ ==========
+
+    // ========== P05: GOUVERNANCE, RISQUES & CONFORMITÉ ==========
     {
       id: "p05-fondation", pillarId: "p05", pillarName: "Gouvernance, Risques & Conformité", pillarIcon: "🛡️",
       level: "Fondation", title: "Gouvernance, Risques & Conformité — Fondation",
-      short: "Introduction au GRC, identification des risques, conformité réglementaire de base et premiers audits internes",
+      short: "Introduction à la gouvernance d'entreprise, identification des risques et conformité réglementaire de base",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Introduction à la Gouvernance d'Entreprise", bullets: [
-          "Rôles du Conseil d'administration, COMEX et comités spécialisés",
-          "Principes de gouvernance (OCDE, codes de gouvernance locaux)",
-          "IA pour cartographier les instances de gouvernance et documenter les rôles"
+        { id: "m1", title: "Fondamentaux de la Gouvernance d'Entreprise", bullets: [
+          "Principes de gouvernance: conseil d'administration, comités spécialisés, rôles des dirigeants",
+          "Code de gouvernance et bonnes pratiques (OCDE, King IV, codes locaux)",
+          "IA pour cartographier les instances de gouvernance et leur efficacité"
         ]},
-        { id: "m2", title: "Fondamentaux de la Gestion des Risques", bullets: [
-          "Identifier et évaluer les risques opérationnels, financiers, stratégiques",
-          "Matrice de risques (probabilité × impact) et cartographie",
-          "Outils de suivi des risques avec tableaux de bord et alertes IA"
+        { id: "m2", title: "Introduction à la Gestion des Risques", bullets: [
+          "Types de risques: opérationnels, financiers, stratégiques, réputationnels",
+          "Méthodes d'identification et d'évaluation des risques (matrice probabilité-impact)",
+          "IA pour détecter automatiquement les risques émergents dans les projets"
         ]},
-        { id: "m3", title: "Conformité Réglementaire & Procédures", bullets: [
-          "Comprendre les obligations légales (RGPD, anti-blanchiment, fiscalité)",
-          "Rédiger des procédures et politiques de conformité",
-          "Audits de conformité et reporting aux autorités"
+        { id: "m3", title: "Conformité Réglementaire de Base", bullets: [
+          "Principales réglementations: droit du travail, fiscalité, protection des données (RGPD)",
+          "Processus de mise en conformité et documentation des procédures",
+          "Outils de veille réglementaire et IA pour suivre les évolutions législatives"
         ]},
-        { id: "m4", title: "Projet: Audit Interne Opérationnel", bullets: [
-          "Réaliser un audit interne d'un processus métier",
-          "Identifier les écarts et proposer des actions correctives",
-          "Présentation des conclusions et validation par un auditeur senior"
+        { id: "m4", title: "Projet Fil Rouge: Cartographie Risques d'un Projet", bullets: [
+          "Identifier et évaluer les risques d'un projet réel d'entreprise",
+          "Proposer des plans de mitigation et de contingence pour les risques majeurs",
+          "Présenter la cartographie des risques à un comité de pilotage et validation par expert"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -496,33 +494,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p05-maitrise", pillarId: "p05", pillarName: "Gouvernance, Risques & Conformité", pillarIcon: "🛡️",
       level: "Maîtrise", title: "Gouvernance, Risques & Conformité — Maîtrise",
-      short: "Management des risques avancé (ERM), audits internes ISO, conformité RGPD/SOX et pilotage GRC avec IA",
+      short: "Risk management avancé, conformité multi-pays, audit interne et normes ISO avec IA prédictive",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Enterprise Risk Management (ERM)", bullets: [
-          "Mettre en place un framework ERM (COSO ERM, ISO 31000)",
-          "Cartographie des risques stratégiques et opérationnels",
-          "IA pour surveiller les risques en temps réel et prédire les crises"
+        { id: "m1", title: "Risk Management Avancé (ERM)", bullets: [
+          "Mettre en place un système de gestion des risques d'entreprise (ERM - COSO, ISO 31000)",
+          "Cartographie complète des risques: identification, évaluation, priorisation, mitigation",
+          "IA pour analyser les corrélations entre risques et simuler des crises"
         ]},
-        { id: "m2", title: "Audits Internes & Certification ISO", bullets: [
-          "Conduire des audits internes selon les normes ISO (9001, 27001, 14001)",
-          "Plans d'action correctifs et suivi des non-conformités",
-          "Préparer l'entreprise aux audits externes de certification"
+        { id: "m2", title: "Conformité Multi-Pays & Réglementations Internationales", bullets: [
+          "Conformité réglementaire complexe: RGPD, CCPA, SOX, lois anticorruption (FCPA, UK Bribery Act)",
+          "Gestion des obligations de reporting et de transparence (ESG, RSE)",
+          "Veille réglementaire automatisée avec IA et alertes sur les changements législatifs"
         ]},
-        { id: "m3", title: "Conformité RGPD & Protection des Données", bullets: [
-          "Mettre en conformité l'entreprise avec le RGPD",
-          "Registre des traitements, DPO et analyse d'impact (PIA)",
-          "Gestion des violations de données et notifications aux autorités"
+        { id: "m3", title: "Audit Interne & Contrôle Interne", bullets: [
+          "Mettre en place un programme d'audit interne efficace et indépendant",
+          "Méthodologie d'audit: planification, exécution, reporting et suivi des recommandations",
+          "IA pour automatiser les tests de contrôle et détecter les fraudes"
         ]},
-        { id: "m4", title: "Contrôle Interne & SOX Compliance", bullets: [
-          "Concevoir un système de contrôle interne (COSO, SOX)",
-          "Tests de contrôles et documentation des procédures",
-          "Préparer les audits financiers externes et comités d'audit"
+        { id: "m4", title: "Certifications ISO (9001, 27001, 14001)", bullets: [
+          "Préparer une certification ISO: analyse des écarts, mise en conformité, documentation",
+          "Processus de certification: audit blanc, audit de certification, maintien de la certification",
+          "IA pour automatiser la documentation et la préparation des audits"
         ]},
-        { id: "m5", title: "Capstone: Programme GRC Complet", bullets: [
-          "Élaborer un programme GRC intégré pour une organisation",
-          "Cartographie des risques, plans de conformité et audits planifiés",
-          "Présentation devant un comité de gouvernance simulé"
+        { id: "m5", title: "Capstone: Programme de Conformité Complet", bullets: [
+          "Concevoir un programme de conformité pour une entreprise multi-pays",
+          "Inclure: politique de conformité, formation, contrôles, audits, reporting",
+          "Présenter le programme au comité d'audit et validation par un auditeur senior"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -531,70 +529,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p05-leadership", pillarId: "p05", pillarName: "Gouvernance, Risques & Conformité", pillarIcon: "🛡️",
       level: "Leadership", title: "Gouvernance, Risques & Conformité — Leadership",
-      short: "Direction GRC, stratégie de gouvernance groupe, pilotage des risques systémiques et relations avec les régulateurs",
+      short: "Gouvernance d'entreprise stratégique, Chief Risk Officer, compliance officer groupe et résilience organisationnelle",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie de Gouvernance & Board Governance", bullets: [
-          "Définir le framework de gouvernance d'entreprise (codes locaux, OCDE)",
-          "Structurer le Conseil d'administration et les comités (audit, risques, rémunérations)",
-          "IA pour évaluer la maturité de la gouvernance et benchmarker"
+        { id: "m1", title: "Gouvernance Stratégique & Rôle du Board", bullets: [
+          "Structurer une gouvernance d'entreprise robuste: composition du conseil, comités spécialisés",
+          "Rôle du board: supervision stratégique, approbation des investissements, gestion des risques",
+          "IA pour évaluer l'efficacité du board et proposer des améliorations"
         ]},
-        { id: "m2", title: "Pilotage des Risques Stratégiques & Systémiques", bullets: [
-          "Identifier les risques systémiques (cyber, géopolitiques, climatiques)",
-          "Construire des plans de continuité d'activité (PCA) et gestion de crise",
-          "Simulations de crise et tests de résilience organisationnelle"
+        { id: "m2", title: "Vision Chief Risk Officer (CRO)", bullets: [
+          "Rôle du CRO: piloter la fonction risque, définir l'appétit au risque, reporting au board",
+          "Mettre en place une culture de gestion des risques à tous les niveaux de l'organisation",
+          "IA pour cartographier les risques stratégiques groupe et simuler des scénarios de crise"
         ]},
-        { id: "m3", title: "Conformité Groupe & Réglementations Internationales", bullets: [
-          "Piloter la conformité multi-pays (FCPA, UK Bribery Act, anti-corruption)",
-          "Programme de compliance global et formation des équipes",
-          "Gestion des enquêtes réglementaires et relations avec les autorités"
+        { id: "m3", title: "Compliance Officer Groupe & Programmes Anti-Corruption", bullets: [
+          "Structurer une fonction compliance groupe: organisation, ressources, processus",
+          "Programmes de lutte contre la corruption: due diligence, formation, hotline, investigations",
+          "IA pour détecter les transactions suspectes et les conflits d'intérêts"
         ]},
-        { id: "m4", title: "Audit Interne & Assurance Qualité", bullets: [
-          "Structurer une fonction d'audit interne moderne et indépendante",
-          "Audits basés sur les risques et assurance qualité des processus",
-          "Reporting au comité d'audit et au Conseil"
+        { id: "m4", title: "Résilience Organisationnelle & Gestion de Crise", bullets: [
+          "Élaborer un plan de continuité d'activité (BCP) et un plan de reprise après sinistre (DRP)",
+          "Gestion de crise: cellule de crise, communication de crise, simulations d'urgence",
+          "IA pour anticiper les crises potentielles et automatiser les plans de réponse"
         ]},
-        { id: "m5", title: "Transformation Culturelle: Éthique & Compliance", bullets: [
-          "Installer une culture d'éthique et de conformité dans l'organisation",
-          "Code de conduite, formation et canaux de signalement (whistleblowing)",
-          "Mesurer l'efficacité du programme de compliance"
+        { id: "m5", title: "ESG, RSE & Reporting Extra-Financier", bullets: [
+          "Mettre en place une stratégie ESG (Environnement, Social, Gouvernance) ambitieuse",
+          "Reporting extra-financier: CSRD, GRI, SASB, intégration dans le rapport annuel",
+          "IA pour mesurer l'impact ESG et benchmarker avec les leaders du secteur"
         ]},
-        { id: "m6", title: "Board Presentation: GRC Strategy", bullets: [
-          "Préparer une présentation GRC pour le Conseil d'administration",
-          "Défendre les investissements en gouvernance et gestion des risques",
-          "Simulation de comité d'audit avec jury d'experts GRC"
+        { id: "m6", title: "Board Pack Risques & Simulation Comité Audit", bullets: [
+          "Préparer des présentations pour le comité d'audit: cartographie des risques, conformité, audits",
+          "Recommandations stratégiques sur les risques majeurs et les investissements en résilience",
+          "Simulation comité d'audit: défendre une stratégie risques sous pression du board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "PREINSCRIPTION", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 6: TRANSFORMATION DIGITALE & CONDUITE DU CHANGEMENT ==========
+
+    // ========== P06: TRANSFORMATION DIGITALE & CONDUITE DU CHANGEMENT ==========
     {
       id: "p06-fondation", pillarId: "p06", pillarName: "Transformation Digitale & Conduite du Changement", pillarIcon: "🚀",
       level: "Fondation", title: "Transformation Digitale & Conduite du Changement — Fondation",
-      short: "Outils digitaux du quotidien, méthodes agiles basics, conduite du changement et premiers projets de digitalisation",
+      short: "Introduction à la transformation digitale, outils collaboratifs, accompagnement du changement et adoption des innovations",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Culture Digitale & Outils Collaboratifs", bullets: [
-          "Maîtriser les outils de collaboration (Teams, Slack, Notion, Trello)",
-          "Productivité digitale et gestion du temps avec IA",
-          "Adopter les bonnes pratiques du travail hybride"
+        { id: "m1", title: "Comprendre la Transformation Digitale", bullets: [
+          "Définition, enjeux et impacts de la transformation digitale sur les métiers",
+          "Technologies disruptives: cloud, IA, IoT, blockchain, RPA",
+          "IA pour identifier les opportunités de digitalisation dans votre organisation"
         ]},
-        { id: "m2", title: "Introduction aux Méthodes Agiles", bullets: [
-          "Comprendre Scrum, Kanban et les principes du Manifeste Agile",
-          "Participer à des sprints et des cérémonies agiles",
-          "Outils de gestion agile (Jira, Asana) et IA pour le suivi"
+        { id: "m2", title: "Outils Collaboratifs & Productivité Digitale", bullets: [
+          "Maîtriser les outils de collaboration: Teams, Slack, Notion, Miro",
+          "Automatiser les tâches répétitives avec RPA (Robotic Process Automation)",
+          "IA embarquée dans Microsoft 365 (Copilot) pour booster la productivité"
         ]},
-        { id: "m3", title: "Conduite du Changement Basics", bullets: [
-          "Modèles de changement (Kotter, ADKAR, Lewin)",
-          "Accompagner les collaborateurs dans l'adoption de nouveaux outils",
-          "Communication du changement et gestion des résistances"
+        { id: "m3", title: "Accompagner le Changement en Équipe", bullets: [
+          "Psychologie du changement: résistances, adoption et engagement",
+          "Techniques de communication du changement et storytelling",
+          "IA pour mesurer le sentiment des collaborateurs et adapter la communication"
         ]},
-        { id: "m4", title: "Projet: Digitalisation d'un Processus", bullets: [
-          "Identifier un processus manuel à digitaliser",
-          "Proposer une solution digitale et un plan de déploiement",
-          "Présentation du projet et validation par un expert transformation"
+        { id: "m4", title: "Projet Fil Rouge: Plan d'Adoption d'un Outil Digital", bullets: [
+          "Concevoir un plan d'adoption pour un nouvel outil digital dans votre équipe",
+          "Inclure: formation, communication, support et mesure de l'adoption",
+          "Présenter le plan à un responsable de transformation et validation expert"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -603,33 +601,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p06-maitrise", pillarId: "p06", pillarName: "Transformation Digitale & Conduite du Changement", pillarIcon: "🚀",
       level: "Maîtrise", title: "Transformation Digitale & Conduite du Changement — Maîtrise",
-      short: "Pilotage de projets de transformation, change management avancé, adoption IA et mesure de l'impact du changement",
+      short: "Stratégie de transformation digitale, gestion du changement (PROSCI), innovation et culture digitale avec IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
         { id: "m1", title: "Diagnostic de Maturité Digitale", bullets: [
-          "Évaluer la maturité digitale de l'organisation (assessment frameworks)",
-          "Identifier les gaps et opportunités de transformation",
-          "IA pour benchmarker avec les meilleures pratiques du marché"
+          "Évaluer la maturité digitale de l'organisation avec frameworks reconnus",
+          "Identifier les gaps critiques et les opportunités de transformation rapide",
+          "IA pour benchmarker avec les leaders du secteur et prioriser les initiatives"
         ]},
-        { id: "m2", title: "Stratégie de Transformation Digitale", bullets: [
-          "Élaborer une roadmap de transformation digitale sur 3 ans",
-          "Prioriser les initiatives (quick wins, projets structurants)",
-          "Construire le business case et obtenir le sponsorship exécutif"
+        { id: "m2", title: "Élaborer une Stratégie de Transformation Digitale", bullets: [
+          "Définir la vision digitale et la roadmap de transformation sur 3 ans",
+          "Prioriser les initiatives: quick wins, projets structurants, innovations disruptives",
+          "IA pour simuler l'impact des initiatives et optimiser l'allocation des ressources"
         ]},
-        { id: "m3", title: "Change Management Avancé (PROSCI)", bullets: [
-          "Méthodologie PROSCI pour conduire le changement à grande échelle",
-          "Gérer les résistances, mobiliser les ambassadeurs et mesurer l'adoption",
-          "Plans de communication, formation et coaching des équipes"
+        { id: "m3", title: "Conduite du Changement avec PROSCI", bullets: [
+          "Méthodologie PROSCI: ADKAR (Awareness, Desire, Knowledge, Ability, Reinforcement)",
+          "Identifier les parties prenantes, sponsors et résistants au changement",
+          "Plans de communication, formation et accompagnement personnalisés avec IA"
         ]},
-        { id: "m4", title: "Adoption de l'IA & Automatisation", bullets: [
-          "Identifier les cas d'usage IA à fort impact business",
-          "Piloter des projets d'automatisation (RPA, chatbots, IA générative)",
-          "Former les équipes à l'utilisation de l'IA dans leur quotidien"
+        { id: "m4", title: "Innovation & Culture Digitale", bullets: [
+          "Créer une culture d'innovation: lab d'innovation, hackathons, intrapreneuriat",
+          "Développer les compétences digitales à tous les niveaux (digital literacy)",
+          "Mesurer la culture digitale avec des enquêtes et IA pour identifier les freins"
         ]},
-        { id: "m5", title: "Capstone: Roadmap de Transformation", bullets: [
-          "Élaborer une roadmap de transformation digitale complète",
-          "Plans de conduite du changement, budgets et KPIs de succès",
-          "Présentation devant un comité de direction simulé"
+        { id: "m5", title: "Capstone: Roadmap de Transformation Digitale", bullets: [
+          "Concevoir une roadmap complète de transformation digitale pour une entreprise réelle",
+          "Inclure: diagnostic, vision, initiatives, plan de conduite du changement, KPIs",
+          "Présenter au comité de direction et validation par un directeur de transformation"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -638,70 +636,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p06-leadership", pillarId: "p06", pillarName: "Transformation Digitale & Conduite du Changement", pillarIcon: "🚀",
       level: "Leadership", title: "Transformation Digitale & Conduite du Changement — Leadership",
-      short: "Direction de la transformation, stratégie digitale groupe, culture de l'innovation et pilotage du changement à l'échelle",
+      short: "Chief Digital Officer, transformation à l'échelle groupe, disruption de business models et pilotage de l'innovation stratégique",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Vision & Stratégie de Transformation Groupe", bullets: [
-          "Définir la vision digitale de l'entreprise et l'ambition transformation",
-          "Aligner la stratégie digitale sur la stratégie d'entreprise",
-          "IA pour simuler des scénarios de transformation et optimiser la roadmap"
+        { id: "m1", title: "Vision Chief Digital Officer (CDO)", bullets: [
+          "Rôle du CDO: piloter la transformation digitale, aligner avec la stratégie groupe",
+          "Structurer une direction du digital: équipes, budget, gouvernance",
+          "IA pour identifier les opportunités digitales à forte valeur stratégique"
         ]},
-        { id: "m2", title: "Gouvernance de la Transformation", bullets: [
-          "Structurer le pilotage de la transformation (comités, rôles, KPIs)",
-          "Créer un bureau de transformation (Transformation Office)",
-          "Aligner les initiatives digitales avec les objectifs stratégiques"
+        { id: "m2", title: "Transformation de Business Models", bullets: [
+          "Analyser les disruptions sectorielles et anticiper les menaces compétitives",
+          "Concevoir de nouveaux business models digitaux: plateformes, abonnements, marketplace",
+          "IA pour simuler la viabilité de nouveaux modèles et accélérer le go-to-market"
         ]},
-        { id: "m3", title: "Change Management at Scale", bullets: [
-          "Conduire le changement à l'échelle d'une organisation multi-sites",
-          "Gérer la transformation culturelle et l'engagement des équipes",
-          "Mesurer l'adoption et ajuster les plans de conduite du changement"
+        { id: "m3", title: "Pilotage de l'Innovation Stratégique", bullets: [
+          "Mettre en place un programme d'innovation: labs, corporate venturing, partenariats startups",
+          "Gérer le portefeuille d'innovations: exploration (explore) vs exploitation (exploit)",
+          "IA pour identifier les tendances émergentes et détecter les innovations de rupture"
         ]},
-        { id: "m4", title: "Innovation & Culture Digitale", bullets: [
-          "Installer une culture de l'innovation et de l'expérimentation",
-          "Mettre en place des labs d'innovation et des hackathons",
-          "Favoriser l'intrapreneuriat et valoriser les initiatives bottom-up"
+        { id: "m4", title: "Change Management at Scale", bullets: [
+          "Conduire le changement dans des organisations complexes multi-pays et multi-BU",
+          "Gérer les résistances culturelles et mobiliser les leaders du changement",
+          "IA pour mesurer l'adoption du changement et adapter les stratégies en temps réel"
         ]},
-        { id: "m5", title: "Pilotage de l'Écosystème Digital", bullets: [
-          "Gérer les partenaires technologiques et les intégrateurs",
-          "Pilotage des investissements digitaux et optimisation du TCO",
-          "Reporting exécutif et communication au Board sur la transformation"
+        { id: "m5", title: "Ecosystème Digital & Partenariats Stratégiques", bullets: [
+          "Construire un écosystème digital: partenaires technologiques, startups, universités",
+          "Stratégies d'open innovation et co-création avec clients et fournisseurs",
+          "IA pour identifier les partenaires stratégiques et évaluer les synergies"
         ]},
-        { id: "m6", title: "Board Presentation: Digital Transformation", bullets: [
-          "Préparer une présentation transformation pour le Conseil",
-          "Défendre les investissements digitaux et démontrer le ROI",
-          "Simulation de COMEX avec jury d'experts transformation"
+        { id: "m6", title: "Board Pack Transformation & Simulation Comex", bullets: [
+          "Préparer des présentations exécutives sur l'avancement de la transformation digitale",
+          "Business cases de projets de transformation et recommandations d'investissement",
+          "Simulation comité exécutif: défendre une stratégie de transformation sous pression du board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 7: CYBERSÉCURITÉ & RÉSILIENCE ==========
+
+    // ========== P07: CYBERSÉCURITÉ & RÉSILIENCE ==========
     {
       id: "p07-fondation", pillarId: "p07", pillarName: "Cybersécurité & Résilience", pillarIcon: "🔐",
       level: "Fondation", title: "Cybersécurité & Résilience — Fondation",
-      short: "Fondamentaux de la cybersécurité, hygiène numérique, détection des menaces et sensibilisation aux risques cyber",
+      short: "Sensibilisation à la cybersécurité, hygiène numérique, protection des données et réflexes sécurité au quotidien",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Introduction à la Cybersécurité", bullets: [
-          "Menaces cyber courantes (phishing, ransomware, malware)",
-          "Principes de sécurité: confidentialité, intégrité, disponibilité (CIA)",
-          "IA pour détecter les comportements suspects et alerter en temps réel"
+        { id: "m1", title: "Fondamentaux de la Cybersécurité", bullets: [
+          "Comprendre les menaces cyber: phishing, ransomware, malware, ingénierie sociale",
+          "Principes de sécurité: confidentialité, intégrité, disponibilité (CIA triad)",
+          "IA pour détecter les emails de phishing et les menaces en temps réel"
         ]},
         { id: "m2", title: "Hygiène Numérique & Bonnes Pratiques", bullets: [
-          "Gestion des mots de passe et authentification multi-facteurs (MFA)",
-          "Sécuriser les postes de travail et les appareils mobiles",
-          "Sensibilisation aux risques et formation des collaborateurs"
+          "Gérer ses mots de passe de manière sécurisée (gestionnaires, MFA)",
+          "Sécuriser son poste de travail et ses appareils mobiles",
+          "Naviguer en toute sécurité: VPN, HTTPS, alertes navigateur"
         ]},
-        { id: "m3", title: "Détection & Réponse aux Incidents", bullets: [
-          "Identifier les incidents de sécurité et signaler rapidement",
-          "Premiers gestes en cas de cyberattaque (isoler, documenter, alerter)",
-          "Outils de monitoring et SIEM basics pour suivre les logs"
+        { id: "m3", title: "Protection des Données & RGPD", bullets: [
+          "Principes du RGPD: consentement, minimisation, droits des personnes",
+          "Identifier et protéger les données sensibles (personnelles, financières, santé)",
+          "IA pour classifier automatiquement les données et détecter les fuites"
         ]},
-        { id: "m4", title: "Projet: Audit de Sécurité Opérationnel", bullets: [
-          "Réaliser un audit de sécurité d'un système ou processus",
-          "Identifier les vulnérabilités et proposer des mesures correctives",
-          "Présentation des conclusions et validation par un expert cyber"
+        { id: "m4", title: "Projet Fil Rouge: Plan de Sécurité Personnel", bullets: [
+          "Évaluer votre posture de sécurité personnelle et professionnelle",
+          "Créer un plan d'action pour améliorer votre hygiène numérique",
+          "Présenter vos bonnes pratiques au groupe et validation par un expert cyber"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -710,33 +708,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p07-maitrise", pillarId: "p07", pillarName: "Cybersécurité & Résilience", pillarIcon: "🔐",
       level: "Maîtrise", title: "Cybersécurité & Résilience — Maîtrise",
-      short: "Management de la sécurité (ISO 27001), SOC, gestion des incidents, tests d'intrusion et pilotage cyber avec IA",
+      short: "Gestion des incidents cyber, SOC (Security Operations Center), tests d'intrusion et conformité ISO 27001 avec IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Management de la Sécurité ISO 27001", bullets: [
-          "Mettre en place un SMSI (Système de Management de la Sécurité de l'Information)",
-          "Analyse de risques (ISO 27005) et traitement des risques",
-          "Préparer la certification ISO 27001 et audits externes"
+        { id: "m1", title: "Architecture de Sécurité & Defense in Depth", bullets: [
+          "Concevoir une architecture de sécurité robuste: pare-feu, IDS/IPS, segmentation réseau",
+          "Défense en profondeur: sécurité périmétrique, endpoints, applicative, data",
+          "IA pour détecter les anomalies réseau et les comportements suspects"
         ]},
         { id: "m2", title: "Security Operations Center (SOC)", bullets: [
-          "Structurer un SOC et définir les rôles (analystes, threat hunters)",
-          "Outils SIEM (Splunk, QRadar) et IA pour détecter les menaces",
-          "Processus de triage, escalade et réponse aux incidents"
+          "Mettre en place un SOC: organisation, processus, outils (SIEM, SOAR)",
+          "Surveillance continue, détection des incidents et réponse rapide",
+          "IA pour automatiser la corrélation d'événements et prioriser les alertes"
         ]},
-        { id: "m3", title: "Gestion des Incidents & Forensics", bullets: [
-          "Répondre aux incidents de sécurité avec méthode (NIST, SANS)",
-          "Investigation forensique pour comprendre l'origine et l'impact",
-          "Plans de remédiation et leçons apprises post-incident"
+        { id: "m3", title: "Gestion des Incidents & Réponse aux Crises Cyber", bullets: [
+          "Processus de gestion d'incidents: détection, containment, éradication, recovery",
+          "Constituer une équipe de réponse aux incidents (CSIRT) et coordonner les actions",
+          "IA pour automatiser la réponse aux incidents et accélérer la remediation"
         ]},
-        { id: "m4", title: "Tests d'Intrusion & Vulnerability Management", bullets: [
-          "Conduire des pentests et audits de sécurité techniques",
-          "Identifier les vulnérabilités (OWASP Top 10, CVE)",
-          "Prioriser les correctifs et suivre les remédiation plans"
+        { id: "m4", title: "Tests d'Intrusion & Ethical Hacking", bullets: [
+          "Méthodologie de pentest: reconnaissance, scanning, exploitation, post-exploitation",
+          "Outils de pentest: Kali Linux, Metasploit, Burp Suite, Nmap",
+          "IA pour identifier les vulnérabilités critiques et proposer des correctifs"
         ]},
-        { id: "m5", title: "Capstone: Programme de Sécurité Complet", bullets: [
-          "Élaborer un programme de cybersécurité pour une organisation",
-          "Cartographie des risques, plans de sécurité et indicateurs SOC",
-          "Présentation devant un comité de sécurité simulé"
+        { id: "m5", title: "Capstone: Certification ISO 27001 (ISMS)", bullets: [
+          "Mettre en place un système de management de la sécurité de l'information (ISMS)",
+          "Préparer la certification ISO 27001: analyse de risques, documentation, audit blanc",
+          "Présenter le projet au comité de sécurité et validation par un auditeur ISO 27001"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -745,70 +743,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p07-leadership", pillarId: "p07", pillarName: "Cybersécurité & Résilience", pillarIcon: "🔐",
       level: "Leadership", title: "Cybersécurité & Résilience — Leadership",
-      short: "Direction cyber, stratégie de résilience, gestion de crise cyber, conformité réglementaire et pilotage du RSSI",
+      short: "Chief Information Security Officer (CISO), gouvernance cyber groupe, résilience organisationnelle et stratégie zero-trust",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie de Cybersécurité & Résilience", bullets: [
-          "Définir la stratégie cyber de l'entreprise et les priorités",
-          "Aligner la cybersécurité sur les objectifs business et la gestion des risques",
-          "IA pour évaluer la maturité cyber et benchmarker avec le marché"
+        { id: "m1", title: "Vision Chief Information Security Officer (CISO)", bullets: [
+          "Rôle du CISO: piloter la stratégie cyber, définir l'appétit au risque cyber, reporting au board",
+          "Structurer une direction sécurité groupe: équipes, budget, gouvernance",
+          "IA pour cartographier les cyberrisques stratégiques et prioriser les investissements"
         ]},
-        { id: "m2", title: "Gouvernance Cyber & Comité de Sécurité", bullets: [
-          "Structurer la gouvernance cyber (CISO, comité de sécurité, RACI)",
-          "Reporting au Board sur les risques cyber et les investissements",
-          "Framework de gouvernance (NIST, ISO, CIS Controls)"
+        { id: "m2", title: "Gouvernance Cyber Groupe & Conformité", bullets: [
+          "Framework de gouvernance cyber: politiques, standards, procédures groupe",
+          "Conformité réglementaire multi-pays: RGPD, NIS2, DORA, lois sectorielles",
+          "IA pour automatiser la veille réglementaire et le reporting de conformité"
         ]},
-        { id: "m3", title: "Gestion de Crise Cyber & Business Continuity", bullets: [
-          "Préparer et gérer une crise cyber (ransomware, data breach)",
-          "Plans de continuité d'activité (PCA) et disaster recovery (DRP)",
-          "Simulations de crise et tests de résilience organisationnelle"
+        { id: "m3", title: "Stratégie Zero Trust & Architecture SASE", bullets: [
+          "Concevoir une architecture zero trust: vérification continue, moindre privilège, micro-segmentation",
+          "SASE (Secure Access Service Edge): convergence réseau et sécurité dans le cloud",
+          "IA pour détecter les comportements anormaux et adapter les contrôles d'accès dynamiquement"
         ]},
-        { id: "m4", title: "Conformité Réglementaire Cyber (NIS2, DORA)", bullets: [
-          "Piloter la conformité cyber (RGPD, NIS2, DORA, SOC 2)",
-          "Notification des violations et relations avec les régulateurs",
-          "Audits de conformité et certifications sectorielles"
+        { id: "m4", title: "Cyber Threat Intelligence & Anticipation", bullets: [
+          "Mettre en place une capacité de Cyber Threat Intelligence (CTI) stratégique",
+          "Surveiller les menaces émergentes, les APT (Advanced Persistent Threats) et les acteurs malveillants",
+          "IA pour analyser les dark web, forums underground et prédire les attaques ciblées"
         ]},
-        { id: "m5", title: "Pilotage des Investissements Cyber", bullets: [
-          "Construire le budget cyber et prioriser les investissements",
-          "ROI des investissements en sécurité et réduction du risque résiduel",
-          "Gérer les partenaires cyber (MSSP, pentesteurs, assureurs)"
+        { id: "m5", title: "Résilience Cyber & Business Continuity", bullets: [
+          "Élaborer un plan de continuité cyber: backup, disaster recovery, crisis management",
+          "Simulations de cyberattaques (red team, purple team) et exercices de crise",
+          "IA pour automatiser les plans de reprise et accélérer le retour à la normale"
         ]},
-        { id: "m6", title: "Board Presentation: Cyber Strategy", bullets: [
-          "Préparer une présentation cyber pour le Conseil d'administration",
-          "Défendre les investissements en cybersécurité et résilience",
-          "Simulation de comité de sécurité avec jury d'experts CISO"
+        { id: "m6", title: "Board Pack Cyber & Simulation Comité Risques", bullets: [
+          "Préparer des présentations pour le board sur la posture cyber et les incidents majeurs",
+          "Recommandations stratégiques sur les investissements cyber et la cyber-assurance",
+          "Simulation comité de risques: défendre un budget cyber sous pression du CFO/board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 8: IT SERVICE MANAGEMENT (ITIL4) & ARCHITECTURE SI ==========
+
+    // ========== P08: IT SERVICE MANAGEMENT (ITIL4) & ARCHITECTURE SI ==========
     {
       id: "p08-fondation", pillarId: "p08", pillarName: "IT Service Management (ITIL4) & Architecture SI", pillarIcon: "⚙️",
       level: "Fondation", title: "IT Service Management (ITIL4) & Architecture SI — Fondation",
-      short: "ITIL 4 basics, gestion des incidents, catalogue de services et support utilisateurs avec automatisation IA",
+      short: "Introduction à ITIL4, gestion des incidents et demandes, service desk et support utilisateurs avec IA",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Introduction à ITIL 4 & Service Management", bullets: [
-          "Principes ITIL 4 et chaîne de valeur des services (SVS)",
-          "Rôles IT (support, incidents, problèmes, changements)",
-          "IA pour automatiser le support de niveau 1 avec chatbots"
+        { id: "m1", title: "Fondamentaux ITIL4 & Service Management", bullets: [
+          "Principes ITIL4: valeur, co-création, feedback, amélioration continue",
+          "Service Value System (SVS) et Service Value Chain",
+          "IA pour automatiser la classification des tickets et proposer des solutions"
         ]},
         { id: "m2", title: "Gestion des Incidents & Service Desk", bullets: [
-          "Traiter les incidents IT et restaurer le service rapidement",
-          "Outils ITSM (ServiceNow, Jira Service Management) et ticketing",
-          "Automatisation des réponses et routage intelligent avec IA"
+          "Processus de gestion des incidents: détection, logging, categorization, resolution",
+          "Techniques de diagnostic et d'escalade des incidents critiques",
+          "IA (chatbot) pour répondre automatiquement aux demandes de niveau 1"
         ]},
-        { id: "m3", title: "Catalogue de Services & SLA", bullets: [
-          "Définir le catalogue de services IT et les niveaux de service (SLA)",
-          "Mesurer la qualité de service et améliorer la satisfaction utilisateurs",
-          "Tableaux de bord de performance IT avec indicateurs clés"
+        { id: "m3", title: "Gestion des Demandes de Service", bullets: [
+          "Processus de service request management: catalogue de services, workflows d'approbation",
+          "Mesurer la satisfaction utilisateur (CSAT, NPS) et améliorer la qualité de service",
+          "Automatiser les demandes récurrentes avec IA et RPA"
         ]},
-        { id: "m4", title: "Projet: Amélioration d'un Processus ITSM", bullets: [
-          "Analyser un processus ITSM et identifier les points d'amélioration",
-          "Proposer des optimisations et automatisations avec IA",
-          "Présentation du projet et validation par un expert ITIL"
+        { id: "m4", title: "Projet Fil Rouge: Amélioration d'un Processus ITSM", bullets: [
+          "Analyser un processus ITSM existant (incidents ou demandes) et identifier les dysfonctionnements",
+          "Proposer un plan d'amélioration avec KPIs et quick wins",
+          "Présenter au responsable IT et validation par un expert ITIL certifié"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -817,33 +815,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p08-maitrise", pillarId: "p08", pillarName: "IT Service Management (ITIL4) & Architecture SI", pillarIcon: "⚙️",
       level: "Maîtrise", title: "IT Service Management (ITIL4) & Architecture SI — Maîtrise",
-      short: "ITIL 4 avancé, gestion des problèmes et changements, architecture SI et urbanisation des systèmes",
+      short: "ITIL4 avancé, gestion des changements et releases, architecture SI et préparation certification ITIL avec IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "ITIL 4 Avancé: Gestion des Problèmes & Changements", bullets: [
-          "Analyse des causes racines (RCA) et résolution des problèmes récurrents",
-          "Gérer les changements IT sans perturber les services (change management)",
-          "IA pour prédire les incidents et automatiser les changements de routine"
+        { id: "m1", title: "ITIL4 Practices Avancées", bullets: [
+          "Gestion des problèmes: analyse des causes racines (RCA), prévention des incidents récurrents",
+          "Gestion des changements: évaluation des risques, CAB (Change Advisory Board), rollback plans",
+          "IA pour prédire l'impact des changements et recommander des fenêtres de maintenance"
         ]},
-        { id: "m2", title: "Architecture des Systèmes d'Information", bullets: [
-          "Concevoir une architecture SI robuste et évolutive",
-          "Urbanisation du SI et cartographie des applications",
-          "Frameworks d'architecture (TOGAF, Zachman) et modélisation"
+        { id: "m2", title: "Gestion des Releases & Déploiements", bullets: [
+          "Processus de release management: planification, build, test, déploiement",
+          "Automatisation des déploiements avec CI/CD (Jenkins, GitLab CI, Azure DevOps)",
+          "IA pour optimiser les calendriers de release et minimiser les risques"
         ]},
-        { id: "m3", title: "Gestion des Services IT & CMDB", bullets: [
-          "Construire une CMDB (Configuration Management Database) à jour",
-          "Cartographier les dépendances entre services et infrastructures",
-          "Automatiser la découverte des actifs IT avec IA et outils de scanning"
+        { id: "m3", title: "Architecture des Systèmes d'Information", bullets: [
+          "Frameworks d'architecture: TOGAF, Zachman, méthodologies d'entreprise architecture",
+          "Concevoir une architecture SI cible alignée sur la stratégie business",
+          "IA pour cartographier l'architecture existante et identifier les zones d'optimisation"
         ]},
-        { id: "m4", title: "Amélioration Continue & ITIL 4 Practices", bullets: [
-          "Mettre en œuvre les 34 pratiques ITIL 4 (incidents, problèmes, SLM, etc.)",
-          "Amélioration continue des services (CSI) et mesure de la valeur",
-          "Tableaux de bord IT avec KPIs de performance et satisfaction"
+        { id: "m4", title: "Gouvernance IT & COBIT", bullets: [
+          "Framework COBIT pour la gouvernance et le management de l'IT",
+          "Aligner l'IT sur les objectifs business, gérer les risques IT et optimiser les ressources",
+          "IA pour mesurer la maturité IT et proposer des plans d'amélioration"
         ]},
-        { id: "m5", title: "Capstone: Transformation ITSM", bullets: [
-          "Élaborer un plan de transformation ITSM pour une organisation",
-          "Roadmap d'implémentation ITIL 4, outils et formation des équipes",
-          "Présentation devant un comité IT simulé"
+        { id: "m5", title: "Capstone + Préparation Certification ITIL 4 Managing Professional", bullets: [
+          "Projet complet: concevoir une architecture de services IT et un plan d'amélioration continue",
+          "Préparation intensive à la certification ITIL 4 MP (modules Create, Deliver, Support, Drive Stakeholder Value)",
+          "Simulation d'examen et validation par un formateur certifié ITIL Expert"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -852,70 +850,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p08-leadership", pillarId: "p08", pillarName: "IT Service Management (ITIL4) & Architecture SI", pillarIcon: "⚙️",
       level: "Leadership", title: "IT Service Management (ITIL4) & Architecture SI — Leadership",
-      short: "Direction des systèmes d'information, stratégie IT, gouvernance SI et pilotage de la DSI multi-sites",
+      short: "Chief Information Officer (CIO), stratégie IT groupe, architecture d'entreprise et transformation IT à l'échelle",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie des Systèmes d'Information", bullets: [
-          "Définir la stratégie IT alignée sur la stratégie d'entreprise",
-          "Construire une roadmap SI sur 3 à 5 ans avec priorités business",
-          "IA pour évaluer la maturité SI et benchmarker avec le marché"
+        { id: "m1", title: "Vision Chief Information Officer (CIO)", bullets: [
+          "Rôle du CIO: piloter la stratégie IT, aligner IT et business, innovation technologique",
+          "Structurer une direction des systèmes d'information groupe: organisation, budget, gouvernance",
+          "IA pour identifier les opportunités d'innovation IT à forte valeur business"
         ]},
-        { id: "m2", title: "Gouvernance IT & Framework COBIT", bullets: [
-          "Mettre en place une gouvernance IT moderne (COBIT, ITIL 4, Val IT)",
-          "Définir les KPIs IT et les aligner sur les objectifs business",
-          "Comités de gouvernance IT et reporting au Board"
+        { id: "m2", title: "Stratégie IT & Transformation Digitale", bullets: [
+          "Élaborer une stratégie IT alignée sur la stratégie d'entreprise et les objectifs de croissance",
+          "Modernisation du SI legacy: migration cloud, API-first, microservices",
+          "IA pour prioriser les projets IT et optimiser le portefeuille d'investissements"
         ]},
-        { id: "m3", title: "Architecture d'Entreprise & Urbanisation SI", bullets: [
-          "Concevoir l'architecture d'entreprise (business, data, application, tech)",
-          "Urbaniser le SI pour réduire la complexité et améliorer l'agilité",
-          "Frameworks TOGAF et gestion de la dette technique"
+        { id: "m3", title: "Architecture d'Entreprise & TOGAF", bullets: [
+          "Concevoir une architecture d'entreprise cible avec TOGAF ADM (Architecture Development Method)",
+          "Cartographier l'architecture actuelle (AS-IS) et définir la cible (TO-BE) avec roadmap de transition",
+          "IA pour automatiser la documentation d'architecture et la gestion des dépendances"
         ]},
-        { id: "m4", title: "Pilotage de la DSI Multi-Sites", bullets: [
-          "Organiser et piloter une DSI multi-pays ou multi-sites",
-          "Gérer les équipes IT distribuées et les centres de services (SSC)",
-          "Tableaux de bord consolidés et reporting exécutif"
+        { id: "m4", title: "Gouvernance IT Groupe & Pilotage Performance", bullets: [
+          "Framework de gouvernance IT: comités, processus de décision, politiques groupe",
+          "Piloter la performance IT: KPIs de disponibilité, performance, coûts, satisfaction utilisateur",
+          "Tableaux de bord IT exécutifs et reporting au board/comité de direction"
         ]},
-        { id: "m5", title: "Transformation IT & Cloud Strategy", bullets: [
-          "Conduire la transformation IT vers le cloud (IaaS, PaaS, SaaS)",
-          "Gérer la migration des applications et optimiser les coûts cloud",
-          "FinOps et pilotage des dépenses cloud avec IA"
+        { id: "m5", title: "Sourcing IT & Gestion de Partenaires", bullets: [
+          "Stratégies de sourcing: insourcing, outsourcing, nearshoring, cloud providers",
+          "Gérer les relations avec les partenaires IT: contrats, SLA, performance, innovation",
+          "IA pour sélectionner les meilleurs partenaires et optimiser les coûts IT"
         ]},
-        { id: "m6", title: "Board Presentation: IT Strategy", bullets: [
-          "Préparer une présentation IT pour le Conseil d'administration",
-          "Défendre les investissements IT et démontrer la valeur business",
-          "Simulation de comité IT avec jury d'experts CIO/DSI"
+        { id: "m6", title: "Board Pack IT & Simulation Comex", bullets: [
+          "Préparer des présentations exécutives sur la stratégie IT, les projets majeurs et les risques IT",
+          "Business cases IT: investissements infrastructure, cloud, cybersécurité, IA",
+          "Simulation comité exécutif: défendre un budget IT sous pression du CFO et du board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 9: SUPPLY CHAIN, ACHATS & TRAÇABILITÉ ==========
+
+    // ========== P09: SUPPLY CHAIN, ACHATS & TRAÇABILITÉ ==========
     {
       id: "p09-fondation", pillarId: "p09", pillarName: "Supply Chain, Achats & Traçabilité", pillarIcon: "🔗",
       level: "Fondation", title: "Supply Chain, Achats & Traçabilité — Fondation",
-      short: "Fondamentaux supply chain, gestion des stocks, achats responsables et traçabilité avec IA prédictive",
+      short: "Fondamentaux de la supply chain, gestion des stocks, achats opérationnels et logistique de base avec IA",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Introduction à la Supply Chain", bullets: [
-          "Comprendre la chaîne d'approvisionnement (sourcing, production, distribution)",
-          "Rôles Supply Chain (planificateur, acheteur, logisticien)",
-          "IA pour optimiser les prévisions de demande et réduire les ruptures"
+        { id: "m1", title: "Fondamentaux de la Supply Chain", bullets: [
+          "Comprendre la chaîne logistique: approvisionnement, production, distribution, retail",
+          "Flux physiques, flux d'information et flux financiers dans la supply chain",
+          "IA pour cartographier automatiquement la supply chain et identifier les goulots"
         ]},
-        { id: "m2", title: "Gestion des Stocks & Inventaires", bullets: [
-          "Techniques de gestion des stocks (FIFO, LIFO, Kanban)",
-          "Optimiser les niveaux de stock et réduire les coûts de détention",
-          "Outils ERP (SAP, Oracle) et IA pour automatiser les réapprovisionnements"
+        { id: "m2", title: "Gestion des Stocks & Prévisions", bullets: [
+          "Méthodes de gestion des stocks: FIFO, LIFO, stock de sécurité, point de commande",
+          "Prévisions de la demande avec méthodes quantitatives et IA",
+          "Optimiser les niveaux de stock pour réduire les coûts et éviter les ruptures"
         ]},
-        { id: "m3", title: "Achats & Sourcing Responsable", bullets: [
-          "Processus achats: sourcing, négociation, contrats, suivi fournisseurs",
-          "Évaluer les fournisseurs et gérer les risques supply chain",
-          "Achats responsables et conformité (RSE, éthique, durabilité)"
+        { id: "m3", title: "Achats Opérationnels & Relation Fournisseurs", bullets: [
+          "Processus achat: expression de besoin, appel d'offres, négociation, contractualisation",
+          "Évaluer et sélectionner les fournisseurs: critères qualité, coût, délai",
+          "IA pour automatiser les commandes récurrentes et négocier les meilleurs prix"
         ]},
-        { id: "m4", title: "Projet: Optimisation d'un Flux Supply Chain", bullets: [
-          "Analyser un flux supply chain et identifier les goulots d'étranglement",
-          "Proposer des optimisations pour réduire coûts et délais",
-          "Présentation du projet et validation par un expert supply chain"
+        { id: "m4", title: "Projet Fil Rouge: Optimisation d'un Flux Logistique", bullets: [
+          "Analyser un flux logistique existant et identifier les inefficacités (coûts, délais, qualité)",
+          "Proposer un plan d'optimisation avec KPIs et quick wins",
+          "Présenter au responsable supply chain et validation par un expert logistique"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -924,33 +922,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p09-maitrise", pillarId: "p09", pillarName: "Supply Chain, Achats & Traçabilité", pillarIcon: "🔗",
       level: "Maîtrise", title: "Supply Chain, Achats & Traçabilité — Maîtrise",
-      short: "Planification S&OP, achats stratégiques, traçabilité blockchain et pilotage supply chain multi-sites avec IA",
+      short: "Supply chain avancée, S&OP (Sales & Operations Planning), achats stratégiques et traçabilité blockchain avec IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Sales & Operations Planning (S&OP)", bullets: [
-          "Mettre en place un processus S&OP pour aligner ventes et opérations",
-          "Prévisions de demande avancées avec méthodes statistiques et IA",
-          "Pilotage du plan industriel et commercial (PIC)"
+        { id: "m1", title: "Supply Chain Planning & S&OP", bullets: [
+          "Mettre en place un processus S&OP (Sales & Operations Planning) robuste",
+          "Aligner les prévisions de vente, les capacités de production et les stocks",
+          "IA pour optimiser le S&OP et anticiper les déséquilibres offre-demande"
         ]},
         { id: "m2", title: "Achats Stratégiques & Category Management", bullets: [
-          "Élaborer une stratégie achats par catégorie (category management)",
-          "Négociation avancée et gestion des contrats complexes",
-          "Digitalisation des achats (e-procurement) et IA pour le sourcing"
+          "Élaborer une stratégie achats par catégorie: sourcing, négociation, contrats-cadres",
+          "Analyse du TCO (Total Cost of Ownership) et création de valeur achats",
+          "IA pour identifier les opportunités d'économies et les fournisseurs alternatifs"
         ]},
-        { id: "m3", title: "Traçabilité & Supply Chain Visibility", bullets: [
-          "Mettre en place la traçabilité des produits (blockchain, IoT, RFID)",
-          "Visibilité end-to-end de la supply chain et alertes en temps réel",
-          "Conformité réglementaire (traçabilité alimentaire, pharma, etc.)"
+        { id: "m3", title: "Traçabilité & Blockchain", bullets: [
+          "Mettre en place un système de traçabilité end-to-end dans la supply chain",
+          "Utiliser la blockchain pour garantir l'authenticité et la transparence des flux",
+          "IA pour analyser les données de traçabilité et détecter les anomalies (contrefaçon, fraude)"
         ]},
-        { id: "m4", title: "Gestion des Risques Supply Chain", bullets: [
-          "Identifier et mitiger les risques supply chain (fournisseurs, géopolitiques)",
-          "Plans de continuité supply chain et dual sourcing",
-          "IA pour prédire les disruptions et proposer des alternatives"
+        { id: "m4", title: "Logistique & Transport Optimization", bullets: [
+          "Optimiser les réseaux de distribution: emplacements, capacités, flux de transport",
+          "Gestion des transporteurs: sélection, négociation, suivi performance",
+          "IA pour optimiser les tournées de livraison et réduire les coûts de transport"
         ]},
         { id: "m5", title: "Capstone: Transformation Supply Chain", bullets: [
-          "Élaborer un plan de transformation supply chain pour une organisation",
-          "Roadmap d'optimisation, digitalisation et KPIs de performance",
-          "Présentation devant un comité supply chain simulé"
+          "Concevoir un projet de transformation supply chain: digitalisation, optimisation, traçabilité",
+          "Inclure: diagnostic, roadmap, business case, plan de conduite du changement",
+          "Présenter au comité de direction et validation par un directeur supply chain"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -959,70 +957,70 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p09-leadership", pillarId: "p09", pillarName: "Supply Chain, Achats & Traçabilité", pillarIcon: "🔗",
       level: "Leadership", title: "Supply Chain, Achats & Traçabilité — Leadership",
-      short: "Direction supply chain, stratégie achats groupe, résilience supply chain et pilotage multi-pays",
+      short: "Chief Supply Chain Officer, stratégie supply chain groupe, résilience et supply chain 4.0 avec IA prédictive",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie Supply Chain & Réseau de Distribution", bullets: [
-          "Définir la stratégie supply chain globale (make vs buy, localisation)",
-          "Concevoir le réseau de distribution optimal (usines, entrepôts, hubs)",
-          "IA pour optimiser les flux et réduire les coûts logistiques"
+        { id: "m1", title: "Vision Chief Supply Chain Officer (CSCO)", bullets: [
+          "Rôle du CSCO: piloter la stratégie supply chain, alignement avec la stratégie commerciale et industrielle",
+          "Structurer une direction supply chain groupe: organisation, processus, gouvernance",
+          "IA pour optimiser la supply chain globale et maximiser la création de valeur"
         ]},
-        { id: "m2", title: "Gouvernance Supply Chain Groupe", bullets: [
-          "Structurer la gouvernance supply chain (comités, rôles, KPIs)",
-          "Aligner les supply chains locales sur la stratégie groupe",
-          "Reporting exécutif et tableaux de bord consolidés"
+        { id: "m2", title: "Stratégie Supply Chain Groupe & Réseau Global", bullets: [
+          "Concevoir un réseau supply chain global: usines, entrepôts, hubs de distribution multi-pays",
+          "Arbitrages make-or-buy, nearshoring vs offshoring, localisation des activités",
+          "IA pour simuler des scénarios de réseau et optimiser les coûts et les délais"
         ]},
-        { id: "m3", title: "Résilience Supply Chain & Risk Management", bullets: [
-          "Construire une supply chain résiliente face aux crises (COVID, guerres)",
-          "Stratégies de diversification des fournisseurs et nearshoring",
-          "Simulations de crise et plans de continuité supply chain"
+        { id: "m3", title: "Résilience Supply Chain & Gestion des Crises", bullets: [
+          "Identifier les risques supply chain: ruptures d'approvisionnement, catastrophes naturelles, géopolitique",
+          "Plans de continuité supply chain: fournisseurs alternatifs, stocks stratégiques, flexibilité capacitaire",
+          "IA pour anticiper les disruptions et activer automatiquement les plans de contingence"
         ]},
-        { id: "m4", title: "Transformation Digitale Supply Chain 4.0", bullets: [
-          "Digitaliser la supply chain (IoT, blockchain, IA, jumeaux numériques)",
-          "Automatisation des entrepôts et robots collaboratifs",
-          "Pilotage de la supply chain en temps réel avec IA prédictive"
+        { id: "m4", title: "Supply Chain 4.0 & Digital Twin", bullets: [
+          "Technologies supply chain 4.0: IoT, capteurs, robotique, IA, blockchain",
+          "Créer un digital twin de la supply chain pour simuler et optimiser en temps réel",
+          "IA pour prédire la demande, optimiser les stocks et automatiser les décisions"
         ]},
-        { id: "m5", title: "Achats Stratégiques Groupe & Sourcing Global", bullets: [
-          "Définir la stratégie achats groupe et optimiser le spend",
-          "Sourcing global et gestion des fournisseurs internationaux",
-          "Conformité achats (anti-corruption, RSE, due diligence)"
+        { id: "m5", title: "Achats Groupe & Synergies Multi-BU", bullets: [
+          "Structurer une fonction achats groupe: centralisée, décentralisée, hybride",
+          "Identifier et réaliser les synergies achats inter-BU: pooling, contrats-cadres groupe",
+          "IA pour détecter les opportunités de mutualisation et négocier les meilleurs prix"
         ]},
-        { id: "m6", title: "Board Presentation: Supply Chain Strategy", bullets: [
-          "Préparer une présentation supply chain pour le Conseil",
-          "Défendre les investissements supply chain et démontrer le ROI",
-          "Simulation de comité supply chain avec jury d'experts CSO"
+        { id: "m6", title: "Board Pack Supply Chain & Simulation Comex", bullets: [
+          "Préparer des présentations exécutives sur la performance supply chain et les risques majeurs",
+          "Business cases supply chain: investissements réseau, digitalisation, traçabilité",
+          "Simulation comité exécutif: défendre une stratégie supply chain sous pression du CFO/board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     },
-    
-    // ========== PILIER 10: MARKETING, COMMERCIAL & GROWTH + CULTURE ENTREPRENEURIALE ==========
+
+    // ========== P10: MARKETING, COMMERCIAL & GROWTH + CULTURE ENTREPRENEURIALE ==========
     {
       id: "p10-fondation", pillarId: "p10", pillarName: "Marketing, Commercial & Growth + Culture Entrepreneuriale", pillarIcon: "💡",
       level: "Fondation", title: "Marketing, Commercial & Growth + Culture Entrepreneuriale — Fondation",
-      short: "Fondamentaux marketing digital, techniques de vente, acquisition clients et mindset entrepreneur avec IA",
+      short: "Marketing digital de base, réseaux sociaux, prospection commerciale et pitch entrepreneurial avec IA",
       audience: "Junior/Analyste", durationDays: 5,
       modules: [
-        { id: "m1", title: "Marketing Digital & Réseaux Sociaux", bullets: [
-          "Stratégie social media (LinkedIn, Facebook, Instagram, TikTok)",
-          "Content marketing et storytelling pour engager l'audience",
-          "IA pour automatiser la création de contenus et l'analyse des performances"
+        { id: "m1", title: "Fondamentaux du Marketing Digital", bullets: [
+          "Comprendre le parcours client digital: awareness, consideration, conversion, loyalty",
+          "Canaux marketing: SEO, SEA, social media, email, content marketing",
+          "IA pour automatiser les campagnes et personnaliser les messages"
         ]},
-        { id: "m2", title: "Techniques de Vente & Prospection", bullets: [
-          "Prospection commerciale: cold calling, emailing, LinkedIn outreach",
-          "Techniques de closing et gestion des objections",
-          "CRM (Salesforce, HubSpot) et IA pour scorer les leads"
+        { id: "m2", title: "Réseaux Sociaux & Community Management", bullets: [
+          "Stratégie social media: objectifs, cibles, contenus, calendrier éditorial",
+          "Animer une communauté: engagement, modération, gestion des crises",
+          "IA pour créer du contenu (textes, visuels) et programmer les publications"
         ]},
-        { id: "m3", title: "Acquisition Clients & Funnel de Conversion", bullets: [
-          "Construire un funnel de conversion (TOFU, MOFU, BOFU)",
-          "Optimiser les landing pages et campagnes publicitaires (Google Ads, Meta)",
-          "A/B testing et amélioration continue du taux de conversion"
+        { id: "m3", title: "Prospection Commerciale & Techniques de Vente", bullets: [
+          "Méthodes de prospection: cold calling, emailing, LinkedIn, salons professionnels",
+          "Structurer un argumentaire de vente et traiter les objections",
+          "IA pour qualifier les leads et prioriser les prospects à fort potentiel"
         ]},
-        { id: "m4", title: "Projet: Lancer une Campagne Marketing", bullets: [
-          "Concevoir et lancer une campagne marketing digitale de A à Z",
-          "Mesurer les résultats (ROI, CAC, LTV) et ajuster la stratégie",
-          "Présentation du projet et validation par un expert marketing"
+        { id: "m4", title: "Projet Fil Rouge: Campagne Marketing & Pitch", bullets: [
+          "Créer une campagne marketing digitale complète pour un produit/service",
+          "Pitcher votre campagne devant un jury: objectifs, cibles, contenus, budget, ROI",
+          "Validation par un expert marketing/growth et feedback personnalisé"
         ]}
       ],
       pricing: { pack_fcfa: 214376, modules_count: 4, module_fcfa: 69672 },
@@ -1031,33 +1029,33 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p10-maitrise", pillarId: "p10", pillarName: "Marketing, Commercial & Growth + Culture Entrepreneuriale", pillarIcon: "💡",
       level: "Maîtrise", title: "Marketing, Commercial & Growth + Culture Entrepreneuriale — Maîtrise",
-      short: "Growth hacking, stratégie commerciale, automation marketing et développement d'un business model avec IA",
+      short: "Growth hacking, marketing automation, performance commerciale et entrepreneuriat avec levée de fonds et IA",
       audience: "Manager/Expert", durationDays: 8,
       modules: [
-        { id: "m1", title: "Growth Hacking & Acquisition Scalable", bullets: [
-          "Techniques de croissance rapide (viral loops, referral programs)",
-          "Framework AARRR (Acquisition, Activation, Rétention, Referral, Revenue)",
-          "IA pour prédire le LTV client et optimiser le CAC"
+        { id: "m1", title: "Growth Hacking & Acquisition Rapide", bullets: [
+          "Méthodologie growth hacking: pirate metrics (AARRR - Acquisition, Activation, Rétention, Revenus, Référence)",
+          "Techniques de croissance rapide: viral loops, referral programs, product-led growth",
+          "IA pour tester rapidement des hypothèses et optimiser les canaux d'acquisition"
         ]},
-        { id: "m2", title: "Marketing Automation & Lead Nurturing", bullets: [
-          "Mettre en place des workflows d'automatisation marketing (HubSpot, Marketo)",
-          "Email marketing avancé et segmentation comportementale",
-          "Chatbots IA pour qualifier les leads et accélérer les ventes"
+        { id: "m2", title: "Marketing Automation & CRM Avancé", bullets: [
+          "Mettre en place une plateforme de marketing automation (HubSpot, Marketo, Salesforce)",
+          "Lead nurturing: séquences d'emails automatisées, scoring, segmentation dynamique",
+          "IA pour personnaliser les parcours clients et maximiser les conversions"
         ]},
-        { id: "m3", title: "Stratégie Commerciale & Account Management", bullets: [
-          "Élaborer une stratégie de développement commercial (B2B, B2C, B2B2C)",
-          "Piloter une équipe commerciale et définir les quotas",
-          "Account-based marketing (ABM) et gestion des grands comptes"
+        { id: "m3", title: "Performance Commerciale & Sales Enablement", bullets: [
+          "Structurer un processus commercial efficace: qualification, discovery, proposition, closing",
+          "Outils de sales enablement: CRM, sales playbooks, battle cards, ROI calculators",
+          "IA pour prédire les deals à risque et recommander les actions de closing"
         ]},
-        { id: "m4", title: "Business Model & Monétisation", bullets: [
-          "Concevoir un business model innovant (freemium, abonnement, marketplace)",
-          "Stratégies de pricing et optimisation de la monétisation",
-          "Mesurer la rentabilité par segment et produit"
+        { id: "m4", title: "Entrepreneuriat & Business Model Canvas", bullets: [
+          "Méthodologie Lean Startup: build-measure-learn, MVP, pivot",
+          "Business Model Canvas: proposition de valeur, segments clients, canaux, revenus",
+          "IA pour valider rapidement les hypothèses business et identifier les opportunités"
         ]},
-        { id: "m5", title: "Capstone: Plan de Croissance 12 Mois", bullets: [
-          "Élaborer un plan de croissance marketing et commercial sur 12 mois",
-          "Budgets, canaux d'acquisition, KPIs et projections de revenus",
-          "Présentation devant un comité growth simulé"
+        { id: "m5", title: "Capstone: Lancement de Produit & Levée de Fonds", bullets: [
+          "Créer un plan de lancement complet pour un nouveau produit/service",
+          "Préparer un pitch deck investisseurs et simuler une levée de fonds (seed, série A)",
+          "Présenter devant un jury d'investisseurs et validation par un entrepreneur/VC"
         ]}
       ],
       pricing: { pack_fcfa: 267970, modules_count: 5, module_fcfa: 69672 },
@@ -1066,41 +1064,41 @@ const DIGISCHOOL_CATALOG = {
     {
       id: "p10-leadership", pillarId: "p10", pillarName: "Marketing, Commercial & Growth + Culture Entrepreneuriale", pillarIcon: "💡",
       level: "Leadership", title: "Marketing, Commercial & Growth + Culture Entrepreneuriale — Leadership",
-      short: "Direction marketing et commerciale, stratégie de marque, expansion internationale et entrepreneuriat stratégique",
+      short: "Chief Marketing Officer, stratégie go-to-market groupe, scaling international et direction générale startup avec IA",
       audience: "DG/Directeur", durationDays: 10,
       modules: [
-        { id: "m1", title: "Stratégie Marketing & Positionnement de Marque", bullets: [
-          "Définir la stratégie marketing long terme et le positionnement de marque",
-          "Construire une marque forte et différenciée (brand equity)",
-          "IA pour analyser la perception de marque et ajuster le positionnement"
+        { id: "m1", title: "Vision Chief Marketing Officer (CMO)", bullets: [
+          "Rôle du CMO: piloter la stratégie marketing, branding, acquisition et rétention clients",
+          "Structurer une direction marketing groupe: équipes, budget, gouvernance, OKRs",
+          "IA pour identifier les opportunités de croissance et optimiser le marketing mix"
         ]},
-        { id: "m2", title: "Direction Commerciale & Pilotage des Ventes", bullets: [
-          "Organiser et piloter une direction commerciale multi-canaux",
-          "Définir la stratégie de go-to-market et les priorités de développement",
-          "Tableaux de bord commerciaux et prévisions de revenus"
+        { id: "m2", title: "Stratégie Go-to-Market & Expansion Internationale", bullets: [
+          "Élaborer une stratégie go-to-market pour de nouveaux marchés géographiques ou segments",
+          "Analyse de marché: taille, concurrence, barrières à l'entrée, partenaires locaux",
+          "IA pour prédire le potentiel de marché et adapter l'offre aux spécificités locales"
         ]},
-        { id: "m3", title: "Expansion Internationale & Market Entry", bullets: [
-          "Élaborer une stratégie d'expansion internationale (nouveaux marchés)",
-          "Études de marché, adaptation produit et stratégies d'entrée",
-          "Pilotage des opérations multi-pays et gestion des équipes locales"
+        { id: "m3", title: "Scaling Commercial & Sales Operations", bullets: [
+          "Industrialiser le processus commercial: playbooks, formation, outils, KPIs",
+          "Construire une équipe commerciale scalable: recrutement, onboarding, performance management",
+          "IA pour forecaster les ventes, optimiser les territoires et la rémunération variable"
         ]},
-        { id: "m4", title: "Culture Entrepreneuriale & Intrapreneuriat", bullets: [
-          "Installer une culture entrepreneuriale dans l'organisation",
-          "Encourager l'intrapreneuriat et l'innovation bottom-up",
-          "Frameworks d'innovation (Lean Startup, Design Thinking, Agile)"
+        { id: "m4", title: "Brand Strategy & Reputation Management", bullets: [
+          "Élaborer une stratégie de marque forte: positionnement, identité, storytelling",
+          "Gérer la réputation de marque: monitoring, crises, ambassadeurs, influence",
+          "IA pour analyser le sentiment de marque en temps réel et adapter la communication"
         ]},
-        { id: "m5", title: "Levée de Fonds & Pitch Investisseurs", bullets: [
-          "Préparer une levée de fonds (seed, Series A, B, C)",
-          "Construire un pitch deck et storytelling pour investisseurs",
-          "Négociation des termes (term sheet, valorisation, dilution)"
+        { id: "m5", title: "Direction Générale Startup & Levée Série B+", bullets: [
+          "Piloter une startup en hypercroissance: product-market fit, unit economics, scaling",
+          "Préparer des levées de fonds avancées (série B, C, D): valorisation, dilution, term sheets",
+          "IA pour modéliser la croissance future et convaincre les investisseurs institutionnels"
         ]},
-        { id: "m6", title: "Board Presentation: Marketing & Growth Strategy", bullets: [
-          "Préparer une présentation marketing et croissance pour le Conseil",
-          "Défendre les investissements marketing et démontrer le ROI",
-          "Simulation de comité growth avec jury d'experts CMO/CGO"
+        { id: "m6", title: "Board Pack Marketing & Simulation Comex", bullets: [
+          "Préparer des présentations exécutives sur la performance marketing et commerciale",
+          "Business cases marketing: investissements acquisition, expansion géographique, M&A",
+          "Simulation comité exécutif: défendre un budget marketing sous pression du CFO/board"
         ]}
       ],
-      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69672 },
+      pricing: { pack_fcfa: 321564, modules_count: 6, module_fcfa: 69907 },
       status: "V2", tags: ["IA embarquée", "APC", "Day-1 Operational"]
     }
   ]
