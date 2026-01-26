@@ -860,7 +860,15 @@
       <!-- Catalogue Formations -->
       <section style="margin: var(--space-12) 0;">
         <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Catalogue de Formations B2B</h2>
+        <p style="text-align: center; color: var(--ds-gray); margin-bottom: var(--space-8);">30 parcours professionnels conçus pour répondre à vos enjeux métier. Tarification sur devis, adaptée à vos besoins.</p>
         
+        <div class="catalogue-grid" id="b2b-courses-container">
+          <!-- Courses injected by JS -->
+        </div>
+      </section>
+      
+      <!-- OLD HARDCODED (HIDDEN - FOR REFERENCE) -->
+      <div style="display:none;">
         <div class="catalogue-grid">
           
           <!-- Formation 1 -->
@@ -1391,14 +1399,14 @@
               </a>
             </div>
           </div>
-          
         </div>
-      </section>
+      </div>
       
     </div>
   </div>
   
   <!-- Scripts -->
+  <script src="/assets/catalog-30.js"></script>
   <script src="/assets/global-components-v2-production.js"></script>
   <script src="/assets/chatbot-manager-v2.js"></script>
   
@@ -1426,6 +1434,91 @@
       
       // Toggle current accordion
       content.classList.toggle('active');
+    }
+    
+    // ======== INJECT 30 COURSES FROM CATALOG-30.JS ========
+    function renderB2BCatalog() {
+      if (!window.DIGISCHOOL_CATALOG) {
+        console.error('Catalog not loaded');
+        return;
+      }
+      
+      const container = document.getElementById('b2b-courses-container');
+      if (!container) return;
+      
+      const catalog = window.DIGISCHOOL_CATALOG;
+      
+      // Sort: OUVERT first, then PREINSCRIPTION, then V2, then by pillar + level
+      const statusOrder = { 'OUVERT': 1, 'PREINSCRIPTION': 2, 'V2': 3 };
+      const levelOrder = { 'Fondation': 1, 'Maîtrise': 2, 'Leadership': 3 };
+      
+      const sorted = catalog.courses.slice().sort((a, b) => {
+        if (statusOrder[a.status] !== statusOrder[b.status]) {
+          return statusOrder[a.status] - statusOrder[b.status];
+        }
+        if (a.pillarId !== b.pillarId) {
+          return a.pillarId.localeCompare(b.pillarId);
+        }
+        return levelOrder[a.level] - levelOrder[b.level];
+      });
+      
+      container.innerHTML = sorted.map(course => {
+        const statusBadge = course.status === 'OUVERT' 
+          ? '<span style="display:inline-block;background:rgba(38,166,154,0.1);color:#26A69A;padding:4px 12px;border-radius:999px;font-size:0.875rem;font-weight:700;margin-bottom:12px;">✓ Disponible sur devis</span>'
+          : course.status === 'PREINSCRIPTION'
+          ? '<span style="display:inline-block;background:rgba(30,136,229,0.1);color:#1E88E5;padding:4px 12px;border-radius:999px;font-size:0.875rem;font-weight:700;margin-bottom:12px;">📝 Préinscription entreprise</span>'
+          : '<span style="display:inline-block;background:rgba(126,87,194,0.1);color:#7E57C2;padding:4px 12px;border-radius:999px;font-size:0.875rem;font-weight:700;margin-bottom:12px;">🚀 Bientôt (V2)</span>';
+        
+        const modulesHtml = course.modules.map((mod, idx) => `
+          <div class="day-item">
+            <strong>${mod.title}</strong>
+            <ul>
+              ${mod.bullets.map(b => `<li>${b}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('');
+        
+        return `
+          <div class="catalogue-card">
+            ${statusBadge}
+            <h3>${course.pillarIcon} ${course.pillarName} — ${course.level}</h3>
+            <p>${course.short}</p>
+            <div class="catalogue-meta">
+              <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E88E5" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${course.durationDays} jours</span>
+              <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Intra / Inter / Bootcamp</span>
+              <span style="color:var(--ds-gray);font-size:0.875rem;">Public: ${course.audience}</span>
+            </div>
+            
+            <div class="programme-accordion">
+              <button class="accordion-toggle" onclick="toggleProgramme('${course.id}')">
+                <span>📋 Voir le Programme (${course.modules.length} modules)</span>
+                <span>▼</span>
+              </button>
+              <div class="accordion-content" id="programme-${course.id}">
+                ${modulesHtml}
+              </div>
+            </div>
+            
+            <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
+              <a href="/contact.html?source=companies&course=${course.id}" class="btn btn-secondary" style="font-size: var(--text-base);">
+                💼 Demander une proposition sous 72h
+              </a>
+            </div>
+            
+            <div style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid rgba(0,0,0,0.06);font-size:0.875rem;color:var(--ds-gray);">
+              <strong>Formats disponibles :</strong> Intra-entreprise • Inter-entreprises • Bootcamp intensif<br>
+              <strong>Tarification :</strong> Sur devis selon effectif, durée, niveau et options (certification, coaching, cas métier)
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    // Render on page load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', renderB2BCatalog);
+    } else {
+      renderB2BCatalog();
     }
   </script>
   
