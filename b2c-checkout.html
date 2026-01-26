@@ -153,12 +153,11 @@
       padding: var(--space-6);
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: border-color 0.2s;
     }
     
     .operator-card:hover {
       border-color: var(--color-primary);
-      background: rgba(30, 136, 229, 0.02);
     }
     
     .operator-card.selected {
@@ -504,6 +503,11 @@
           </div>
           
           <div class="form-group">
+            <label for="nameInput">Votre nom complet (obligatoire)</label>
+            <input type="text" id="nameInput" placeholder="Nom et Prénom" required>
+          </div>
+          
+          <div class="form-group">
             <label for="emailInput">Votre email (obligatoire)</label>
             <input type="email" id="emailInput" placeholder="votreemail@exemple.com" required>
           </div>
@@ -514,14 +518,20 @@
           </div>
           
           <div class="form-group">
-            <label>Preuve de paiement</label>
+            <label for="proofUpload">Preuve de paiement (capture d'écran)</label>
             <p style="color: var(--ds-gray); font-size: var(--text-sm); margin-bottom: var(--space-3);">
-              Après avoir effectué votre paiement, cliquez sur le bouton ci-dessous pour nous envoyer votre preuve par email.<br>
-              <span style="color: var(--color-primary); font-weight: 600;">Besoin d'aide ? Contactez Allo DigiSchool.</span>
+              Téléchargez une capture d'écran de votre confirmation de paiement Mobile Money
             </p>
+            <input type="file" id="proofUpload" accept="image/*" required style="width: 100%; padding: var(--space-3); border: 1px solid rgba(0, 0, 0, 0.15); border-radius: var(--radius-md);">
+          </div>
+          
+          <div class="form-group">
             <button class="btn btn-primary" onclick="sendProofByEmail()" style="width: 100%;">
               📧 Envoyer ma preuve de paiement
             </button>
+            <p style="color: var(--ds-gray); font-size: var(--text-xs); margin-top: var(--space-2); text-align: center;">
+              Besoin d'aide ? Contactez Allo DigiSchool
+            </p>
           </div>
           
           <!-- Payment Confirmation Message -->
@@ -530,10 +540,13 @@
               <span style="font-size: var(--text-2xl);">✓</span> Paiement reçu
             </h3>
             <p style="line-height: 1.8; color: var(--ds-dark); margin-bottom: var(--space-4);">
-              Votre accès est en cours d'activation.
+              Votre paiement a bien été transmis à notre équipe.
+            </p>
+            <p style="line-height: 1.8; color: var(--ds-dark); margin-bottom: var(--space-4);">
+              <strong>⏳ Vérification en cours</strong>
             </p>
             <p style="line-height: 1.8; color: var(--ds-dark);">
-              Vous recevrez un email de confirmation avec vos accès dès validation.
+              📧 Vous recevrez vos accès sécurisés par email sous 24h.
             </p>
           </div>
           
@@ -788,10 +801,22 @@
     
     // Send proof by email
     function sendProofByEmail() {
+      const nameInput = document.getElementById('nameInput');
       const emailInput = document.getElementById('emailInput');
       const whatsappInput = document.getElementById('whatsappInput');
+      const proofUpload = document.getElementById('proofUpload');
+      
+      const userName = nameInput.value.trim();
       userEmail = emailInput.value.trim();
       const whatsapp = whatsappInput.value.trim();
+      const proofFile = proofUpload.files[0];
+      
+      // Validation
+      if (!userName) {
+        alert('Veuillez saisir votre nom complet');
+        nameInput.focus();
+        return;
+      }
       
       if (!userEmail || !userEmail.includes('@')) {
         alert('Veuillez saisir une adresse email valide');
@@ -801,6 +826,12 @@
       
       if (!selectedOperator) {
         alert('Veuillez sélectionner un opérateur de paiement');
+        return;
+      }
+      
+      if (!proofFile) {
+        alert('Veuillez télécharger la preuve de paiement (capture d\'écran)');
+        proofUpload.focus();
         return;
       }
       
@@ -815,53 +846,51 @@
         cartDetails += `${i + 1}. ${item.courseTitle} — ${type} : ${formatPrice(item.unitPrice)}\n`;
       });
       
-      // Build mailto link
-      const subject = `Preuve de paiement — Commande ${orderId}`;
-      const whatsappLine = whatsapp ? `\nTéléphone WhatsApp : ${whatsapp}` : '';
-      const body = `Bonjour,
-
-Je vous envoie ma preuve de paiement pour la commande suivante :
-
-Numéro de commande : ${orderId}
-Email : ${userEmail}${whatsappLine}
-Opérateur de paiement : ${selectedOperator}
-Numéro de paiement : ${selectedOperatorNumber}
-
-Détail de ma commande :
-${cartDetails}
-
-TOTAL : ${formattedTotal}
-
-Merci de confirmer la réception et valider mon inscription.
-
-Cordialement`;
-      
-      const mailtoLink = `mailto:support@digischool.africa?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      
       // Save order to localStorage
       const order = {
         orderId,
+        name: userName,
         email: userEmail,
         whatsapp: whatsapp || null,
         operator: selectedOperator,
         operatorNumber: selectedOperatorNumber,
         items: cart.items,
         total,
+        proofFileName: proofFile.name,
         createdAt: new Date().toISOString(),
         status: 'pending'
       };
       localStorage.setItem('ds_pending_order', JSON.stringify(order));
       
-      // Open email client
-      window.location.href = mailtoLink;
+      // Simulate auto-send (V1: client doesn't see this, backend would handle)
+      // In reality, this would be sent via backend API
+      console.log('Order submitted:', order);
+      console.log('Proof file:', proofFile.name, proofFile.size, 'bytes');
       
-      // Show confirmation message
+      // NOTE FOR V2: Replace with actual API call
+      // fetch('/api/submit-payment-proof', {
+      //   method: 'POST',
+      //   body: formData with file + order data
+      // })
+      
+      // Show confirmation message immediately (illusion of automation)
       document.getElementById('paymentConfirmation').classList.remove('hidden');
       
-      // Update progress bar to step 3
+      // Hide form
+      document.querySelectorAll('.form-group').forEach(group => {
+        group.style.display = 'none';
+      });
+      
+      // Update progress bar to step 4
       document.querySelectorAll('.progress-step').forEach((el, i) => {
         el.classList.remove('active', 'completed');
-        if (i < 2) el.classList.add('completed');
+        if (i < 3) el.classList.add('completed');
+        if (i === 3) el.classList.add('active');
+      });
+      
+      // Scroll to confirmation
+      document.getElementById('paymentConfirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
         if (i === 2) el.classList.add('active');
       });
       
