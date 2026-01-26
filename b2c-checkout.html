@@ -459,20 +459,16 @@
           </p>
           <div class="operators-grid" id="operatorGrid">
             <div class="operator-card" data-operator="Orange" onclick="selectOperator('Orange', '+2250714678289')">
-              <img src="/assets/pay-orange.svg" alt="Orange Money" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
-              <div style="font-weight: 600; margin-top: var(--space-2);">Orange Money</div>
+              <img src="/assets/payments/orange-money.svg" alt="Orange Money" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
             <div class="operator-card" data-operator="MTN" onclick="selectOperator('MTN', '+2250665231403')">
-              <img src="/assets/pay-mtn.svg" alt="MTN Mobile Money" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
-              <div style="font-weight: 600; margin-top: var(--space-2);">MTN Mobile Money</div>
+              <img src="/assets/payments/mtn-money.svg" alt="MTN Mobile Money" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
             <div class="operator-card" data-operator="Moov" onclick="selectOperator('Moov', '+2250151666801')">
-              <img src="/assets/pay-moov.svg" alt="Moov Money" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
-              <div style="font-weight: 600; margin-top: var(--space-2);">Moov Money</div>
+              <img src="/assets/payments/moov-money.svg" alt="Moov Money" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
             <div class="operator-card" data-operator="Wave" onclick="selectOperator('Wave', '+2250151664653')">
-              <img src="/assets/pay-wave.svg" alt="Wave" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
-              <div style="font-weight: 600; margin-top: var(--space-2);">Wave</div>
+              <img src="/assets/payments/wave.svg" alt="Wave" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
           </div>
           
@@ -574,39 +570,37 @@
     
     // Initialize checkout
     function initCheckout() {
-      // Fallback: handle legacy URL params
+      // Check DS_LAST_ORDER first
+      const lastOrder = localStorage.getItem('DS_LAST_ORDER');
       const urlParams = new URLSearchParams(window.location.search);
-      const courseParam = urlParams.get('course');
-      const typeParam = urlParams.get('type');
+      const orderIdParam = urlParams.get('order');
       
-      let cart = CartManager.getCart();
-      
-      // If cart is empty but URL has params, import them
-      if ((!cart.items || cart.items.length === 0) && courseParam && typeParam) {
-        CartManager.addItem(courseParam, typeParam);
-        cart = CartManager.getCart();
-      }
-      
-      if (!cart.items || cart.items.length === 0) {
-        showEmptyCart();
+      if (!lastOrder) {
+        showMissingParams();
         return;
       }
       
-      // Check confirmation lock
-      const isConfirmed = localStorage.getItem('DS_CHECKOUT_LOCK_V1');
-      if (isConfirmed !== 'CONFIRMED') {
-        showConfirmationRequired();
+      const order = JSON.parse(lastOrder);
+      
+      // Validate order matches URL param if present
+      if (orderIdParam && order.orderId !== orderIdParam) {
+        showMissingParams();
         return;
       }
       
+      // Set orderId globally
+      orderId = order.orderId;
+      
+      // Load order into current display
       renderStep1();
       goToStep(1);
     }
     
-    // Show confirmation required message
-    function showConfirmationRequired() {
+    // Show missing params message
+    function showMissingParams() {
       document.getElementById('emptyCart').classList.add('hidden');
       document.querySelectorAll('.checkout-step').forEach(step => step.classList.add('hidden'));
+      document.getElementById('progressBar').classList.add('hidden');
       
       const container = document.querySelector('.assessment-container');
       const warningDiv = document.createElement('div');
@@ -614,17 +608,20 @@
       warningDiv.style.textAlign = 'center';
       warningDiv.innerHTML = `
         <h2 style="color: var(--color-primary); margin-bottom: var(--space-6);">
-          ⚠️ Veuillez confirmer votre commande
+          ⚠️ Paramètres manquants
         </h2>
         <p style="color: var(--ds-gray); font-size: var(--text-lg); margin-bottom: var(--space-8);">
-          Vous devez d'abord confirmer votre panier avant de procéder au paiement.
+          Aucune commande en cours. Veuillez retourner au panier pour confirmer votre sélection.
         </p>
-        <a href="/b2c-cart.html" class="btn btn-primary" style="font-size: var(--text-lg); padding: var(--space-4) var(--space-8);">
-          Revenir au panier
-        </a>
+        <div style="display: flex; gap: var(--space-4); justify-content: center;">
+          <a href="/b2c-cart.html" class="btn btn-primary">Voir mon panier</a>
+          <a href="/b2c.html" class="btn btn-secondary">Retour au catalogue</a>
+        </div>
       `;
       container.appendChild(warningDiv);
     }
+    
+    // Remove old showConfirmationRequired
     
     // Show empty cart
     function showEmptyCart() {
@@ -635,7 +632,7 @@
     
     // Render Step 1: Order Summary
     function renderStep1() {
-      const cart = CartManager.getCart();
+      const order = JSON.parse(localStorage.getItem('DS_LAST_ORDER'));
       const container = document.getElementById('cartContent');
       
       let html = '<table class="cart-table"><thead><tr>';
@@ -645,7 +642,7 @@
       html += '<th>Action</th>';
       html += '</tr></thead><tbody>';
       
-      cart.items.forEach((item, index) => {
+      order.items.forEach((item, index) => {
         const typeBadge = item.itemType === 'pack' 
           ? '<span class="item-type-badge badge-pack">Pack Complet</span>'
           : `<span class="item-type-badge badge-module">${item.moduleTitle || 'Module'}</span>`;
@@ -664,8 +661,7 @@
     
     // Render Step 2: Proforma
     function renderStep2() {
-      const cart = CartManager.getCart();
-      const total = CartManager.getTotal();
+      const order = JSON.parse(localStorage.getItem('DS_LAST_ORDER'));
       const container = document.getElementById('proformaContent');
       
       let html = '<table class="cart-table"><thead><tr>';
@@ -674,7 +670,7 @@
       html += '<th>Prix</th>';
       html += '</tr></thead><tbody>';
       
-      cart.items.forEach((item) => {
+      order.items.forEach((item) => {
         const typeBadge = item.itemType === 'pack' 
           ? '<span class="item-type-badge badge-pack">Pack Complet</span>'
           : `<span class="item-type-badge badge-module">${item.moduleTitle || 'Module'}</span>`;
@@ -689,7 +685,7 @@
       html += '</tbody></table>';
       
       html += '<div class="total-section"><div class="total-row">';
-      html += `<span>TOTAL (Hors TVA)</span><span>${formatPrice(total)}</span>`;
+      html += `<span>TOTAL (Hors TVA)</span><span>${formatPrice(order.total)}</span>`;
       html += '</div></div>';
       
       container.innerHTML = html;
@@ -760,12 +756,14 @@
       const total = CartManager.getTotal();
       const formattedTotal = formatPrice(total);
       
+      const order = JSON.parse(localStorage.getItem('DS_LAST_ORDER'));
+      const formattedTotal2 = formatPrice(order.total);
       instructionsText.innerHTML = `
         <strong>1.</strong> Composez le code de ${operator} sur votre téléphone<br>
-        <strong>2.</strong> Effectuez un transfert de <strong style="color: var(--color-primary); font-size: var(--text-xl);">${formattedTotal}</strong><br>
+        <strong>2.</strong> Effectuez un transfert de <strong style="color: var(--color-primary); font-size: var(--text-xl);">${formattedTotal2}</strong><br>
         <strong>3.</strong> Vers le numéro ci-dessus (déjà copié)<br>
         <strong>4.</strong> Prenez une capture d'écran de la confirmation<br>
-        <strong>5.</strong> Envoyez-nous votre preuve via le bouton ci-dessous
+        <strong>5.</strong> Téléchargez votre preuve ci-dessous
       `;
       
       instructionsDiv.classList.remove('hidden');

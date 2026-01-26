@@ -184,13 +184,13 @@
   <div class="cart-nav">
     <div class="cart-nav-container">
       <div class="progress-mini">
-        <span class="progress-mini-step">Catalogue</span>
+        <span class="progress-mini-step completed">Catalogue</span>
         <span class="progress-mini-arrow">→</span>
-        <span class="progress-mini-step active">Panier</span>
+        <span class="progress-mini-step active" id="stepPanier">Panier</span>
+        <span class="progress-mini-arrow">→</span>
+        <span class="progress-mini-step" id="stepConfirmation">Confirmation</span>
         <span class="progress-mini-arrow">→</span>
         <span class="progress-mini-step">Paiement</span>
-        <span class="progress-mini-arrow">→</span>
-        <span class="progress-mini-step">Confirmation</span>
       </div>
     </div>
   </div>
@@ -208,6 +208,23 @@
       <!-- Cart Content -->
       <div id="cartContent" class="cart-card">
         <!-- Populated by JS -->
+      </div>
+      
+      <!-- Proforma Section (hidden initially) -->
+      <div id="proformaSection" class="cart-card" style="display: none;">
+        <h2 style="margin-bottom: var(--space-6); color: var(--color-primary);">
+          📄 Facture Proforma
+        </h2>
+        <div style="background: rgba(30, 136, 229, 0.05); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
+          <p style="font-size: var(--text-sm); color: var(--ds-gray); margin-bottom: var(--space-2);">Numéro de commande</p>
+          <p id="proformaOrderId" style="font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);"></p>
+          <p style="font-size: var(--text-xs); color: var(--ds-gray); margin-top: var(--space-2);">Date: <span id="proformaDate"></span></p>
+        </div>
+        <div id="proformaContent"></div>
+        <div style="margin-top: var(--space-8); display: flex; gap: var(--space-4); justify-content: space-between; flex-wrap: wrap;">
+          <button class="btn btn-secondary" onclick="backToCart()">← Modifier le panier</button>
+          <button class="btn btn-primary" onclick="proceedToPayment()">Procéder au paiement →</button>
+        </div>
       </div>
       
       <!-- Empty State -->
@@ -288,10 +305,99 @@
       html += '<button class="btn btn-secondary" onclick="clearCart()">Vider le panier</button>';
       html += ' <a href="/b2c.html" class="btn btn-secondary">Ajouter d\'autres formations</a>';
       html += '</div>';
-      html += '<button class="btn btn-primary" onclick="confirmAndCheckout()">Confirmer et passer au paiement</button>';
+      html += '<button class="btn btn-primary" onclick="confirmChoices()">Confirmer mes choix →</button>';
       html += '</div>';
       
       container.innerHTML = html;
+    }
+    
+    function confirmChoices() {
+      const cart = CartManager.getCart();
+      if (!cart.items || cart.items.length === 0) {
+        alert('Votre panier est vide');
+        return;
+      }
+      
+      // Generate Order ID
+      const orderId = OrderManager.generateOrderId();
+      const total = cart.items.reduce((sum, item) => sum + item.unitPrice, 0);
+      
+      // Save to localStorage
+      const order = {
+        orderId,
+        createdAt: new Date().toISOString(),
+        items: cart.items,
+        subtotal: total,
+        fees: 0,
+        total,
+        currency: 'XOF',
+        customerEmail: ''
+      };
+      localStorage.setItem('DS_LAST_ORDER', JSON.stringify(order));
+      
+      // Show proforma
+      showProforma(order);
+    }
+    
+    function showProforma(order) {
+      // Hide cart, show proforma
+      document.getElementById('cartContent').style.display = 'none';
+      document.getElementById('proformaSection').style.display = 'block';
+      
+      // Update progress bar
+      document.getElementById('stepPanier').classList.remove('active');
+      document.getElementById('stepPanier').classList.add('completed');
+      document.getElementById('stepConfirmation').classList.add('active');
+      
+      // Fill proforma
+      document.getElementById('proformaOrderId').textContent = order.orderId;
+      document.getElementById('proformaDate').textContent = new Date(order.createdAt).toLocaleDateString('fr-FR');
+      
+      const container = document.getElementById('proformaContent');
+      let html = '<table class="cart-table"><thead><tr>';
+      html += '<th>Formation</th>';
+      html += '<th>Type</th>';
+      html += '<th>Prix</th>';
+      html += '</tr></thead><tbody>';
+      
+      order.items.forEach((item) => {
+        const badge = item.itemType === 'pack' 
+          ? '<span class="item-badge badge-pack">Pack Complet</span>'
+          : `<span class="item-badge badge-module">${item.moduleTitle || 'Module'}</span>`;
+        
+        html += `<tr>
+          <td><strong>${item.courseTitle}</strong><br><small style="color: var(--ds-gray);">${item.duration}</small></td>
+          <td>${badge}</td>
+          <td><strong>${formatPrice(item.unitPrice)}</strong></td>
+        </tr>`;
+      });
+      
+      html += '</tbody></table>';
+      html += '<div style="background: rgba(30, 136, 229, 0.05); padding: var(--space-6); border-radius: var(--radius-lg); margin: var(--space-6) 0;">';
+      html += '<div style="display: flex; justify-content: space-between; align-items: center; font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">';
+      html += `<span>TOTAL (Hors TVA)</span><span>${formatPrice(order.total)}</span>`;
+      html += '</div></div>';
+      
+      container.innerHTML = html;
+    }
+    
+    function backToCart() {
+      document.getElementById('proformaSection').style.display = 'none';
+      document.getElementById('cartContent').style.display = 'block';
+      
+      // Update progress bar
+      document.getElementById('stepConfirmation').classList.remove('active');
+      document.getElementById('stepPanier').classList.remove('completed');
+      document.getElementById('stepPanier').classList.add('active');
+    }
+    
+    function proceedToPayment() {
+      const order = JSON.parse(localStorage.getItem('DS_LAST_ORDER'));
+      if (!order) {
+        alert('Erreur: commande introuvable');
+        return;
+      }
+      window.location.href = `/b2c-checkout.html?order=${order.orderId}`;
     }
     
     function removeItem(index) {
@@ -311,16 +417,6 @@
         CartManager.clear();
         showEmptyCart();
       }
-    }
-    
-    function confirmAndCheckout() {
-      // Set confirmation lock
-      localStorage.setItem('DS_CHECKOUT_LOCK_V1', 'CONFIRMED');
-      window.location.href = '/b2c-checkout.html';
-    }
-    
-    function goToCheckout() {
-      window.location.href = '/b2c-checkout.html';
     }
     
     function formatPrice(price) {

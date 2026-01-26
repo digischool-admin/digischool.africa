@@ -1,0 +1,13 @@
+<svg width="120" height="60" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="60" rx="8" fill="white"/>
+  <rect x="6" y="6" width="36" height="48" rx="6" fill="#5DADE2"/>
+  <g transform="translate(24, 30)">
+    <ellipse cx="0" cy="2" rx="8" ry="10" fill="white"/>
+    <ellipse cx="-2" cy="0" rx="1.5" ry="1.5" fill="#000"/>
+    <ellipse cx="2" cy="0" rx="1.5" ry="1.5" fill="#000"/>
+    <path d="M-1.5,3 Q0,4.5 1.5,3" stroke="#FF9800" stroke-width="1" fill="none"/>
+    <ellipse cx="-6" cy="4" rx="2" ry="5" fill="white"/>
+    <ellipse cx="6" cy="4" rx="2" ry="5" fill="white"/>
+  </g>
+  <text x="65" y="32" text-anchor="start" fill="#5DADE2" font-size="16" font-weight="700" font-family="Arial">Wave</text>
+</svg>
