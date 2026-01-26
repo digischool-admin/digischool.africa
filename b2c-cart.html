@@ -252,7 +252,8 @@
       const cart = CartManager.getCart();
       const container = document.getElementById('cartContent');
       
-      let html = '<h2 style="margin-bottom: var(--space-6);">Votre sélection</h2>';
+      let html = '<h2 style="margin-bottom: var(--space-6);">Résumé de votre commande (Proforma)</h2>';
+      html += '<p style="color: var(--ds-gray); margin-bottom: var(--space-6);">Ce récapitulatif sert de proforma. Vous confirmerez avant paiement.</p>';
       html += '<table class="cart-table"><thead><tr>';
       html += '<th>Formation</th>';
       html += '<th>Type</th>';
@@ -275,12 +276,19 @@
       
       html += '</tbody></table>';
       
+      // Total section
+      const total = cart.items.reduce((sum, item) => sum + item.unitPrice, 0);
+      html += '<div style="background: rgba(30, 136, 229, 0.05); padding: var(--space-6); border-radius: var(--radius-lg); margin: var(--space-6) 0;">';
+      html += '<div style="display: flex; justify-content: space-between; align-items: center; font-size: var(--text-2xl); font-weight: 700; color: var(--color-primary);">';
+      html += `<span>TOTAL (Hors TVA)</span><span>${formatPrice(total)}</span>`;
+      html += '</div></div>';
+      
       html += '<div class="cart-actions">';
       html += '<div>';
       html += '<button class="btn btn-secondary" onclick="clearCart()">Vider le panier</button>';
       html += ' <a href="/b2c.html" class="btn btn-secondary">Ajouter d\'autres formations</a>';
       html += '</div>';
-      html += '<button class="btn btn-primary" onclick="goToCheckout()">Confirmer et payer</button>';
+      html += '<button class="btn btn-primary" onclick="confirmAndCheckout()">Confirmer et passer au paiement</button>';
       html += '</div>';
       
       container.innerHTML = html;
@@ -303,6 +311,12 @@
         CartManager.clear();
         showEmptyCart();
       }
+    }
+    
+    function confirmAndCheckout() {
+      // Set confirmation lock
+      localStorage.setItem('DS_CHECKOUT_LOCK_V1', 'CONFIRMED');
+      window.location.href = '/b2c-checkout.html';
     }
     
     function goToCheckout() {

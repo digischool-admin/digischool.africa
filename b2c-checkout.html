@@ -459,33 +459,19 @@
           </p>
           <div class="operators-grid" id="operatorGrid">
             <div class="operator-card" data-operator="Orange" onclick="selectOperator('Orange', '+2250714678289')">
-              <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#FF6600"/>
-              <text x="30" y="38" text-anchor="middle" fill="white" font-size="16" font-weight="700">Orange</text></svg>
+              <img src="/assets/pay-orange.svg" alt="Orange Money" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
               <div style="font-weight: 600; margin-top: var(--space-2);">Orange Money</div>
             </div>
             <div class="operator-card" data-operator="MTN" onclick="selectOperator('MTN', '+2250665231403')">
-              <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#FFCC00"/>
-              <text x="30" y="38" text-anchor="middle" fill="#000" font-size="16" font-weight="700">MTN</text></svg>
+              <img src="/assets/pay-mtn.svg" alt="MTN Mobile Money" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
               <div style="font-weight: 600; margin-top: var(--space-2);">MTN Mobile Money</div>
             </div>
             <div class="operator-card" data-operator="Moov" onclick="selectOperator('Moov', '+2250151666801')">
-              <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#0099CC"/>
-              <text x="30" y="38" text-anchor="middle" fill="white" font-size="16" font-weight="700">Moov</text></svg>
+              <img src="/assets/pay-moov.svg" alt="Moov Money" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
               <div style="font-weight: 600; margin-top: var(--space-2);">Moov Money</div>
             </div>
             <div class="operator-card" data-operator="Wave" onclick="selectOperator('Wave', '+2250151664653')">
-              <svg viewBox="0 0 60 60">
-                <rect width="60" height="60" rx="8" fill="#5DADE2"/>
-                <g transform="translate(30, 30)">
-                  <!-- Wave penguin logo simplified -->
-                  <ellipse cx="0" cy="2" rx="10" ry="12" fill="white"/>
-                  <ellipse cx="-3" cy="0" rx="2" ry="2" fill="#000"/>
-                  <ellipse cx="3" cy="0" rx="2" ry="2" fill="#000"/>
-                  <path d="M-2,4 Q0,6 2,4" stroke="#FF9800" stroke-width="1.5" fill="none"/>
-                  <ellipse cx="-8" cy="5" rx="3" ry="6" fill="white"/>
-                  <ellipse cx="8" cy="5" rx="3" ry="6" fill="white"/>
-                </g>
-              </svg>
+              <img src="/assets/pay-wave.svg" alt="Wave" style="width: 80px; height: 60px; object-fit: contain; margin: 0 auto var(--space-2);">
               <div style="font-weight: 600; margin-top: var(--space-2);">Wave</div>
             </div>
           </div>
@@ -606,8 +592,38 @@
         return;
       }
       
+      // Check confirmation lock
+      const isConfirmed = localStorage.getItem('DS_CHECKOUT_LOCK_V1');
+      if (isConfirmed !== 'CONFIRMED') {
+        showConfirmationRequired();
+        return;
+      }
+      
       renderStep1();
       goToStep(1);
+    }
+    
+    // Show confirmation required message
+    function showConfirmationRequired() {
+      document.getElementById('emptyCart').classList.add('hidden');
+      document.querySelectorAll('.checkout-step').forEach(step => step.classList.add('hidden'));
+      
+      const container = document.querySelector('.assessment-container');
+      const warningDiv = document.createElement('div');
+      warningDiv.className = 'checkout-card';
+      warningDiv.style.textAlign = 'center';
+      warningDiv.innerHTML = `
+        <h2 style="color: var(--color-primary); margin-bottom: var(--space-6);">
+          ⚠️ Veuillez confirmer votre commande
+        </h2>
+        <p style="color: var(--ds-gray); font-size: var(--text-lg); margin-bottom: var(--space-8);">
+          Vous devez d'abord confirmer votre panier avant de procéder au paiement.
+        </p>
+        <a href="/b2c-cart.html" class="btn btn-primary" style="font-size: var(--text-lg); padding: var(--space-4) var(--space-8);">
+          Revenir au panier
+        </a>
+      `;
+      container.appendChild(warningDiv);
     }
     
     // Show empty cart
