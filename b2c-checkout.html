@@ -508,9 +508,15 @@
           </div>
           
           <div class="form-group">
+            <label for="whatsappInput">Téléphone WhatsApp (facultatif)</label>
+            <input type="tel" id="whatsappInput" placeholder="+225 XX XX XX XX XX">
+          </div>
+          
+          <div class="form-group">
             <label>Preuve de paiement</label>
             <p style="color: var(--ds-gray); font-size: var(--text-sm); margin-bottom: var(--space-3);">
-              Après avoir effectué votre paiement, cliquez sur le bouton ci-dessous pour nous envoyer votre preuve par email.
+              Après avoir effectué votre paiement, cliquez sur le bouton ci-dessous pour nous envoyer votre preuve par email.<br>
+              <span style="color: var(--color-primary); font-weight: 600;">Besoin d'aide ? Contactez Allo DigiSchool.</span>
             </p>
             <button class="btn btn-primary" onclick="sendProofByEmail()" style="width: 100%;">
               📧 Envoyer ma preuve de paiement
@@ -543,7 +549,10 @@
         <p style="color: var(--ds-gray); margin-bottom: var(--space-6);">
           Parcourez notre catalogue pour ajouter des formations à votre panier.
         </p>
-        <a href="/b2c.html" class="btn btn-primary">Retour au catalogue</a>
+        <div style="display: flex; gap: var(--space-4); justify-content: center;">
+          <a href="/b2c.html" class="btn btn-primary">Retour au catalogue</a>
+          <a href="/b2c-cart.html" class="btn btn-secondary">Voir mon panier</a>
+        </div>
       </div>
       
     </div>
@@ -779,7 +788,9 @@
     // Send proof by email
     function sendProofByEmail() {
       const emailInput = document.getElementById('emailInput');
+      const whatsappInput = document.getElementById('whatsappInput');
       userEmail = emailInput.value.trim();
+      const whatsapp = whatsappInput.value.trim();
       
       if (!userEmail || !userEmail.includes('@')) {
         alert('Veuillez saisir une adresse email valide');
@@ -805,12 +816,13 @@
       
       // Build mailto link
       const subject = `Preuve de paiement — Commande ${orderId}`;
+      const whatsappLine = whatsapp ? `\nTéléphone WhatsApp : ${whatsapp}` : '';
       const body = `Bonjour,
 
 Je vous envoie ma preuve de paiement pour la commande suivante :
 
 Numéro de commande : ${orderId}
-Email : ${userEmail}
+Email : ${userEmail}${whatsappLine}
 Opérateur de paiement : ${selectedOperator}
 Numéro de paiement : ${selectedOperatorNumber}
 
@@ -829,6 +841,7 @@ Cordialement`;
       const order = {
         orderId,
         email: userEmail,
+        whatsapp: whatsapp || null,
         operator: selectedOperator,
         operatorNumber: selectedOperatorNumber,
         items: cart.items,
