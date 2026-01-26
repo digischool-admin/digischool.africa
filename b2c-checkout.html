@@ -403,13 +403,13 @@
           </div>
           
           <div class="cart-actions">
-            <button class="btn btn-secondary" onclick="clearCart()">Vider le panier</button>
-            <button class="btn btn-primary" onclick="goToStep(2)">Confirmer mes choix</button>
+            <a href="/b2c-cart.html" class="btn btn-secondary">← Modifier le panier</a>
+            <button class="btn btn-primary" onclick="proceedToPayment()">Procéder au paiement →</button>
           </div>
         </div>
       </div>
       
-      <!-- STEP 2: Proforma -->
+      <!-- STEP 2: Payment -->
       <div id="step2" class="checkout-step hidden">
         <div class="checkout-card">
           <h2>
@@ -459,16 +459,16 @@
           </p>
           <div class="operators-grid" id="operatorGrid">
             <div class="operator-card" data-operator="Orange" onclick="selectOperator('Orange', '+2250714678289')">
-              <img src="/assets/payments/orange-money.svg" alt="Orange Money" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
+              <img src="/assets/payments/orange-money.svg" alt="Orange Money" onerror="this.src='/assets/img/payment-default.svg'" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
             <div class="operator-card" data-operator="MTN" onclick="selectOperator('MTN', '+2250665231403')">
-              <img src="/assets/payments/mtn-money.svg" alt="MTN Mobile Money" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
+              <img src="/assets/payments/mtn-money.svg" alt="MTN Mobile Money" onerror="this.src='/assets/img/payment-default.svg'" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
             <div class="operator-card" data-operator="Moov" onclick="selectOperator('Moov', '+2250151666801')">
-              <img src="/assets/payments/moov-money.svg" alt="Moov Money" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
+              <img src="/assets/payments/moov-money.svg" alt="Moov Money" onerror="this.src='/assets/img/payment-default.svg'" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
             <div class="operator-card" data-operator="Wave" onclick="selectOperator('Wave', '+2250151664653')">
-              <img src="/assets/payments/wave.svg" alt="Wave" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
+              <img src="/assets/payments/wave.svg" alt="Wave" onerror="this.src='/assets/img/payment-default.svg'" style="width: 120px; height: 60px; object-fit: contain; margin: 0 auto;">
             </div>
           </div>
           
@@ -689,6 +689,12 @@
       html += '</div></div>';
       
       container.innerHTML = html;
+    }
+    
+    // Proceed to payment
+    function proceedToPayment() {
+      // Skip proforma step2, go directly to payment step3
+      goToStep(3);
     }
     
     // Go to step
