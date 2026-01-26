@@ -107,7 +107,7 @@ const COURSE_CATALOG = {
 
 // Cart Manager
 const CartManager = {
-  STORAGE_KEY: 'ds_cart',
+  STORAGE_KEY: 'DS_CART_V1',
   
   init() {
     // Initialize cart if not exists
@@ -196,7 +196,7 @@ const CartManager = {
 
 // Order Manager
 const OrderManager = {
-  STORAGE_KEY: 'ds_pending_order',
+  STORAGE_KEY: 'DS_ORDER_ID_V1',
   
   createOrder() {
     const cart = CartManager.getCart();

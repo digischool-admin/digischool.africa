@@ -588,7 +588,18 @@
     
     // Initialize checkout
     function initCheckout() {
-      const cart = CartManager.getCart();
+      // Fallback: handle legacy URL params
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseParam = urlParams.get('course');
+      const typeParam = urlParams.get('type');
+      
+      let cart = CartManager.getCart();
+      
+      // If cart is empty but URL has params, import them
+      if ((!cart.items || cart.items.length === 0) && courseParam && typeParam) {
+        CartManager.addItem(courseParam, typeParam);
+        cart = CartManager.getCart();
+      }
       
       if (!cart.items || cart.items.length === 0) {
         showEmptyCart();
