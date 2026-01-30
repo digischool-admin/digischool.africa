@@ -668,7 +668,7 @@
         if (isOpen) {
           ctaButton = `<a href="javascript:void(0)" onclick="buyPack('${course.id}')" class="btn btn-primary" style="font-size: var(--text-base);">Acheter le Pack</a>`;
         } else if (course.status === 'PREINSCRIPTION') {
-          ctaButton = `<a href="/contact.html?subject=Préinscription ${encodeURIComponent(course.title)}" class="btn btn-secondary" style="font-size: var(--text-base);">Se préinscrire</a>`;
+          ctaButton = `<a href="javascript:void(0)" onclick="handlePreRegistration('${course.id}', '${course.title.replace(/'/g, "\\'")}', '${course.pillarId}', '${course.level}')" class="btn btn-secondary" style="font-size: var(--text-base);">Se préinscrire</a>`;
         } else {
           ctaButton = `<button class="btn btn-secondary" disabled style="font-size: var(--text-base); opacity: 0.5;">Bientôt</button>`;
         }
@@ -991,9 +991,107 @@
       }
     }
     
+    // Handle Pre-Registration
+    function handlePreRegistration(courseId, courseTitle, pillarId, level) {
+      // Scroll to contact form (if exists on page, otherwise redirect)
+      const contactSection = document.getElementById('contact-form');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Pre-fill form if fields exist
+        setTimeout(() => {
+          const formationInput = document.querySelector('input[name="formation"], input[placeholder*="formation"]');
+          const messageInput = document.querySelector('textarea[name="message"], textarea[placeholder*="message"]');
+          
+          if (formationInput) {
+            formationInput.value = courseTitle;
+          }
+          if (messageInput) {
+            messageInput.value = `Je souhaite être informé(e) de l'ouverture du parcours "${courseTitle}" (Niveau: ${level}, Pilier: ${pillarId}).\n\nMerci de me tenir au courant.`;
+          }
+          
+          // Show confirmation message
+          const confirmMsg = document.createElement('div');
+          confirmMsg.style.cssText = 'position: fixed; top: 80px; right: 20px; background: #26A69A; color: white; padding: 16px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 9999; font-weight: 600;';
+          confirmMsg.textContent = 'Formulaire pré-rempli ! Complétez vos coordonnées.';
+          document.body.appendChild(confirmMsg);
+          
+          setTimeout(() => confirmMsg.remove(), 4000);
+        }, 600);
+      } else {
+        // Redirect to contact page with pre-filled data
+        window.location.href = `/contact.html?subject=Préinscription&formation=${encodeURIComponent(courseTitle)}&level=${level}&pillar=${pillarId}`;
+      }
+    }
+    
     // Initialize cart count on load
     document.addEventListener('DOMContentLoaded', updateCartCount);
+    
+    // Sticky Mini-Cart
+    function updateMiniCart() {
+      if (typeof CartManager === 'undefined') return;
+      
+      const cart = CartManager.getCart();
+      const count = CartManager.getItemCount();
+      const total = CartManager.getTotal();
+      
+      const miniCart = document.getElementById('sticky-mini-cart');
+      if (!miniCart) return;
+      
+      if (count === 0) {
+        miniCart.style.display = 'none';
+        return;
+      }
+      
+      miniCart.style.display = 'block';
+      
+      let itemsHTML = '';
+      cart.items.slice(0, 3).forEach(item => {
+        const itemTitle = item.itemType === 'pack' ? `${item.courseTitle} (Pack)` : `${item.courseTitle} - ${item.moduleTitle}`;
+        itemsHTML += `
+          <div style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 13px;">
+            ${itemTitle}
+            <div style="color: rgba(255,255,255,0.7); font-size: 12px;">${item.unitPrice.toLocaleString('fr-FR')} FCFA</div>
+          </div>
+        `;
+      });
+      
+      if (cart.items.length > 3) {
+        itemsHTML += `<div style="padding: 8px 0; font-size: 12px; color: rgba(255,255,255,0.7);">+ ${cart.items.length - 3} autre(s)</div>`;
+      }
+      
+      document.getElementById('mini-cart-items').innerHTML = itemsHTML;
+      document.getElementById('mini-cart-count').textContent = count;
+      document.getElementById('mini-cart-total').textContent = total.toLocaleString('fr-FR');
+    }
+    
+    // Update mini-cart on any cart change
+    setInterval(updateMiniCart, 1000);
+    document.addEventListener('DOMContentLoaded', updateMiniCart);
   </script>
+  
+  <!-- Sticky Mini-Cart -->
+  <div id="sticky-mini-cart" style="position: fixed; right: 20px; bottom: 20px; width: 280px; background: linear-gradient(135deg, #1E88E5, #26A69A); color: white; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); padding: 16px; z-index: 9999; display: none; font-family: 'Inter', sans-serif;">
+    <div style="font-weight: 600; font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+      <span>Mon panier (<span id="mini-cart-count">0</span>)</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+    </div>
+    
+    <div id="mini-cart-items" style="max-height: 150px; overflow-y: auto; margin-bottom: 12px;">
+    </div>
+    
+    <div style="border-top: 2px solid rgba(255,255,255,0.3); padding-top: 12px; margin-top: 12px;">
+      <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 16px; margin-bottom: 12px;">
+        <span>Total:</span>
+        <span><span id="mini-cart-total">0</span> FCFA</span>
+      </div>
+      <a href="/b2c-cart.html" style="display: block; background: white; color: #1E88E5; text-align: center; padding: 12px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.2s;">
+        Finaliser mon inscription →
+      </a>
+    </div>
+  </div>
   
 </body>
 </html>

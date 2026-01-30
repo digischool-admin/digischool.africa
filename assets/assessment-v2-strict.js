@@ -805,20 +805,146 @@ const DigiSchoolAssessmentV2 = {
   <meta charset="UTF-8">
   <title>Rapport Expert DigiSchool Africa - ${date}</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-    h1 { color: #1E88E5; border-bottom: 3px solid #26A69A; padding-bottom: 10px; }
-    h2 { color: #26A69A; margin-top: 30px; }
-    .section { background: #f9f9f9; padding: 20px; margin: 20px 0; border-left: 4px solid #1E88E5; }
-    .profile-tag { display: inline-block; background: #e3f2fd; color: #1E88E5; padding: 4px 12px; border-radius: 4px; margin: 4px; }
-    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-    th { background: #1E88E5; color: white; }
-    .formation-card { border: 2px solid #1E88E5; padding: 15px; margin: 10px 0; border-radius: 8px; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { 
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+      max-width: 850px; 
+      margin: 0 auto; 
+      padding: 0; 
+      line-height: 1.7; 
+      color: #2c3e50;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    .report-wrapper {
+      background: white;
+      margin: 40px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%);
+      padding: 50px 40px;
+      text-align: center;
+      color: white;
+    }
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .header-subtitle {
+      font-size: 16px;
+      opacity: 0.95;
+      font-weight: 500;
+    }
+    .content {
+      padding: 40px;
+    }
+    h1 { 
+      color: #1E88E5; 
+      font-size: 28px;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    h2 { 
+      color: #26A69A; 
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #e8f5e9;
+    }
+    h3 {
+      color: #1E88E5;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    .section { 
+      background: #f8fafb; 
+      padding: 28px; 
+      margin: 24px 0; 
+      border-left: 5px solid #1E88E5;
+      border-radius: 8px;
+    }
+    .profile-tag { 
+      display: inline-block; 
+      background: linear-gradient(135deg, #e3f2fd, #b3e5fc);
+      color: #0277bd; 
+      padding: 6px 14px; 
+      border-radius: 6px; 
+      margin: 4px; 
+      font-weight: 600;
+      font-size: 14px;
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin: 24px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td { 
+      padding: 16px; 
+      text-align: left; 
+    }
+    th { 
+      background: linear-gradient(135deg, #1E88E5, #1976D2);
+      color: white; 
+      font-weight: 600;
+      font-size: 15px;
+    }
+    td {
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 14px;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .formation-card { 
+      border: 2px solid #e3f2fd;
+      background: white;
+      padding: 20px; 
+      margin: 16px 0; 
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(30, 136, 229, 0.1);
+      transition: transform 0.2s;
+    }
+    .formation-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(30, 136, 229, 0.15);
+    }
+    .footer {
+      background: #f5f5f5;
+      padding: 30px 40px;
+      text-align: center;
+      border-top: 1px solid #e0e0e0;
+      font-size: 14px;
+      color: #757575;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
-  <h1>Rapport Expert d'Évaluation DigiSchool Africa</h1>
-  <p><strong>Date:</strong> ${date}</p>
+  <div class="report-wrapper">
+    <div class="header">
+      <div class="logo">DigiSchool Africa</div>
+      <div class="header-subtitle">Rapport Expert d'Évaluation Professionnelle</div>
+    </div>
+    <div class="content">
+      <p style="font-size: 14px; color: #757575; margin-bottom: 30px;"><strong>Date de génération:</strong> ${date}</p>
   
   <div class="section">
     <h2>1. Synthèse du Profil</h2>
@@ -926,11 +1052,14 @@ const DigiSchoolAssessmentV2 = {
       <li><strong>Certification:</strong> ${profile.learningObjective === 'certification' ? 'Prioriser une formation avec certification reconnue' : 'Focus compétences opérationnelles'}</li>
     </ul>
   </div>
+  </div>
   
-  <hr>
-  <p style="text-align: center; color: #666; margin-top: 40px;">
-    <strong>DigiSchool Africa</strong> | contact@digischool.africa | https://digischool.africa
-  </p>
+  <div class="footer">
+    <div style="margin-bottom: 10px; font-weight: 600; color: #1E88E5; font-size: 16px;">DigiSchool Africa</div>
+    <div>Excellence Professionnelle | Approche Par Compétences | IA Intégrée</div>
+    <div style="margin-top: 8px;">contact@digischool.africa | https://digischool.africa</div>
+  </div>
+  </div>
 </body>
 </html>`;
     
