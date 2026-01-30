@@ -564,9 +564,24 @@
       
       <!-- Formations Grid -->
       <section class="courses-section" id="formations">
-        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Nos 30 Parcours Professionnels</h2>
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-4);">Nos 30 Parcours Professionnels</h2>
+        <p style="text-align: center; color: var(--ds-gray); margin-bottom: var(--space-8);">Organisés par niveau de maturité professionnelle</p>
         
-        <!-- Courses grid will be dynamically populated by catalog-30.js -->
+        <!-- Level Filter Tabs -->
+        <div style="display: flex; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-10); flex-wrap: wrap;">
+          <button onclick="filterByLevel('all')" id="filter-all" class="level-filter-btn active" style="padding: var(--space-3) var(--space-6); border: 2px solid var(--color-primary); border-radius: var(--radius-md); background: var(--color-primary); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            Tous les parcours
+          </button>
+          <button onclick="filterByLevel('Fondation')" id="filter-fondation" class="level-filter-btn" style="padding: var(--space-3) var(--space-6); border: 2px solid rgba(30,136,229,0.3); border-radius: var(--radius-md); background: white; color: var(--color-primary); font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            🎯 Fondation
+          </button>
+          <button onclick="filterByLevel('Maîtrise')" id="filter-maitrise" class="level-filter-btn" style="padding: var(--space-3) var(--space-6); border: 2px solid rgba(38,166,154,0.3); border-radius: var(--radius-md); background: white; color: var(--color-secondary); font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            📊 Maîtrise
+          </button>
+          <button onclick="filterByLevel('Leadership')" id="filter-leadership" class="level-filter-btn" style="padding: var(--space-3) var(--space-6); border: 2px solid rgba(126,87,194,0.3); border-radius: var(--radius-md); background: white; color: #7E57C2; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            🎓 Leadership
+          </button>
+        </div>
         
         <!-- Courses grid will be dynamically populated by catalog-30.js -->
         <div class="courses-grid" id="coursesGrid">
@@ -591,6 +606,33 @@
   <script src="/assets/catalog-30.js"></script>
   
   <script>
+    // Level filter state
+    let currentLevelFilter = 'all';
+    
+    // Filter courses by level
+    function filterByLevel(level) {
+      currentLevelFilter = level;
+      
+      // Update button styles
+      document.querySelectorAll('.level-filter-btn').forEach(btn => {
+        btn.style.background = 'white';
+        btn.style.color = level === 'Fondation' ? 'var(--color-primary)' : 
+                          level === 'Maîtrise' ? 'var(--color-secondary)' : 
+                          level === 'Leadership' ? '#7E57C2' : 'var(--color-primary)';
+      });
+      
+      const activeBtn = document.getElementById('filter-' + (level === 'Maîtrise' ? 'maitrise' : level.toLowerCase()));
+      if (activeBtn) {
+        activeBtn.style.background = level === 'Fondation' ? 'var(--color-primary)' : 
+                                     level === 'Maîtrise' ? 'var(--color-secondary)' : 
+                                     level === 'Leadership' ? '#7E57C2' : 'var(--color-primary)';
+        activeBtn.style.color = 'white';
+      }
+      
+      // Re-render with filter
+      renderCatalog();
+    }
+    
     // Render 30 courses dynamically
     function renderCatalog() {
       const grid = document.getElementById('coursesGrid');
@@ -599,7 +641,12 @@
         return;
       }
       
-      const courses = DIGISCHOOL_CATALOG.courses;
+      let courses = DIGISCHOOL_CATALOG.courses;
+      
+      // Apply level filter
+      if (currentLevelFilter !== 'all') {
+        courses = courses.filter(c => c.level === currentLevelFilter);
+      }
       
       // Sort: OUVERT first, then PREINSCRIPTION, then V2
       const statusOrder = { 'OUVERT': 1, 'PREINSCRIPTION': 2, 'V2': 3 };

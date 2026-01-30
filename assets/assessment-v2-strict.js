@@ -243,6 +243,81 @@ const DigiSchoolAssessmentV2 = {
         { value: 'neutre', label: 'Neutre / Je ne sais pas encore', boost: {} },
         { value: 'non', label: 'Non, ce n\'est pas ma priorité', boost: {} }
       ]
+    },
+    {
+      id: 'Q11',
+      category: 'S3_contexte',
+      text: "Dans quel secteur d'activité évoluez-vous ou souhaitez-vous évoluer ?",
+      type: 'single',
+      required: true,
+      options: [
+        { value: 'tech', label: 'Technologie & Télécoms', score: { S3_contexte: 1 }, sector: 'tech' },
+        { value: 'finance', label: 'Banque, Finance & Assurance', score: { S3_contexte: 1 }, sector: 'finance' },
+        { value: 'industrie', label: 'Industrie & Manufacturing', score: { S3_contexte: 1 }, sector: 'industrie' },
+        { value: 'services', label: 'Services & Conseil', score: { S3_contexte: 1 }, sector: 'services' },
+        { value: 'public', label: 'Secteur Public & ONG', score: { S3_contexte: 1 }, sector: 'public' },
+        { value: 'commerce', label: 'Commerce & Distribution', score: { S3_contexte: 1 }, sector: 'commerce' },
+        { value: 'sante', label: 'Santé & Pharmaceutique', score: { S3_contexte: 1 }, sector: 'santé' },
+        { value: 'autre', label: 'Autre secteur', score: { S3_contexte: 1 }, sector: 'autre' }
+      ]
+    },
+    {
+      id: 'Q12',
+      category: 'S3_contexte',
+      text: "Quelle est la taille de votre organisation ?",
+      type: 'single',
+      required: true,
+      options: [
+        { value: 'tpe', label: 'TPE (1-10 personnes)', score: { S3_contexte: 0.5 }, size: 'tpe' },
+        { value: 'pme', label: 'PME (11-250 personnes)', score: { S3_contexte: 1 }, size: 'pme' },
+        { value: 'eti', label: 'ETI (251-5000 personnes)', score: { S3_contexte: 1.5 }, size: 'eti' },
+        { value: 'grande', label: 'Grande entreprise (5000+ personnes)', score: { S3_contexte: 2 }, size: 'grande' },
+        { value: 'independant', label: 'Indépendant / Freelance', score: { S3_contexte: 0.5 }, size: 'indépendant' }
+      ]
+    },
+    {
+      id: 'Q13',
+      category: 'S4_objectif',
+      text: "Quel est votre horizon professionnel à 12-24 mois ?",
+      type: 'single',
+      required: true,
+      options: [
+        { value: 'stabilite', label: 'Consolider mon poste actuel', score: { S4_objectif: 0.5 }, horizon: 'stabilité' },
+        { value: 'promotion', label: 'Obtenir une promotion interne', score: { S4_objectif: 1 }, horizon: 'promotion' },
+        { value: 'mobilite', label: 'Changer d\'entreprise (même niveau)', score: { S4_objectif: 1 }, horizon: 'mobilité' },
+        { value: 'management', label: 'Accéder à un poste managérial', score: { S4_objectif: 1.5 }, horizon: 'management' },
+        { value: 'direction', label: 'Rejoindre un comité de direction', score: { S4_objectif: 2 }, horizon: 'direction' },
+        { value: 'entrepreneuriat', label: 'Lancer mon entreprise / projet', score: { S4_objectif: 2 }, horizon: 'entrepreneuriat' }
+      ]
+    },
+    {
+      id: 'Q14',
+      category: 'S2_experience',
+      text: "Avez-vous déjà managé ou piloté des équipes ?",
+      type: 'single',
+      required: true,
+      options: [
+        { value: 'jamais', label: 'Non, jamais', score: { S2_experience: 0 }, management: 'none' },
+        { value: 'ponctuel', label: 'Oui, de manière ponctuelle', score: { S2_experience: 1 }, management: 'ponctuel' },
+        { value: 'regulier', label: 'Oui, régulièrement (1-5 personnes)', score: { S2_experience: 2 }, management: 'petit' },
+        { value: 'equipe', label: 'Oui, je manage une équipe (6-20 personnes)', score: { S2_experience: 3 }, management: 'moyen' },
+        { value: 'multi-equipes', label: 'Oui, je manage plusieurs équipes (20+ personnes)', score: { S2_experience: 4 }, management: 'large' }
+      ]
+    },
+    {
+      id: 'Q15',
+      category: 'S4_objectif',
+      text: "Quelle est votre ambition professionnelle à 3-5 ans ?",
+      type: 'single',
+      required: true,
+      options: [
+        { value: 'expert-metier', label: 'Devenir expert reconnu dans mon métier', score: { S4_objectif: 1 }, ambition: 'expertise' },
+        { value: 'manager-senior', label: 'Devenir manager senior / directeur', score: { S4_objectif: 1.5 }, ambition: 'management' },
+        { value: 'direction-generale', label: 'Accéder à la direction générale', score: { S4_objectif: 2 }, ambition: 'direction' },
+        { value: 'entrepreneur', label: 'Créer et développer mon entreprise', score: { S4_objectif: 2 }, ambition: 'entrepreneuriat' },
+        { value: 'consultant', label: 'Devenir consultant indépendant', score: { S4_objectif: 1 }, ambition: 'conseil' },
+        { value: 'portfolio', label: 'Diversifier mes activités (portfolio carrière)', score: { S4_objectif: 1 }, ambition: 'portfolio' }
+      ]
     }
   ],
 

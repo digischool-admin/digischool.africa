@@ -859,8 +859,24 @@
       
       <!-- Catalogue Formations -->
       <section style="margin: var(--space-12) 0;">
-        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-8);">Catalogue de Formations B2B</h2>
+        <h2 style="text-align: center; font-size: var(--text-3xl); margin-bottom: var(--space-4);">Catalogue de Formations B2B</h2>
         <p style="text-align: center; color: var(--ds-gray); margin-bottom: var(--space-8);">30 parcours professionnels conçus pour répondre à vos enjeux métier. Tarification sur devis, adaptée à vos besoins.</p>
+        
+        <!-- Level Filter Tabs -->
+        <div style="display: flex; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-10); flex-wrap: wrap;">
+          <button onclick="filterByLevelB2B('all')" id="filter-b2b-all" class="level-filter-btn-b2b active" style="padding: var(--space-3) var(--space-6); border: 2px solid var(--color-primary); border-radius: var(--radius-md); background: var(--color-primary); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            Tous les parcours
+          </button>
+          <button onclick="filterByLevelB2B('Fondation')" id="filter-b2b-fondation" class="level-filter-btn-b2b" style="padding: var(--space-3) var(--space-6); border: 2px solid rgba(30,136,229,0.3); border-radius: var(--radius-md); background: white; color: var(--color-primary); font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            🎯 Fondation
+          </button>
+          <button onclick="filterByLevelB2B('Maîtrise')" id="filter-b2b-maitrise" class="level-filter-btn-b2b" style="padding: var(--space-3) var(--space-6); border: 2px solid rgba(38,166,154,0.3); border-radius: var(--radius-md); background: white; color: var(--color-secondary); font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            📊 Maîtrise
+          </button>
+          <button onclick="filterByLevelB2B('Leadership')" id="filter-b2b-leadership" class="level-filter-btn-b2b" style="padding: var(--space-3) var(--space-6); border: 2px solid rgba(126,87,194,0.3); border-radius: var(--radius-md); background: white; color: #7E57C2; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+            🎓 Leadership
+          </button>
+        </div>
         
         <div class="catalogue-grid" id="b2b-courses-container">
           <!-- Courses injected by JS -->
