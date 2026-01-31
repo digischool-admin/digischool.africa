@@ -1212,6 +1212,26 @@ const DIGISCHOOL_CATALOG = {
                 ]
             },
             "deliverable": "Business Case IoT Industriel avec architecture système, roadmap déploiement et modèle financier 3 ans"
+        },
+        {
+            "id": "m6",
+            "title": "Industrie 4.0 & IoT industriel (agro / mines / hydrocarbures)",
+            "bullets": [
+                "Déployer des capteurs de traçabilité agro-alimentaire (field-to-fork)",
+                "Monitorer les équipements miniers en temps réel (foreuses, convoyeurs, camions)",
+                "Implémenter la télémétrie pétrolière pour pipelines et installations offshore",
+                "Architecturer l'edge computing pour sites distants sans connectivité fiable",
+                "Auditer la maturité digitale industrielle et proposer roadmap IoT sectorielle"
+            ],
+            "quiz": {
+                "questions": [
+                    "Quels capteurs IoT pour tracer la chaîne du froid agricole en Afrique ?",
+                    "Comment garantir la disponibilité IoT en zone minière isolée ?",
+                    "Quels protocoles de sécurité pour sites pétroliers classés ATEX ?",
+                    "Comment calculer le ROI d'un projet IoT agro sur 24 mois ?"
+                ]
+            },
+            "deliverable": "Audit maturité IoT sectorielle + architecture capteurs + cas d'usage traçabilité + monitoring edge/cloud"
         }
     ],
     "pricing": {

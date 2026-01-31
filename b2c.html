@@ -1017,12 +1017,12 @@
     }
     
     // Cart-based workflow (NO immediate redirect for pack)
-    function buyPack(courseId, e) {
+    function buyPack(courseId, evt) {
       if (typeof CartManager !== 'undefined') {
         CartManager.addItem(courseId, 'pack');
         
         // Visual feedback
-        const btn = e && e.currentTarget ? e.currentTarget : null;
+        const btn = evt?.currentTarget || evt?.target || null;
         if (btn) {
           const originalText = btn.textContent;
           btn.textContent = '✓ Ajouté au panier';
@@ -1035,18 +1035,19 @@
         }
         
         updateCartCount();
+        updateMiniCart();
       } else {
         // Fallback to direct URL
-        window.location.href = `b2c-checkout.html?course=${encodeURIComponent(courseId)}&type=pack`;
+        window.location.href = `/b2c-checkout.html?course=${encodeURIComponent(courseId)}&type=pack`;
       }
     }
     
-    function buyModule(courseId, moduleNum, moduleTitle, e) {
+    function buyModule(courseId, moduleNum, moduleTitle, evt) {
       if (typeof CartManager !== 'undefined') {
         CartManager.addItem(courseId, 'module', moduleNum, `Module ${moduleNum}`);
         
         // Visual feedback
-        const btn = e && e.currentTarget ? e.currentTarget : null;
+        const btn = evt?.currentTarget || evt?.target || null;
         if (btn) {
           const originalText = btn.textContent;
           btn.textContent = '✓ Ajouté';
@@ -1059,9 +1060,10 @@
         }
         
         updateCartCount();
+        updateMiniCart();
       } else {
         // Fallback to direct URL
-        window.location.href = `b2c-checkout.html?course=${encodeURIComponent(courseId)}&type=module&module=${moduleNum}`;
+        window.location.href = `/b2c-checkout.html?course=${encodeURIComponent(courseId)}&type=module&module=${moduleNum}`;
       }
     }
     
