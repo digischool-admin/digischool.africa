@@ -554,12 +554,23 @@ const DIGISCHOOL_CATALOG = {
         },
         {
             "id": "m5",
-            "title": "Capstone: plateforme BI end-to-end",
+            "title": "Données industrielles & monitoring temps réel",
             "bullets": [
-                "Construire une plateforme BI complète de A à Z (collecte, transformation, visualisation)",
-                "Présenter votre architecture et dashboards stratégiques devant jury",
-                "Obtenir certification Data Architect DigiSchool"
-            ]
+                "Collecter et centraliser les données de capteurs industriels (température, vibration, pression)",
+                "Construire des dashboards temps réel pour supervision opérationnelle 24/7",
+                "Implémenter des alertes automatiques basées sur seuils et anomalies détectées par IA",
+                "Intégrer les flux IoT dans votre data lake existant avec protocoles MQTT et OPC-UA",
+                "Analyser les patterns de production pour détecter les goulots d'étranglement"
+            ],
+            "quiz": {
+                "questions": [
+                    "Quels sont les protocoles de communication IoT les plus utilisés en industrie ?",
+                    "Comment détecter une anomalie sur une série temporelle de capteurs ?",
+                    "Quelle architecture pour gérer 10 000 capteurs en temps réel ?",
+                    "Comment calculer l'OEE (Overall Equipment Effectiveness) via IoT ?"
+                ]
+            },
+            "deliverable": "Architecture de collecte IoT temps réel avec dashboard Power BI connecté et alertes configurées"
         }
     ],
     "pricing": {
@@ -1106,12 +1117,21 @@ const DIGISCHOOL_CATALOG = {
         },
         {
             "id": "m4",
-            "title": "Projet digital fil rouge",
+            "title": "Industrie 4.0 & IoT: digitaliser les opérations",
             "bullets": [
-                "Piloter un petit projet de digitalisation (process, outil, service)",
-                "Mesurer l'adoption et les bénéfices du changement",
-                "Présenter votre projet devant jury de digital leaders"
-            ]
+                "Comprendre les capteurs IoT et leur intégration dans les processus industriels",
+                "Concevoir un use-case IoT adapté à votre secteur (logistique, production, retail)",
+                "Évaluer le ROI d'un projet de digitalisation industrielle",
+                "Identifier les risques opérationnels et techniques de l'IoT"
+            ],
+            "quiz": {
+                "questions": [
+                    "Quels sont les 3 types de capteurs IoT les plus utilisés en industrie ?",
+                    "Comment calculer le ROI d'un projet IoT sur 24 mois ?",
+                    "Quelles sont les principales barrières à l'adoption de l'IoT en Afrique ?"
+                ]
+            },
+            "deliverable": "IoT Use-Case Canvas (1 page) avec architecture capteurs + business case simplifié"
         }
     ],
     "pricing": {
@@ -1175,12 +1195,23 @@ const DIGISCHOOL_CATALOG = {
         },
         {
             "id": "m5",
-            "title": "Capstone: plan de transformation digitale",
+            "title": "Smart Operations: IoT, IA & ROI industriel",
             "bullets": [
-                "Concevoir un plan de transformation digitale complet (stratégie, roadmap, change)",
-                "Présenter votre business case devant jury de CDO",
-                "Obtenir certification Digital Transformation Leader DigiSchool"
-            ]
+                "Piloter la maintenance prédictive avec capteurs IoT et machine learning",
+                "Optimiser la supply chain via tracking temps réel et analytics avancés",
+                "Construire un tableau de bord intégré IoT-ERP-BI pour décisions rapides",
+                "Calculer le TCO et les gains opérationnels d'une infrastructure IoT",
+                "Gérer les enjeux de cybersécurité des objets connectés en production"
+            ],
+            "quiz": {
+                "questions": [
+                    "Quelle est la différence entre maintenance préventive et prédictive IoT ?",
+                    "Comment mesurer le ROI d'un projet IoT industriel sur 36 mois ?",
+                    "Quels sont les 3 risques cyber majeurs dans une usine connectée ?",
+                    "Comment intégrer les données IoT dans un ERP existant ?"
+                ]
+            },
+            "deliverable": "Business Case IoT Industriel avec architecture système, roadmap déploiement et modèle financier 3 ans"
         }
     ],
     "pricing": {
@@ -1382,12 +1413,23 @@ const DIGISCHOOL_CATALOG = {
         },
         {
             "id": "m5",
-            "title": "Capstone: programme de cybersécurité",
+            "title": "Cybersécurité industrielle & risques IoT",
             "bullets": [
-                "Concevoir un programme de cybersécurité complet (stratégie, architecture, processus)",
-                "Présenter votre programme devant jury de CISO",
-                "Obtenir certification Cybersecurity Manager DigiSchool"
-            ]
+                "Identifier les vecteurs d'attaque spécifiques aux environnements IoT (firmware, protocoles, edge devices)",
+                "Implémenter la segmentation réseau OT/IT et les zones de confiance (Purdue model)",
+                "Déployer des solutions de détection d'anomalies pour équipements industriels connectés",
+                "Sécuriser les mises à jour OTA (Over-The-Air) et gérer les vulnérabilités IoT à grande échelle",
+                "Construire un registre de risques IoT et plans de mitigation par criticité métier"
+            ],
+            "quiz": {
+                "questions": [
+                    "Quelles sont les différences entre sécurité IT et sécurité OT/IoT ?",
+                    "Comment sécuriser un réseau de 5000 capteurs industriels dispersés ?",
+                    "Quels sont les frameworks de cybersécurité industrielle (IEC 62443, NIST) ?",
+                    "Comment répondre à une cyberattaque ciblant des PLCs connectés ?"
+                ]
+            },
+            "deliverable": "Risk Register IoT avec matrice de criticité, architecture sécurisée OT/IT et plan de réponse aux incidents IoT"
         }
     ],
     "pricing": {
@@ -1589,12 +1631,23 @@ const DIGISCHOOL_CATALOG = {
         },
         {
             "id": "m5",
-            "title": "Capstone: transformation ITIL 4",
+            "title": "Gouvernance IoT & intégration SI (ERP/MES/BI)",
             "bullets": [
-                "Concevoir un plan de transformation ITIL 4 complet",
-                "Présenter votre programme devant jury de IT Directors",
-                "Obtenir certification ITIL 4 Managing Professional DigiSchool"
-            ]
+                "Définir les standards de gouvernance pour déploiements IoT à l'échelle groupe",
+                "Architecturer l'intégration bidirectionnelle IoT-ERP-MES-BI sans rupture de flux",
+                "Gérer le cycle de vie des devices connectés (provisioning, MAJ firmware, décommissionnement)",
+                "Assurer la traçabilité et l'audit des données IoT pour conformité réglementaire",
+                "Mettre en place une CMDB enrichie incluant les actifs IoT et leurs dépendances"
+            ],
+            "quiz": {
+                "questions": [
+                    "Quelles sont les couches d'une architecture IoT industrielle (Edge, Fog, Cloud) ?",
+                    "Comment synchroniser les données IoT avec un ERP SAP ou Microsoft Dynamics ?",
+                    "Quels sont les enjeux de gouvernance spécifiques aux objets connectés en entreprise ?",
+                    "Comment auditer la conformité d'un parc IoT selon ISO 27001 ?"
+                ]
+            },
+            "deliverable": "Framework de gouvernance IoT avec matrice de décision, architecture d'intégration SI et registre CMDB IoT"
         }
     ],
     "pricing": {
