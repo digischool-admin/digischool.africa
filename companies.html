@@ -1552,7 +1552,8 @@
         btn.style.color = level === 'all' ? 'var(--color-primary)' : (level === 'Fondation' ? 'var(--color-primary)' : (level === 'Maîtrise' ? 'var(--color-secondary)' : '#7E57C2'));
       });
       
-      const activeBtn = document.getElementById(`filter-b2b-${level === 'all' ? 'all' : level.toLowerCase()}`);
+      const levelIdMap = { 'Fondation': 'fondation', 'Maîtrise': 'maitrise', 'Leadership': 'leadership', 'all': 'all' };
+      const activeBtn = document.getElementById(`filter-b2b-${levelIdMap[level] || level.toLowerCase()}`);
       if (activeBtn) {
         activeBtn.classList.add('active');
         activeBtn.style.background = level === 'all' ? 'var(--color-primary)' : (level === 'Fondation' ? 'var(--color-primary)' : (level === 'Maîtrise' ? 'var(--color-secondary)' : '#7E57C2'));
