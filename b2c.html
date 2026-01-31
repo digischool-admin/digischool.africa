@@ -666,7 +666,7 @@
         
         let ctaButton = '';
         if (isOpen) {
-          ctaButton = `<a href="javascript:void(0)" onclick="buyPack('${course.id}')" class="btn btn-primary" style="font-size: var(--text-base);">Acheter le Pack</a>`;
+          ctaButton = `<a href="javascript:void(0)" onclick="buyPack('${course.id}', event)" class="btn btn-primary" style="font-size: var(--text-base);">Acheter le Pack</a>`;
         } else if (course.status === 'PREINSCRIPTION') {
           ctaButton = `<a href="javascript:void(0)" onclick="handlePreRegistration('${course.id}', '${course.title.replace(/'/g, "\\'")}', '${course.pillarId}', '${course.level}')" class="btn btn-secondary" style="font-size: var(--text-base);">Se préinscrire</a>`;
         } else {
@@ -1017,47 +1017,51 @@
     }
     
     // Cart-based workflow (NO immediate redirect for pack)
-    function buyPack(courseId) {
+    function buyPack(courseId, e) {
       if (typeof CartManager !== 'undefined') {
         CartManager.addItem(courseId, 'pack');
         
         // Visual feedback
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = '✓ Ajouté au panier';
-        btn.style.backgroundColor = 'var(--color-secondary)';
+        const btn = e && e.currentTarget ? e.currentTarget : null;
+        if (btn) {
+          const originalText = btn.textContent;
+          btn.textContent = '✓ Ajouté au panier';
+          btn.style.backgroundColor = 'var(--color-secondary)';
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.backgroundColor = '';
+          }, 2000);
+        }
         
         updateCartCount();
-        
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.backgroundColor = '';
-        }, 2000);
       } else {
         // Fallback to direct URL
-        window.location.href = `/b2c-checkout.html?course=${courseId}&type=pack`;
+        window.location.href = `b2c-checkout.html?course=${encodeURIComponent(courseId)}&type=pack`;
       }
     }
     
-    function buyModule(courseId, moduleNum, moduleTitle) {
+    function buyModule(courseId, moduleNum, moduleTitle, e) {
       if (typeof CartManager !== 'undefined') {
         CartManager.addItem(courseId, 'module', moduleNum, `Module ${moduleNum}`);
         
         // Visual feedback
-        const btn = event.target;
-        const originalText = btn.textContent;
-        btn.textContent = '✓ Ajouté';
-        btn.style.backgroundColor = 'var(--color-secondary)';
+        const btn = e && e.currentTarget ? e.currentTarget : null;
+        if (btn) {
+          const originalText = btn.textContent;
+          btn.textContent = '✓ Ajouté';
+          btn.style.backgroundColor = 'var(--color-secondary)';
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.backgroundColor = '';
+          }, 1500);
+        }
         
         updateCartCount();
-        
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.backgroundColor = '';
-        }, 1500);
       } else {
         // Fallback to direct URL
-        window.location.href = `/b2c-checkout.html?course=${courseId}&type=module&module=${moduleNum}`;
+        window.location.href = `b2c-checkout.html?course=${encodeURIComponent(courseId)}&type=module&module=${moduleNum}`;
       }
     }
     
