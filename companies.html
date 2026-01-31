@@ -1705,5 +1705,66 @@
     </div>
   </section>
   
+  <script>
+    // Multi-devis selection
+    const selectedFormations = new Set();
+    
+    function addToDevis(formationTitle) {
+      selectedFormations.add(formationTitle);
+      updateDevisField();
+      scrollToDevisForm();
+    }
+    
+    function scrollToDevisForm() {
+      const form = document.getElementById('devis-form');
+      if (form) {
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    function updateDevisField() {
+      const field = document.getElementById('formations-selectionnees');
+      if (field) {
+        field.value = Array.from(selectedFormations).join('\n');
+      }
+      const counter = document.getElementById('devis-counter');
+      if (counter) {
+        counter.textContent = `${selectedFormations.size} formation(s)`;
+      }
+    }
+    
+    function handleDevisSubmit(e) {
+      e.preventDefault();
+      const successMsg = document.createElement('div');
+      successMsg.style.cssText = 'position: fixed; top: 80px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #1E88E5, #26A69A); color: white; padding: 24px 40px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); z-index: 9999; font-weight: 600; text-align: center;';
+      successMsg.innerHTML = '<div style="font-size: 18px;">Demande reçue</div><div style="font-size: 14px; opacity: 0.9;">Réponse sous 72 heures</div>';
+      document.body.appendChild(successMsg);
+      setTimeout(() => successMsg.remove(), 5000);
+      e.target.reset();
+      selectedFormations.clear();
+      updateDevisField();
+    }
+  </script>
+  
+  <section id="devis-form" style="max-width: 900px; margin: 80px auto; padding: 40px 20px;">
+    <div style="background: white; border-radius: 16px; padding: 48px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+      <h2 style="font-size: 32px; margin-bottom: 12px; color: #1E88E5; text-align: center;">Demande de devis personnalisé</h2>
+      <p style="color: #666; margin-bottom: 32px; text-align: center;">Réponse sous 72 heures • <span id="devis-counter">0 formation(s)</span></p>
+      <form onsubmit="handleDevisSubmit(event)" style="display: grid; gap: 24px;">
+        <div><label style="display: block; margin-bottom: 8px; font-weight: 600;">Formation(s) sélectionnée(s)</label>
+        <textarea id="formations-selectionnees" name="formations" readonly rows="4" style="width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px; background: #f5f5f5;"></textarea></div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div><label style="display: block; margin-bottom: 8px; font-weight: 600;">Entreprise *</label><input type="text" name="company" required style="width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px;"></div>
+          <div><label style="display: block; margin-bottom: 8px; font-weight: 600;">Nom *</label><input type="text" name="name" required style="width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px;"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div><label style="display: block; margin-bottom: 8px; font-weight: 600;">Email *</label><input type="email" name="email" required style="width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px;"></div>
+          <div><label style="display: block; margin-bottom: 8px; font-weight: 600;">Téléphone</label><input type="tel" name="phone" style="width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px;"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="padding: 18px; font-size: 18px; font-weight: 600;">Envoyer ma demande</button>
+      </form>
+    </div>
+  </section>
+  
 </body>
 </html>
