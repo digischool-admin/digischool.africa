@@ -546,16 +546,26 @@ const DigiSchoolAssessmentV2 = {
       isAnswered = !!this.state.answers[question.id] || !question.required;
     } else if (question.type === 'multiple') {
       const answers = this.state.answers[question.id] || [];
-      // Allow 0 to max selections (min check only matters if required)
+      // For Q6: required=false, min=0, max=3
+      // Should allow 0, 1, 2, or 3 selections
       if (question.required) {
         isAnswered = answers.length >= question.min && answers.length <= question.max;
       } else {
-        isAnswered = answers.length <= question.max;
+        // Not required: allow any count from 0 to max
+        isAnswered = true; // Always enable navigation for non-required multiple choice
       }
     }
     
-    if (btnNext) btnNext.disabled = !isAnswered;
-    if (btnSubmit) btnSubmit.disabled = !isAnswered;
+    if (btnNext) {
+      btnNext.disabled = !isAnswered;
+      btnNext.style.opacity = isAnswered ? '1' : '0.5';
+      btnNext.style.cursor = isAnswered ? 'pointer' : 'not-allowed';
+    }
+    if (btnSubmit) {
+      btnSubmit.disabled = !isAnswered;
+      btnSubmit.style.opacity = isAnswered ? '1' : '0.5';
+      btnSubmit.style.cursor = isAnswered ? 'pointer' : 'not-allowed';
+    }
   },
 
   // Navigation
@@ -812,7 +822,7 @@ const DigiSchoolAssessmentV2 = {
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body { 
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; 
       max-width: 850px; 
       margin: 0 auto; 
       padding: 0; 
@@ -829,43 +839,36 @@ const DigiSchoolAssessmentV2 = {
     }
     .header {
       background: linear-gradient(135deg, #1E88E5 0%, #26A69A 100%);
-      padding: 50px 40px;
+      padding: 40px 40px 30px 40px;
       text-align: center;
       color: white;
     }
-    .logo {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
+    .header img {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 16px;
+      filter: brightness(0) invert(1);
     }
     .header-subtitle {
-      font-size: 16px;
+      font-size: 18px;
       opacity: 0.95;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
     .content {
       padding: 40px;
     }
-    h1 { 
-      color: #1E88E5; 
-      font-size: 28px;
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
     h2 { 
-      color: #26A69A; 
+      color: #1E88E5; 
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 40px;
       margin-bottom: 20px;
       padding-bottom: 12px;
-      border-bottom: 2px solid #e8f5e9;
+      border-bottom: 3px solid #e3f2fd;
     }
     h3 {
-      color: #1E88E5;
+      color: #26A69A;
       font-size: 18px;
       font-weight: 600;
       margin-top: 24px;
@@ -873,18 +876,19 @@ const DigiSchoolAssessmentV2 = {
     }
     .section { 
       background: #f8fafb; 
-      padding: 28px; 
-      margin: 24px 0; 
+      padding: 24px; 
+      margin: 20px 0; 
       border-left: 5px solid #1E88E5;
-      border-radius: 8px;
+      border-radius: 12px;
+      border: 1px solid #e6eef7;
     }
     .profile-tag { 
       display: inline-block; 
       background: linear-gradient(135deg, #e3f2fd, #b3e5fc);
       color: #0277bd; 
-      padding: 6px 14px; 
-      border-radius: 6px; 
-      margin: 4px; 
+      padding: 8px 16px; 
+      border-radius: 8px; 
+      margin: 6px 4px; 
       font-weight: 600;
       font-size: 14px;
     }
@@ -892,8 +896,9 @@ const DigiSchoolAssessmentV2 = {
       width: 100%; 
       border-collapse: collapse; 
       margin: 24px 0;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
+      border: 1px solid #e6eef7;
     }
     th, td { 
       padding: 16px; 
@@ -906,8 +911,9 @@ const DigiSchoolAssessmentV2 = {
       font-size: 15px;
     }
     td {
-      border-bottom: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e6eef7;
       font-size: 14px;
+      background: white;
     }
     tr:last-child td {
       border-bottom: none;
@@ -917,13 +923,8 @@ const DigiSchoolAssessmentV2 = {
       background: white;
       padding: 20px; 
       margin: 16px 0; 
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 2px 8px rgba(30, 136, 229, 0.1);
-      transition: transform 0.2s;
-    }
-    .formation-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(30, 136, 229, 0.15);
     }
     .footer {
       background: #f5f5f5;
@@ -945,7 +946,7 @@ const DigiSchoolAssessmentV2 = {
 <body>
   <div class="report-wrapper">
     <div class="header">
-      <div class="logo">DigiSchool Africa</div>
+      <img src="https://digischool.africa/assets/digischool-logo.svg" alt="DigiSchool Africa">
       <div class="header-subtitle">Rapport Expert d'Évaluation Professionnelle</div>
     </div>
     <div class="content">
