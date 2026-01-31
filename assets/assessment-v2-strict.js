@@ -822,7 +822,7 @@ const DigiSchoolAssessmentV2 = {
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     body { 
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; 
+      font-family: Aptos, Arial, sans-serif !important; 
       max-width: 850px; 
       margin: 0 auto; 
       padding: 0; 
@@ -830,6 +830,7 @@ const DigiSchoolAssessmentV2 = {
       color: #2c3e50;
       background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
+    body, table, td, div, p, h1, h2, h3 { font-family: Aptos, Arial, sans-serif !important; }
     .report-wrapper {
       background: white;
       margin: 40px 20px;

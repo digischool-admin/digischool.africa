@@ -1778,8 +1778,26 @@
     function handleDevisSubmit(e) {
       e.preventDefault();
       
-      // Send email confirmation (fallback)
+      // VALIDATION
       const formData = new FormData(e.target);
+      const email = formData.get('email');
+      const company = formData.get('company');
+      const formations = document.getElementById('formations-selectionnees').value;
+      
+      if (!formations || formations.trim() === '') {
+        alert('⚠️ Veuillez sélectionner au moins une formation');
+        return;
+      }
+      if (!email || email.trim() === '') {
+        alert('⚠️ Veuillez renseigner votre email');
+        return;
+      }
+      if (!company || company.trim() === '') {
+        alert('⚠️ Veuillez renseigner votre entreprise');
+        return;
+      }
+      
+      // Send email confirmation (fallback)
       const mailto = `mailto:contact@digischool.africa?subject=Demande de devis B2B&body=Formations: ${encodeURIComponent(Array.from(selectedB2BFormations).join(', '))}%0A%0AEntreprise: ${encodeURIComponent(formData.get('company'))}%0ANom: ${encodeURIComponent(formData.get('name'))}%0AEmail: ${encodeURIComponent(formData.get('email'))}%0ATéléphone: ${encodeURIComponent(formData.get('phone') || 'N/A')}`;
       
       // Show success
