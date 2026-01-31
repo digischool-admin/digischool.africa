@@ -242,3 +242,88 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
   document.head.appendChild(script);
 })();
 
+// ============================================================
+// VERSION PROPAGATION: Persist ?v=XXX across all navigation
+// ============================================================
+(function() {
+  function propagateVersion() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const version = urlParams.get('v');
+    
+    if (!version) return;
+    
+    // Add version stamp to footer (debug)
+    const footer = document.querySelector('.ds-global-footer, footer');
+    if (footer) {
+      const stamp = document.createElement('div');
+      stamp.style.cssText = 'text-align: center; padding: 8px; font-size: 11px; color: #999; opacity: 0.7;';
+      stamp.textContent = `Build v=${version}`;
+      footer.appendChild(stamp);
+    }
+    
+    // Propagate to all internal links
+    function updateLinks() {
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        
+        // Skip external, mailto, tel, whatsapp
+        if (!href || 
+            href.startsWith('mailto:') || 
+            href.startsWith('tel:') || 
+            href.includes('whatsapp') ||
+            href.includes('wa.me') ||
+            (href.startsWith('http') && !href.includes('digischool.africa'))) {
+          return;
+        }
+        
+        // Internal link: add/update v parameter
+        try {
+          let url;
+          if (href.startsWith('http')) {
+            url = new URL(href);
+          } else {
+            url = new URL(href, window.location.origin);
+          }
+          
+          url.searchParams.set('v', version);
+          link.setAttribute('href', url.pathname + url.search + url.hash);
+        } catch(e) {
+          // Ignore invalid URLs
+        }
+      });
+    }
+    
+    // Run on load and on DOM changes (for dynamically loaded content)
+    updateLinks();
+    
+    // Watch for new links (catalog, modals, etc)
+    const observer = new MutationObserver(updateLinks);
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Intercept window.location.href redirects in existing scripts
+    const originalLocationSetter = Object.getOwnPropertyDescriptor(window, 'location').set;
+    Object.defineProperty(window, 'location', {
+      set: function(value) {
+        if (typeof value === 'string' && !value.includes('v=') && !value.startsWith('mailto') && !value.startsWith('tel')) {
+          const separator = value.includes('?') ? '&' : '?';
+          value = `${value}${separator}v=${version}`;
+        }
+        return originalLocationSetter.call(window, value);
+      },
+      get: function() {
+        return window.location;
+      }
+    });
+  }
+  
+  // Run after DOM loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', propagateVersion);
+  } else {
+    propagateVersion();
+  }
+  
+  // Also run after a short delay for dynamic content
+  setTimeout(propagateVersion, 500);
+})();
+
