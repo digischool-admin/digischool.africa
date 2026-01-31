@@ -6,6 +6,26 @@
  * ╚═══════════════════════════════════════════════════════════════╝
  */
 
+// ============================================================
+// HOTFIX: Auto-redirect to latest build if ?v= missing
+// ============================================================
+(function ensureLatestBuild() {
+  if (!window.DS_BUILD_ID) return;
+  
+  const currentUrl = new URL(window.location.href);
+  const hasVersion = currentUrl.searchParams.has('v');
+  
+  // Skip external links, special protocols
+  if (window.location.protocol.startsWith('file') || 
+      window.location.hostname === '') return;
+  
+  // Redirect if no version parameter
+  if (!hasVersion) {
+    currentUrl.searchParams.set('v', window.DS_BUILD_ID);
+    window.location.replace(currentUrl.toString());
+  }
+})();
+
 const DigiSchoolGlobalComponents = {
   // Header HTML
   getHeaderHTML() {
@@ -115,6 +135,7 @@ const DigiSchoolGlobalComponents = {
             <p style="margin-top: var(--space-2); font-size: var(--text-xs); color: rgba(255,255,255,0.7);">
               Plateforme développée pour l'excellence africaine
             </p>
+            ${window.DS_BUILD_ID ? `<p style="margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.6); opacity: 0.6;">Build v=${window.DS_BUILD_ID}</p>` : ''}
           </div>
         </div>
       </footer>
@@ -247,19 +268,9 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
 // ============================================================
 (function() {
   function propagateVersion() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const version = urlParams.get('v');
+    const version = window.DS_BUILD_ID || new URLSearchParams(window.location.search).get('v');
     
     if (!version) return;
-    
-    // Add version stamp to footer (debug)
-    const footer = document.querySelector('.ds-global-footer, footer');
-    if (footer) {
-      const stamp = document.createElement('div');
-      stamp.style.cssText = 'text-align: center; padding: 8px; font-size: 11px; color: #999; opacity: 0.7;';
-      stamp.textContent = `Build v=${version}`;
-      footer.appendChild(stamp);
-    }
     
     // Propagate to all internal links
     function updateLinks() {
@@ -272,6 +283,7 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
             href.startsWith('tel:') || 
             href.includes('whatsapp') ||
             href.includes('wa.me') ||
+            href.startsWith('#') ||
             (href.startsWith('http') && !href.includes('digischool.africa'))) {
           return;
         }
@@ -285,13 +297,50 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
             url = new URL(href, window.location.origin);
           }
           
-          url.searchParams.set('v', version);
-          link.setAttribute('href', url.pathname + url.search + url.hash);
+          if (!url.searchParams.has('v')) {
+            url.searchParams.set('v', version);
+            link.setAttribute('href', url.pathname + url.search + url.hash);
+          }
         } catch(e) {
           // Ignore invalid URLs
         }
       });
     }
+    
+    // Intercept link clicks
+    document.addEventListener('click', function(e) {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      
+      const href = link.getAttribute('href');
+      if (!href || 
+          href.startsWith('mailto:') || 
+          href.startsWith('tel:') || 
+          href.includes('whatsapp') ||
+          href.includes('wa.me') ||
+          href.startsWith('#') ||
+          (href.startsWith('http') && !href.includes('digischool.africa'))) {
+        return;
+      }
+      
+      // Add version to internal links on click
+      try {
+        let url;
+        if (href.startsWith('http')) {
+          url = new URL(href);
+        } else {
+          url = new URL(href, window.location.origin);
+        }
+        
+        if (!url.searchParams.has('v')) {
+          url.searchParams.set('v', version);
+          e.preventDefault();
+          window.location.href = url.toString();
+        }
+      } catch(e) {
+        // Continue with default behavior
+      }
+    }, true);
     
     // Run on load and on DOM changes (for dynamically loaded content)
     updateLinks();
