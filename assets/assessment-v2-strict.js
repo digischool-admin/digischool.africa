@@ -438,7 +438,7 @@ const DigiSchoolAssessmentV2 = {
           </label>
         `;
       });
-      html += `<p class="helper-text" id="counter-${question.id}">Sélectionnez jusqu'à ${question.max} réponse(s) • <strong>0/${question.max} sélectionné(s)</strong></p>`;
+      html += `<p class="helper-text" id="counter-${question.id}" style="color: #666; font-size: 14px; margin-top: 12px;">Vous pouvez sélectionner jusqu'à ${question.max} formations • <strong style="color: #1E88E5;">0/${question.max}</strong></p>`;
     }
 
     html += `</div></div>`;
@@ -546,7 +546,12 @@ const DigiSchoolAssessmentV2 = {
       isAnswered = !!this.state.answers[question.id] || !question.required;
     } else if (question.type === 'multiple') {
       const answers = this.state.answers[question.id] || [];
-      isAnswered = (answers.length >= question.min && answers.length <= question.max) || !question.required;
+      // Allow 0 to max selections (min check only matters if required)
+      if (question.required) {
+        isAnswered = answers.length >= question.min && answers.length <= question.max;
+      } else {
+        isAnswered = answers.length <= question.max;
+      }
     }
     
     if (btnNext) btnNext.disabled = !isAnswered;
