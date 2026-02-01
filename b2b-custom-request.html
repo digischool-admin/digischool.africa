@@ -1,102 +1,379 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script src="/assets/build-id.js?cb=1890a67"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formation Sur-Mesure (72h) | DigiSchool Africa</title>
-  <link rel="stylesheet" href="/assets/ds-premium-zoom.css">
+  <title>Formation sur-mesure — DigiSchool Africa</title>
+  <meta name="description" content="Formation 100% personnalisée pour votre entreprise. Réponse sous 72h.">
+  
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  
+  <style>
+    .custom-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(38, 166, 154, 0.02) 0%, rgba(30, 136, 229, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .custom-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .custom-header {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+    
+    .custom-header h1 {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
+      color: var(--ds-dark);
+    }
+    
+    .custom-header p {
+      font-size: var(--text-lg);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    .response-notice {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      background: linear-gradient(135deg, #E0F2F1 0%, #B2DFDB 100%);
+      border: 2px solid rgba(38, 166, 154, 0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+    
+    .response-notice strong {
+      color: var(--color-secondary);
+      font-size: var(--text-lg);
+    }
+    
+    .custom-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .form-group label.required::after {
+      content: " *";
+      color: #ef4444;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: var(--space-3);
+      font-size: var(--text-base);
+      border: 2px solid #e0e0e0;
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-secondary);
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-help {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      margin-top: var(--space-2);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-8);
+    }
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: var(--color-secondary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #00897B;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-secondary);
+      border: 2px solid var(--color-secondary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(38, 166, 154, 0.05);
+    }
+    
+    .success-message {
+      display: none;
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      border: 2px solid #4CAF50;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      text-align: center;
+      margin-top: var(--space-6);
+    }
+    
+    .success-message.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .success-message h3 {
+      font-size: var(--text-2xl);
+      color: #2E7D32;
+      margin-bottom: var(--space-4);
+    }
+    
+    .success-message p {
+      font-size: var(--text-base);
+      color: #33691E;
+    }
+    
+    @media (max-width: 768px) {
+      .custom-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="ds-global-header">
-    <div class="ds-header-container">
-      <a href="/" class="ds-header-logo">
-        <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa">
-      </a>
-      <nav class="ds-header-nav">
-        <a href="/">Accueil</a>
-        <a href="/b2c.html">Formations B2C</a>
-        <a href="/companies.html" class="active">Entreprises</a>
-        <a href="/about-premium.html">À propos</a>
-      </nav>
-      <div class="ds-header-cta">
-        <a href="/b2c.html" class="ds-btn-primary">Explorer</a>
+  <div class="custom-wrapper">
+    <div class="custom-container">
+      <div class="custom-header">
+        <h1>🎯 Formation sur-mesure</h1>
+        <p>Notre catalogue n'est pas limitatif. Décrivez vos besoins spécifiques,<br>nous créons la formation adaptée à votre entreprise.</p>
+      </div>
+      
+      <div class="response-notice">
+        <span style="font-size: 32px;">⚡</span>
+        <div>
+          <strong>Réponse sous 72h</strong>
+          <p style="margin: 0; font-size: 14px; color: #666;">Proposition détaillée avec programme, durée et tarifs</p>
+        </div>
+      </div>
+      
+      <div class="custom-card">
+        <form id="customRequestForm" action="https://formsubmit.co/contact@digischool.africa" method="POST">
+          <input type="hidden" name="_subject" value="Demande de formation sur-mesure B2B">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://digischool.africa/b2b-custom-request.html?success=true">
+          
+          <h3 style="margin-bottom: var(--space-6); color: var(--color-secondary);">Informations entreprise</h3>
+          
+          <div class="form-group">
+            <label for="entreprise" class="required">Nom de l'entreprise</label>
+            <input type="text" id="entreprise" name="entreprise" required placeholder="Ex: Société XYZ SARL">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact_nom" class="required">Nom du contact</label>
+              <input type="text" id="contact_nom" name="contact_nom" required placeholder="Ex: Marie Kouadio">
+            </div>
+            
+            <div class="form-group">
+              <label for="poste" class="required">Fonction</label>
+              <input type="text" id="poste" name="poste" required placeholder="Ex: DRH">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" class="required">Email professionnel</label>
+              <input type="email" id="email" name="email" required placeholder="Ex: contact@entreprise.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="telephone" class="required">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" required placeholder="Ex: +237 6XX XX XX XX">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="secteur">Secteur d'activité</label>
+            <select id="secteur" name="secteur">
+              <option value="">-- Sélectionnez --</option>
+              <option value="Banque & Finance">Banque & Finance</option>
+              <option value="Industrie & Manufacturing">Industrie & Manufacturing</option>
+              <option value="Télécoms & IT">Télécoms & IT</option>
+              <option value="Commerce & Distribution">Commerce & Distribution</option>
+              <option value="Santé">Santé</option>
+              <option value="Énergie & Ressources">Énergie & Ressources</option>
+              <option value="Services professionnels">Services professionnels</option>
+              <option value="Administration publique">Administration publique</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          
+          <h3 style="margin: var(--space-8) 0 var(--space-6) 0; color: var(--color-secondary);">Besoin de formation</h3>
+          
+          <div class="form-group">
+            <label for="objectif" class="required">Objectif de la formation</label>
+            <textarea id="objectif" name="objectif" required placeholder="Ex: Former 15 managers aux techniques de leadership transformationnel pour accompagner notre transition digitale..."></textarea>
+            <p class="form-help">Décrivez le contexte et les enjeux business</p>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nb_participants" class="required">Nombre de participants</label>
+              <input type="number" id="nb_participants" name="nb_participants" required placeholder="Ex: 15" min="1">
+            </div>
+            
+            <div class="form-group">
+              <label for="duree_souhaitee">Durée souhaitée</label>
+              <select id="duree_souhaitee" name="duree_souhaitee">
+                <option value="">-- Non défini --</option>
+                <option value="1-2 jours">1-2 jours</option>
+                <option value="3-5 jours">3-5 jours</option>
+                <option value="1-2 semaines">1-2 semaines</option>
+                <option value="1 mois">1 mois</option>
+                <option value="Plus de 1 mois">Plus de 1 mois</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="competences_cibles" class="required">Compétences / Thématiques ciblées</label>
+            <textarea id="competences_cibles" name="competences_cibles" required placeholder="Ex: Gestion de projet agile, utilisation de Jira, animation d'équipes distribuées..."></textarea>
+            <p class="form-help">Listez les compétences que vos collaborateurs doivent acquérir</p>
+          </div>
+          
+          <div class="form-group">
+            <label for="niveau_participants">Niveau des participants</label>
+            <select id="niveau_participants" name="niveau_participants">
+              <option value="">-- Sélectionnez --</option>
+              <option value="Junior / Débutant">Junior / Débutant</option>
+              <option value="Intermédiaire">Intermédiaire</option>
+              <option value="Senior / Expert">Senior / Expert</option>
+              <option value="Mixte">Mixte</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="modalite_souhaitee">Modalité souhaitée</label>
+            <select id="modalite_souhaitee" name="modalite_souhaitee">
+              <option value="">-- Sélectionnez --</option>
+              <option value="100% en ligne">100% en ligne</option>
+              <option value="Présentiel">Présentiel</option>
+              <option value="Hybride (Blended)">Hybride (Blended)</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="delai">Délai souhaité pour démarrage</label>
+            <select id="delai" name="delai">
+              <option value="">-- Sélectionnez --</option>
+              <option value="Urgent (< 1 mois)">Urgent (< 1 mois)</option>
+              <option value="1-3 mois">1-3 mois</option>
+              <option value="3-6 mois">3-6 mois</option>
+              <option value="Flexible">Flexible</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="informations_complementaires">Informations complémentaires</label>
+            <textarea id="informations_complementaires" name="informations_complementaires" placeholder="Budget envisagé, contraintes spécifiques, certifications souhaitées..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <a href="/companies.html" class="btn btn-secondary">← Retour</a>
+            <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+          </div>
+        </form>
+        
+        <div id="successMessage" class="success-message">
+          <h3>✅ Demande enregistrée !</h3>
+          <p>Merci pour votre confiance. Notre équipe va étudier votre besoin et vous recontacter sous 72h avec une proposition détaillée.</p>
+          <p style="margin-top: var(--space-4); font-weight: 600;">Vous recevrez également un email de confirmation.</p>
+          <a href="/companies.html" class="btn btn-primary" style="margin-top: var(--space-6);">Retour entreprises</a>
+        </div>
       </div>
     </div>
-  </header>
-
-  <div class="ds-page">
-    <div class="ds-rail ds-rail-left ds-rail-b2b"></div>
-    
-    <main class="ds-main">
-      <h1 class="ds-hero-title">Formation Sur-Mesure (Réponse ≤72h)</h1>
-      <p class="ds-hero-subtitle">
-        Notre catalogue n'est pas limitatif. Décrivez vos besoins, nous créons votre formation.
-      </p>
-
-      <div class="ds-card">
-        <form id="b2bCustomForm">
-          <div class="ds-form-group">
-            <label class="ds-form-label">Entreprise *</label>
-            <input type="text" class="ds-form-input" name="company_name" required>
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">Nom Contact *</label>
-            <input type="text" class="ds-form-input" name="contact_name" required>
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">Email *</label>
-            <input type="email" class="ds-form-input" name="email" required>
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">Téléphone</label>
-            <input type="tel" class="ds-form-input" name="phone">
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">Objectifs Pédagogiques *</label>
-            <textarea class="ds-form-textarea" name="objectives" required></textarea>
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">Description Détaillée (Prompt)</label>
-            <textarea class="ds-form-textarea" name="prompt" rows="6"></textarea>
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">Cahier des Charges (PDF/JPG)</label>
-            <input type="file" class="ds-form-input" name="attachment" accept=".pdf,.jpg,.jpeg,.png">
-          </div>
-
-          <button type="submit" class="ds-btn-primary">📤 Soumettre (Réponse ≤72h)</button>
-        </form>
-      </div>
-    </main>
-
-    <div class="ds-rail ds-rail-right ds-rail-b2b"></div>
   </div>
-
-  <script src="/assets/supabase-client.js"></script>
-  <script>
-    document.getElementById('b2bCustomForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(e.target);
-      
-      try {
-        await window.SupabaseClient.submitB2BCustomRequest(Object.fromEntries(formData));
-        alert('✅ Demande enregistrée! Numéro: ' + result.request_number + '. Réponse sous 72h.');
-        e.target.reset();
-      } catch (error) {
-        console.error(error);
-        alert('❌ Erreur. Contactez contact@digischool.africa');
-      }
-    });
-  </script>
   
-  <!-- V2 Production Components -->
   <script src="/assets/global-components-v2-production.js"></script>
-  <script src="/assets/chatbot-manager-v2.js"></script>
+  
+  <script>
+    // Show success message if redirected after form submission
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    
+    if (success === 'true') {
+      document.getElementById('customRequestForm').style.display = 'none';
+      document.getElementById('successMessage').classList.add('show');
+    }
+  </script>
 </body>
 </html>

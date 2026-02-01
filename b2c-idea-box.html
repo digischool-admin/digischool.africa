@@ -1,231 +1,279 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script src="/assets/build-id.js?cb=1890a67"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boîte à Idées — Co-Construction Catalogue | DigiSchool Africa</title>
-  <link rel="stylesheet" href="/assets/ds-premium-zoom.css">
-  <meta name="description" content="Suggérez une formation à ajouter au catalogue DigiSchool Africa. Co-construction participative.">
+  <title>Boîte à idées — DigiSchool Africa</title>
+  <meta name="description" content="Proposez une formation à ajouter au catalogue DigiSchool Africa. Co-construction participative avec nos apprenants.">
+  
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  
+  <style>
+    .idea-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(126, 87, 194, 0.02) 0%, rgba(30, 136, 229, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .idea-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .idea-header {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+    
+    .idea-header h1 {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
+      color: var(--ds-dark);
+    }
+    
+    .idea-header p {
+      font-size: var(--text-lg);
+      color: var(--ds-gray);
+      line-height: 1.6;
+    }
+    
+    .idea-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .form-group label.required::after {
+      content: " *";
+      color: #ef4444;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: var(--space-3);
+      font-size: var(--text-base);
+      border: 2px solid #e0e0e0;
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .form-help {
+      font-size: var(--text-sm);
+      color: var(--ds-gray);
+      margin-top: var(--space-2);
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-8);
+    }
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #1565C0;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.05);
+    }
+    
+    .success-message {
+      display: none;
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      border: 2px solid #4CAF50;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      text-align: center;
+      margin-top: var(--space-6);
+    }
+    
+    .success-message.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .success-message h3 {
+      font-size: var(--text-2xl);
+      color: #2E7D32;
+      margin-bottom: var(--space-4);
+    }
+    
+    .success-message p {
+      font-size: var(--text-base);
+      color: #33691E;
+    }
+    
+    @media (max-width: 768px) {
+      .idea-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .form-actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header Global -->
-  <header class="ds-global-header">
-    <div class="ds-header-container">
-      <a href="/" class="ds-header-logo">
-        <img src="/assets/logo-digischool-v2.3.svg" alt="DigiSchool Africa">
-      </a>
-      <nav class="ds-header-nav">
-        <a href="/">Accueil</a>
-        <a href="/b2c.html" class="active">Formations B2C</a>
-        <a href="/companies.html">Entreprises</a>
-        <a href="/about-premium.html">À propos</a>
-      </nav>
-      <div class="ds-header-cta">
-        <a href="/b2c.html" class="ds-btn-primary">Explorer</a>
+  <div class="idea-wrapper">
+    <div class="idea-container">
+      <div class="idea-header">
+        <h1>💡 Boîte à idées</h1>
+        <p>Vous avez repéré une formation intéressante ailleurs ?<br>
+        Suggérez-la. Nous étudions son intégration au catalogue DigiSchool dans une logique de <strong>co-construction continue</strong>.</p>
       </div>
-    </div>
-  </header>
-
-  <!-- Layout Zoom-like -->
-  <div class="ds-page">
-    <div class="ds-rail ds-rail-left ds-rail-b2c"></div>
-    
-    <main class="ds-main">
-      <!-- Hero Section -->
-      <h1 class="ds-hero-title">💡 Boîte à Idées</h1>
-      <p class="ds-hero-subtitle">
-        Vous avez repéré une formation intéressante ailleurs ?<br>
-        Suggérez-la. Nous étudions son intégration au catalogue DigiSchool<br>
-        dans une logique de <strong>co-construction continue</strong>.
-      </p>
-
-      <!-- Formulaire -->
-      <div class="ds-card">
-        <form id="ideaBoxForm">
-          <div class="ds-form-group">
-            <label class="ds-form-label">📧 Votre Email *</label>
-            <input 
-              type="email" 
-              class="ds-form-input" 
-              name="email" 
-              placeholder="email@exemple.com"
-              required
-            >
+      
+      <div class="idea-card">
+        <form id="ideaBoxForm" action="https://formsubmit.co/contact@digischool.africa" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle suggestion de formation - Boîte à idées">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://digischool.africa/b2c-idea-box.html?success=true">
+          
+          <div class="form-group">
+            <label for="email" class="required">Votre email</label>
+            <input type="email" id="email" name="email" required placeholder="Ex: jean.dupont@email.com">
           </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">👤 Votre Nom (optionnel)</label>
-            <input 
-              type="text" 
-              class="ds-form-input" 
-              name="submitter_name" 
-              placeholder="Jean Dupont"
-            >
+          
+          <div class="form-group">
+            <label for="nom">Nom complet (optionnel)</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex: Jean Dupont">
           </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">🔗 URL Formation Externe (optionnel)</label>
-            <input 
-              type="url" 
-              class="ds-form-input" 
-              name="training_url" 
-              placeholder="https://exemple.com/formation-intéressante"
-            >
+          
+          <div class="form-group">
+            <label for="titre_formation" class="required">Titre de la formation suggérée</label>
+            <input type="text" id="titre_formation" name="titre_formation" required placeholder="Ex: Gestion de patrimoine immobilier">
           </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">📝 Description de la Formation *</label>
-            <textarea 
-              class="ds-form-textarea" 
-              name="description" 
-              rows="6"
-              placeholder="Décrivez la formation que vous aimeriez voir sur DigiSchool: thème, compétences visées, durée souhaitée, pourquoi elle serait utile..."
-              required
-            ></textarea>
-          </div>
-
-          <div class="ds-form-group">
-            <label class="ds-form-label">🏷️ Catégorie (optionnel)</label>
-            <select class="ds-form-select" name="category">
-              <option value="">Sélectionner...</option>
-              <option value="management">Management & Leadership</option>
-              <option value="data">Data & Analytics</option>
-              <option value="tech">Technologies & Développement</option>
-              <option value="marketing">Marketing & Communication</option>
-              <option value="finance">Finance & Comptabilité</option>
-              <option value="rh">Ressources Humaines</option>
-              <option value="design">Design & Créativité</option>
-              <option value="other">Autre</option>
+          
+          <div class="form-group">
+            <label for="domaine" class="required">Domaine / Pilier concerné</label>
+            <select id="domaine" name="domaine" required>
+              <option value="">-- Sélectionnez --</option>
+              <option value="Leadership & Management">Leadership & Management</option>
+              <option value="Gestion de Projet & PMO">Gestion de Projet & PMO</option>
+              <option value="Data, BI & Performance">Data, BI & Performance</option>
+              <option value="Finance, Contrôle de gestion & Investissement">Finance, Contrôle de gestion & Investissement</option>
+              <option value="Marketing, Commercial & Growth">Marketing, Commercial & Growth</option>
+              <option value="Digital & Transformation">Digital & Transformation</option>
+              <option value="Ressources Humaines & Organisation">Ressources Humaines & Organisation</option>
+              <option value="IT, Cybersécurité & Résilience">IT, Cybersécurité & Résilience</option>
+              <option value="Industrie, Supply Chain & Performance Durable">Industrie, Supply Chain & Performance Durable</option>
+              <option value="Entrepreneuriat, Organisation & Gouvernance">Entrepreneuriat, Organisation & Gouvernance</option>
+              <option value="Autre">Autre</option>
             </select>
           </div>
-
-          <div class="ds-form-group" style="display: flex; align-items: center; gap: 12px;">
-            <input 
-              type="checkbox" 
-              id="consent" 
-              name="consent" 
-              required
-              style="width: 20px; height: 20px;"
-            >
-            <label for="consent" style="margin: 0; font-size: 14px; color: var(--ds-gray);">
-              J'accepte que mes données soient traitées pour l'étude de cette suggestion (RGPD).
-            </label>
+          
+          <div class="form-group">
+            <label for="description" class="required">Description de la formation</label>
+            <textarea id="description" name="description" required placeholder="Décrivez brièvement le contenu, les objectifs et la valeur ajoutée de cette formation..."></textarea>
+            <p class="form-help">Précisez pourquoi cette formation serait utile pour les professionnels africains</p>
           </div>
-
-          <button type="submit" class="ds-btn-primary">
-            ✨ Soumettre Mon Idée
-          </button>
+          
+          <div class="form-group">
+            <label for="source">Source / Référence (optionnel)</label>
+            <input type="text" id="source" name="source" placeholder="Ex: URL, nom d'un organisme, etc.">
+            <p class="form-help">Si vous avez vu cette formation ailleurs, partagez la source</p>
+          </div>
+          
+          <div class="form-group">
+            <label for="motivation">Pourquoi cette suggestion ? (optionnel)</label>
+            <textarea id="motivation" name="motivation" placeholder="Expliquez en quoi cette formation répondrait à un besoin du marché africain..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <a href="/b2c.html" class="btn btn-secondary">← Retour au catalogue</a>
+            <button type="submit" class="btn btn-primary">Envoyer ma suggestion</button>
+          </div>
         </form>
-      </div>
-
-      <!-- Info Section -->
-      <div class="ds-card ds-mt-xl" style="background: var(--ds-light-gray); border: none;">
-        <h3>📌 Comment ça marche ?</h3>
-        <ol style="color: var(--ds-gray); line-height: 1.8;">
-          <li>Vous soumettez votre suggestion via ce formulaire</li>
-          <li>Notre équipe pédagogique l'étudie (faisabilité, cohérence catalogue)</li>
-          <li>Si retenue, la formation est ajoutée au catalogue dans les 3-6 mois</li>
-          <li>Vous recevez un email de confirmation si votre idée est implémentée</li>
-        </ol>
-        <p style="margin-top: 16px; font-size: 14px; color: var(--ds-gray);">
-          💬 <strong>Astuce:</strong> Les suggestions les plus détaillées et argumentées ont plus de chances d'être retenues.
-        </p>
-      </div>
-    </main>
-
-    <div class="ds-rail ds-rail-right ds-rail-b2c"></div>
-  </div>
-
-  <!-- Footer Global -->
-  <footer class="ds-global-footer">
-    <div class="ds-footer-container">
-      <div class="ds-footer-grid">
-        <div class="ds-footer-section">
-          <h4>DigiSchool Africa</h4>
-          <p style="color: rgba(255,255,255,0.7); font-size: 14px;">
-            Plateforme e-learning premium pour professionnels africains.
-          </p>
+        
+        <div id="successMessage" class="success-message">
+          <h3>✅ Suggestion enregistrée !</h3>
+          <p>Merci pour votre contribution. Votre suggestion sera étudiée par notre équipe pédagogique.</p>
+          <p style="margin-top: var(--space-4); font-weight: 600;">Nous vous tiendrons informé si cette formation est intégrée au catalogue.</p>
+          <a href="/b2c.html" class="btn btn-primary" style="margin-top: var(--space-6);">Retour au catalogue</a>
         </div>
-        <div class="ds-footer-section">
-          <h4>Formations</h4>
-          <a href="/b2c.html">Catalogue B2C</a>
-          <a href="/companies.html">Solutions B2B</a>
-          <a href="/b2b-custom-request.html">Formation Sur-Mesure</a>
-        </div>
-        <div class="ds-footer-section">
-          <h4>Légal</h4>
-          <a href="/mentions-legales-v2.2.html">Mentions Légales</a>
-          <a href="/cgu-v2.2.html">CGU</a>
-          <a href="/cgv-v2.2.html">CGV</a>
-          <a href="/politique-confidentialite-v2.2.html">Confidentialité</a>
-        </div>
-        <div class="ds-footer-section">
-          <h4>Contact</h4>
-          <p style="color: rgba(255,255,255,0.7); font-size: 14px;">
-            📧 contact@digischool.africa<br>
-            📍 Abidjan, Côte d'Ivoire
-          </p>
-        </div>
-      </div>
-      <div class="ds-footer-bottom">
-        <p>© 2026 DigiSchool Africa — Directeur: Jean Pierre SAJORI</p>
       </div>
     </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="/assets/supabase-client.js"></script>
-  <script>
-    document.getElementById('ideaBoxForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const formData = new FormData(e.target);
-      const data = Object.fromEntries(formData);
-      
-      // Vérifier consentement
-      if (!data.consent) {
-        alert('❌ Vous devez accepter le traitement de vos données.');
-        return;
-      }
-      
-      try {
-        // Soumettre via Supabase
-        const result = await window.SupabaseClient.submitB2CIdea(data);
-        
-        // Confirmation
-        const ideaNumber = result.idea_number || 'IDEA-' + Date.now();
-        alert(`✅ Merci ! Votre suggestion a été enregistrée sous la référence ${ideaNumber}.\n\nNous vous tiendrons informé de son étude par email.`);
-        
-        // Reset form
-        e.target.reset();
-        
-      } catch (error) {
-        console.error('Erreur soumission idée:', error);
-        
-        // Fallback email
-        const subject = `[Boîte à Idées] Nouvelle suggestion de ${data.email}`;
-        const body = `
-Nouvelle suggestion formation:
-
-Email: ${data.email}
-Nom: ${data.submitter_name || 'Non renseigné'}
-URL: ${data.training_url || 'Non renseignée'}
-Catégorie: ${data.category || 'Non renseignée'}
-
-Description:
-${data.description}
-
-Consentement RGPD: Accepté
-Date: ${new Date().toISOString()}
-        `.trim();
-        
-        window.location.href = `mailto:contact@digischool.africa?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      }
-    });
-  </script>
+  </div>
   
-  <!-- V2 Production Components -->
   <script src="/assets/global-components-v2-production.js"></script>
-  <script src="/assets/chatbot-manager-v2.js"></script>
+  
+  <script>
+    // Show success message if redirected after form submission
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    
+    if (success === 'true') {
+      document.getElementById('ideaBoxForm').style.display = 'none';
+      document.getElementById('successMessage').classList.add('show');
+    }
+  </script>
 </body>
 </html>

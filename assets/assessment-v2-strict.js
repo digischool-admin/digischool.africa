@@ -174,11 +174,11 @@ const DigiSchoolAssessmentV2 = {
     {
       id: 'Q6',
       category: 'S1_domaine',
-      text: "Parmi ces compétences, lesquelles souhaitez-vous développer EN COMPLÉMENT ? (0 à 3 choix)",
+      text: "Parmi ces compétences, lesquelles souhaitez-vous développer EN COMPLÉMENT ? Sélectionnez et classez par ordre de priorité.",
       type: 'multiple',
       required: false,
       min: 0,
-      max: 3,
+      max: 8,
       weight: 5,
       options: [
         { value: 'gestion-projet', label: 'Pilotage de projets', domain: 'gestion-projet' },
@@ -438,7 +438,7 @@ const DigiSchoolAssessmentV2 = {
           </label>
         `;
       });
-      html += `<p class="helper-text" id="counter-${question.id}" style="color: #666; font-size: 14px; margin-top: 12px;">Vous pouvez sélectionner jusqu'à ${question.max} formations • <strong style="color: #1E88E5;">0/${question.max}</strong></p>`;
+      html += `<p class="helper-text" id="counter-${question.id}" style="color: #666; font-size: 14px; margin-top: 12px;">Sélectionnez jusqu'à ${question.max} compétences • L'ordre de sélection définit votre priorité • <strong style="color: #1E88E5;">0/${question.max}</strong></p>`;
     }
 
     html += `</div></div>`;
@@ -779,7 +779,20 @@ const DigiSchoolAssessmentV2 = {
   updateMultipleCounter(questionId, currentCount, maxCount) {
     const counter = document.getElementById(`counter-${questionId}`);
     if (counter) {
-      counter.innerHTML = `Sélectionnez jusqu'à ${maxCount} réponse(s) • <strong style="color: ${currentCount >= maxCount ? '#26A69A' : '#1E88E5'}">${currentCount}/${maxCount} sélectionné(s)</strong>`;
+      // Get current answers to show priority order
+      const answers = this.state.answers[questionId] || [];
+      const question = this.questions.find(q => q.id === questionId);
+      
+      let priorityText = '';
+      if (answers.length > 0 && question) {
+        const labels = answers.map((val, idx) => {
+          const option = question.options.find(o => o.value === val);
+          return `<span style="background: ${idx === 0 ? '#1E88E5' : idx === 1 ? '#26A69A' : '#7E57C2'}; color: white; padding: 2px 8px; border-radius: 12px; font-size: 12px; margin-right: 4px;">${idx + 1}. ${option ? option.label : val}</span>`;
+        }).join('');
+        priorityText = `<div style="margin-top: 8px; font-size: 13px;">Vos priorités: ${labels}</div>`;
+      }
+      
+      counter.innerHTML = `Sélectionnez jusqu'à ${maxCount} compétences • L'ordre définit votre priorité • <strong style="color: ${currentCount >= maxCount ? '#26A69A' : '#1E88E5'}">${currentCount}/${maxCount}</strong>${priorityText}`;
     }
   },
   
