@@ -9,6 +9,7 @@
   
   <link rel="canonical" href="https://digischool.africa/b2c.html">
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  <link rel="stylesheet" href="/assets/social-engagement.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   <style>
@@ -675,9 +676,9 @@
         }
         
         html += `
-          <div class="course-card">
+          <div class="course-card" data-course-id="${course.id}">
             <span class="course-badge">IA EMBARQUÉE</span>
-            <h3>${course.pillarIcon} ${course.title}</h3>
+            <h3 class="course-title">${course.pillarIcon} ${course.title}</h3>
             <p>${course.short}</p>
             
             <div class="course-meta">
@@ -717,6 +718,23 @@
                   `).join('')}
                 </div>
               </div>
+            </div>
+            
+            <div class="ds-social-actions">
+              <div class="ds-social-left">
+                <button class="ds-like-btn" aria-label="J'aime">
+                  <span class="icon">👍</span>
+                  <span class="counter">0</span>
+                </button>
+                <button class="ds-dislike-btn" aria-label="Je n'aime pas">
+                  <span class="icon">👎</span>
+                  <span class="counter">0</span>
+                </button>
+              </div>
+              <button class="ds-share-btn" aria-label="Partager">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                <span>Recommander</span>
+              </button>
             </div>
           </div>
         `;
@@ -1163,5 +1181,6 @@
     </div>
   </div>
   
+  <script src="/assets/social-engagement.js"></script>
 </body>
 </html>

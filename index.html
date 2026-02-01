@@ -9,6 +9,7 @@
   
   <!-- CSS UNIQUE RESTAURÉ -->
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  <link rel="stylesheet" href="/assets/social-engagement.css">
   
   <style>
     /* Hero Section */
@@ -398,6 +399,26 @@
     </div>
   </section>
   
+  <!-- Top 3 Most Recommended Courses -->
+  <section class="ds-top3-section">
+    <div class="ds-top3-container">
+      <div class="ds-top3-header">
+        <h2>★ Top 3 des Parcours Les Plus Recommandés</h2>
+        <p class="subtitle">Découvrez les formations plébiscitées par nos apprenants</p>
+      </div>
+      
+      <div class="ds-top3-grid" id="top3Grid">
+        <!-- Top 3 will be dynamically loaded -->
+      </div>
+      
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="/b2c.html" class="btn btn-primary" style="font-size: 16px; padding: 14px 32px;">
+          Voir tous les parcours →
+        </a>
+      </div>
+    </div>
+  </section>
+  
   <!-- Features Section -->
   <section class="features-section">
     <div class="features-container">
@@ -775,6 +796,63 @@
   </div>
 </section>
 <!-- End Partner Logos -->
+
+<script src="/assets/catalog-30.js"></script>
+<script src="/assets/social-engagement.js"></script>
+<script>
+// Load Top 3 on homepage
+if (typeof DIGISCHOOL_CATALOG !== 'undefined' && typeof DigiSchoolSocial !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.getElementById('top3Grid');
+    if (!grid) return;
+    
+    const top3 = DigiSchoolSocial.getTop3();
+    const courses = DIGISCHOOL_CATALOG.courses;
+    
+    let html = '';
+    top3.forEach((item, index) => {
+      const course = courses.find(c => c.id === item.courseId);
+      if (!course) return;
+      
+      const levelColors = {
+        'Fondation': '#1E88E5',
+        'Maîtrise': '#26A69A',
+        'Leadership': '#7E57C2'
+      };
+      
+      html += `
+        <div class="ds-top3-card">
+          <div class="rank">${index + 1}</div>
+          <h3 class="course-title">${course.pillarIcon} ${course.title}</h3>
+          <div class="course-level" style="background: ${levelColors[course.level]}20; color: ${levelColors[course.level]};">
+            ${course.level}
+          </div>
+          <p style="color: #666; font-size: 14px; margin: 12px 0;">${course.short}</p>
+          <div class="course-stats">
+            <div class="stat">
+              <span class="icon">👍</span>
+              <span>${item.likes}</span>
+            </div>
+            <div class="stat">
+              <span class="icon">📚</span>
+              <span>${course.modules.length} modules</span>
+            </div>
+            <div class="stat">
+              <span class="icon">⏱️</span>
+              <span>${course.durationDays}j</span>
+            </div>
+          </div>
+          <a href="/b2c.html?formation=${course.id}" class="cta-btn">
+            Découvrir ce parcours →
+          </a>
+        </div>
+      `;
+    });
+    
+    grid.innerHTML = html;
+  });
+}
+</script>
 
 </body>
 </html>
