@@ -1,0 +1,112 @@
+/**
+ * DigiSchool Africa - Partner Certifications Styles
+ * Version: 1.0
+ */
+
+/* ============================================
+   CERTIFICATIONS PARTENAIRES - SECTION
+   ============================================ */
+.partner-certifications {
+  margin: var(--space-5) 0;
+  padding: var(--space-4);
+  background: linear-gradient(135deg, #E3F2FD 0%, #F5F7FA 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(30, 136, 229, 0.15);
+}
+
+.cert-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-2);
+  font-size: var(--text-base);
+}
+
+.cert-disclaimer {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  background: white;
+  padding: var(--space-3);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s;
+}
+
+.cert-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cert-badge {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.cert-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cert-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: #263238;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.cert-provider {
+  font-size: var(--text-xs);
+  color: #546E7A;
+  font-style: italic;
+}
+
+/* ============================================
+   RESPONSIVE MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+  .partner-certifications {
+    padding: var(--space-3);
+    margin: var(--space-4) 0;
+  }
+
+  .cert-header {
+    font-size: var(--text-sm);
+  }
+
+  .cert-item {
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .cert-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .cert-name {
+    font-size: 13px;
+  }
+
+  .cert-provider {
+    font-size: 11px;
+  }
+}

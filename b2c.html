@@ -11,6 +11,8 @@
   <link rel="canonical" href="https://digischool.africa/b2c.html">
   <link rel="stylesheet" href="/assets/ds-restored-premium.css">
   <link rel="stylesheet" href="/assets/social-engagement.css">
+  <link rel="stylesheet" href="/assets/partner-certifications.css">
+  <link rel="stylesheet" href="/assets/chatbot-smart.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
   <style>
@@ -692,6 +694,8 @@
               ${priceDisplay}
             </div>
             
+            ${renderCertifications(course.id)}
+            
             <div class="cta-buttons" style="justify-content: flex-start; margin-top: var(--space-4);">
               ${ctaButton}
             </div>
@@ -1183,5 +1187,7 @@
   </div>
   
   <script src="/assets/social-engagement.js"></script>
+  <script src="/assets/partner-certifications.js"></script>
+  <script src="/assets/chatbot-smart.js"></script>
 </body>
 </html>
