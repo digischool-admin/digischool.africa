@@ -668,7 +668,7 @@
         
         let ctaButton = '';
         if (isOpen) {
-          ctaButton = `<a href="javascript:void(0)" onclick="buyPack('${course.id}', event)" class="btn btn-primary" style="font-size: var(--text-base);">Acheter le Pack</a>`;
+          ctaButton = `<a href="/reservation.html?course=${course.id}" class="btn btn-primary" style="font-size: var(--text-base);">🎓 Réserver ma place</a>`;
         } else if (course.status === 'PREINSCRIPTION') {
           ctaButton = `<a href="javascript:void(0)" onclick="handlePreRegistration('${course.id}', '${course.title.replace(/'/g, "\\'")}', '${course.pillarId}', '${course.level}')" class="btn btn-secondary" style="font-size: var(--text-base);">Se préinscrire</a>`;
         } else {
@@ -711,7 +711,7 @@
                       ${isOpen ? `
                       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid rgba(0,0,0,0.06);">
                         <span style="font-weight: 700; color: var(--color-primary);">${formatPrice(course.pricing.module_fcfa)}</span>
-                        <a href="javascript:void(0)" onclick="buyModule('${course.id}', ${idx + 1}, '${mod.title}')" class="btn btn-secondary" style="font-size: var(--text-sm); padding: var(--space-2) var(--space-4); width: auto;">Acheter ce module</a>
+                        <a href="/reservation.html?course=${course.id}&module=${idx + 1}" class="btn btn-secondary" style="font-size: var(--text-sm); padding: var(--space-2) var(--space-4); width: auto;">Réserver ce module</a>
                       </div>
                       ` : ''}
                     </div>
@@ -1176,7 +1176,7 @@
         <span><span id="mini-cart-total">0</span> FCFA</span>
       </div>
       <a href="/b2c-cart.html" style="display: block; background: white; color: #1E88E5; text-align: center; padding: 12px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: transform 0.2s;">
-        Finaliser mon inscription →
+        📅 Voir mes réservations →
       </a>
     </div>
   </div>

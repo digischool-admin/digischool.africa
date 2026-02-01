@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="/assets/build-id.js?cb=1890a67"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réserver ma place — DigiSchool Africa</title>
+  <meta name="description" content="Réservez votre place pour la première session de formation. Ouverture du LMS le 04 février 2026.">
+  
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  
+  <style>
+    .reservation-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.02) 0%, rgba(38, 166, 154, 0.02) 100%);
+      padding: var(--space-12) var(--space-4);
+    }
+    
+    .reservation-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .reservation-header {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+    
+    .reservation-header h1 {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-4);
+      color: var(--ds-dark);
+    }
+    
+    .reservation-header p {
+      font-size: var(--text-lg);
+      color: var(--ds-gray);
+    }
+    
+    .launch-notice {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      background: linear-gradient(135deg, #E3F2FD 0%, #E0F2F1 100%);
+      border: 2px solid rgba(30, 136, 229, 0.3);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    
+    .notice-icon {
+      font-size: 48px;
+      flex-shrink: 0;
+    }
+    
+    .notice-content h3 {
+      font-size: var(--text-xl);
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+    
+    .notice-content p {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+    }
+    
+    .reservation-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin-bottom: var(--space-6);
+    }
+    
+    .course-selected {
+      background: linear-gradient(135deg, rgba(30, 136, 229, 0.05) 0%, rgba(38, 166, 154, 0.05) 100%);
+      border: 2px solid rgba(30, 136, 229, 0.2);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    
+    .course-selected h3 {
+      font-size: var(--text-lg);
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .course-selected .course-info {
+      font-size: var(--text-base);
+      color: var(--ds-gray);
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-group label {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ds-dark);
+      margin-bottom: var(--space-2);
+    }
+    
+    .form-group label.required::after {
+      content: " *";
+      color: #ef4444;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: var(--space-3);
+      font-size: var(--text-base);
+      border: 2px solid #e0e0e0;
+      border-radius: var(--radius-md);
+      transition: border-color 0.2s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-8);
+    }
+    
+    .btn {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #1565C0;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      border: 2px solid var(--color-primary);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(30, 136, 229, 0.05);
+    }
+    
+    .success-message {
+      display: none;
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      border: 2px solid #4CAF50;
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      text-align: center;
+      margin-top: var(--space-6);
+    }
+    
+    .success-message.show {
+      display: block;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .success-message h3 {
+      font-size: var(--text-2xl);
+      color: #2E7D32;
+      margin-bottom: var(--space-4);
+    }
+    
+    .success-message p {
+      font-size: var(--text-base);
+      color: #33691E;
+    }
+    
+    @media (max-width: 768px) {
+      .reservation-header h1 {
+        font-size: var(--text-3xl);
+      }
+      
+      .launch-notice {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .form-actions {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="reservation-wrapper">
+    <div class="reservation-container">
+      <div class="reservation-header">
+        <h1>🎓 Réservez votre place</h1>
+        <p>Soyez parmi les premiers à accéder à nos formations premium</p>
+      </div>
+      
+      <div class="launch-notice">
+        <div class="notice-icon">📅</div>
+        <div class="notice-content">
+          <h3>Ouverture du LMS le mercredi 04 février 2026</h3>
+          <p>Les inscriptions ouvriront officiellement à cette date. En réservant dès maintenant, vous garantissez votre place pour la première session.</p>
+        </div>
+      </div>
+      
+      <div class="reservation-card">
+        <div class="course-selected" id="courseSelected">
+          <h3>Formation sélectionnée</h3>
+          <div class="course-info" id="courseInfo">Chargement...</div>
+        </div>
+        
+        <form id="reservationForm" action="https://formsubmit.co/contact@digischool.africa" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle réservation - DigiSchool Africa">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://digischool.africa/reservation.html?success=true">
+          <input type="hidden" name="formation_id" id="formationId">
+          <input type="hidden" name="formation_title" id="formationTitle">
+          <input type="hidden" name="type" id="formationType">
+          
+          <div class="form-group">
+            <label for="nom" class="required">Nom complet</label>
+            <input type="text" id="nom" name="nom" required placeholder="Ex: Jean Dupont">
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="required">Email professionnel</label>
+            <input type="email" id="email" name="email" required placeholder="Ex: jean.dupont@entreprise.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="telephone" class="required">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required placeholder="Ex: +237 6XX XX XX XX">
+          </div>
+          
+          <div class="form-group">
+            <label for="entreprise">Entreprise / Organisation</label>
+            <input type="text" id="entreprise" name="entreprise" placeholder="Optionnel">
+          </div>
+          
+          <div class="form-group">
+            <label for="poste">Poste actuel</label>
+            <input type="text" id="poste" name="poste" placeholder="Ex: Chef de projet">
+          </div>
+          
+          <div class="form-group">
+            <label for="motivation">Pourquoi cette formation ? (optionnel)</label>
+            <textarea id="motivation" name="motivation" placeholder="Partagez vos objectifs professionnels..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <a href="/b2c.html" class="btn btn-secondary">← Retour au catalogue</a>
+            <button type="submit" class="btn btn-primary">Confirmer ma réservation</button>
+          </div>
+        </form>
+        
+        <div id="successMessage" class="success-message">
+          <h3>✅ Réservation confirmée !</h3>
+          <p>Merci pour votre confiance. Vous recevrez un email de confirmation sous 24h.</p>
+          <p style="margin-top: var(--space-4); font-weight: 600;">Nous vous tiendrons informé de l'ouverture du LMS le 04 février 2026.</p>
+          <a href="/b2c.html" class="btn btn-primary" style="margin-top: var(--space-6);">Retour au catalogue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/assets/catalog-30.js"></script>
+  <script src="/assets/global-components-v2-production.js"></script>
+  
+  <script>
+    // Parse URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseId = urlParams.get('course');
+    const moduleNum = urlParams.get('module');
+    const success = urlParams.get('success');
+    
+    // Show success message if redirected after form submission
+    if (success === 'true') {
+      document.getElementById('reservationForm').style.display = 'none';
+      document.getElementById('courseSelected').style.display = 'none';
+      document.getElementById('successMessage').classList.add('show');
+    }
+    
+    // Load course information
+    if (courseId && typeof DIGISCHOOL_CATALOG !== 'undefined') {
+      const course = DIGISCHOOL_CATALOG.courses.find(c => c.id === courseId);
+      
+      if (course) {
+        const isModule = !!moduleNum;
+        const formationType = isModule ? 'module' : 'pack';
+        
+        let courseInfoHTML = `
+          <strong>${course.pillarIcon} ${course.title}</strong><br>
+          <span style="color: var(--ds-gray); font-size: var(--text-sm);">
+            ${isModule ? `Module ${moduleNum}` : 'Pack Complet'} • 
+            ${course.durationDays} jours • 
+            ${course.level}
+          </span>
+        `;
+        
+        document.getElementById('courseInfo').innerHTML = courseInfoHTML;
+        document.getElementById('formationId').value = courseId;
+        document.getElementById('formationTitle').value = course.title;
+        document.getElementById('formationType').value = formationType;
+        
+        if (isModule) {
+          const module = course.modules[parseInt(moduleNum) - 1];
+          if (module) {
+            courseInfoHTML = `
+              <strong>${course.pillarIcon} ${course.title}</strong><br>
+              <span style="color: var(--color-secondary); font-weight: 600;">Module ${moduleNum}: ${module.title}</span><br>
+              <span style="color: var(--ds-gray); font-size: var(--text-sm);">
+                ${course.level}
+              </span>
+            `;
+            document.getElementById('courseInfo').innerHTML = courseInfoHTML;
+          }
+        }
+      }
+    } else if (!success) {
+      document.getElementById('courseInfo').innerHTML = '<em style="color: #ef4444;">Formation non spécifiée. Veuillez sélectionner une formation depuis le catalogue.</em>';
+    }
+  </script>
+</body>
+</html>
