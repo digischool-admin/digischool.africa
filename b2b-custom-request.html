@@ -225,10 +225,11 @@
       </div>
       
       <div class="custom-card">
-        <form id="customRequestForm" action="https://formsubmit.co/contact@digischool.africa" method="POST">
+        <form id="customRequestForm" action="https://formspree.io/f/xvzzgpob" method="POST">
           <input type="hidden" name="_subject" value="Demande de formation sur-mesure B2B">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://digischool.africa/b2b-custom-request.html?success=true">
+          <input type="hidden" name="_redirect" value="https://digischool.africa/custom-request-success.html?v=3b680b2">
+          <input type="hidden" name="source_form" value="custom-request">
+          <input type="hidden" name="timestamp" id="timestamp">
           
           <h3 style="margin-bottom: var(--space-6); color: var(--color-secondary);">Informations entreprise</h3>
           
@@ -351,6 +352,13 @@
             <a href="/companies.html" class="btn btn-secondary">← Retour</a>
             <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
           </div>
+          
+          <div style="text-align: center; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid #E0E0E0;">
+            <p style="color: #666; margin-bottom: var(--space-3); font-size: 14px;">Ou contactez-nous directement par WhatsApp :</p>
+            <button type="button" id="whatsappRequest" class="btn" style="background: #25D366; color: white; border: none;">
+              💬 Nous contacter sur WhatsApp
+            </button>
+          </div>
         </form>
         
         <div id="successMessage" class="success-message">
@@ -374,6 +382,34 @@
       document.getElementById('customRequestForm').style.display = 'none';
       document.getElementById('successMessage').classList.add('show');
     }
+    
+    // Generate timestamp on page load
+    document.getElementById('timestamp').value = new Date().toISOString();
+    
+    // WhatsApp fallback button
+    document.getElementById('whatsappRequest').addEventListener('click', function() {
+      const entreprise = document.getElementById('entreprise').value || '[Entreprise]';
+      const contact = document.getElementById('contact_nom').value || '[Contact]';
+      const poste = document.getElementById('poste').value || '';
+      const email = document.getElementById('email').value || '[Email]';
+      const telephone = document.getElementById('telephone').value || '[Téléphone]';
+      const besoin = document.getElementById('besoin_formation').value || '';
+      const effectif = document.getElementById('nombre_apprenants').value || '';
+      
+      let message = `Bonjour, je souhaite demander une formation sur mesure pour mon entreprise :\n\n`;
+      message += `🏢 Entreprise : ${entreprise}\n`;
+      message += `👤 Contact : ${contact}\n`;
+      if (poste) message += `💼 Fonction : ${poste}\n`;
+      message += `📧 Email : ${email}\n`;
+      message += `📞 Téléphone : ${telephone}\n`;
+      if (effectif) message += `👥 Nombre d'apprenants : ${effectif}\n`;
+      if (besoin) message += `\n🎯 Besoin :\n${besoin}\n`;
+      message += `\nMerci de me contacter pour une proposition détaillée.`;
+      
+      const whatsappUrl = `https://wa.me/225000000000?text=${encodeURIComponent(message)}`;
+      // TODO: Remplacer 225000000000 par le vrai numéro WhatsApp DigiSchool Africa
+      window.open(whatsappUrl, '_blank');
+    });
   </script>
 </body>
 </html>

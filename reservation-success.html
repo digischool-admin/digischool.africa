@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="/assets/build-id.js?cb=9def839"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation Confirmée — DigiSchool Africa</title>
+  <meta name="description" content="Votre demande de réservation a été reçue avec succès.">
+  
+  <link rel="canonical" href="https://digischool.africa/reservation-success.html">
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <style>
+    .success-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6);
+    }
+    
+    .success-container {
+      max-width: 700px;
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: var(--space-8);
+      text-align: center;
+    }
+    
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--space-5);
+      background: linear-gradient(135deg, #26A69A, #1E88E5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: scaleIn 0.5s ease-out;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 3;
+      fill: none;
+    }
+    
+    .success-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: var(--space-3);
+    }
+    
+    .success-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: var(--space-5);
+      line-height: 1.6;
+    }
+    
+    .notice-success {
+      background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+      border: 2px solid #FB8C00;
+      border-radius: 12px;
+      padding: var(--space-5);
+      margin: var(--space-6) 0;
+      text-align: left;
+    }
+    
+    .notice-success h3 {
+      color: #E65100;
+      font-size: 20px;
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .notice-success p {
+      color: #5D4037;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .next-steps {
+      background: #F5F5F5;
+      border-radius: 12px;
+      padding: var(--space-5);
+      margin: var(--space-6) 0;
+      text-align: left;
+    }
+    
+    .next-steps h3 {
+      color: #1a1a1a;
+      font-size: 20px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .next-steps ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .next-steps li {
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid #E0E0E0;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    
+    .next-steps li:last-child {
+      border-bottom: none;
+    }
+    
+    .step-number {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    .step-text {
+      flex: 1;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-whatsapp {
+      padding: var(--space-4) var(--space-6);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+    
+    .btn-secondary:hover {
+      background: #667eea;
+      color: white;
+    }
+    
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+    
+    .btn-whatsapp:hover {
+      background: #22C55E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    
+    .contact-support {
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid #E0E0E0;
+      text-align: center;
+    }
+    
+    .contact-support p {
+      color: #666;
+      margin-bottom: var(--space-3);
+    }
+    
+    .contact-support a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .contact-support a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      .success-container {
+        padding: var(--space-6);
+      }
+      
+      .success-title {
+        font-size: 24px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn-primary, .btn-secondary, .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-wrapper">
+    <div class="success-container">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      
+      <h1 class="success-title">✅ Réservation Confirmée !</h1>
+      <p class="success-subtitle">
+        Votre demande a été reçue avec succès. Notre équipe va la traiter dans les plus brefs délais.
+      </p>
+      
+      <div class="notice-success">
+        <h3>
+          📅 Ouverture du LMS : Mercredi 04 février 2026
+        </h3>
+        <p>
+          Les inscriptions ouvriront officiellement à cette date. En réservant dès maintenant, vous avez garanti votre place pour la première session. Vous recevrez un email de confirmation avec tous les détails d'accès.
+        </p>
+      </div>
+      
+      <div class="next-steps">
+        <h3>🎯 Prochaines étapes</h3>
+        <ul>
+          <li>
+            <span class="step-number">1</span>
+            <span class="step-text">
+              <strong>Confirmation par email</strong> — Vous recevrez un email de confirmation dans les 24h avec le récapitulatif de votre réservation.
+            </span>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <span class="step-text">
+              <strong>Rappel d'ouverture</strong> — Vous serez notifié par email 48h avant l'ouverture du LMS le 04 février 2026.
+            </span>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <span class="step-text">
+              <strong>Accès immédiat</strong> — Dès le 04 février, vous recevrez vos identifiants d'accès et pourrez commencer votre formation.
+            </span>
+          </li>
+          <li>
+            <span class="step-number">4</span>
+            <span class="step-text">
+              <strong>Support dédié</strong> — Notre équipe pédagogique reste disponible pour toute question avant et pendant votre formation.
+            </span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="cta-buttons">
+        <a href="/b2c.html?v=3b680b2" class="btn-primary">
+          📚 Explorer d'autres formations
+        </a>
+        <a href="/?v=3b680b2" class="btn-secondary">
+          🏠 Retour à l'accueil
+        </a>
+      </div>
+      
+      <div class="contact-support">
+        <p>Une question ? Notre équipe est à votre disposition.</p>
+        <a href="mailto:contact@digischool.africa">📧 contact@digischool.africa</a>
+        <br><br>
+        <a href="https://wa.me/225000000000?text=Bonjour%2C%20j'ai%20effectu%C3%A9%20une%20r%C3%A9servation%20et%20j'ai%20une%20question." class="btn-whatsapp" target="_blank">
+          💬 Nous contacter sur WhatsApp
+        </a>
+        <!-- TODO: Remplacer 225000000000 par le vrai numéro WhatsApp DigiSchool Africa -->
+      </div>
+    </div>
+  </div>
+  
+  <script src="/assets/global-components-v2-production.js"></script>
+</body>
+</html>

@@ -249,13 +249,14 @@
           <div class="course-info" id="courseInfo">Chargement...</div>
         </div>
         
-        <form id="reservationForm" action="https://formsubmit.co/contact@digischool.africa" method="POST">
+        <form id="reservationForm" action="https://formspree.io/f/xvzzgpob" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle réservation - DigiSchool Africa">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://digischool.africa/reservation.html?success=true">
+          <input type="hidden" name="_redirect" value="https://digischool.africa/reservation-success.html?v=3b680b2">
+          <input type="hidden" name="source" value="reservation">
           <input type="hidden" name="formation_id" id="formationId">
           <input type="hidden" name="formation_title" id="formationTitle">
           <input type="hidden" name="type" id="formationType">
+          <input type="hidden" name="timestamp" id="timestamp">
           
           <div class="form-group">
             <label for="nom" class="required">Nom complet</label>
@@ -290,6 +291,13 @@
           <div class="form-actions">
             <a href="/b2c.html" class="btn btn-secondary">← Retour au catalogue</a>
             <button type="submit" class="btn btn-primary">Confirmer ma réservation</button>
+          </div>
+          
+          <div style="text-align: center; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid #E0E0E0;">
+            <p style="color: #666; margin-bottom: var(--space-3); font-size: 14px;">Ou réservez directement par WhatsApp :</p>
+            <button type="button" id="whatsappReserve" class="btn" style="background: #25D366; color: white; border: none;">
+              💬 Réserver via WhatsApp
+            </button>
           </div>
         </form>
         
@@ -359,6 +367,32 @@
     } else if (!success) {
       document.getElementById('courseInfo').innerHTML = '<em style="color: #ef4444;">Formation non spécifiée. Veuillez sélectionner une formation depuis le catalogue.</em>';
     }
+    
+    // Generate timestamp on page load
+    document.getElementById('timestamp').value = new Date().toISOString();
+    
+    // WhatsApp fallback button
+    document.getElementById('whatsappReserve').addEventListener('click', function() {
+      const nom = document.getElementById('nom').value || '[Nom]';
+      const email = document.getElementById('email').value || '[Email]';
+      const telephone = document.getElementById('telephone').value || '[Téléphone]';
+      const formation = document.getElementById('formationTitle').value || '[Formation]';
+      const entreprise = document.getElementById('entreprise').value || '';
+      const poste = document.getElementById('poste').value || '';
+      
+      let message = `Bonjour, je souhaite réserver une place pour la formation suivante :\n\n`;
+      message += `📚 Formation : ${formation}\n`;
+      message += `👤 Nom : ${nom}\n`;
+      message += `📧 Email : ${email}\n`;
+      message += `📞 Téléphone : ${telephone}\n`;
+      if (entreprise) message += `🏢 Entreprise : ${entreprise}\n`;
+      if (poste) message += `💼 Poste : ${poste}\n`;
+      message += `\nMerci de me confirmer ma réservation.`;
+      
+      const whatsappUrl = `https://wa.me/225000000000?text=${encodeURIComponent(message)}`;
+      // TODO: Remplacer 225000000000 par le vrai numéro WhatsApp DigiSchool Africa
+      window.open(whatsappUrl, '_blank');
+    });
   </script>
 </body>
 </html>

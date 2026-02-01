@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="/assets/build-id.js?cb=9def839"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demande Reçue — DigiSchool Africa</title>
+  <meta name="description" content="Votre demande de formation sur mesure a été reçue avec succès.">
+  
+  <link rel="canonical" href="https://digischool.africa/custom-request-success.html">
+  <link rel="stylesheet" href="/assets/ds-restored-premium.css">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <style>
+    .success-wrapper {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-6);
+    }
+    
+    .success-container {
+      max-width: 700px;
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: var(--space-8);
+      text-align: center;
+    }
+    
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto var(--space-5);
+      background: linear-gradient(135deg, #7E57C2, #5E35B1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: scaleIn 0.5s ease-out;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .success-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+    }
+    
+    .success-title {
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: var(--space-3);
+    }
+    
+    .success-subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: var(--space-5);
+      line-height: 1.6;
+    }
+    
+    .notice-success {
+      background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+      border: 2px solid #4CAF50;
+      border-radius: 12px;
+      padding: var(--space-5);
+      margin: var(--space-6) 0;
+      text-align: left;
+    }
+    
+    .notice-success h3 {
+      color: #2E7D32;
+      font-size: 20px;
+      margin-bottom: var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .notice-success p {
+      color: #1B5E20;
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .next-steps {
+      background: #F5F5F5;
+      border-radius: 12px;
+      padding: var(--space-5);
+      margin: var(--space-6) 0;
+      text-align: left;
+    }
+    
+    .next-steps h3 {
+      color: #1a1a1a;
+      font-size: 20px;
+      margin-bottom: var(--space-4);
+    }
+    
+    .next-steps ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .next-steps li {
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid #E0E0E0;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    
+    .next-steps li:last-child {
+      border-bottom: none;
+    }
+    
+    .step-number {
+      background: linear-gradient(135deg, #7E57C2, #5E35B1);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    .step-text {
+      flex: 1;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-whatsapp {
+      padding: var(--space-4) var(--space-6);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #7E57C2;
+      border: 2px solid #7E57C2;
+    }
+    
+    .btn-secondary:hover {
+      background: #7E57C2;
+      color: white;
+    }
+    
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+    
+    .btn-whatsapp:hover {
+      background: #22C55E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    
+    .contact-support {
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid #E0E0E0;
+      text-align: center;
+    }
+    
+    .contact-support p {
+      color: #666;
+      margin-bottom: var(--space-3);
+    }
+    
+    .contact-support a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .contact-support a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      .success-container {
+        padding: var(--space-6);
+      }
+      
+      .success-title {
+        font-size: 24px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+      
+      .btn-primary, .btn-secondary, .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-wrapper">
+    <div class="success-container">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      
+      <h1 class="success-title">✅ Demande Reçue !</h1>
+      <p class="success-subtitle">
+        Votre demande de formation sur mesure a été transmise avec succès. Notre équipe vous répondra sous 72h maximum.
+      </p>
+      
+      <div class="notice-success">
+        <h3>
+          ⚡ Réponse sous 72h maximum
+        </h3>
+        <p>
+          Notre équipe pédagogique va analyser votre besoin et vous proposer un programme de formation personnalisé. Vous recevrez une proposition détaillée avec le contenu, la durée estimée et les modalités de mise en œuvre.
+        </p>
+      </div>
+      
+      <div class="next-steps">
+        <h3>🎯 Prochaines étapes</h3>
+        <ul>
+          <li>
+            <span class="step-number">1</span>
+            <span class="step-text">
+              <strong>Analyse de votre besoin</strong> — Notre équipe étudie votre demande et identifie les compétences clés à développer.
+            </span>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <span class="step-text">
+              <strong>Proposition personnalisée</strong> — Vous recevrez un programme détaillé avec objectifs pédagogiques, durée et livrables.
+            </span>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <span class="step-text">
+              <strong>Ajustements & validation</strong> — Nous affinerons le programme selon vos retours avant validation finale.
+            </span>
+          </li>
+          <li>
+            <span class="step-number">4</span>
+            <span class="step-text">
+              <strong>Déploiement</strong> — Mise en place de la formation avec accès LMS et support dédié pour vos équipes.
+            </span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="cta-buttons">
+        <a href="/companies.html?v=3b680b2" class="btn-primary">
+          🏢 Voir nos offres entreprises
+        </a>
+        <a href="/?v=3b680b2" class="btn-secondary">
+          🏠 Retour à l'accueil
+        </a>
+      </div>
+      
+      <div class="contact-support">
+        <p>Une question urgente ? Notre équipe est à votre disposition.</p>
+        <a href="mailto:contact@digischool.africa">📧 contact@digischool.africa</a>
+        <br><br>
+        <a href="https://wa.me/225000000000?text=Bonjour%2C%20j'ai%20soumis%20une%20demande%20de%20formation%20sur%20mesure%20et%20j'ai%20une%20question." class="btn-whatsapp" target="_blank">
+          💬 Nous contacter sur WhatsApp
+        </a>
+        <!-- TODO: Remplacer 225000000000 par le vrai numéro WhatsApp DigiSchool Africa -->
+      </div>
+    </div>
+  </div>
+  
+  <script src="/assets/global-components-v2-production.js"></script>
+</body>
+</html>

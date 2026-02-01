@@ -192,10 +192,11 @@
       </div>
       
       <div class="idea-card">
-        <form id="ideaBoxForm" action="https://formsubmit.co/contact@digischool.africa" method="POST">
+        <form id="ideaBoxForm" action="https://formspree.io/f/xvzzgpob" method="POST">
           <input type="hidden" name="_subject" value="Nouvelle suggestion de formation - Boîte à idées">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://digischool.africa/b2c-idea-box.html?success=true">
+          <input type="hidden" name="_redirect" value="https://digischool.africa/idea-box-success.html?v=3b680b2">
+          <input type="hidden" name="source_form" value="idea-box">
+          <input type="hidden" name="timestamp" id="timestamp">
           
           <div class="form-group">
             <label for="email" class="required">Votre email</label>
@@ -251,6 +252,13 @@
             <a href="/b2c.html" class="btn btn-secondary">← Retour au catalogue</a>
             <button type="submit" class="btn btn-primary">Envoyer ma suggestion</button>
           </div>
+          
+          <div style="text-align: center; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid #E0E0E0;">
+            <p style="color: #666; margin-bottom: var(--space-3); font-size: 14px;">Ou suggérez par WhatsApp :</p>
+            <button type="button" id="whatsappSuggest" class="btn" style="background: #25D366; color: white; border: none;">
+              💬 Suggérer via WhatsApp
+            </button>
+          </div>
         </form>
         
         <div id="successMessage" class="success-message">
@@ -274,6 +282,30 @@
       document.getElementById('ideaBoxForm').style.display = 'none';
       document.getElementById('successMessage').classList.add('show');
     }
+    
+    // Generate timestamp on page load
+    document.getElementById('timestamp').value = new Date().toISOString();
+    
+    // WhatsApp fallback button
+    document.getElementById('whatsappSuggest').addEventListener('click', function() {
+      const email = document.getElementById('email').value || '[Email]';
+      const nom = document.getElementById('nom').value || '';
+      const titre = document.getElementById('titre_formation').value || '[Titre formation]';
+      const domaine = document.getElementById('domaine').value || '[Domaine]';
+      const description = document.getElementById('description').value || '';
+      
+      let message = `Bonjour, je souhaite suggérer une nouvelle formation :\n\n`;
+      message += `📚 Titre : ${titre}\n`;
+      message += `🎯 Domaine : ${domaine}\n`;
+      if (nom) message += `👤 Nom : ${nom}\n`;
+      message += `📧 Email : ${email}\n`;
+      if (description) message += `\n📝 Description :\n${description}\n`;
+      message += `\nMerci d'étudier cette suggestion.`;
+      
+      const whatsappUrl = `https://wa.me/225000000000?text=${encodeURIComponent(message)}`;
+      // TODO: Remplacer 225000000000 par le vrai numéro WhatsApp DigiSchool Africa
+      window.open(whatsappUrl, '_blank');
+    });
   </script>
 </body>
 </html>
