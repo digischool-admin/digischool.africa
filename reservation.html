@@ -208,21 +208,92 @@
     }
     
     @media (max-width: 768px) {
+      .reservation-wrapper {
+        padding: var(--space-8) var(--space-3);
+      }
+      
+      .reservation-header {
+        margin-bottom: var(--space-6);
+      }
+      
       .reservation-header h1 {
-        font-size: var(--text-3xl);
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-3);
+      }
+      
+      .reservation-header p {
+        font-size: var(--text-base);
       }
       
       .launch-notice {
         flex-direction: column;
         text-align: center;
+        padding: var(--space-4);
+        gap: var(--space-3);
+        margin-bottom: var(--space-6);
+      }
+      
+      .notice-icon {
+        font-size: 32px; /* Réduit de 48px à 32px pour moins de dominance */
+      }
+      
+      .notice-content h3 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-2);
+        font-weight: 700;
+      }
+      
+      .notice-content p {
+        font-size: var(--text-sm);
+        line-height: 1.5;
+      }
+      
+      .reservation-card {
+        padding: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      
+      .course-selected {
+        padding: var(--space-4);
+        margin-bottom: var(--space-6);
+      }
+      
+      .course-selected h3 {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-2);
+      }
+      
+      .form-group {
+        margin-bottom: var(--space-5);
+      }
+      
+      .form-group label {
+        font-size: var(--text-sm);
+      }
+      
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        padding: var(--space-3);
+        font-size: var(--text-base);
       }
       
       .form-actions {
         flex-direction: column;
+        gap: var(--space-3);
+        margin-top: var(--space-6);
       }
       
       .btn {
         width: 100%;
+        padding: var(--space-4);
+        font-size: var(--text-base);
+        font-weight: 700;
+      }
+      
+      .btn-primary {
+        order: -1; /* CTA primaire en premier sur mobile */
+        box-shadow: 0 4px 12px rgba(30, 136, 229, 0.3);
       }
     }
   </style>
