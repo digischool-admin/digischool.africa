@@ -63,6 +63,13 @@
       { name: 'PMP® - Project Management Professional', provider: 'PMI', level: 'Maîtrise' },
       { name: 'PRINCE2® Practitioner', provider: 'AXELOS', level: 'Maîtrise' },
       { name: 'Certified ScrumMaster® (CSM®)', provider: 'Scrum Alliance', level: 'Fondation' }
+    ],
+    
+    'dev-ia-modern': [
+      { name: 'AWS Certified DevOps Engineer', provider: 'Amazon Web Services', level: 'Maîtrise' },
+      { name: 'Google Cloud Professional DevOps Engineer', provider: 'Google Cloud', level: 'Maîtrise' },
+      { name: 'Certified Kubernetes Administrator (CKA)', provider: 'CNCF', level: 'Maîtrise' },
+      { name: 'GitHub Actions & CI/CD Specialist', provider: 'GitHub', level: 'Fondation' }
     ]
   };
 
